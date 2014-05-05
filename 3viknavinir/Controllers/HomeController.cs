@@ -10,6 +10,11 @@ namespace _3viknavinir.Controllers
 	{
 		public ActionResult Index()
 		{
+			// Erla = 
+			// Svava =
+			// Grímur = 
+			// Liljar =
+ 			// Fanney =
 			return View();
 		}
 
