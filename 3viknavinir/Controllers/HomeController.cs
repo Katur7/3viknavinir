@@ -13,7 +13,7 @@ namespace _3viknavinir.Controllers
 			// Erla = 
 			// Svava =
 			// Grímur = 
-			// Liljar =
+			// Liljar = verður 3viknavinafeitabolla
  			// Fanney =
 			return View();
 		}
