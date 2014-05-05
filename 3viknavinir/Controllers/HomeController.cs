@@ -12,7 +12,7 @@ namespace _3viknavinir.Controllers
 		{
 			// Erla = Grímur er sætur
             // Svava = Steinunn og Svava
-			// Grímur = 
+			// Grímur = Og ég líka, víí
 			// Liljar = verður 3viknavinafeitabolla
  			// Fanney = push aftur
 			return View();
