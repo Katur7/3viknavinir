@@ -10,7 +10,7 @@ namespace _3viknavinir.Controllers
 	{
 		public ActionResult Index()
 		{
-			// Visual Studio testqwd
+			// Visual Studio testq
 			return View();
 		}
 
