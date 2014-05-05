@@ -11,10 +11,11 @@ namespace _3viknavinir.Controllers
 		public ActionResult Index()
 		{
 			// Erla = Grímur er sætur
-			// Svava =
+            // Svava = Steinunn og Svava
 			// Grímur = 
 			// Liljar =
  			// Fanney =
+           
 			return View();
 		}
 
