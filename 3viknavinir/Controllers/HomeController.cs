@@ -22,6 +22,8 @@ namespace _3viknavinir.Controllers
 
 		public ActionResult Contact()
 		{
+			// heeeyyyy 
+			var i = 0;
 			ViewBag.Message = "Your contact page.";
 
 			return View();
