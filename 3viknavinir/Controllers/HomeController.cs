@@ -14,7 +14,7 @@ namespace _3viknavinir.Controllers
 			// Svava =
 			// Grímur = 
 			// Liljar =
- 			// Fanney =
+ 			// Fanney = veivei!!!
 			return View();
 		}
 
