@@ -10,11 +10,6 @@ namespace _3viknavinir.Controllers
 	{
 		public ActionResult Index()
 		{
-			// Erla = Grímur er sætur
-            // Svava = Steinunn og Svava
-			// Grímur = Og ég líka, víí
-			// Liljar = verður 3viknavinafeitabolla
- 			// Fanney = push aftur
 			return View();
 		}
 
@@ -27,7 +22,6 @@ namespace _3viknavinir.Controllers
 
 		public ActionResult Contact()
 		{
-			// heeeyyyy 
 			ViewBag.Message = "Your contact page.";
 
 			return View();
