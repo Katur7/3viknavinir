@@ -11,6 +11,7 @@ namespace _3viknavinir.Controllers
 		public ActionResult Index()
 		{
 			return View();
+            //svavava
 		}
 
 		public ActionResult About()
