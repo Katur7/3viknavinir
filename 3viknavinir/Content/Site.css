@@ -4,10 +4,12 @@
 
 .logotext {
 	margin-top: 20px;
+	color: #2240a4;
 }
 
 a.logotext:hover {
 	text-decoration: none;
+	color: #2240a4;
 }
 
 .logoimg {
