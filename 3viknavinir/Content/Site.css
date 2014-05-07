@@ -55,5 +55,15 @@ input[type="checkbox"].input-validation-error {
 }
 
 .ContactUsEmail{
-    float: left; 
+    float: right;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.ContactUsName{
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
