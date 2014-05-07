@@ -23,6 +23,15 @@ a h1 {
 	margin-top: 20px;
 }
 
+#homePageTable {
+	width: 1400px;
+}
+
+th {
+	color: #00558B;
+	font-size: 20px;
+}
+
 .lostPassword {
 	margin-top: 10px;
 }

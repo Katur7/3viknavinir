@@ -3,8 +3,3 @@
         $('#yearpicker').append($('<option />').val(i).html(i));
     }
 });
-$(function () {
-    $("#accordion").accordion({
-        collapsible: true
-    });
-});
