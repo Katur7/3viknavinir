@@ -31,39 +31,48 @@ namespace _3viknavinir.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "Notandanafn")]
         public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Lykilorð")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Muna eftir mér?")]
         public bool RememberMe { get; set; }
     }
 
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "Notandanafn")]
         public string UserName { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Lykilorð")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Staðfestu lykilorð")]
+        [Compare("Lykilorð", ErrorMessage = "Lykilorðin passa ekki saman")]
         public string ConfirmPassword { get; set; }
 
+        [Required]
+        [DataType( DataType.Text )]
+        [Display( Name = "Fornafn" )]
         public string FirstName { get; set; }
+        
+        [Required]
+        [DataType( DataType.Text )]
+        [Display( Name = "Eftirnafn" )]
+        public string LastName { get; set; }
+        
         [Required]
         [DataType(DataType.EmailAddress)]
-        [Display(Name = "Tölvunarpóstur")]
+        [Display(Name = "Tölvupóstfang")]
         public string Email { get; set; }
     }
 }
