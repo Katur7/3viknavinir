@@ -61,5 +61,9 @@ namespace _3viknavinir.Models
         public string ConfirmPassword { get; set; }
 
         public string FirstName { get; set; }
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Tölvupóstur")]
+        public string Email { get; set; }
     }
 }
