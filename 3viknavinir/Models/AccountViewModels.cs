@@ -31,7 +31,7 @@ namespace _3viknavinir.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Notandanafn")]
+        [Display(Name = "Notendanafn")]
         public string UserName { get; set; }
 
         [Required]
@@ -46,7 +46,7 @@ namespace _3viknavinir.Models
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "Notandanafn")]
+        [Display(Name = "Notendanafn")]
         public string UserName { get; set; }
 
         [Required]
