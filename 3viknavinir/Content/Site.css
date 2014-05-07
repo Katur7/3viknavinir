@@ -3,13 +3,14 @@
     padding-bottom: 20px;
 }
 
-h1 {
+.logotext {
 	display: inline;
+	padding-top: 20px;
 }
 
 .logoimg {
-	height: 80px;
-	width: 80px;
+	height: 90px;
+	width: 90px;
 	border-radius: 50px;
 }
 
