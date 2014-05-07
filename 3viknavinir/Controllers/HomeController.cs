@@ -34,5 +34,12 @@ namespace _3viknavinir.Controllers
 
 			return View();
 		}
+
+        public ActionResult ForgotPassword()
+        {
+            ViewBag.Message = "Gleymt Lykilorð";
+
+            return View();
+        }
 	}
 }
