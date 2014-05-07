@@ -3,6 +3,16 @@
     padding-bottom: 20px;
 }
 
+h1 {
+	display: inline;
+}
+
+.logoimg {
+	height: 80px;
+	width: 80px;
+	border-radius: 50px;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
