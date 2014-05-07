@@ -3,7 +3,17 @@
 @{
     ViewBag.Title = "Innskráning";
 }
- 
+ <div class="breadcrumb">
+     <ul>
+         <li class="crumb crumb-first">
+            <a href="/">SÍÁT</a>
+         </li>
+         <li class="crumb crumb-last">
+            <span class="crumb-seperator">></span>
+             <a href="#">Innskráning</a>
+         </li> 
+     </ul>
+ </div>
 <h2>@ViewBag.Title</h2>
 <div class="row">
     <div class="col-md-8">
@@ -25,9 +35,9 @@
                     <div class="col-md-10">
                         @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.Password)
-						<span class="lostPassword">
-							@Html.ActionLink("Gleymt Lykilorð", "Login").
-						</span>
+						<p>
+							@Html.ActionLink("Gleymt Lykilorð", "LostPassword")
+						</p>
                     </div>
                 </div>
                 <div class="form-group">

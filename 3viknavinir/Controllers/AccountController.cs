@@ -27,6 +27,22 @@ namespace _3viknavinir.Controllers
 
         public UserManager<ApplicationUser> UserManager { get; private set; }
 
+		//Erla
+		//Get /Account/LostPassword
+		public ActionResult LostPassword()
+		{
+			return View();
+		}
+
+		//Erla
+		//POST /Account/LostPassword
+		[HttpPost]
+		public async Task<ActionResult> LostPassword(LostPasswordViewModel model)
+		{
+
+			return View(model);
+		}
+
         //
         // GET: /Account/Login
         [AllowAnonymous]

@@ -43,6 +43,15 @@ namespace _3viknavinir.Models
         public bool RememberMe { get; set; }
     }
 
+	//Erla
+	public class LostPasswordViewModel
+	{
+		[Required]
+		[Display(Name = "Tölvupóstfang")]
+		public string Email { get; set; }
+	}
+
+
     // Steinunn og Svava
     public class RegisterViewModel
     {

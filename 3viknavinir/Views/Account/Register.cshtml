@@ -2,7 +2,17 @@
 @{
     ViewBag.Title = "Nýskrá";
 }
-
+<div class="breadcrumb">
+    <ul>
+        <li class="crumb crumb-first">
+            <a href="/">SÍÁT</a>
+        </li>
+        <li class="crumb crumb-last">
+            <span class="crumb-seperator">></span>
+            <a href="#">Nýskráning</a>
+        </li>
+    </ul>
+</div>
 <h2>@ViewBag.Title</h2>
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
