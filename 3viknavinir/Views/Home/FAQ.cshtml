@@ -1,7 +1,43 @@
 ﻿
 @{
-    ViewBag.Title = "FAQ";
+    ViewBag.Title = "Algengar spurningar";
 }
 
-<h2>Algengar Spurningar</h2>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
 
+<h2>@ViewBag.Title</h2>
+
+    <div id="accordion">
+        <h3>Hvernig set ég inn skrá til þess að þýða?</h3>
+        <div>
+            <p>prumpar</p>
+        </div>
+        <h3>Hvernig bý ég til nýjan aðgang?</h3>
+        <div>
+            <p>prumpar</p>
+        </div>
+        <h3>Hvernig óska ég eftir texta</h3>
+        <div>
+            <p>prumpar</p>
+        </div>
+        <h3>Hvernig nota ég textann sem ég sótti?</h3>
+        <div>
+            <p>prumpar</p>
+        </div>
+        <h3>Hvað geri ég ef ég gleymi notendanafninu mínu?</h3>
+        <div>
+            <p>prumpar</p>
+        </div>
+        <h3>Hvað geri ég ef ég gleymi lykilorðinu mínu?</h3>
+        <div>
+            <p>prumpar</p>
+        </div>
+    </div>
+
+@section Scripts {
+    @Scripts.Render( "~/bundles/jqueryval" )
+    @Scripts.Render( "~/Scripts/Scripts.js" )
+}
