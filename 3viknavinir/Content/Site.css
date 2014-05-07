@@ -17,10 +17,7 @@ a.logotext:hover {
 	width: 80px;
 	border-radius: 90px;
 }
-.aboutPhoto{
-    margin-left: auto;
-    margin-right: auto;
-}
+
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -62,4 +59,9 @@ input[type="checkbox"].input-validation-error {
 
 .ContactUsEmail{
     float: left; 
+}
+
+.aboutPhoto{
+    margin-left: auto;
+    margin-right: auto;
 }
