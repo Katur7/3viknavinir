@@ -3,12 +3,11 @@
     ViewBag.Title = "Algengar spurningar";
 }
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
-
 <h2>@ViewBag.Title</h2>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.2/themes/dark-hive/jquery-ui.css" />
 
     <div id="accordion">
         <h3>Hvernig set ég inn skrá til þess að þýða?</h3>
@@ -37,7 +36,9 @@
         </div>
     </div>
 
+<link href="~/Content/jquery-ui-1.10.4.custom.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-ui-1.10.4.custom.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
 @section Scripts {
     @Scripts.Render( "~/bundles/jqueryval" )
-    @Scripts.Render( "~/Scripts/Scripts.js" )
 }
