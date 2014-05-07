@@ -23,8 +23,8 @@ namespace _3viknavinir.Models
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        [Display(Name = "Staðfestu nýtt lykilorð")]
+        [Compare("NewPassword", ErrorMessage = "Nýja lykilorðið og staðfesta lykilorðið passa ekki saman")]
         public string ConfirmPassword { get; set; }
     }
 

@@ -9,9 +9,9 @@
 </head>
 <body>
     <div class="navbar navbar-default navbar-static-top">
-        <div class="navbar-collapse">
-            <a><img src="~/Content/SiatLogo.png" class="logoimg" /></a>
-            <a class="logotext"><h1>SÍÁT <<</h1></a>
+        <div id="menu-top" class="navbar-collapse">
+            <a href="@Url.Action("Index", "Home")"><img src="@Url.Content("~/Content/SiatLogo.png")" class="logoimg" /></a>
+            <a href="@Url.Action("Index", "Home")" class="logotext"><h1>SÍÁT <<</h1></a>
             @Html.Partial("_LoginPartial")
         </div>
         <div class="navbar-header">
@@ -24,7 +24,7 @@
                 <span class="icon-bar"></span>
             </button>
         </div>
-        <div class="navbar-collapse collapse">
+        <div id="menu-nav" class="navbar-collapse collapse">
             <ul class="nav nav-justified">
                 <li>@Html.ActionLink("Forsíða", "Index", "Home")</li>
                 <li>@Html.ActionLink("Textar A-Ö", "Index", "Home")</li>
