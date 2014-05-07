@@ -1,22 +1,15 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
-
-h1 {
+﻿h1 {
 	display: inline;
-	margin: auto;
-	margin-top: 30px;
 }
 
 .logotext {
-	margin: auto;
+	margin-top: 20px;
 }
 
 .logoimg {
 	height: 80px;
 	width: 80px;
-	border-radius: 100px;
+	border-radius: 90px;
 }
 .aboutPhoto{
     margin-left: auto;
@@ -59,4 +52,8 @@ input[type="checkbox"].input-validation-error {
 
 .validation-summary-valid {
     display: none;
+}
+
+.ContactUsEmail{
+    float: left; 
 }
