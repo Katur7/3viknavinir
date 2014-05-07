@@ -31,7 +31,7 @@ namespace _3viknavinir.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Notandanafn")]
+        [Display(Name = "Notendanafn")]
         public string UserName { get; set; }
 
         [Required]
@@ -39,14 +39,14 @@ namespace _3viknavinir.Models
         [Display(Name = "Lykilorð")]
         public string Password { get; set; }
 
-        [Display(Name = "Muna eftir mér?")]
+        [Display(Name = "Muna eftir mér")]
         public bool RememberMe { get; set; }
     }
 
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "Notandanafn")]
+        [Display(Name = "Notendanafn")]
         public string UserName { get; set; }
 
         [Required]
