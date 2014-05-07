@@ -57,7 +57,7 @@ namespace _3viknavinir.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Staðfestu lykilorð")]
-        [Compare("Lykilorð", ErrorMessage = "Lykilorðin passa ekki saman")]
+        [Compare("Password", ErrorMessage = "Lykilorðin passa ekki saman")]
         public string ConfirmPassword { get; set; }
 
         [Required]
