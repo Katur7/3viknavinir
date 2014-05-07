@@ -39,7 +39,7 @@ namespace _3viknavinir.Models
         [Display(Name = "Lykilorð")]
         public string Password { get; set; }
 
-        [Display(Name = "Muna eftir mér?")]
+        [Display(Name = "Muna eftir mér")]
         public bool RememberMe { get; set; }
     }
 
