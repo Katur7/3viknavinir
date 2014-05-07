@@ -66,6 +66,7 @@ input[type="checkbox"].input-validation-error {
 }
 
 .aboutPhoto{
-    margin: 0 auto 0 auto;
-    background-color:yellow;
+      margin: auto;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
 }
