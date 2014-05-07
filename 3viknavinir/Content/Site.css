@@ -12,11 +12,11 @@ a h1 {
 	font-family: Tahoma;
 }
 
-#loginForm {
+.row {
 	border-bottom: 1px solid #eeeeee;
 	border-top: 1px solid #eeeeee;
 	padding: 10px 0px 10px 0px;
-	margin-top: 10px;
+	margin-top: 20px;
 }
 
 .logotext {
