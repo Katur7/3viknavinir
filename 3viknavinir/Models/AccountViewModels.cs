@@ -63,7 +63,7 @@ namespace _3viknavinir.Models
         public string FirstName { get; set; }
         [Required]
         [DataType(DataType.EmailAddress)]
-        [Display(Name = "Tölvupóstur")]
+        [Display(Name = "Tölvunarpóstur")]
         public string Email { get; set; }
     }
 }
