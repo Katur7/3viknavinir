@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - SÍÁT <<</title>
+    <title>SÍÁT <<</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -39,7 +39,8 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - SÍÁT</p>
+            <span class="left">@Html.ActionLink("Algengar Spurningar", "FAQ", "Home")</span>
+			<span class="right">@Html.ActionLink("Hafa Samband", "Contact", "Home")</span>
         </footer>
     </div>
 

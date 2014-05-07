@@ -26,5 +26,12 @@ namespace _3viknavinir.Controllers
 
 			return View();
 		}
+
+		public ActionResult FAQ()
+		{
+			ViewBag.Message = "Algengar spurningar.";
+
+			return View();
+		}
 	}
 }
