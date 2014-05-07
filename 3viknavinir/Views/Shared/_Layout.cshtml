@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@* Erla og Grímur *@
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -10,10 +11,10 @@
 <body>
     <div class="navbar navbar-default navbar-static-top">
         <div id="menu-top" class="navbar-collapse">
-			<span class="leftheader">
+			<div class="leftheader">
 				<a href="@Url.Action("Index", "Home")"><img src="@Url.Content("~/Content/SiatLogo.png")" class="logoimg" /></a>
 				<a href="@Url.Action("Index", "Home")" class="logotext"><h1>SÍÁT <<</h1></a>
-			</span>
+			</div>
             @Html.Partial("_LoginPartial")
         </div>
         <div class="navbar-header">
