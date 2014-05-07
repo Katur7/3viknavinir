@@ -5,7 +5,7 @@ namespace _3viknavinir.Models
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "Notendanafn")]
         public string UserName { get; set; }
     }
 
@@ -13,18 +13,18 @@ namespace _3viknavinir.Models
     {
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Current password")]
+        [Display(Name = "Núverandi lykilorð")]
         public string OldPassword { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Lykilorðið verður að vera að minnsta kosti 6 stafir", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "New password")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Staðfestu nýtt lykilorð")]
-        [Compare("NewPassword", ErrorMessage = "Nýja lykilorðið og staðfesta lykilorðið passa ekki saman")]
+        [Compare("NewPassword", ErrorMessage = "Lykilorðin passa ekki saman")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -43,14 +43,15 @@ namespace _3viknavinir.Models
         public bool RememberMe { get; set; }
     }
 
+    // Steinunn og Svava
     public class RegisterViewModel
     {
-        [Required]
+        [Required( ErrorMessage = "Vinsamlegast fylltu út í þennan reit." )]  
         [Display(Name = "Notendanafn")]
         public string UserName { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Required( ErrorMessage = "Vinsamlegast fylltu út í þennan reit." )]  
+        [StringLength(100, ErrorMessage = "Lykilorðið verður að vera að minnsta kosti 6 stafir", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Lykilorð")]
         public string Password { get; set; }
