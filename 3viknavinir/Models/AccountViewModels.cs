@@ -46,24 +46,24 @@ namespace _3viknavinir.Models
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "Notandanafn")]
         public string UserName { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Lykilorð")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "Staðfestu lykilorð")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        public string FirstName { get; set; }
+        // Dálkur fyrir fornafn - SMF
         [Required]
-        [DataType(DataType.EmailAddress)]
-        [Display(Name = "Tölvupóstur")]
-        public string Email { get; set; }
+        [DataType(DataType.Text)]
+        [Display(Name = "Fornafn")]
+        public string FirstName { get; set; }
     }
 }
