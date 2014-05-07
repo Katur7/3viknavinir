@@ -59,5 +59,11 @@ namespace _3viknavinir.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public string FirstName { get; set; }
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Tölvunarpóstur")]
+        public string Email { get; set; }
     }
 }
