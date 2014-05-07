@@ -3,9 +3,10 @@
     padding-bottom: 20px;
 }
 
-.logotext {
+h1 {
 	display: inline;
-	padding-top: 20px;
+	margin: auto;
+	margin-top: 30px;
 }
 
 .logoimg {
