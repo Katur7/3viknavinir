@@ -5,12 +5,18 @@
 
 h1 {
 	display: inline;
+	margin: auto;
+	margin-top: 30px;
+}
+
+.logotext {
+	margin: auto;
 }
 
 .logoimg {
 	height: 80px;
 	width: 80px;
-	border-radius: 50px;
+	border-radius: 100px;
 }
 .aboutPhoto{
     margin-left: auto;
