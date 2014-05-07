@@ -6,6 +6,10 @@
 	margin-top: 20px;
 }
 
+a.logotext:hover {
+	text-decoration: none;
+}
+
 .logoimg {
 	height: 80px;
 	width: 80px;
