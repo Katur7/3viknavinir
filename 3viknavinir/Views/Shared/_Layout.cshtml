@@ -16,14 +16,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
+                @Html.ActionLink("Síát <<", "Index", "Home", null, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Forsíða", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Textar A-Ö", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Flokkar", "Index", "Home")</li>
+					<li>@Html.ActionLink("Beiðnir", "Index", "Home")</li>
+					<li>@Html.ActionLink("Þýða", "Index", "Home")</li>
+					<li>@Html.ActionLink("Um Okkur", "About", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
