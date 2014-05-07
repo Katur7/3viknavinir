@@ -1,22 +1,15 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
-
-h1 {
+﻿h1 {
 	display: inline;
-	margin: auto;
-	margin-top: 30px;
 }
 
 .logotext {
-	margin: auto;
+
 }
 
 .logoimg {
 	height: 80px;
 	width: 80px;
-	border-radius: 100px;
+	border-radius: 90px;
 }
 
 /* Set padding to keep content from hitting the edges */
