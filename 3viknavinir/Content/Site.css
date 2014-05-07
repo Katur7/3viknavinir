@@ -1,10 +1,22 @@
-﻿h1 {
+﻿#menu-top {
+    margin-bottom: 2px;
+}
+
+h1 {
 	display: inline;
 }
 
 a h1 {
 	position: absolute;
 	padding-left: 20px;
+	font-family: Tahoma;
+}
+
+.row {
+	border-bottom: 1px solid #eeeeee;
+	border-top: 1px solid #eeeeee;
+	padding: 10px 0px 10px 0px;
+	margin-top: 20px;
 }
 
 .logotext {
@@ -21,7 +33,6 @@ a.logotext:hover {
 	width: 70px;
 	border-radius: 47px;
 }
-
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -66,6 +77,7 @@ input[type="checkbox"].input-validation-error {
 }
 
 .aboutPhoto{
-    margin: 0 auto 0 auto;
-    background-color:yellow;
+      margin: auto;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
 }
