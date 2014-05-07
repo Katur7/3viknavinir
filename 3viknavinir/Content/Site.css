@@ -12,6 +12,10 @@ a h1 {
 	font-family: Tahoma;
 }
 
+#loginForm {
+	text-align: left;
+}
+
 .row {
 	border-bottom: 1px solid #eeeeee;
 	border-top: 1px solid #eeeeee;
