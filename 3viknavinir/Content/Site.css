@@ -4,6 +4,12 @@
 
 .logotext {
 	margin-top: 20px;
+	color: #2240a4;
+}
+
+a.logotext:hover {
+	text-decoration: none;
+	color: #2240a4;
 }
 
 .logoimg {
@@ -11,10 +17,7 @@
 	width: 80px;
 	border-radius: 90px;
 }
-.aboutPhoto{
-    margin-left: auto;
-    margin-right: auto;
-}
+
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -55,15 +58,10 @@ input[type="checkbox"].input-validation-error {
 }
 
 .ContactUsEmail{
-    float: right;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+    float: left; 
 }
 
-.ContactUsName{
-    float: left;
+.aboutPhoto{
     margin-left: auto;
     margin-right: auto;
-    display: block;
 }

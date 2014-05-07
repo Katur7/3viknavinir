@@ -60,17 +60,17 @@ namespace _3viknavinir.Models
         [Compare("Password", ErrorMessage = "Lykilorðin passa ekki saman")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Vinsamlegast fylltu út í þennan reit.")]    
         [DataType( DataType.Text )]
         [Display( Name = "Fornafn" )]
         public string FirstName { get; set; }
-        
-        [Required]
+
+        [Required( ErrorMessage = "Vinsamlegast fylltu út í þennan reit." )] 
         [DataType( DataType.Text )]
         [Display( Name = "Eftirnafn" )]
         public string LastName { get; set; }
-        
-        [Required]
+
+        [Required( ErrorMessage = "Vinsamlegast fylltu út í þennan reit." )] 
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Tölvupóstfang")]
         public string Email { get; set; }
