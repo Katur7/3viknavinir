@@ -2,20 +2,24 @@
 	display: inline;
 }
 
+a h1 {
+	position: absolute;
+	padding-left: 20px;
+}
+
 .logotext {
-	margin-top: 20px;
-	color: #2240a4;
+	color: #00558B;
 }
 
 a.logotext:hover {
 	text-decoration: none;
-	color: #2240a4;
+	color: #00558B;
 }
 
 .logoimg {
-	height: 80px;
-	width: 80px;
-	border-radius: 90px;
+	height: 74px;
+	width: 70px;
+	border-radius: 47px;
 }
 
 
