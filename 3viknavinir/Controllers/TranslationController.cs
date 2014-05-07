@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace _3viknavinir.Controllers
 {
+	[HandleError]
     public class TranslationController : Controller
     {
         //
