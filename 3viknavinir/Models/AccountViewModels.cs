@@ -72,7 +72,11 @@ namespace _3viknavinir.Models
 
         [Required( ErrorMessage = "Vinsamlegast fylltu út í þennan reit." )] 
         [DataType(DataType.EmailAddress)]
-        [Display(Name = "Tölvupóstfang")]
+        [Display( Name = "Tölvupóstfang" )]
         public string Email { get; set; }
+
+        [Required( ErrorMessage = "Vinsamlegast fylltu út í þennan reit." )] 
+        [Display( Name = "Fæðingarár" )]
+        public string BirthYear { get; set; }
     }
 }
