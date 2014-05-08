@@ -234,3 +234,7 @@ input[type="checkbox"].input-validation-error {
 	width: 266px;
     display: inline-block;
 }
+
+body {
+	margin: 0px;
+}
