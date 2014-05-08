@@ -9,48 +9,50 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-default navbar-static-top">
-        <div id="menu-top" class="navbar-collapse">
-			<div class="leftheader">
-				<a href="@Url.Action("Index", "Home")"><img src="@Url.Content("~/Content/SiatLogo.png")" alt="SÍÁT LOGO" class="logoimg" /></a>
-				<a href="@Url.Action("Index", "Home")" class="logotext"><h1>SÍÁT &lt;&lt;</h1></a>
-			</div>
-            @Html.Partial("_LoginPartial")
+    <div class="wrapper">
+        <div id="header" class="navbar navbar-default navbar-static-top">
+            <div id="menu-top" class="navbar-collapse">
+                <div class="leftheader">
+                    <a href="@Url.Action("Index", "Home")"><img src="@Url.Content("~/Content/SiatLogo.png")" class="logoimg" /></a>
+                    <a href="@Url.Action("Index", "Home")" class="logotext"><h1>SÍÁT <<</h1></a>
+                </div>
+                @Html.Partial("_LoginPartial")
+            </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="menu-nav" class="navbar-collapse collapse">
+                <ul class="nav nav-justified">
+                    <li>@Html.ActionLink("Forsíða", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Textar A-Ö", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Flokkar", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Beiðnir", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Þýða", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Um Okkur", "About", "Home")</li>
+                </ul>
+            </div>
         </div>
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <div class="container body-content">
+            @RenderBody()
         </div>
-        <div id="menu-nav" class="navbar-collapse collapse">
-            <ul class="nav nav-justified">
-                <li>@Html.ActionLink("Forsíða", "Index", "Home")</li>
-                <li>@Html.ActionLink("Textar A-Ö", "AlphabetizedTexts", "ListTranslations")</li>
-                <li>@Html.ActionLink("Flokkar", "Categories", "Category")</li>
-                <li>@Html.ActionLink("Beiðnir", "Requests", "ListRequest")</li>
-                <li>@Html.ActionLink("Þýða", "Translate", "Translation")</li>
-                <li>@Html.ActionLink("Um Okkur", "About", "Home")</li>
-            </ul>
-        </div>
+        <div id="push"></div>
+        <footer>
+            <span class="left">@Html.ActionLink("Algengar Spurningar", "FAQ", "Home")</span>
+            <span class="right">@Html.ActionLink("Hafa Samband", "Contact", "Home")</span>
+        </footer>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-    </div>
-    <div id="push"></div>
-    <footer>
-        <span class="left">@Html.ActionLink("Algengar Spurningar", "FAQ", "Home")</span>
-        <span class="right">@Html.ActionLink("Hafa Samband", "Contact", "Home")</span>
-    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Scripts/Scripts.js")
-    <link rel="stylesheet" type="text/javascript"href="~/Content/jquery-ui-1.10.4.custom.css" />
+    <link rel="stylesheet" href="~/Content/jquery-ui-1.10.4.custom.css" />
     <script src="~/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
     @RenderSection("scripts", required: false)
 </body>
