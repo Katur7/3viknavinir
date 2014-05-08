@@ -20,5 +20,10 @@ namespace _3viknavinir.Controllers
 		{
 			return View();
 		}
+
+		public ActionResult NewRequest()
+		{
+			return View();
+		}
 	}
 }
