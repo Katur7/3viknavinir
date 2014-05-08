@@ -9,11 +9,15 @@ namespace _3viknavinir.Controllers
 	[HandleError]
     public class ListTranslationsController : Controller
     {
-        //
         // GET: /ListTranslations/
         public ActionResult Index()
         {
             return View();
         }
+
+		public ActionResult AlphabetizedTexts()
+		{
+			return View();
+		}
 	}
 }

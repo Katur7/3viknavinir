@@ -217,6 +217,8 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\ListTranslations\AlphabetizedTexts.cshtml" />
+    <Content Include="Views\ListRequest\Requests.cshtml" />
     <None Include="Views\Shared\Error404.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
@@ -238,8 +240,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ListRequest\" />
-    <Folder Include="Views\ListTranslations\" />
     <Folder Include="Views\Request\" />
     <Folder Include="Views\Translation\" />
   </ItemGroup>
