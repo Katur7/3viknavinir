@@ -1,6 +1,6 @@
-﻿
+﻿@model _3viknavinir.Models.TranslationViewModel
 @{
-    ViewBag.Title = "Translate";
+    ViewBag.Title = "Þýða";
 }
 
 
@@ -16,30 +16,47 @@
     </ul>
 </div>
 
-<h2>Þýða</h2>
+<h2>@ViewBag.Title</h2>
 <div>
-    <a href="/ListTranslations/AlphabetizedTexts"> Smelltu Hér til að þýða efni sem er til fyrir</a>
+    <a href="/ListTranslations/AlphabetizedTexts"> Smelltu hér til að þýða efni sem er til fyrir</a>
     <p>
-        Setjið inn nafn á mynd/þætti sem á að þýða ásamt áartali og mögulega IMDB ID. Valfrjálst er að setja inn .srt skrá með enskum texta eða hálfkláraði þýðingu.
+        Setjið inn nafn á myndefni sem á að þýða ásamt áartali og jafnvel IMDB ID. Valfrjálst er að setja inn .srt skrá með enskum texta eða hálfkláraði þýðingu.
     </p>
-    <form>
+@using (Html.BeginForm("Translate", "Translation", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+        <div class="form-group">
+            @Html.LabelFor( m => m.movieName, new { @class = "col-md-2 control-label" } )
+            <div class="col-md-10">
+                @Html.TextBoxFor( m => m.movieName, new { @class = "form-control" } )
+            </div>
+        </div>
 
-            <label>Nafn</label>
-            <input type="text" />
+        <div class="form-group">
+            @Html.LabelFor( m => m.yearOfRelease, new { @class = "col-md-2 control-label" } )
+            <div class="col-md-10">
+                @Html.TextBoxFor( m => m.yearOfRelease, new { @class = "form-control" } )
+            </div>
+        </div>
 
-            <label>Ártal</label>
-            <input type="text" />
+        <div class="form-group">
+            @Html.LabelFor( m => m.imdbID, new { @class = "col-md-2 control-label" } )
+            <div class="col-md-10">
+                @Html.TextBoxFor( m => m.imdbID, new { @class = "form-control" } )
+            </div>
+        </div>
 
-            <label>IMDB ID</label>
-            <input type="text" />
-
-            <label>Hlaða inn .srt skrá</label>
-            <input type="file" class="filestyle" data-icon="false">
-            <input type="submit" class="btn btn-default" value="Byrja að þýða" />
-
-</form>
-        
-
-
+        <label>Hlaða inn .srt skrá</label>
+        <input type="file" class="filestyle" data-icon="false">
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Nýskrá" />
+            </div>
+        </div>
+}
 </div>
+
+@section Scripts {
+    @Scripts.Render( "~/bundles/jqueryval" )
+    @Scripts.Render( "~/Scripts/Scripts.js" )
+}
 
