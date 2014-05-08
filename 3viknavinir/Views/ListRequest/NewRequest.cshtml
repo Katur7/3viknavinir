@@ -1,6 +1,6 @@
-﻿
+﻿@model _3viknavinir.Models.NewRequestViewModel
 @{
-    ViewBag.Title = "NewRequest";
+    ViewBag.Title = "Senda inn beiðni";
 }
 <div class="breadcrumb">
 	<ul class="crumbs">
@@ -18,11 +18,13 @@
 	</ul>
 </div>
 
-<h2>Senda inn beiðni</h2>
-
+<h2>@ViewBag.Title</h2>
 <p>Sláðu inn nafn á myndefni sem þú vilt að verði þýtt, ásamt ártali og IMDB ID</p>
 @using (Html.BeginForm("NewRequest", "ListRequest", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
+    @Html.AntiForgeryToken()
+    <hr />
+    @Html.ValidationSummary( true )
 	<div class="form-group">
 		@Html.LabelFor(m => m.movieName, new { @class = "col-md-2 control-label" })
 		<div class="col-md-10">
@@ -34,6 +36,7 @@
 		@Html.LabelFor(m => m.yearOfRelease, new { @class = "col-md-2 control-label" })
 		<div class="col-md-10">
 			@Html.TextBoxFor(m => m.yearOfRelease, new { @class = "form-control" })
+            @Html.ValidationMessageFor( m => m.yearOfRelease )
 		</div>
 	</div>
 	<div class="form-group">
@@ -42,4 +45,13 @@
 			@Html.TextBoxFor(m => m.imdbID, new { @class = "form-control" })
 		</div>
 	</div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Senda inn beiðni" />
+        </div>
+    </div>
+}
+    @section Scripts {
+    @Scripts.Render( "~/bundles/jqueryval" )
+    @Scripts.Render( "~/Scripts/Scripts.js" )
 }
