@@ -36,6 +36,17 @@ th {
 	margin-top: 10px;
 }
 
+.lostPasswordText {
+	margin-right: 500px;
+	margin-bottom: 50px;
+}
+
+.form-group {
+	padding: 0px;
+	margin: 0px;
+	text-align: left;
+}
+
 .leftheader {
 	padding-left: 75px;
 }
