@@ -21,7 +21,7 @@ namespace _3viknavinir.Content
         public Nullable<int> discussionID { get; set; }
     
         public virtual Discussion Discussion { get; set; }
-        public virtual Requests Requests { get; set; }
+        public virtual Request Requests { get; set; }
         public virtual Translation Translation { get; set; }
         public virtual Users Users { get; set; }
     }

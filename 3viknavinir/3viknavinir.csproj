@@ -187,13 +187,13 @@
     <Compile Include="Content\Media.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Content\Requests.cs">
+    <Compile Include="Content\Request.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Content\Translation.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Content\TranslationLines.cs">
+    <Compile Include="Content\TranslationLine.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Content\Upvote.cs">
@@ -231,10 +231,12 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\categoryImg\anime.jpg" />
+    <Content Include="Content\categoryImg\christmas.jpg" />
     <Content Include="Content\categoryImg\drama.jpg" />
     <Content Include="Content\categoryImg\family.jpg" />
     <Content Include="Content\categoryImg\action.jpg" />
     <Content Include="Content\categoryImg\kids.jpg" />
+    <Content Include="Content\categoryImg\other.jpg" />
     <Content Include="Content\categoryImg\show.jpg" />
     <Content Include="Content\categoryImg\comedy.jpg" />
     <Content Include="Content\categoryImg\documentary.jpg" />
