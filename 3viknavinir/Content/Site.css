@@ -113,7 +113,7 @@ footer {
 
 .crumbs {
     list-style-type: none;
-    padding: 17px;
+    padding: 17px 17px 17px 0px;
 }
 
 .crumbs li{
@@ -128,8 +128,7 @@ footer {
     font-weight: bold;
 }
 
-.breadcrumbs{
-    margin
+.breadcrumb{
     padding-left:0px;
     border-left: 0px;
 }
