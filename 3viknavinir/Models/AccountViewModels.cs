@@ -32,11 +32,11 @@ namespace _3viknavinir.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required( ErrorMessage = "Vinsamlegast sláðu inn notendanafn." )]
         [Display(Name = "Notendanafn")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required( ErrorMessage = "Vinsamlegast sláðu inn lykilorð." )]
         [DataType(DataType.Password)]
         [Display(Name = "Lykilorð")]
         public string Password { get; set; }
