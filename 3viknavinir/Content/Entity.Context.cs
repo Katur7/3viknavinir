@@ -29,9 +29,9 @@ namespace _3viknavinir.Content
         public virtual DbSet<Discussion> Discussion { get; set; }
         public virtual DbSet<Language> Language { get; set; }
         public virtual DbSet<Media> Media { get; set; }
-        public virtual DbSet<Requests> Requests { get; set; }
+        public virtual DbSet<Request> Requests { get; set; }
         public virtual DbSet<Translation> Translation { get; set; }
-        public virtual DbSet<TranslationLines> TranslationLines { get; set; }
+        public virtual DbSet<TranslationLine> TranslationLines { get; set; }
         public virtual DbSet<Upvote> Upvote { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }

@@ -24,8 +24,8 @@ namespace _3viknavinir.Content
         public string title { get; set; }
         public int yearOfRelease { get; set; }
         public string description { get; set; }
-		public string posterPath { get; set; }
         public int categoryID { get; set; }
+        public string posterPath { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual ICollection<Discussion> Discussion { get; set; }
