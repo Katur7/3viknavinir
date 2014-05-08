@@ -1,4 +1,5 @@
 ﻿using _3viknavinir.Content;
+using _3viknavinir.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,10 @@ namespace _3viknavinir.Repo
 	{
         //Category category = new Category();
 
-        //public IEnumerable<Category> GetAllCategories()
-        //{
-
-        //}
+		//public IEnumerable<Category> GetAllCategories()
+		//{
+			
+		//}
         //public string GetCategoryByID( int id )
         //{
             
