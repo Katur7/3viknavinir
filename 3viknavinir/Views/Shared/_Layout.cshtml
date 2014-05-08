@@ -40,12 +40,12 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <footer>
-            <hr />
-            <span class="left">@Html.ActionLink("Algengar Spurningar", "FAQ", "Home")</span>
-            <span class="right">@Html.ActionLink("Hafa Samband", "Contact", "Home")</span>
-        </footer>
     </div>
+    <div id="push"></div>
+    <footer>
+        <span class="left">@Html.ActionLink("Algengar Spurningar", "FAQ", "Home")</span>
+        <span class="right">@Html.ActionLink("Hafa Samband", "Contact", "Home")</span>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
