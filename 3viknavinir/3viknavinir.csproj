@@ -235,7 +235,7 @@
     <Content Include="Content\categoryImg\christmas.jpg" />
     <Content Include="Content\categoryImg\drama.jpg" />
     <Content Include="Content\categoryImg\family.jpg" />
-    <Content Include="Content\categoryImg\action.jpg" />
+    <Content Include="Content\categoryImg\thiller.jpg" />
     <Content Include="Content\categoryImg\kids.jpg" />
     <Content Include="Content\categoryImg\other.jpg" />
     <Content Include="Content\categoryImg\show.jpg" />
@@ -245,7 +245,7 @@
     <Content Include="Content\categoryImg\icelandic.jpg" />
     <Content Include="Content\categoryImg\adventure.jpg" />
     <Content Include="Content\categoryImg\romantic.jpg" />
-    <Content Include="Content\categoryImg\thiller.jpg" />
+    <Content Include="Content\categoryImg\action.jpg" />
     <Content Include="Content\categoryImg\musical.jpg" />
     <Content Include="Content\categoryImg\scifi.jpg" />
     <Content Include="Content\jquery-ui-1.10.4.custom.css" />

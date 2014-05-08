@@ -4139,7 +4139,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
     margin-left: -15px;
   }
   .navbar-collapse .navbar-nav.navbar-right:last-child {
-    margin-right: -15px;
+    margin-right: 25px;
     margin-top: -60px;
     margin-bottom: 20px;
   }
