@@ -3,8 +3,12 @@ using System.Text.RegularExpressions;
 
 namespace _3viknavinir.Models
 {
+    public class RequestViewModels
+    {
+        
+    }
     // Steinunn
-    public class TranslationViewModel
+    public class NewRequestViewModel
     {
         [Required( ErrorMessage = "Slá verður inn nafn myndefnis" )]
         [Display( Name = "Nafn Kvikmyndar" )]
