@@ -58,8 +58,9 @@
     <div>
         <p>@* Hér má setja actionlink fyrir flokka og texta a-ö þegar þær síður eru tilbúnar - SMF *@
             Hægt er að leita að textum eftir flokkum  undir  ,,Flokkar“  flipanum.
-            Textum er raðað í stafrófsröð eftir heiti mynda í „Textar A-Ö“ flipanum.
-            Einnig er hægt að leita að texta fyrir ákveðina mynd  í leitarkassa bæði á forsíðu og í flipanum ,,Textar A-Ö“.
+            Textum er raðað í stafrófsröð eftir heiti mynda í @Html.ActionLink("Textar A-Ö", "AlphabetizedTexts", "ListTranslations") flipanum.
+            Einnig er hægt að leita að texta fyrir ákveðina mynd  í leitarkassa bæði á forsíðu og í flipanum 
+            @Html.ActionLink( "Textar A-Ö", "AlphabetizedTexts", "ListTranslations" ).
         </p>
     </div>
     <h3>Af hverju þarf ég að vera innskráður?</h3>
