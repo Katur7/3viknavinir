@@ -39,14 +39,14 @@
     <h3>Hvernig bý ég til nýjan aðgang?</h3>
     <div>
         <p>
-            Efst uppi í hægra horninu má sjá hlekk sem á stendur ,,Nýskrá“.
+            Efst uppi í hægra horninu má sjá hlekk sem á stendur @Html.ActionLink("Nýskrá", "Register", "Account").
             Ef smellt er á þann hlekk opnast nýskráningarsíða þar sem fylla þarf út upplýsingar um notanda.
             Þegar smellt er á nýskrá hnappinn verður nýr notandi til og getur viðkomandi þaðan frá innskráð sig.
         </p>
     </div>
     <h3>Hvernig óska ég eftir texta</h3>
     <div>
-        <p>
+        <p>@* Hér má setja actionlink fyrir beiðnir þegar sú síða er tilbúin - SMF *@
             Til þess að óska eftir texta fyrir myndefni þarf notandi að vera innskráður.
             Því næst velur notandinn flipann sem á stendur ,,Beiðnir”. Þar er smellt á græna plús hnappinn, þá er notanda beint inn á nýja síðu þar
             sem fylla verður út helstu upplýsingar um myndefni.
@@ -56,7 +56,7 @@
     </div>
     <h3>Hvernig leita ég af texta?</h3>
     <div>
-        <p>
+        <p>@* Hér má setja actionlink fyrir flokka og texta a-ö þegar þær síður eru tilbúnar - SMF *@
             Hægt er að leita að textum eftir flokkum  undir  ,,Flokkar“  flipanum.
             Textum er raðað í stafrófsröð eftir heiti mynda í „Textar A-Ö“ flipanum.
             Einnig er hægt að leita að texta fyrir ákveðina mynd  í leitarkassa bæði á forsíðu og í flipanum ,,Textar A-Ö“.
@@ -77,13 +77,14 @@
     <h3>Hvað geri ég ef ég gleymi notendanafn/lykilorðinu mínu?</h3>
     <div>
         <p>
-            Ef lykilorð hefur gleymst er hægt að ýta á “Gleymt lykilorð” á innskráningarsíðunni og setja þar inn tölvupóstinn sinn og
-            við sendum þér notendanafn og nýtt lykilorð í tölvupósti. Athugaðu að það getur tekið nokkrar mínutur fyrir lykilorðið að berast.
+            Ef lykilorð hefur gleymst er hægt að ýta á @Html.ActionLink( "Gleymt Lykilorð", "LostPassword", "Account" ) á 
+            innskráningarsíðunni og setja þar inn tölvupóstinn sinn og við sendum þér notendanafn og nýtt lykilorð í tölvupósti. 
+            Athugaðu að það getur tekið nokkrar mínútur fyrir lykilorðið að berast.
         </p>
     </div>
     <h3>Hvernig get ég lagað þýðingu sem er nú þegar til?</h3>
     <div>
-        <p>
+        <p>@* Hér má setja actionlink fyrir breyta þýðingu þegar sú síða er tilbúin - SMF *@
             Til að laga þýðingu verðuru að vera innskráður. Þegar ákveðin mynd er valin þá er hægt að laga þýðingu með “Breyta þýðingu”
             hnappinum neðst á síðunni.
         </p>
@@ -96,7 +97,7 @@
     <div>
         <p>
             Við viljum endilega vita af því ef þýðing er ekki til fyrirmyndar.
-            Niðri í vinsta horninu er “Hafðu samband” hnappur.
+            Niðri í vinsta horninu er @Html.ActionLink( "Hafðu samband", "Contact", "Home" ) hnappur.
             Endilega sendu okkur notendanafn þýðanda og nafnið á tiltekinni þýðingu sem rætt er um.
         </p>
     </div>
