@@ -110,3 +110,7 @@ input[type="checkbox"].input-validation-error {
 footer {
 	margin-bottom: 20px;
 }
+.crumbs {
+    list-style-type: none;
+    display: inline;
+}
