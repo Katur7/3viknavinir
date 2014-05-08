@@ -29,6 +29,7 @@ namespace _3viknavinir.Controllers
 
 		//Erla
 		//Get /Account/LostPassword
+		[AllowAnonymous]
 		public ActionResult LostPassword()
 		{
 			return View();
@@ -36,6 +37,7 @@ namespace _3viknavinir.Controllers
 
 		//Erla
 		//POST /Account/LostPassword
+		[AllowAnonymous]
 		[HttpPost]
 		public async Task<ActionResult> LostPassword(LostPasswordViewModel model)
 		{
