@@ -230,7 +230,17 @@ input[type="checkbox"].input-validation-error {
 }
 
 .categoriesPhoto {
+    display: block;
+    float: left;
+    margin: 20px;
+}
+
+.categoriesPhoto img {
 	height: 150px;
 	width: 266px;
-    display: inline-block;
+}
+
+.categoriesPhoto a {
+    display: block;
+    text-align: center;
 }
