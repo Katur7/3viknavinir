@@ -237,11 +237,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\FAQ.cshtml" />
     <Content Include="Views\Account\LostPassword.cshtml" />
+    <Content Include="Views\Translation\Translate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Request\" />
-    <Folder Include="Views\Translation\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
