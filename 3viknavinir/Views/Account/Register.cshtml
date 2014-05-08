@@ -1,6 +1,6 @@
 ﻿@model _3viknavinir.Models.RegisterViewModel
 @{
-    ViewBag.Title = "Nýskrá";
+    ViewBag.Title = "Nýskráning";
 }
 <div class="breadcrumb">
     <ul class="crumbs">
@@ -19,6 +19,7 @@
 {
     // Steinunn og Svava
     @Html.AntiForgeryToken()
+    <hr />
     @Html.ValidationSummary()
     <div class="form-group">
         @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
