@@ -1106,6 +1106,7 @@ pre code {
   }
   .col-md-4 {
     width: 33.33333333333333%;
+	padding: 0px;
   }
   .col-md-5 {
     width: 41.66666666666667%;
@@ -1118,6 +1119,8 @@ pre code {
   }
   .col-md-8 {
     width: 66.66666666666666%;
+	padding: 0px;
+	margin: 0px;
   }
   .col-md-9 {
     width: 75%;

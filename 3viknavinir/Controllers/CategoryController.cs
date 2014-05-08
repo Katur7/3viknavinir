@@ -6,16 +6,16 @@ using System.Web.Mvc;
 
 namespace _3viknavinir.Controllers
 {
-	[HandleError]
-    public class ListTranslationsController : Controller
+    public class CategoryController : Controller
     {
-        // GET: /ListTranslations/
+        //
+        // GET: /Category/
         public ActionResult Index()
         {
             return View();
         }
 
-		public ActionResult AlphabetizedTexts()
+		public ActionResult Categories()
 		{
 			return View();
 		}
