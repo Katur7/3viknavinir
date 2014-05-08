@@ -255,8 +255,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Views\Category\Scripts\bootstrap.js" />
+    <Content Include="Views\Category\Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Content\Entity.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Entity.Designer.cs</LastGenOutput>
@@ -274,22 +274,22 @@
       <DependentUpon>Entity.edmx</DependentUpon>
       <LastGenOutput>Entity.cs</LastGenOutput>
     </Content>
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\javascriptcustom1.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery-ui-1.10.4.custom.js" />
-    <Content Include="Scripts\jquery-ui-1.10.4.custom.min.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\Scripts.js" />
-    <Content Include="Scripts\_references.js" />
+    <None Include="Views\Category\Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Views\Category\Scripts\javascriptcustom1.js" />
+    <Content Include="Views\Category\Scripts\jquery-1.10.2.js" />
+    <Content Include="Views\Category\Scripts\jquery-1.10.2.min.js" />
+    <None Include="Views\Category\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Views\Category\Scripts\jquery-ui-1.10.4.custom.js" />
+    <Content Include="Views\Category\Scripts\jquery-ui-1.10.4.custom.min.js" />
+    <Content Include="Views\Category\Scripts\jquery.validate.js" />
+    <Content Include="Views\Category\Scripts\jquery.validate.min.js" />
+    <Content Include="Views\Category\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Views\Category\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Views\Category\Scripts\modernizr-2.6.2.js" />
+    <Content Include="Views\Category\Scripts\respond.js" />
+    <Content Include="Views\Category\Scripts\respond.min.js" />
+    <Content Include="Views\Category\Scripts\Scripts.js" />
+    <Content Include="Views\Category\Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -303,12 +303,27 @@
     <Content Include="Views\ListRequest\Requests.cshtml" />
     <Content Include="Views\Category\Categories.cshtml" />
     <Content Include="Views\ListRequest\NewRequest.cshtml" />
+    <Content Include="Views\Category\Documentary.cshtml" />
+    <Content Include="Views\Category\Action.cshtml" />
+    <Content Include="Views\Category\Adventure.cshtml" />
+    <Content Include="Views\Category\Anime.cshtml" />
+    <Content Include="Views\Category\Comedy.cshtml" />
+    <Content Include="Views\Category\Drama.cshtml" />
+    <Content Include="Views\Category\Family.cshtml" />
+    <Content Include="Views\Category\Horror.cshtml" />
+    <Content Include="Views\Category\Icelandic.cshtml" />
+    <Content Include="Views\Category\Kids.cshtml" />
+    <Content Include="Views\Category\Musical.cshtml" />
+    <Content Include="Views\Category\Romantic.cshtml" />
+    <Content Include="Views\Category\Scifi.cshtml" />
+    <Content Include="Views\Category\Show.cshtml" />
+    <Content Include="Views\Category\Thriller.cshtml" />
     <None Include="Views\Shared\Error404.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Category\Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
