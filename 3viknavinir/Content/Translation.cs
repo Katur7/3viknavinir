@@ -16,7 +16,7 @@ namespace _3viknavinir.Content
     {
         public Translation()
         {
-            this.TranslationLines = new HashSet<TranslationLines>();
+            this.TranslationLines = new HashSet<TranslationLine>();
             this.Upvote = new HashSet<Upvote>();
         }
     
@@ -29,7 +29,7 @@ namespace _3viknavinir.Content
         public virtual Language Language { get; set; }
         public virtual Media Media { get; set; }
         public virtual Users Users { get; set; }
-        public virtual ICollection<TranslationLines> TranslationLines { get; set; }
+        public virtual ICollection<TranslationLine> TranslationLines { get; set; }
         public virtual ICollection<Upvote> Upvote { get; set; }
     }
 }

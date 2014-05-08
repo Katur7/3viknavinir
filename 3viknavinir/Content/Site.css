@@ -223,3 +223,7 @@ input[type="checkbox"].input-validation-error {
 	margin: 0px;
 	border-collapse: collapse;
 }
+
+.uploadfilebutton{
+    float: right;
+}

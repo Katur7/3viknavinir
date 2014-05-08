@@ -39,15 +39,16 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" >
             @Html.LabelFor( m => m.imdbID, new { @class = "col-md-2 control-label" } )
             <div class="col-md-10">
                 @Html.TextBoxFor( m => m.imdbID, new { @class = "form-control" } )
             </div>
         </div>
-
-        <label>Hlaða inn .srt skrá</label>
-        <input type="file" class="filestyle" data-icon="false">
+<div class="uploadfile">
+    <label>Hlaða inn .srt skrá</label>
+    <input type="file" class="uploadfilebutton" data-icon="false" />
+</div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" class="btn btn-default" value="Byrja að þýða" />

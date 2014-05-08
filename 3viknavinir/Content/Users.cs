@@ -17,7 +17,7 @@ namespace _3viknavinir.Content
         public Users()
         {
             this.Discussion = new HashSet<Discussion>();
-            this.Requests = new HashSet<Requests>();
+            this.Requests = new HashSet<Request>();
             this.Translation = new HashSet<Translation>();
             this.Upvote = new HashSet<Upvote>();
         }
@@ -31,7 +31,7 @@ namespace _3viknavinir.Content
         public bool isAdmin { get; set; }
     
         public virtual ICollection<Discussion> Discussion { get; set; }
-        public virtual ICollection<Requests> Requests { get; set; }
+        public virtual ICollection<Request> Requests { get; set; }
         public virtual ICollection<Translation> Translation { get; set; }
         public virtual ICollection<Upvote> Upvote { get; set; }
     }
