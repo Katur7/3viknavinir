@@ -249,7 +249,7 @@
     <Content Include="Content\categoryImg\musical.jpg" />
     <Content Include="Content\categoryImg\scifi.jpg" />
     <Content Include="Content\jquery-ui-1.10.4.custom.css" />
-    <Content Include="Content\SiatLogo.png" />
+    <Content Include="Content\siat_logo.jpg" />
     <Content Include="Content\workaboutpicjpg.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
