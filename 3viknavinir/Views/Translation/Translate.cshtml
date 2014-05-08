@@ -1,6 +1,6 @@
 ﻿@model _3viknavinir.Models.TranslationViewModel
 @{
-    ViewBag.Title = "Translate";
+    ViewBag.Title = "Þýða";
 }
 
 
@@ -16,7 +16,7 @@
     </ul>
 </div>
 
-<h2>Þýða</h2>
+<h2>@ViewBag.Title</h2>
 <div>
     <a href="/ListTranslations/AlphabetizedTexts"> Smelltu Hér til að þýða efni sem er til fyrir</a>
     <p>
@@ -24,14 +24,26 @@
     </p>
     <form>
 
-            <label>Nafn</label>
-            <input type="text" />
+        <div class="form-group">
+            @Html.LabelFor( m => m.movieName, new { @class = "col-md-2 control-label" } )
+            <div class="col-md-10">
+                @Html.TextBoxFor( m => m.movieName, new { @class = "form-control" } )
+            </div>
+        </div>
 
-            <label>Ártal</label>
-            <input type="text" />
+        <div class="form-group">
+            @Html.LabelFor( m => m.yearOfRelease, new { @class = "col-md-2 control-label" } )
+            <div class="col-md-10">
+                @Html.TextBoxFor( m => m.yearOfRelease, new { @class = "form-control" } )
+            </div>
+        </div>
 
-            <label>IMDB ID</label>
-            <input type="text" />
+        <div class="form-group">
+            @Html.LabelFor( m => m.imdbID, new { @class = "col-md-2 control-label" } )
+            <div class="col-md-10">
+                @Html.TextBoxFor( m => m.imdbID, new { @class = "form-control" } )
+            </div>
+        </div>
 
             <label>Hlaða inn .srt skrá</label>
             <input type="file" class="filestyle" data-icon="false">
