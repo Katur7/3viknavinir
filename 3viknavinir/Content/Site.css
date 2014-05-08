@@ -189,3 +189,6 @@ input[type="checkbox"].input-validation-error {
 .requestRow td {
 	padding: 5px 0px 5px 0px;
 }
+.alphabetizedTextDiv {
+    padding-left: 20px;
+}
