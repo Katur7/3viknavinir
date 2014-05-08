@@ -113,8 +113,23 @@ footer {
 
 .crumbs {
     list-style-type: none;
+    padding: 17px;
 }
 
 .crumbs li{
     display: inline;
+}
+
+.crumbs li a{
+    color: #00558B;
+}
+.crumb-seperator{
+    color: #00558B;
+    font-weight: bold;
+}
+
+.breadcrumbs{
+    margin
+    padding-left:0px;
+    border-left: 0px;
 }
