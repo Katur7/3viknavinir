@@ -3,5 +3,43 @@
     ViewBag.Title = "Translate";
 }
 
+
+<div class="breadcrumb">
+    <ul class="crumbs">
+        <li class="crumb crumb-first">
+            <a href="/">SÍÁT</a>
+        </li>
+        <li class="crumb crumb-last">
+            <span class="crumb-seperator"> > </span>
+            <a href="#">Þýða</a>
+        </li>
+    </ul>
+</div>
+
 <h2>Þýða</h2>
+<div>
+    <a href="/ListTranslations/AlphabetizedTexts"> Smelltu Hér til að þýða efni sem er til fyrir</a>
+    <p>
+        Setjið inn nafn á mynd/þætti sem á að þýða ásamt áartali og mögulega IMDB ID. Valfrjálst er að setja inn .srt skrá með enskum texta eða hálfkláraði þýðingu.
+    </p>
+    <form>
+        <label>Nafn</label>
+        <input type="text" />
+
+        <label>Ártal</label>
+        <input type="text" />
+
+        <label>IMDB ID</label>
+        <input type="text"/>
+
+        <label>Hlaða inn .srt skrá</label>
+        <input type="file"/>
+
+        <input type="submit" class="btn btn-default" value="Byrja að þýða" />
+
+    </form>
+        
+
+
+</div>
 
