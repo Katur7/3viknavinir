@@ -5,14 +5,14 @@ namespace _3viknavinir.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
-        [Required]
+        [Required( ErrorMessage = "Vinsamlegast sláðu inn notendanafn." )]
         [Display(Name = "Notendanafn")]
         public string UserName { get; set; }
     }
 
     public class ManageUserViewModel
     {
-        [Required]
+        [Required( ErrorMessage = "Vinsamlegast sláðu inn lykilorð." )]
         [DataType(DataType.Password)]
         [Display(Name = "Núverandi lykilorð")]
         public string OldPassword { get; set; }
