@@ -159,6 +159,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListRequestController.cs" />
     <Compile Include="Controllers\ListTranslationsController.cs" />
@@ -219,6 +220,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\ListTranslations\AlphabetizedTexts.cshtml" />
     <Content Include="Views\ListRequest\Requests.cshtml" />
+    <Content Include="Views\Category\Categories.cshtml" />
     <None Include="Views\Shared\Error404.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
