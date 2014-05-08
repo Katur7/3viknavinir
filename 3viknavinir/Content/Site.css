@@ -232,4 +232,5 @@ input[type="checkbox"].input-validation-error {
 .categoriesPhoto {
 	height: 150px;
 	width: 266px;
+    display: inline-block;
 }
