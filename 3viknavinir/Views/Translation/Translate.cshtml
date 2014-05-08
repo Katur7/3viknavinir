@@ -18,12 +18,13 @@
 
 <h2>@ViewBag.Title</h2>
 <div>
-    <a href="/ListTranslations/AlphabetizedTexts"> Smelltu Hér til að þýða efni sem er til fyrir</a>
+    
     <p>
-        Setjið inn nafn á mynd/þætti sem á að þýða ásamt áartali og mögulega IMDB ID. Valfrjálst er að setja inn .srt skrá með enskum texta eða hálfkláraði þýðingu.
+        Setjið inn nafn á myndefni sem á að þýða ásamt ártali og jafnvel IMDB ID. Valfrjálst er að setja inn .srt skrá með enskum texta eða hálfkláraði þýðingu.
     </p>
-    <form>
-
+    <a href="/ListTranslations/AlphabetizedTexts"> Smelltu hér til að þýða efni sem er til fyrir</a>
+@using (Html.BeginForm("Translate", "Translation", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
         <div class="form-group">
             @Html.LabelFor( m => m.movieName, new { @class = "col-md-2 control-label" } )
             <div class="col-md-10">
@@ -45,17 +46,18 @@
             </div>
         </div>
 
-            <label>Hlaða inn .srt skrá</label>
-            <input type="file" class="filestyle" data-icon="false">
+        <label>Hlaða inn .srt skrá</label>
+        <input type="file" class="filestyle" data-icon="false">
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" class="btn btn-default" value="Nýskrá" />
+                <input type="submit" class="btn btn-default" value="Byrja að þýða" />
             </div>
         </div>
-
-</form>
-        
-
-
+}
 </div>
+
+@section Scripts {
+    @Scripts.Render( "~/bundles/jqueryval" )
+    @Scripts.Render( "~/Scripts/Scripts.js" )
+}
 

@@ -10,7 +10,7 @@ namespace _3viknavinir.Models
         public string movieName { get; set; }
 
         [Required( ErrorMessage = "Slá verður inn ár sem  mynd var gefin út" )]
-        [Display( Name = "Year of Release" )]
+        [Display( Name = "Ártal" )]
         public uint yearOfRelease { get; set; }
 
         [Display( Name = "IMDB ID" )]

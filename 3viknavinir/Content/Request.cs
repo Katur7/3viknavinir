@@ -12,17 +12,22 @@ namespace _3viknavinir.Content
     using System;
     using System.Collections.Generic;
     
-    public partial class TranslationLines
+    public partial class Request
     {
-        public int Id { get; set; }
-        public int chapterNumber { get; set; }
-        public string startTime { get; set; }
-        public string endTime { get; set; }
-        public string subtitle { get; set; }
-        public bool isEditing { get; set; }
-        public System.DateTime dateOfSubmission { get; set; }
-        public int translationID { get; set; }
+        public Request()
+        {
+            this.Upvote1 = new HashSet<Upvote>();
+        }
     
-        public virtual Translation Translation { get; set; }
+        public int Id { get; set; }
+        public Nullable<int> upvote { get; set; }
+        public System.DateTime dateOfRequest { get; set; }
+        public string title { get; set; }
+        public int yearOfRelease { get; set; }
+        public string imdbID { get; set; }
+        public int userID { get; set; }
+    
+        public virtual Users Users { get; set; }
+        public virtual ICollection<Upvote> Upvote1 { get; set; }
     }
 }
