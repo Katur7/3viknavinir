@@ -67,7 +67,7 @@ accordian .ui-accordion .ui-accordion-content {
 /* Component containers
 ----------------------------------*/
 .ui-widget {
-	font-family: Verdana,Arial,sans-serif;
+	font-family: Arial;
 	font-size: 1.1em;
 }
 .ui-widget .ui-widget {
@@ -77,7 +77,7 @@ accordian .ui-accordion .ui-accordion-content {
 .ui-widget select,
 .ui-widget textarea,
 .ui-widget button {
-	font-family: Verdana,Arial,sans-serif;
+	font-family: Arial;
 	font-size: 1em;
 }
 .ui-widget-content {
