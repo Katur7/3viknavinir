@@ -301,6 +301,7 @@
     <Content Include="Views\ListTranslations\AlphabetizedTexts.cshtml" />
     <Content Include="Views\ListRequest\Requests.cshtml" />
     <Content Include="Views\Category\Categories.cshtml" />
+    <Content Include="Views\ListRequest\NewRequest.cshtml" />
     <None Include="Views\Shared\Error404.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
