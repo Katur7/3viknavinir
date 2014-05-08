@@ -169,6 +169,20 @@ footer {
     margin: 0 auto -40px;
 }
 
+#RequestTable {
+	width: 1100px;
+	padding: 0px;
+	margin: 0px;
+	border-collapse: collapse;
+}
+
+.requestTableDiv {
+	padding-left: 20px;
+}
+
+.requestRow td {
+	padding: 5px 0px 5px 0px;
+}
 /* Set the fixed height of the footer here */
 #push,
 footer {
