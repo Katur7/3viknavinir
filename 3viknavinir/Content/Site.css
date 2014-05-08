@@ -1,13 +1,44 @@
-﻿#menu-top {
+﻿html,
+body {
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+.wrapper {
+	min-height:100%;
+	position:relative;
+}
+
+.body-content {
+	padding:10px;
+	padding-bottom:20px;   /* Height of the footer element */
+    position: relative;
+}
+
+footer {
+	height:40px;
+	position: absolute;
+	bottom:0;
+	left:0;
+    right: 0;
+    margin-bottom: 7px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-top: 2px solid #f5f5f5;
+    padding-top: 10px;
+}
+
+#push {
+    height: 100%;
+}
+
+#menu-top {
     margin-bottom: 2px;
 }
 
 h1 {
 	display: inline;
-}
-
-h2 {
-	padding: 20px;
 }
 
 a h1 {
@@ -25,7 +56,6 @@ a h1 {
 	border-top: 1px solid #eeeeee;
 	padding: 10px 0px 10px 0px;
 	margin-top: 20px;
-	margin-left: 18px;
 }
 
 #homePageTable {
@@ -47,7 +77,7 @@ th {
 }
 
 .form-group {
-	padding: 0px 0px 0px 18px;
+	padding: 0px;
 	margin: 10px 0px 0px 0px;
 	text-align: left;
 }
@@ -123,10 +153,6 @@ input[type="checkbox"].input-validation-error {
 	float: right;
 }
 
-footer {
-	margin-bottom: 20px;
-}
-
 .crumbs {
     list-style-type: none;
     padding: 17px 17px 17px 0px;
@@ -147,44 +173,4 @@ footer {
 .breadcrumb{
     padding-left:0px;
     border-left: 0px;
-}
-
-footer {
-    position: static;
-    bottom: 0px;
-    right: 0;
-    left: 0;
-    margin-bottom: 7px;
-    margin-left: 20px;
-    margin-right: 20px;
-    border-top: 2px solid #f5f5f5;
-    padding-top: 10px;
-}
-
-.wrap {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    /* Negative indent footer by it's height */
-    margin: 0 auto -40px;
-}
-
-#RequestTable {
-	width: 1100px;
-	padding: 0px;
-	margin: 0px;
-	border-collapse: collapse;
-}
-
-.requestTableDiv {
-	padding-left: 20px;
-}
-
-.requestRow td {
-	padding: 5px 0px 5px 0px;
-}
-/* Set the fixed height of the footer here */
-#push,
-footer {
-    height: 40px;
 }
