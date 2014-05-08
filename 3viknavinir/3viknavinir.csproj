@@ -187,13 +187,13 @@
     <Compile Include="Content\Media.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Content\Requests.cs">
+    <Compile Include="Content\Request.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Content\Translation.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Content\TranslationLines.cs">
+    <Compile Include="Content\TranslationLine.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Content\Upvote.cs">
