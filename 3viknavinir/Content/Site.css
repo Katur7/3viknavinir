@@ -215,8 +215,14 @@ input[type="checkbox"].input-validation-error {
 	padding: 5px 0px 5px 0px;
 }
 
-.RequestName {
+.NewRequestHeader span {
+	padding-right: 143px;
+	font-weight: bold;
+}
+
+.RequestInput {
 	display: inline;
+	padding-right: 20px;
 }
 .alphabetizedTextDiv {
     padding-left: 20px;
