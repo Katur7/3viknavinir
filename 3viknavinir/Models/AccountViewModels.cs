@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 namespace _3viknavinir.Models
 {
@@ -81,9 +82,9 @@ namespace _3viknavinir.Models
         [Display( Name = "Eftirnafn" )]
         public string LastName { get; set; }
 
-        [Required( ErrorMessage = "Vinsamlegast sláðu inn tölvupóstfang." )] 
+        [Required(ErrorMessage = "Vinsamlegast sláðu inn tölvupóstfang.")]
         [DataType(DataType.EmailAddress)]
-        [Display( Name = "Tölvupóstfang" )]
+        [Display(Name = "Tölvupóstfang")]
         public string Email { get; set; }
 
         [Required( ErrorMessage = "Vinsamlegast sláðu inn fæðingarárið þitt." )] 
