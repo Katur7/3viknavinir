@@ -1118,6 +1118,8 @@ pre code {
   }
   .col-md-8 {
     width: 66.66666666666666%;
+	padding: 0px;
+	margin: 0px;
   }
   .col-md-9 {
     width: 75%;
