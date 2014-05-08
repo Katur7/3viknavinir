@@ -233,6 +233,7 @@
     <Content Include="Content\categoryImg\drama.jpg" />
     <Content Include="Content\categoryImg\family.jpg" />
     <Content Include="Content\categoryImg\action.jpg" />
+    <Content Include="Content\categoryImg\kids.jpg" />
     <Content Include="Content\categoryImg\show.jpg" />
     <Content Include="Content\categoryImg\comedy.jpg" />
     <Content Include="Content\categoryImg\documentary.jpg" />
