@@ -21,7 +21,7 @@ namespace _3viknavinir.Content
     
         public int Id { get; set; }
         public string name { get; set; }
-        public byte[] poster { get; set; }
+        public string posterPath { get; set; }
     
         public virtual ICollection<Media> Media { get; set; }
     }
