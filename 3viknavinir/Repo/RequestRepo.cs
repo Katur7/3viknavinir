@@ -1,4 +1,5 @@
-﻿using _3viknavinir.Content;
+﻿using _3viknavinir;
+using _3viknavinir.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,9 @@ namespace _3viknavinir.Repo
 {
 	public class RequestRepo
 	{
-		private VERK014_H3Entities db = new VERK014_H3Entities();
+		private _3viknaContext db = new _3viknaContext();
 		
-		public Request GetRequestByID(int id)
+		public Requests GetRequestByID(int id)
 		{
 			var request = (from r in db.Requests 
 							where r.Id == id
@@ -18,7 +19,7 @@ namespace _3viknavinir.Repo
 			return request;
 		}
 
-		public Request GetRequestByName(string name)
+		public Requests GetRequestByName(string name)
 		{
 			var request = (from r in db.Requests
 						   where r.title == name
@@ -26,7 +27,7 @@ namespace _3viknavinir.Repo
 			return request;
 		}
 
-		public Request GetRequestByIMDBID(string imdbid)
+		public Requests GetRequestByIMDBID(string imdbid)
 		{
 			var request = (from r in db.Requests
 						   where r.imdbID == imdbid
@@ -34,14 +35,14 @@ namespace _3viknavinir.Repo
 			return request;
 		}
 
-		public IEnumerable<Request> GetAllRequests()
-		{equests = (from r in db.Requests
+		public IEnumerable<Requests> GetAllRequests()
+		{
+			IEnumerable<Requests> allRequests = (from r in db.Requests
 												select r);
-			IEnumerable<Request> allR
 			return allRequests;
 		}
 
-		public void AddRequest(Request r)
+		public void AddRequest(Requests r)
 		{
 			db.Requests.Add(r);
 			db.SaveChanges();
