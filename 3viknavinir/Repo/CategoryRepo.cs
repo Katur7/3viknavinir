@@ -23,9 +23,12 @@ namespace _3viknavinir.Repo
 							   select c).SingleOrDefault();
 			return category;
 		}
-        //public string GetCategoryByName( string name )
-        //{
-
-        //}
+		public IEnumerable<Category> GetCategoryByName(string name)
+		{
+			IEnumerable<Category> category = (from c in db.Category
+								 where c.name == name
+								 select c).ToList();
+			return category;
+		}
 	}
 }
