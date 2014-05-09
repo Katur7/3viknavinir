@@ -18,7 +18,7 @@ body {
 
 footer {
 	height:30px;
-	position: absolute;
+	clear: both;
 	bottom:0;
 	left:0;
     right: 0;
@@ -173,7 +173,7 @@ input[type="checkbox"].input-validation-error {
 
 .crumbs {
     list-style-type: none;
-    padding: 17px 17px 17px 0px;
+    padding: 5px 5px 5px 5px;
 }
 
 .crumbs li{
