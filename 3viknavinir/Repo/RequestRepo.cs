@@ -10,20 +10,40 @@ namespace _3viknavinir.Repo
 	{
 		private VERK014_H3Entities db = new VERK014_H3Entities();
 		
-		public string GetRequestByID(int id)
+		public Request GetRequestByID(int id)
 		{
 			var request = (from r in db.Requests 
 							where r.Id == id
-							select r.title).FirstOrDefault();
+							select r).FirstOrDefault();
 			return request;
 		}
 
-		public string GetRequestByName(string name)
+		public Request GetRequestByName(string name)
 		{
 			var request = (from r in db.Requests
 						   where r.title == name
-						   select r.title).FirstOrDefault();
+						   select r).FirstOrDefault();
 			return request;
+		}
+
+		public Request GetRequestByIMDBID(string imdbid)
+		{
+			var request = (from r in db.Requests
+						   where r.imdbID == imdbid
+						   select r).FirstOrDefault();
+			return request;
+		}
+
+		public IEnumerable<Request> GetAllRequests()
+		{
+			IEnumerable<Request> allRequests = (from r in db.Requests
+												select r);
+			return allRequests;
+		}
+
+		public void AddRequest()
+		{
+
 		}
 	}
 }
