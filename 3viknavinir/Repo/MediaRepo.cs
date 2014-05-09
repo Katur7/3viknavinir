@@ -15,5 +15,21 @@ namespace _3viknavinir.Repo
 			db.Media.Add(m);
 			db.SaveChanges();
 		}
+
+		public void UpdateMedia(Media m)
+		{
+			int id = m.Id;
+			Media mediaToUpdate = (from media in db.Media
+								   where media.Id == id
+								   select media).SingleOrDefault();
+			mediaToUpdate.title = m.title;
+			mediaToUpdate.yearOfRelease = m.yearOfRelease;
+			mediaToUpdate.description = m.description;
+			mediaToUpdate.categoryID = m.categoryID;
+			mediaToUpdate.posterPath = m.posterPath;
+			db.SaveChanges();
+		}
+
+		
 	}
 }
