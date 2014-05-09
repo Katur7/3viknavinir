@@ -25,10 +25,9 @@ namespace _3viknavinir.Repo
                              select l.name ).FirstOrDefault( );
             return language;
         }
-        public IEnumerable<string> GetAllLanguages()
+        public IEnumerable<Language> GetAllLanguages()
         {
-            var all = (from l in db.Language
-                      select l.name).ToList();
+            var all = db.Language.ToList( );
             return all;
         }
 
