@@ -8,9 +8,9 @@ using System.Web;
 namespace _3viknavinir.Repo
 {
 	// Grímur
-    public class CategoryRepo : VERK014_H3Entities
+    public class CategoryRepo : VERK014_H3Entities1
 	{
-		private VERK014_H3Entities db = new VERK014_H3Entities();
+		private VERK014_H3Entities1 db = new VERK014_H3Entities1();
 
 		public IEnumerable<Category> GetAllCategories()
 		{

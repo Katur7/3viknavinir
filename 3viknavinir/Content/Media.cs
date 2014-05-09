@@ -14,21 +14,11 @@ namespace _3viknavinir.Content
     
     public partial class Media
     {
-        public Media()
-        {
-            this.Discussion = new HashSet<Discussion>();
-            this.Translation = new HashSet<Translation>();
-        }
-    
         public int Id { get; set; }
         public string title { get; set; }
         public int yearOfRelease { get; set; }
         public string description { get; set; }
-        public int categoryID { get; set; }
         public string posterPath { get; set; }
-    
-        public virtual Category Category { get; set; }
-        public virtual ICollection<Discussion> Discussion { get; set; }
-        public virtual ICollection<Translation> Translation { get; set; }
+        public int categoryID { get; set; }
     }
 }

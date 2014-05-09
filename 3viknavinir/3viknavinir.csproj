@@ -160,6 +160,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Content\AspNetUsers.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Content\Category.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
@@ -187,24 +190,22 @@
     <Compile Include="Content\Media.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Content\Request.cs">
+    <Compile Include="Content\Requests.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Content\Translation.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Content\TranslationLine.cs">
+    <Compile Include="Content\TranslationLines.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
     <Compile Include="Content\Upvote.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Content\Users.cs">
-      <DependentUpon>Entity.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InitializeSimpleMembership.cs" />
     <Compile Include="Controllers\ListRequestController.cs" />
     <Compile Include="Controllers\ListTranslationsController.cs" />
     <Compile Include="Controllers\RequestController.cs" />

@@ -12,7 +12,7 @@ namespace _3viknavinir.Content
     using System;
     using System.Collections.Generic;
     
-    public partial class TranslationLine
+    public partial class TranslationLines
     {
         public int Id { get; set; }
         public int chapterNumber { get; set; }

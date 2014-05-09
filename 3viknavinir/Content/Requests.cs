@@ -12,9 +12,9 @@ namespace _3viknavinir.Content
     using System;
     using System.Collections.Generic;
     
-    public partial class Request
+    public partial class Requests
     {
-        public Request()
+        public Requests()
         {
             this.Upvote1 = new HashSet<Upvote>();
         }
@@ -25,9 +25,9 @@ namespace _3viknavinir.Content
         public string title { get; set; }
         public int yearOfRelease { get; set; }
         public string imdbID { get; set; }
-        public int userID { get; set; }
+        public string userID { get; set; }
     
-        public virtual Users Users { get; set; }
+        public virtual AspNetUsers AspNetUsers { get; set; }
         public virtual ICollection<Upvote> Upvote1 { get; set; }
     }
 }

@@ -4,7 +4,17 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="VERK014_H3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="VERK014_H3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Id" />
@@ -51,7 +61,7 @@
           <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="yearOfRelease" Type="int" Nullable="false" />
           <Property Name="imdbID" Type="nvarchar" MaxLength="50" />
-          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="userID" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
         <EntityType Name="Translation">
           <Key>
@@ -86,35 +96,11 @@
           <Property Name="requestID" Type="int" />
           <Property Name="discussionID" Type="int" />
         </EntityType>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="userName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="isBannedUser" Type="bit" Nullable="false" />
-          <Property Name="isAdmin" Type="bit" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_Discussion_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Discussion" Type="Self.Discussion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Discussion">
-              <PropertyRef Name="userID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Requests_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Users">
+            <Principal Role="AspNetUsers">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Requests">
@@ -131,18 +117,6 @@
             </Principal>
             <Dependent Role="Translation">
               <PropertyRef Name="languageID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Translation_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Translation" Type="Self.Translation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Translation">
-              <PropertyRef Name="userID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -194,19 +168,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Upvote_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Upvote" Type="Self.Upvote" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Upvote">
-              <PropertyRef Name="userID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="VERK014_H3ModelStoreContainer">
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Discussion" EntityType="Self.Discussion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
@@ -215,21 +178,12 @@
           <EntitySet Name="Translation" EntityType="Self.Translation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TranslationLines" EntityType="Self.TranslationLines" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Upvote" EntityType="Self.Upvote" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Discussion_Users" Association="Self.FK_Discussion_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Discussion" EntitySet="Discussion" />
-          </AssociationSet>
           <AssociationSet Name="FK_Requests_Users" Association="Self.FK_Requests_Users">
-            <End Role="Users" EntitySet="Users" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
           <AssociationSet Name="FK_Translation_Language" Association="Self.FK_Translation_Language">
             <End Role="Language" EntitySet="Language" />
-            <End Role="Translation" EntitySet="Translation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Translation_Users" Association="Self.FK_Translation_Users">
-            <End Role="Users" EntitySet="Users" />
             <End Role="Translation" EntitySet="Translation" />
           </AssociationSet>
           <AssociationSet Name="FK_TranslationLines_Translation" Association="Self.FK_TranslationLines_Translation">
@@ -248,22 +202,29 @@
             <End Role="Translation" EntitySet="Translation" />
             <End Role="Upvote" EntitySet="Upvote" />
           </AssociationSet>
-          <AssociationSet Name="FK_Upvote_Users" Association="Self.FK_Upvote_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Upvote" EntitySet="Upvote" />
-          </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="VERK014_H3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Discriminator" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK_Requests_Users" FromRole="AspNetUsers" ToRole="Requests" />
+        </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Media" Relationship="Self.FK_Media_Category" FromRole="Category" ToRole="Media" />
           <Property Name="posterPath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Discussion">
@@ -275,8 +236,6 @@
           <Property Name="dateAdded" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="userID" Type="Int32" Nullable="false" />
           <Property Name="mediaID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Media" Relationship="Self.FK_Discussion_Media" FromRole="Discussion" ToRole="Media" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_Discussion_Users" FromRole="Discussion" ToRole="Users" />
           <NavigationProperty Name="Upvote" Relationship="Self.FK_Upvote_Discussion" FromRole="Discussion" ToRole="Upvote" />
         </EntityType>
         <EntityType Name="Language">
@@ -295,13 +254,10 @@
           <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="yearOfRelease" Type="Int32" Nullable="false" />
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="posterPath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="categoryID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Category" Relationship="Self.FK_Media_Category" FromRole="Media" ToRole="Category" />
-          <NavigationProperty Name="Discussion" Relationship="Self.FK_Discussion_Media" FromRole="Media" ToRole="Discussion" />
-          <NavigationProperty Name="Translation" Relationship="Self.FK_Translation_Media" FromRole="Media" ToRole="Translation" />
-          <Property Name="posterPath" Type="String" Nullable="false" />
         </EntityType>
-        <EntityType Name="Request">
+        <EntityType Name="Requests">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -311,8 +267,8 @@
           <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="yearOfRelease" Type="Int32" Nullable="false" />
           <Property Name="imdbID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="userID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_Requests_Users" FromRole="Requests" ToRole="Users" />
+          <Property Name="userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_Requests_Users" FromRole="Requests" ToRole="AspNetUsers" />
           <NavigationProperty Name="Upvote1" Relationship="Self.FK_Upvote_Request" FromRole="Requests" ToRole="Upvote" />
         </EntityType>
         <EntityType Name="Translation">
@@ -325,12 +281,10 @@
           <Property Name="languageID" Type="Int32" Nullable="false" />
           <Property Name="userID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Language" Relationship="Self.FK_Translation_Language" FromRole="Translation" ToRole="Language" />
-          <NavigationProperty Name="Media" Relationship="Self.FK_Translation_Media" FromRole="Translation" ToRole="Media" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_Translation_Users" FromRole="Translation" ToRole="Users" />
           <NavigationProperty Name="TranslationLines" Relationship="Self.FK_TranslationLines_Translation" FromRole="Translation" ToRole="TranslationLines" />
           <NavigationProperty Name="Upvote" Relationship="Self.FK_Upvote_Translation" FromRole="Translation" ToRole="Upvote" />
         </EntityType>
-        <EntityType Name="TranslationLine">
+        <EntityType Name="TranslationLines">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -356,56 +310,15 @@
           <NavigationProperty Name="Discussion" Relationship="Self.FK_Upvote_Discussion" FromRole="Upvote" ToRole="Discussion" />
           <NavigationProperty Name="Requests" Relationship="Self.FK_Upvote_Request" FromRole="Upvote" ToRole="Requests" />
           <NavigationProperty Name="Translation" Relationship="Self.FK_Upvote_Translation" FromRole="Upvote" ToRole="Translation" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_Upvote_Users" FromRole="Upvote" ToRole="Users" />
         </EntityType>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="isBannedUser" Type="Boolean" Nullable="false" />
-          <Property Name="isAdmin" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Discussion" Relationship="Self.FK_Discussion_Users" FromRole="Users" ToRole="Discussion" />
-          <NavigationProperty Name="Requests" Relationship="Self.FK_Requests_Users" FromRole="Users" ToRole="Requests" />
-          <NavigationProperty Name="Translation" Relationship="Self.FK_Translation_Users" FromRole="Users" ToRole="Translation" />
-          <NavigationProperty Name="Upvote" Relationship="Self.FK_Upvote_Users" FromRole="Users" ToRole="Upvote" />
-        </EntityType>
-        <Association Name="FK_Media_Category">
-          <End Role="Category" Type="Self.Category" Multiplicity="1" />
-          <End Role="Media" Type="Self.Media" Multiplicity="*" />
+        <Association Name="FK_Requests_Users">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Category">
+            <Principal Role="AspNetUsers">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Media">
-              <PropertyRef Name="categoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Discussion_Media">
-          <End Role="Media" Type="Self.Media" Multiplicity="1" />
-          <End Role="Discussion" Type="Self.Discussion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Media">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Discussion">
-              <PropertyRef Name="mediaID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Discussion_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Discussion" Type="Self.Discussion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Discussion">
+            <Dependent Role="Requests">
               <PropertyRef Name="userID" />
             </Dependent>
           </ReferentialConstraint>
@@ -434,32 +347,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Translation_Media">
-          <End Role="Media" Type="Self.Media" Multiplicity="1" />
-          <End Role="Translation" Type="Self.Translation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Media">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Translation">
-              <PropertyRef Name="mediaID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Requests_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Requests" Type="VERK014_H3Model.Request" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Requests">
-              <PropertyRef Name="userID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Upvote_Request">
-          <End Role="Requests" Type="VERK014_H3Model.Request" Multiplicity="0..1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="0..1" />
           <End Role="Upvote" Type="Self.Upvote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Requests">
@@ -470,21 +359,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Translation_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Translation" Type="Self.Translation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Translation">
-              <PropertyRef Name="userID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TranslationLines_Translation">
           <End Role="Translation" Type="Self.Translation" Multiplicity="1" />
-          <End Role="TranslationLines" Type="VERK014_H3Model.TranslationLine" Multiplicity="*" />
+          <End Role="TranslationLines" Type="Self.TranslationLines" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Translation">
               <PropertyRef Name="Id" />
@@ -506,39 +383,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Upvote_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Upvote" Type="Self.Upvote" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Upvote">
-              <PropertyRef Name="userID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="VERK014_H3Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="VERK014_H3Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
           <EntitySet Name="Category" EntityType="Self.Category" />
           <EntitySet Name="Discussion" EntityType="Self.Discussion" />
           <EntitySet Name="Language" EntityType="Self.Language" />
           <EntitySet Name="Media" EntityType="Self.Media" />
-          <EntitySet Name="Requests" EntityType="VERK014_H3Model.Request" />
+          <EntitySet Name="Requests" EntityType="Self.Requests" />
           <EntitySet Name="Translation" EntityType="Self.Translation" />
-          <EntitySet Name="TranslationLines" EntityType="VERK014_H3Model.TranslationLine" />
+          <EntitySet Name="TranslationLines" EntityType="Self.TranslationLines" />
           <EntitySet Name="Upvote" EntityType="Self.Upvote" />
-          <EntitySet Name="Users" EntityType="Self.Users" />
-          <AssociationSet Name="FK_Media_Category" Association="Self.FK_Media_Category">
-            <End Role="Category" EntitySet="Category" />
-            <End Role="Media" EntitySet="Media" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Discussion_Media" Association="Self.FK_Discussion_Media">
-            <End Role="Media" EntitySet="Media" />
-            <End Role="Discussion" EntitySet="Discussion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Discussion_Users" Association="Self.FK_Discussion_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Discussion" EntitySet="Discussion" />
+          <AssociationSet Name="FK_Requests_Users" Association="Self.FK_Requests_Users">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
           <AssociationSet Name="FK_Upvote_Discussion" Association="Self.FK_Upvote_Discussion">
             <End Role="Discussion" EntitySet="Discussion" />
@@ -548,21 +405,9 @@
             <End Role="Language" EntitySet="Language" />
             <End Role="Translation" EntitySet="Translation" />
           </AssociationSet>
-          <AssociationSet Name="FK_Translation_Media" Association="Self.FK_Translation_Media">
-            <End Role="Media" EntitySet="Media" />
-            <End Role="Translation" EntitySet="Translation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Requests_Users" Association="Self.FK_Requests_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Requests" EntitySet="Requests" />
-          </AssociationSet>
           <AssociationSet Name="FK_Upvote_Request" Association="Self.FK_Upvote_Request">
             <End Role="Requests" EntitySet="Requests" />
             <End Role="Upvote" EntitySet="Upvote" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Translation_Users" Association="Self.FK_Translation_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Translation" EntitySet="Translation" />
           </AssociationSet>
           <AssociationSet Name="FK_TranslationLines_Translation" Association="Self.FK_TranslationLines_Translation">
             <End Role="Translation" EntitySet="Translation" />
@@ -572,23 +417,30 @@
             <End Role="Translation" EntitySet="Translation" />
             <End Role="Upvote" EntitySet="Upvote" />
           </AssociationSet>
-          <AssociationSet Name="FK_Upvote_Users" Association="Self.FK_Upvote_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Upvote" EntitySet="Upvote" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="VERK014_H3ModelStoreContainer" CdmEntityContainer="VERK014_H3Entities">
+        <EntityContainerMapping StorageEntityContainer="VERK014_H3ModelStoreContainer" CdmEntityContainer="VERK014_H3Entities1">
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="VERK014_H3Model.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Category">
             <EntityTypeMapping TypeName="VERK014_H3Model.Category">
               <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="posterPath" ColumnName="posterPath" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="posterPath" ColumnName="posterPath" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -614,17 +466,17 @@
           <EntitySetMapping Name="Media">
             <EntityTypeMapping TypeName="VERK014_H3Model.Media">
               <MappingFragment StoreEntitySet="Media">
-                <ScalarProperty Name="posterPath" ColumnName="posterPath" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="yearOfRelease" ColumnName="yearOfRelease" />
                 <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="posterPath" ColumnName="posterPath" />
                 <ScalarProperty Name="categoryID" ColumnName="categoryID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Requests">
-            <EntityTypeMapping TypeName="VERK014_H3Model.Request">
+            <EntityTypeMapping TypeName="VERK014_H3Model.Requests">
               <MappingFragment StoreEntitySet="Requests">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="upvote" ColumnName="upvote" />
@@ -648,7 +500,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TranslationLines">
-            <EntityTypeMapping TypeName="VERK014_H3Model.TranslationLine">
+            <EntityTypeMapping TypeName="VERK014_H3Model.TranslationLines">
               <MappingFragment StoreEntitySet="TranslationLines">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="chapterNumber" ColumnName="chapterNumber" />
@@ -669,19 +521,6 @@
                 <ScalarProperty Name="translationID" ColumnName="translationID" />
                 <ScalarProperty Name="requestID" ColumnName="requestID" />
                 <ScalarProperty Name="discussionID" ColumnName="discussionID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="VERK014_H3Model.Users">
-              <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="userName" ColumnName="userName" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="isBannedUser" ColumnName="isBannedUser" />
-                <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

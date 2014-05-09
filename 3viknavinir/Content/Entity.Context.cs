@@ -13,10 +13,10 @@ namespace _3viknavinir.Content
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class VERK014_H3Entities : DbContext
+    public partial class VERK014_H3Entities1 : DbContext
     {
-        public VERK014_H3Entities()
-            : base("name=VERK014_H3Entities")
+        public VERK014_H3Entities1()
+            : base("name=VERK014_H3Entities1")
         {
         }
     
@@ -25,14 +25,14 @@ namespace _3viknavinir.Content
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Discussion> Discussion { get; set; }
         public virtual DbSet<Language> Language { get; set; }
         public virtual DbSet<Media> Media { get; set; }
-        public virtual DbSet<Request> Requests { get; set; }
+        public virtual DbSet<Requests> Requests { get; set; }
         public virtual DbSet<Translation> Translation { get; set; }
-        public virtual DbSet<TranslationLine> TranslationLines { get; set; }
+        public virtual DbSet<TranslationLines> TranslationLines { get; set; }
         public virtual DbSet<Upvote> Upvote { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
     }
 }

@@ -7,9 +7,9 @@ using System.Web;
 
 namespace _3viknavinir.Repo
 {
-    public class LanguageRepo : VERK014_H3Entities
+    public class LanguageRepo : VERK014_H3Entities1
     {
-        private VERK014_H3Entities db = new VERK014_H3Entities( );
+        private VERK014_H3Entities1 db = new VERK014_H3Entities1( );
 
         public Language GetLanguageByID(int id)
         {

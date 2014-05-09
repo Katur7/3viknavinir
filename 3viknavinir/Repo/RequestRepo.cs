@@ -6,11 +6,11 @@ using System.Web;
 
 namespace _3viknavinir.Repo
 {
-	public class RequestRepo
+	public class RequestRepo : IDisposable
 	{
-		private VERK014_H3Entities db = new VERK014_H3Entities();
+		private VERK014_H3Entities1 db = new VERK014_H3Entities1();
 		
-		public Request GetRequestByID(int id)
+		public Requests GetRequestByID(int id)
 		{
 			var request = (from r in db.Requests 
 							where r.Id == id
@@ -18,7 +18,7 @@ namespace _3viknavinir.Repo
 			return request;
 		}
 
-		public Request GetRequestByName(string name)
+		public Requests GetRequestByName(string name)
 		{
 			var request = (from r in db.Requests
 						   where r.title == name
@@ -26,7 +26,7 @@ namespace _3viknavinir.Repo
 			return request;
 		}
 
-		public Request GetRequestByIMDBID(string imdbid)
+		public Requests GetRequestByIMDBID(string imdbid)
 		{
 			var request = (from r in db.Requests
 						   where r.imdbID == imdbid
@@ -34,15 +34,16 @@ namespace _3viknavinir.Repo
 			return request;
 		}
 
-		public IEnumerable<Request> GetAllRequests()
-		{equests = (from r in db.Requests
+		public IEnumerable<Requests> GetAllRequests()
+		{
+			IEnumerable<Requests> allRequests = (from r in db.Requests
 												select r);
-			IEnumerable<Request> allR
 			return allRequests;
 		}
 
-		public void AddRequest(Request r)
+		public void AddRequest(Requests r)
 		{
+			r.dateOfRequest = DateTime.Now;
 			db.Requests.Add(r);
 			db.SaveChanges();
 		}
@@ -57,6 +58,11 @@ namespace _3viknavinir.Repo
 			upvote.requestID = id;
 			upvote.translationID = null;
 			upvote.discussionID = null;
+		}
+
+		public void Dispose()
+		{
+			db.Dispose();
 		}
 	}
 }

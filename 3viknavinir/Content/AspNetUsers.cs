@@ -12,16 +12,19 @@ namespace _3viknavinir.Content
     using System;
     using System.Collections.Generic;
     
-    public partial class Upvote
+    public partial class AspNetUsers
     {
-        public int Id { get; set; }
-        public int userID { get; set; }
-        public Nullable<int> translationID { get; set; }
-        public Nullable<int> requestID { get; set; }
-        public Nullable<int> discussionID { get; set; }
+        public AspNetUsers()
+        {
+            this.Requests = new HashSet<Requests>();
+        }
     
-        public virtual Discussion Discussion { get; set; }
-        public virtual Requests Requests { get; set; }
-        public virtual Translation Translation { get; set; }
+        public string Id { get; set; }
+        public string UserName { get; set; }
+        public string PasswordHash { get; set; }
+        public string SecurityStamp { get; set; }
+        public string Discriminator { get; set; }
+    
+        public virtual ICollection<Requests> Requests { get; set; }
     }
 }

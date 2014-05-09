@@ -25,8 +25,6 @@ namespace _3viknavinir.Content
         public int userID { get; set; }
         public int mediaID { get; set; }
     
-        public virtual Media Media { get; set; }
-        public virtual Users Users { get; set; }
         public virtual ICollection<Upvote> Upvote { get; set; }
     }
 }

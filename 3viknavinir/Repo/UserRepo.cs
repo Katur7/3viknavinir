@@ -6,7 +6,8 @@ using _3viknavinir.Content;
 //Fanney
 namespace _3viknavinir.Repo
 {
-    public class UserRepo
+    /*
+	public class UserRepo
     {
         private VERK014_H3Entities db = new VERK014_H3Entities();
 
@@ -37,11 +38,7 @@ namespace _3viknavinir.Repo
                                              select u.email);
             return allEmails;
         }
-        public void AddUser(Users U)
-        {
-            db.Users.Add(U);
-            db.SaveChanges();
-        }
+	 
 
-    }	
+    }	*/
 }

@@ -14,15 +14,8 @@ namespace _3viknavinir.Content
     
     public partial class Category
     {
-        public Category()
-        {
-            this.Media = new HashSet<Media>();
-        }
-    
         public int Id { get; set; }
         public string name { get; set; }
         public string posterPath { get; set; }
-    
-        public virtual ICollection<Media> Media { get; set; }
     }
 }
