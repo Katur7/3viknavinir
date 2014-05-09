@@ -24,7 +24,7 @@ namespace _3viknavinir.Models
 
         public int languageID { get; set; }
 
-        public int userID { get; set; }
+        public string userID { get; set; }
 
         public virtual Language Language { get; set; }
 

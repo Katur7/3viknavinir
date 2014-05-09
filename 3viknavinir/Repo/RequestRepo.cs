@@ -48,7 +48,7 @@ namespace _3viknavinir.Repo
 			db.SaveChanges();
 		}
 
-		public void UpvoteRequest(int id, int userId)
+		public void UpvoteRequest(int id, string userId)
 		{
 			var upvote = (from u in db.Upvote
 						  where u.Id == id

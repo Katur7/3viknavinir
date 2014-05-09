@@ -23,7 +23,7 @@ namespace _3viknavinir.Models
 
         public DateTime dateAdded { get; set; }
 
-        public int userID { get; set; }
+        public string userID { get; set; }
 
         public int mediaID { get; set; }
 

@@ -12,7 +12,7 @@ namespace _3viknavinir.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
-        public int userID { get; set; }
+        public string userID { get; set; }
 
         public int? translationID { get; set; }
 
