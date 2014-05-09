@@ -7,5 +7,6 @@ namespace _3viknavinir.Repo
 {
 	public class TranslationLinesRepo
 	{
+        
 	}
 }
