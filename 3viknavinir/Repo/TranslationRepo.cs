@@ -7,7 +7,7 @@ using System.Web;
 
 namespace _3viknavinir.Repo
 {
-	public class TranslationRepo
+	public class TranslationRepo : IDisposable
 	{
 		private _3viknaContext db = new _3viknaContext();
 
