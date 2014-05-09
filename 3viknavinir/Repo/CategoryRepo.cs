@@ -13,7 +13,7 @@ namespace _3viknavinir.Repo
 		//{
 		//	private ApplicationDbContext db = new ApplicationDbContext();
 		//}
-		
+		//
 
 		//public IEnumerable<Category> GetAllCategories()
 		//{
