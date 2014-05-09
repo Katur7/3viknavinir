@@ -12,17 +12,18 @@ namespace _3viknavinir.Models
 
     public class ManageUserViewModel
     {
-        [Required( ErrorMessage = "Vinsamlegast sláðu inn lykilorð." )]
+        [Required( ErrorMessage = "Vinsamlegast sláðu inn núverandi lykilorðið þitt." )]
         [DataType(DataType.Password)]
         [Display(Name = "Núverandi lykilorð")]
         public string OldPassword { get; set; }
 
-        [Required]
+        [Required( ErrorMessage = "Vinsamlegast sláðu inn nýtt lykilorð.")]
         [StringLength(100, ErrorMessage = "Lykilorðið verður að vera að minnsta kosti 6 stafir", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "New password")]
+        [Display(Name = "Nýtt lykilorð")]
         public string NewPassword { get; set; }
 
+        [Required( ErrorMessage = "Vinsamlegast staðfestu nýja lykilorðið." )]
         [DataType(DataType.Password)]
         [Display(Name = "Staðfestu nýtt lykilorð")]
         [Compare("NewPassword", ErrorMessage = "Lykilorðin passa ekki saman")]
