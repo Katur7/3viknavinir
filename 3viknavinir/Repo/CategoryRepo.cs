@@ -9,14 +9,13 @@ namespace _3viknavinir.Repo
 {
     public class CategoryRepo : VERK014_H3Entities
 	{
-		//public ApplicationDbContext db = new ApplicationDbContext();
+		public VERK014_H3Entities db = new VERK014_H3Entities();
 
-		//public IEnumerable<Category> GetAllCategories()
-		//{
-		//	var all = from c in db
-		//			  select c;
-		//	return all;
-		//}
+		public IEnumerable<Category> GetAllCategories()
+		{
+			var all = db.Category.ToList();
+			return all;
+		}
         //public string GetCategoryByID( int id )
         //{
             
