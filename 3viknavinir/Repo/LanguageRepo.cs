@@ -27,9 +27,8 @@ namespace _3viknavinir.Repo
         }
         public IEnumerable<Language> GetAllLanguages()
         {
-            var all = from l in db.Language
-                      select l;
-                      return all;
+            var all = db.Language.ToList( );
+            return all;
         }
 
         
