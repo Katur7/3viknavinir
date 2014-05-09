@@ -250,3 +250,7 @@ input[type="checkbox"].input-validation-error {
     display: block;
     text-align: center;
 }
+.categoryName {
+    font-size:20px;
+    color:#000000;
+}
