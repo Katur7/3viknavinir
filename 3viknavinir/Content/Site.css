@@ -101,6 +101,7 @@ th {
 .login {
 	margin: 0px;
 	padding: 0px 0px 40px 0px;
+	display: inline;
 }
 
 .leftheader {
@@ -249,4 +250,8 @@ input[type="checkbox"].input-validation-error {
 .categoriesPhoto a {
     display: block;
     text-align: center;
+}
+.categoryName {
+    font-size:20px;
+    color:#000000;
 }
