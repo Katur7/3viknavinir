@@ -101,6 +101,16 @@ th {
 .login {
 	margin: 0px;
 	padding: 0px 0px 40px 0px;
+	display: inline;
+}
+
+.loginButton {
+	margin-left: 40px;
+}
+
+.rememberMe {
+	margin-left: 150px;
+	margin-top: 10px;
 }
 
 .leftheader {
