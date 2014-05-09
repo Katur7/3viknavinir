@@ -1,14 +1,14 @@
-﻿using _3viknavinir.Content;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using _3viknavinir.Models;
 
 namespace _3viknavinir.Repo
 {
-	public class MediaRepo : VERK014_H3Entities1
+	public class MediaRepo
 	{
-		private VERK014_H3Entities1 db = new VERK014_H3Entities1();
+		private _3viknaContext db = new _3viknaContext();
 
 		public void AddMedia(Media m)
 		{
@@ -16,17 +16,17 @@ namespace _3viknavinir.Repo
 			db.SaveChanges();
 		}
 
-		public void UpdateMedia(Media m)
+		public void UpdateMedia(Media newmedia)
 		{
-			int id = m.Id;
+			int id = newmedia.Id;
 			Media mediaToUpdate = (from media in db.Media
 								   where media.Id == id
 								   select media).SingleOrDefault();
-			mediaToUpdate.title = m.title;
-			mediaToUpdate.yearOfRelease = m.yearOfRelease;
-			mediaToUpdate.description = m.description;
-			mediaToUpdate.categoryID = m.categoryID;
-			mediaToUpdate.posterPath = m.posterPath;
+			mediaToUpdate.title = newmedia.title;
+			mediaToUpdate.yearOfRelease = newmedia.yearOfRelease;
+			mediaToUpdate.description = newmedia.description;
+			mediaToUpdate.categoryID = newmedia.categoryID;
+			mediaToUpdate.posterPath = newmedia.posterPath;
 			db.SaveChanges();
 		}
 

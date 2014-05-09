@@ -160,52 +160,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Content\AspNetUsers.cs">
-      <DependentUpon>Entity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Category.cs">
-      <DependentUpon>Entity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Discussion.cs">
-      <DependentUpon>Entity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Entity.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Entity.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Entity.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Entity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Entity.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Entity.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Language.cs">
-      <DependentUpon>Entity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Media.cs">
-      <DependentUpon>Entity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Requests.cs">
-      <DependentUpon>Entity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Translation.cs">
-      <DependentUpon>Entity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Content\TranslationLines.cs">
-      <DependentUpon>Entity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Content\Upvote.cs">
-      <DependentUpon>Entity.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\InitializeSimpleMembership.cs" />
     <Compile Include="Controllers\ListRequestController.cs" />
     <Compile Include="Controllers\ListTranslationsController.cs" />
     <Compile Include="Controllers\RequestController.cs" />
@@ -213,10 +170,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\3viknaContext.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Discussion.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Language.cs" />
+    <Compile Include="Models\Media.cs" />
+    <Compile Include="Models\Requests.cs" />
     <Compile Include="Models\RequestViewModels.cs" />
+    <Compile Include="Models\Translation.cs" />
+    <Compile Include="Models\TranslationLines.cs" />
     <Compile Include="Models\TranslationViewModel.cs" />
+    <Compile Include="Models\Upvote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repo\CategoryRepo.cs" />
     <Compile Include="Repo\DiscussionRepo.cs" />
@@ -225,7 +192,6 @@
     <Compile Include="Repo\RequestRepo.cs" />
     <Compile Include="Repo\TranslationLinesRepo.cs" />
     <Compile Include="Repo\TranslationRepo.cs" />
-    <Compile Include="Repo\UserRepo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -258,23 +224,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Content\Entity.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Entity.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Content\Entity.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Entity.edmx</DependentUpon>
-      <LastGenOutput>Entity.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Content\Entity.edmx.diagram">
-      <DependentUpon>Entity.edmx</DependentUpon>
-    </Content>
-    <Content Include="Content\Entity.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Entity.edmx</DependentUpon>
-      <LastGenOutput>Entity.cs</LastGenOutput>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\javascriptcustom1.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

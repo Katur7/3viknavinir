@@ -1,4 +1,4 @@
-﻿using _3viknavinir.Content;
+﻿using _3viknavinir;
 using _3viknavinir.Models;
 using System;
 using System.Collections.Generic;
@@ -8,9 +8,9 @@ using System.Web;
 namespace _3viknavinir.Repo
 {
 	// Grímur
-    public class CategoryRepo : VERK014_H3Entities1
+    public class CategoryRepo
 	{
-		private VERK014_H3Entities1 db = new VERK014_H3Entities1();
+		private _3viknaContext db = new _3viknaContext();
 
 		public IEnumerable<Category> GetAllCategories()
 		{

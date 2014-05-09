@@ -1,4 +1,5 @@
-﻿using _3viknavinir.Content;
+﻿using _3viknavinir;
+using _3viknavinir.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +7,9 @@ using System.Web;
 
 namespace _3viknavinir.Repo
 {
-    public class DiscussionRepo : VERK014_H3Entities1
+    public class DiscussionRepo
     {
-        private VERK014_H3Entities1 db = new VERK014_H3Entities1();
+        private _3viknaContext db = new _3viknaContext();
 
         public IEnumerable<string> GetCommentByMediaID(int mediaid)
         {

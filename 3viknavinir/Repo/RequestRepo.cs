@@ -1,4 +1,5 @@
-﻿using _3viknavinir.Content;
+﻿using _3viknavinir;
+using _3viknavinir.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +7,9 @@ using System.Web;
 
 namespace _3viknavinir.Repo
 {
-	public class RequestRepo : IDisposable
+	public class RequestRepo
 	{
-		private VERK014_H3Entities1 db = new VERK014_H3Entities1();
+		private _3viknaContext db = new _3viknaContext();
 		
 		public Requests GetRequestByID(int id)
 		{
@@ -43,7 +44,6 @@ namespace _3viknavinir.Repo
 
 		public void AddRequest(Requests r)
 		{
-			r.dateOfRequest = DateTime.Now;
 			db.Requests.Add(r);
 			db.SaveChanges();
 		}
@@ -58,11 +58,6 @@ namespace _3viknavinir.Repo
 			upvote.requestID = id;
 			upvote.translationID = null;
 			upvote.discussionID = null;
-		}
-
-		public void Dispose()
-		{
-			db.Dispose();
 		}
 	}
 }
