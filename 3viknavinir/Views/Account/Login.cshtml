@@ -24,37 +24,42 @@
                 <hr />
                 @Html.ValidationSummary(true)
                 <div class="login">
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder="Notendanafn" })
-                        @Html.ValidationMessageFor(m => m.UserName)
+                    <div class="form-group ">
+                        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder="Notendanafn" })
+                            @Html.ValidationMessageFor(m => m.UserName)
+                        </div>
                     </div>
                 </div>
                 <div class="login">
-                    <div class="col-md-10">
-                        @Html.PasswordFor( m => m.Password, new { @class = "form-control", placeholder = "Lykilorð" } )
-                        @Html.ValidationMessageFor(m => m.Password)
-					
+                    <div class="form-group ">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor( m => m.Password, new { @class = "form-control", placeholder = "Lykilorð" } )
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </div>
                     </div>
                 </div>
     <div>
+		<div class="rememberMe">
+			<span class="lostPW">
+				@Html.ActionLink("Gleymt Lykilorð", "LostPassword", "Account")
+			</span>
+			@Html.CheckBoxFor(m => m.RememberMe)
+			@Html.LabelFor(m => m.RememberMe)
+		</div>
         <div class="col-lg-offset-0">
-            <div class="login">
+            <div class="loginButton">
                 <input type="submit" value="Innskrá" class="btn btn-default" />
             </div>
         </div>
-        <div class="login">
-            <div class="col-lg-offset-2 col-md-10">
-                @Html.ActionLink("Gleymt Lykilorð", "LostPassword", "Account")
-                <div class="checkbox">
-                    @Html.CheckBoxFor(m => m.RememberMe)
-                    @Html.LabelFor(m => m.RememberMe)
-                </div>
-            </div>
-        </div>
+		<div class="ifNoAccount">
+			<p>
+				@Html.ActionLink("Nýskráðu", "Register") þig ef þú átt ekki aðgang.
+			</p>
+		</div>
     </div>
-                <p>
-                    @Html.ActionLink("Nýskráðu", "Register") þig ef þú átt ekki aðgang.
-                </p>
             }
         </section>
     </div>
