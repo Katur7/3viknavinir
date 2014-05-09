@@ -1,4 +1,4 @@
-﻿using _3viknavinir.Content;
+﻿using _3viknavinir;
 using _3viknavinir.Models;
 using _3viknavinir.Repo;
 using System;
@@ -33,7 +33,7 @@ namespace _3viknavinir.Controllers
 		[HttpPost]
 		public ActionResult NewRequest(NewRequestViewModel model)
 		{
-			string bla = "";
+			/*string bla = "";
 			using (RequestRepo repo = new RequestRepo())
 			{
 				repo.AddRequest(new Requests() {
@@ -43,7 +43,7 @@ namespace _3viknavinir.Controllers
 					userID = User.Identity.GetUserId()
 				});
 			}
-
+			*/
 
 			return View();
 		}
