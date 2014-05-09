@@ -9,18 +9,22 @@ namespace _3viknavinir.Repo
 	public class DiscussionRepo : VERK014_H3Entities
 	{
         private VERK014_H3Entities db = new VERK014_H3Entities();
+
+        public IEnumerable<string> GetCommentByMediaID(int mediaid)
+        {
+            var all = (from m in db.Discussion
+                       where m.mediaID == mediaid
+                       select m.comment).ToList();
+                       return all;
+        }
+        public void AddComment(Discussion c)
+        {
+            db.Discussion.Add(c);
+                db.SaveChanges();
+        }
+        public void GetCommentByID(int id)
+        {
+
+        }
 	}
 }
-
-
-/*public class LanguageRepo : VERK014_H3Entities
-    {
-        private VERK014_H3Entities db = new VERK014_H3Entities( );
-
-        public string GetLanguageByID(int id)
-        {
-            var language = (from l in db.Language
-                            where l.Id == id
-                            select l.name).FirstOrDefault();
-            return language;
-        }*/
