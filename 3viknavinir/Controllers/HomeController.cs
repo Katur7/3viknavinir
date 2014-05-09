@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _3viknavinir.Repo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,10 @@ namespace _3viknavinir.Controllers
 	{
 		public ActionResult Index()
 		{
+			using(TranslationRepo translationrepo = new TranslationRepo())
+			{
+				translationrepo.GetAllTranslations();
+			}
 			return View();
 		}
 
