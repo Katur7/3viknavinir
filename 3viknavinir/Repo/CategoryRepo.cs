@@ -7,6 +7,7 @@ using System.Web;
 
 namespace _3viknavinir.Repo
 {
+	// Grímur
     public class CategoryRepo : VERK014_H3Entities
 	{
 		private VERK014_H3Entities db = new VERK014_H3Entities();
