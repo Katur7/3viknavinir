@@ -9,7 +9,7 @@ namespace _3viknavinir.Repo
 {
     public class CategoryRepo : VERK014_H3Entities
 	{
-		public VERK014_H3Entities db = new VERK014_H3Entities();
+		private VERK014_H3Entities db = new VERK014_H3Entities();
 
 		public IEnumerable<Category> GetAllCategories()
 		{
