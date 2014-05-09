@@ -6,8 +6,8 @@ using System.Web;
 
 namespace _3viknavinir.Repo
 {
-	public class DiscussionRepo : VERK014_H3Entities
-	{
+    public class DiscussionRepo : VERK014_H3Entities
+    {
         private VERK014_H3Entities db = new VERK014_H3Entities();
 
         public IEnumerable<string> GetCommentByMediaID(int mediaid)
@@ -15,16 +15,20 @@ namespace _3viknavinir.Repo
             var all = (from m in db.Discussion
                        where m.mediaID == mediaid
                        select m.comment).ToList();
-                       return all;
+            return all;
         }
         public void AddComment(Discussion c)
         {
             db.Discussion.Add(c);
-                db.SaveChanges();
+            db.SaveChanges();
         }
-        public void GetCommentByID(int id)
+        public Discussion GetCommentByID(int id)
         {
-
+            var comment = (from c in db.Discussion
+                           where c.Id == id
+                               select c).FirstOrDefault();
+            return comment;
         }
-	}
+    }
 }
+
