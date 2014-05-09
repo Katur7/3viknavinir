@@ -16,10 +16,13 @@ namespace _3viknavinir.Repo
 			var all = db.Category.ToList();
 			return all;
 		}
-        //public string GetCategoryByID( int id )
-        //{
-            
-        //}
+		public Category GetCategoryByID(int id)
+		{
+			Category category = (from c in db.Category
+							   where c.Id == id
+							   select c).SingleOrDefault();
+			return category;
+		}
         //public string GetCategoryByName( string name )
         //{
 
