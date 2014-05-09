@@ -24,16 +24,21 @@
                 <hr />
                 @Html.ValidationSummary(true)
                 <div class="login">
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder="Notendanafn" })
-                        @Html.ValidationMessageFor(m => m.UserName)
+                    <div class="form-group ">
+                        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder="Notendanafn" })
+                            @Html.ValidationMessageFor(m => m.UserName)
+                        </div>
                     </div>
                 </div>
                 <div class="login">
-                    <div class="col-md-10">
-                        @Html.PasswordFor( m => m.Password, new { @class = "form-control", placeholder = "Lykilorð" } )
-                        @Html.ValidationMessageFor(m => m.Password)
-					
+                    <div class="form-group ">
+                        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor( m => m.Password, new { @class = "form-control", placeholder = "Lykilorð" } )
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </div>
                     </div>
                 </div>
     <div>
