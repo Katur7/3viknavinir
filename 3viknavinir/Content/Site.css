@@ -105,12 +105,17 @@ th {
 }
 
 .loginButton {
-	margin-left: 40px;
+	margin-left: 140px;
+	display: inline;
 }
 
 .rememberMe {
 	margin-left: 150px;
 	margin-top: 10px;
+}
+
+.lostPW {
+	margin-left: 60px;
 }
 
 .leftheader {
