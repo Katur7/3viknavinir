@@ -29,7 +29,7 @@ namespace _3viknavinir.Models
         public string ConfirmPassword { get; set; }
     }
     
-
+	//Erla
     public class LoginViewModel
     {
         [Required( ErrorMessage = "Vinsamlegast sláðu inn notendanafn." )]
