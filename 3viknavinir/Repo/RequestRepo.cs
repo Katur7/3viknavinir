@@ -33,5 +33,17 @@ namespace _3viknavinir.Repo
 						   select r).FirstOrDefault();
 			return request;
 		}
+
+		public IEnumerable<Request> GetAllRequests()
+		{
+			IEnumerable<Request> allRequests = (from r in db.Requests
+												select r);
+			return allRequests;
+		}
+
+		public void AddRequest()
+		{
+
+		}
 	}
 }
