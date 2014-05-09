@@ -42,6 +42,20 @@ namespace _3viknavinir.Repo
             db.Users.Add(U);
             db.SaveChanges();
         }
+        public void UpdateUser(Users newUser)
+        {
+            int id = newUser.Id;
+            Users userToUpdate = (from u in db.Users
+                                   where u.Id == id
+                                   select u).SingleOrDefault();
+            userToUpdate.name = newUser.name;
+            userToUpdate.email = newUser.email;
+            userToUpdate.userName = newUser.userName;
+            userToUpdate.password = newUser.password;
+            userToUpdate.isBannedUser = newUser.isBannedUser;
+            userToUpdate.isAdmin = newUser.isAdmin;
+            db.SaveChanges();
+        }
 
     }	
 }
