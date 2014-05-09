@@ -37,6 +37,11 @@ namespace _3viknavinir.Repo
                                              select u.email);
             return allEmails;
         }
+        public void AddUser(Users U)
+        {
+            db.Users.Add(U);
+            db.SaveChanges();
+        }
 
     }	
 }

@@ -35,9 +35,9 @@ namespace _3viknavinir.Repo
 		}
 
 		public IEnumerable<Request> GetAllRequests()
-		{
-			IEnumerable<Request> allRequests = (from r in db.Requests
+		{equests = (from r in db.Requests
 												select r);
+			IEnumerable<Request> allR
 			return allRequests;
 		}
 
