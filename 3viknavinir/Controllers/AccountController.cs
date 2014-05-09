@@ -71,7 +71,7 @@ namespace _3viknavinir.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Invalid username or password.");
+                    ModelState.AddModelError("", "Notendanafn eða lykilorð er ekki rétt.");
                 }
             }
 
@@ -137,10 +137,10 @@ namespace _3viknavinir.Controllers
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
+                message == ManageMessageId.ChangePasswordSuccess ? "Lykilorðinu hefur verið breytt."
+                : message == ManageMessageId.SetPasswordSuccess ? "Lykilorðið hefur verið stillt."
                 : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
-                : message == ManageMessageId.Error ? "An error has occurred."
+                : message == ManageMessageId.Error ? "Villa hefur komið upp."
                 : "";
             ViewBag.HasLocalPassword = HasPassword();
             ViewBag.ReturnUrl = Url.Action("Manage");
