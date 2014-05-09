@@ -25,5 +25,13 @@ namespace _3viknavinir.Repo
 						   select r.title).FirstOrDefault();
 			return request;
 		}
+
+		public string GetRequestByIMDBID(string imdbid)
+		{
+			var request = (from r in db.Requests
+						   where r.imdbID == imdbid
+						   select r.title).FirstOrDefault();
+			return request;
+		}
 	}
 }
