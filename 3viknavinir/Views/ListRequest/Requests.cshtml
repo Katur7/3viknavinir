@@ -1,7 +1,8 @@
-﻿
+﻿@model IEnumerable<_3viknavinir.Models.Requests>
 @{
     ViewBag.Title = "Requests";
 }
+
 <div class="breadcrumb">
 	<ul class="crumbs">
 		<li class="crumb crumb-first">
@@ -15,10 +16,11 @@
 </div>
 
 <h2>Beiðnir</h2>
+
 <div>
 	<form action="/ListRequest/NewRequest/"><input type="submit" value="" id="addRequestButton" /></form>
 </div>
-<div class="requestTableDiv">
+<div class="requesttablediv">
 	<table id="RequestTable" class="table-striped">
 		<thead>
 			<tr class="requestRow">
@@ -29,31 +31,15 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr class="requestRow">
-				<td class="requestName">American Psyco</td>
-				<td class="requestYear">1990</td>
-				<td class="requestIMDBID">id1</td>
-				<td class="requestUpvote">upvote1</td>
-			</tr>
-			<tr class="requestRow">
-				<td class="requestName">Cellular</td>
-				<td class="requestYear">1980</td>
-				<td class="requestIMDBID">id2</td>
-				<td class="requestUpvote">upvote2</td>
-			</tr>
-			<tr class="requestRow">
-				<td class="requestName">Expendables</td>
-				<td class="requestYear">1990</td>
-				<td class="requestIMDBID">id3</td>
-				<td class="requestUpvote">upvote3</td>
-			</tr>
-			<tr class="requestRow">
-				<td class="requestName">Fight Club</td>
-				<td class="requestYear">1970</td>
-				<td class="requestIMDBID">id4</td>
-				<td class="requestUpvote">upvote4</td>
-			</tr>
+			@foreach (var item in Model)
+			{
+				<tr class="requestRow">
+					<td class="requestName">@Html.ActionLink(item.title, "Edit", new { id = item.Id })</td>
+					<td class="requestYear">@Html.DisplayFor(modelItem => item.yearOfRelease)</td>
+					<td class="requestIMDBID">@Html.DisplayFor(modelItem => item.imdbID)</td>
+					<td class="requestUpvote">@Html.DisplayFor(modelItem => item.upvote)</td>
+				</tr>
+			}
 		</tbody>
 	</table>
 </div>
-
