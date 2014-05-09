@@ -4,7 +4,7 @@
     });
 });
 // Steinunn
-$('#myTab frontPage').click(function (e) {
+$('#frontPage').click(function (e) {
     e.preventDefault()
     $(this).tab('show')
 })
