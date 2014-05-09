@@ -1,14 +1,14 @@
-﻿using _3viknavinir.Content;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using _3viknavinir.Models;
 
 namespace _3viknavinir.Repo
 {
-	public class MediaRepo : VERK014_H3Entities
+	public class MediaRepo
 	{
-		private VERK014_H3Entities db = new VERK014_H3Entities();
+		private _3viknaContext db = new _3viknaContext();
 
 		public void AddMedia(Media m)
 		{

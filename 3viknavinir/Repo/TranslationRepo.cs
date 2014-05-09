@@ -1,4 +1,5 @@
-﻿using _3viknavinir.Content;
+﻿using _3viknavinir;
+using _3viknavinir.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace _3viknavinir.Repo
 {
 	public class TranslationRepo
 	{
-        private VERK014_H3Entities db = new VERK014_H3Entities( );
+		private _3viknaContext db = new _3viknaContext();
 
         public void AddTranslation( Translation t )
         {

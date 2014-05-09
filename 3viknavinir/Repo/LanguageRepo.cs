@@ -1,4 +1,4 @@
-﻿using _3viknavinir.Content;
+﻿using _3viknavinir;
 using _3viknavinir.Models;
 using System;
 using System.Collections.Generic;
@@ -7,9 +7,9 @@ using System.Web;
 
 namespace _3viknavinir.Repo
 {
-    public class LanguageRepo : VERK014_H3Entities
+    public class LanguageRepo
     {
-        private VERK014_H3Entities db = new VERK014_H3Entities( );
+		private _3viknaContext db = new _3viknaContext();
 
         public Language GetLanguageByID(int id)
         {
