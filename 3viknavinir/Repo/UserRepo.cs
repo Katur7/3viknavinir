@@ -24,13 +24,18 @@ namespace _3viknavinir.Repo
                         select u).FirstOrDefault();
             return user;
         }
-
         public IEnumerable<Users> GetAllUsers()
         {
             IEnumerable<Users> allUsers = (from u in db.Users
                                               select u);
             return allUsers;
                                                
+        }
+        public IEnumerable<string> GetAllEmails()
+        {
+            IEnumerable<string> allEmails = (from u in db.Users
+                                             select u.email);
+            return allEmails;
         }
 
     }	
