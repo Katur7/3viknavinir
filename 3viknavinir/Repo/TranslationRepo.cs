@@ -18,10 +18,8 @@ namespace _3viknavinir.Repo
         }
         public void UpdateTranslation(Translation t)
         {
-            int id = t.Id;
-
             Translation translationToUpdate = ( from translation in db.Translation
-                                                where translation.Id == id
+                                                where translation.Id == t.Id
                                                 select translation ).SingleOrDefault( );
             translationToUpdate.userID = t.userID;
             translationToUpdate.languageID = t.languageID;
@@ -29,7 +27,7 @@ namespace _3viknavinir.Repo
             translationToUpdate.finished = t.finished;
             db.SaveChanges( );
         }
-        public void UpvoteTranslation(int id)
+        public void UpvoteTranslation(Translation t)
         {
             // TODO
         }
