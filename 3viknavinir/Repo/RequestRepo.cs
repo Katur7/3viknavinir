@@ -41,9 +41,22 @@ namespace _3viknavinir.Repo
 			return allRequests;
 		}
 
-		public void AddRequest()
+		public void AddRequest(Request r)
 		{
+			db.Requests.Add(r);
+			db.SaveChanges();
+		}
 
+		public void UpvoteRequest(int id, int userId)
+		{
+			var upvote = (from u in db.Upvote
+						  where u.Id == id
+						  select u).SingleOrDefault();
+			//vantar id
+			upvote.userID = userId;
+			upvote.requestID = id;
+			upvote.translationID = null;
+			upvote.discussionID = null;
 		}
 	}
 }
