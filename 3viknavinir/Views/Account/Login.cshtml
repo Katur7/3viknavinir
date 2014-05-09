@@ -24,35 +24,28 @@
                 <hr />
                 @Html.ValidationSummary(true)
                 <div class="login">
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder="Notendanafn" })
-                        @Html.ValidationMessageFor(m => m.UserName)
-                    </div>
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder="Notendanafn" })
+                    @Html.ValidationMessageFor(m => m.UserName)
                 </div>
-                <div class="login">
-                    <div class="col-md-10">
-                        @Html.PasswordFor( m => m.Password, new { @class = "form-control", placeholder = "Lykilorð" } )
-                        @Html.ValidationMessageFor(m => m.Password)
-					
-                    </div>
+                <div class="login">                       
+					@Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Lykilorð" })
+                    @Html.ValidationMessageFor(m => m.Password)
                 </div>
     <div>
-        <div class="col-lg-offset-0">
-            <div class="login">
-                <input type="submit" value="Innskrá" class="btn btn-default" />
-            </div>
+        <div class="loginButton">
+            <input type="submit" value="Innskrá" class="btn btn-default" />
         </div>
-        <div class="login">
+        <div class="lostPassword">
             <div class="col-lg-offset-2 col-md-10">
                 @Html.ActionLink("Gleymt Lykilorð", "LostPassword", "Account")
-                <div class="checkbox">
+                <div class="rememberMe">
                     @Html.CheckBoxFor(m => m.RememberMe)
                     @Html.LabelFor(m => m.RememberMe)
                 </div>
             </div>
         </div>
     </div>
-                <p>
+                <p class="newAccount">
                     @Html.ActionLink("Nýskráðu", "Register") þig ef þú átt ekki aðgang.
                 </p>
             }
