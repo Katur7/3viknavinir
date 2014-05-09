@@ -15,19 +15,35 @@ namespace _3viknavinir.Repo
             db.Translation.Add( t );
             db.SaveChanges( );
         }
-        public void UpdateTranslation(int id)
+        public void UpdateTranslation(Translation t)
         {
-            
+            int id = t.Id;
+
+            Translation translationToUpdate = ( from translation in db.Translation
+                                                where translation.Id == id
+                                                select translation ).SingleOrDefault( );
+            translationToUpdate.userID = t.userID;
+            translationToUpdate.languageID = t.languageID;
+            translationToUpdate.mediaID = t.mediaID;
+            translationToUpdate.finished = t.finished;
+            db.SaveChanges( );
         }
         public void UpvoteTranslation(int id)
         {
-        
+            // TODO
         }
         public Translation GetTranslationByMediaID(int mediaid)
         {
-            var translation = ( from m in db.Translation
-                                where m.mediaID == mediaid
-                                select m).SingleOrDefault();
+            var translation = ( from t in db.Translation
+                                where t.mediaID == mediaid
+                                select t).SingleOrDefault();
+            return translation;
+        }
+        public Translation GetTranslationByLanguageID(int languageID)
+        {
+            var translation = ( from t in db.Translation
+                                where t.languageID == languageID
+                                select t).SingleOrDefault();
             return translation;
         }
         public IEnumerable<Translation> GetAllTranslations()
@@ -35,9 +51,6 @@ namespace _3viknavinir.Repo
             var all = db.Translation.ToList( );
             return all;
         }
-        //public Translation GetTranslationByName(string name)
-        //{
-
-        //}
+        
 	}
 }
