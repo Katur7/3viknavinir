@@ -104,6 +104,20 @@ th {
 	display: inline;
 }
 
+.loginButton {
+	margin-left: 140px;
+	display: inline;
+}
+
+.rememberMe {
+	margin-left: 150px;
+	margin-top: 10px;
+}
+
+.lostPW {
+	margin-right: 60px;
+}
+
 .leftheader {
 	padding-left: 75px;
 }
