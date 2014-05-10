@@ -8,7 +8,7 @@ using System.Web;
 namespace _3viknavinir.Repo
 {
 	// Grímur
-    public class CategoryRepo
+    public class CategoryRepo : IDisposable
 	{
 		private _3viknaContext db = new _3viknaContext();
 
@@ -31,5 +31,15 @@ namespace _3viknavinir.Repo
 								 select c).ToList();
 			return category;
 		}
+        // Steinunn
+        public void Dispose( )
+        {
+            bool disposed = false;
+            if ( !disposed )
+            {
+                // TODO
+                disposed = true;
+            }
+        }  
 	}
 }

@@ -37,6 +37,13 @@ namespace _3viknavinir.Repo
 			return allmedia;
 		}
 
+        public IEnumerable<Media> GetMediaByCategoryID(int id)
+        {
+            var category = (from c in db.Media
+                            where c.categoryID == id
+                            select c).ToList();
+            return category;
+        }
 		// Grímur
 		public void Dispose()
 		{

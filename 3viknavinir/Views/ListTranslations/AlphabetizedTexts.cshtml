@@ -1,7 +1,7 @@
-﻿@*@model IEnumerable<_3viknavinir.Models.AlphabetizedText>*@
-    @{
+﻿@model IEnumerable<_3viknavinir.Models.AlphabetizedTextsViewmodel>
+@{
     ViewBag.Title = "AlphabetizedTexts";
-    }
+}
     <div class="breadcrumb">
         <ul class="crumbs">
             <li class="crumb crumb-first">
@@ -26,7 +26,8 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var item in Model) 
+				{
                     <tr class="requestRow">
                         <td class="alphabetname">22 { id = item.Id })</td>
                         <td class="alphabetYear">1942</td>
@@ -34,6 +35,7 @@
                         <td class="alphabetUpvote">16<a href="#" class="glyphicon glyphicon-thumbs-up" style="left: 35px"></a></td>
                         <td class="alphabetDownload"><a href="#" class="glyphicon glyphicon-download" style="left: 35px"></a></td>
                     </tr>
+				}
                 </tbody>
             </table>
         </div>
