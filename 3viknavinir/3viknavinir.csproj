@@ -272,6 +272,7 @@
     <Content Include="Views\Category\Scifi.cshtml" />
     <Content Include="Views\Category\Show.cshtml" />
     <Content Include="Views\Category\Thriller.cshtml" />
+    <Content Include="Views\Category\Other4.cshtml" />
     <None Include="Views\Shared\Error404.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
