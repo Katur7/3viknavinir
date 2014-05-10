@@ -70,7 +70,7 @@ namespace _3viknavinir.Migrations
 				new Media { Id = 13, title = "Friends", yearOfRelease = 1998, description = "Nokkrir vinir búa í New York", posterPath = null, categoryID = 12 },
 				new Media { Id = 14, title = "Pokemon", yearOfRelease = 1997, description = "Skrímsli í kúlum", posterPath = null, categoryID = 13 },
 				new Media { Id = 15, title = "Planet Earth", yearOfRelease = 2012, description = "Breski gamli kallinn skoða jörðina", posterPath = null, categoryID = 14 },
-				new Media { Id = 16, title = "Pirates", yearOfRelease = 1998, description = "Það eru sjóræningjar og beinagrindur og fleira", posterPath = null, categoryID = 15 }
+				new Media { Id = 16, title = "Pirates", yearOfRelease = 2005, description = "Það eru sjóræningjar og beinagrindur og fleira", posterPath = null, categoryID = 15 }
             );
 
             context.Requests.AddOrUpdate(
