@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace _3viknavinir.Controllers
 {
+    [HandleError]
     public class CategoryController : Controller
     {
         //
@@ -23,10 +24,6 @@ namespace _3viknavinir.Controllers
 		}
         public ActionResult Documentary()
         {
-            using ( CategoryRepo categoryRepo = new CategoryRepo( ) );
-            {
-                
-            }
             return View();
         }
         public ActionResult Action()
@@ -43,6 +40,16 @@ namespace _3viknavinir.Controllers
         }
         public ActionResult Comedy()
         {
+            using ( MediaRepo mediaRepo = new MediaRepo( ) )
+            {
+                var comedies = ( from m in mediaRepo.GetMediaByCategoryID(1)
+                                 orderby m.title descending
+                                 select m);
+                if ( comedies != null)
+                {
+                    return View( comedies );
+                }
+            }
             return View();
         }
         public ActionResult Drama()
