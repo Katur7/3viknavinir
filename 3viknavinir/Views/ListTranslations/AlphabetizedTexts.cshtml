@@ -1,4 +1,4 @@
-﻿@model IEnumerable<_3viknavinir.Models.AlphabetizedTextsViewmodel>
+﻿@model IEnumerable<_3viknavinir.Models.Media>
 @{
     ViewBag.Title = "AlphabetizedTexts";
 }
@@ -29,8 +29,8 @@
                 @foreach (var item in Model) 
 				{
                     <tr class="requestRow">
-                        <td class="alphabetname">22 { id = item.Id })</td>
-                        <td class="alphabetYear">1942</td>
+                        <td class="alphabetname">@item.title</td>
+                        <td class="alphabetYear">@item.yearOfRelease</td>
                         <td class="alphabettNumberDownload">er víst ekki til fall/breyta</td>
                         <td class="alphabetUpvote">16<a href="#" class="glyphicon glyphicon-thumbs-up" style="left: 35px"></a></td>
                         <td class="alphabetDownload"><a href="#" class="glyphicon glyphicon-download" style="left: 35px"></a></td>
