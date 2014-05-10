@@ -13,15 +13,22 @@ namespace _3viknavinir.Controllers
 	[HandleError]
     public class ListRequestController : Controller
     {
-        //
-        // GET: /ListRequest/
-        public ActionResult Index()
-        {
-            return View();
-        }
+		private RequestRepo requestRepo;
+
+		public ListRequestController()
+		{
+			this.requestRepo = new RequestRepo();
+		}
+
+		public ListRequestController(RequestRepo requestRepo)
+		{
+			this.requestRepo = requestRepo;
+		}
 
 		public ActionResult Requests()
 		{
+			//var model = db.News.OrderByDescending(n => n.DateCreated).Take(10);
+
 			return View();
 		}
 
@@ -47,5 +54,6 @@ namespace _3viknavinir.Controllers
 
 			return View();
 		}
+
 	}
 }
