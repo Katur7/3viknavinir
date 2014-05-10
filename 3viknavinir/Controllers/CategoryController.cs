@@ -1,4 +1,6 @@
-﻿using System;
+﻿using _3viknavinir.Repo;
+using _3viknavinir.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,6 +23,10 @@ namespace _3viknavinir.Controllers
 		}
         public ActionResult Documentary()
         {
+            using ( CategoryRepo categoryRepo = new CategoryRepo( ) );
+            {
+                
+            }
             return View();
         }
         public ActionResult Action()
