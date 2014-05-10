@@ -212,5 +212,19 @@ namespace _3viknavinir.Controllers
             }
             return View( );
         }
+        public ActionResult Other()
+        {
+            using (MediaRepo mediaRepo = new MediaRepo())
+            {
+                var comedies = (from m in mediaRepo.GetMediaByCategoryID(15)
+                                orderby m.title descending
+                                select m);
+                if (comedies != null)
+                {
+                    return View(comedies);
+                }
+            }
+            return View();
+        }
 	}
 }
