@@ -15,5 +15,17 @@ namespace _3viknavinir.Controllers
         {
             return View();
         }
+        public ActionResult Add()
+        {
+            return View();
+        }
+        public ActionResult Delete()
+        {
+            return View();
+        }
+        public ActionResult List()
+        {
+            return View();
+        }
 	}
 }
