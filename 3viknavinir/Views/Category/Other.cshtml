@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<_3viknavinir.Models.Media>
 @{
-    ViewBag.Title = "Gamanmyndir";
+    ViewBag.Title = "Annað";
 }
+
 <div class="breadcrumb">
     <ul class="crumbs">
         <li class="crumb crumb-first">
@@ -13,7 +14,7 @@
         </li>
         <li class="crumb crumb-last">
             <span class="crumb-seperator"> > </span>
-            <a href="#">Grínmyndir</a>
+            <a href="#">Annað</a>
         </li>
     </ul>
 </div>
@@ -23,21 +24,21 @@
         <thead>
             <tr class="requestRow">
                 <th class="alphabetName">Nafn</th>
-            <th class="alphabetYear">Ártal</th>
-            <th class="alphabetNumberDonwload">Sótt</th>
-            <th class="alphabetUpvote">Upvote</th>
-            <th class="alphabettDownload">Niðurhal</th>
+                <th class="alphabetYear">Ártal</th>
+                <th class="alphabetNumberDonwload">Sótt</th>
+                <th class="alphabetUpvote">Upvote</th>
+                <th class="alphabettDownload">Niðurhal</th>
             </tr>
 
             @foreach ( var item in Model )
             {
-                <tr class="homePageTableRows">
-                    <td>@item.title</td>
-                    <td>(@item.yearOfRelease)</td>
-                    <td class="alphabetNumberDownload">82</td>
-                    <td class="alphabetUpvote">49<a href="#" class="glyphicon glyphicon-thumbs-up" style="left: 35px" ></a></td>
-                    <td class="alphabetDownload"><a href="#" class="glyphicon glyphicon-download" style="left: 35px"></a></td>
-                </tr>
+            <tr class="homePageTableRows">
+                <td>@item.title</td>
+                <td>(@item.yearOfRelease)</td>
+                <td class="alphabetNumberDownload">82</td>
+                <td class="alphabetUpvote">49<a href="#" class="glyphicon glyphicon-thumbs-up" style="left: 35px"></a></td>
+                <td class="alphabetDownload"><a href="#" class="glyphicon glyphicon-download" style="left: 35px"></a></td>
+            </tr>
             }
         </thead>
     </table>
