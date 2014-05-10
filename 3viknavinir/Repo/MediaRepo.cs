@@ -6,7 +6,7 @@ using _3viknavinir.Models;
 
 namespace _3viknavinir.Repo
 {
-	public class MediaRepo
+	public class MediaRepo : IDisposable
 	{
 		private _3viknaContext db = new _3viknaContext();
 
@@ -30,6 +30,22 @@ namespace _3viknavinir.Repo
 			db.SaveChanges();
 		}
 
-		
+		public IEnumerable<Media> GetAllMedia()
+		{
+			var allmedia = (from media in db.Media
+							select media).ToList();
+			return allmedia;
+		}
+
+		// Grímur
+		public void Dispose()
+		{
+			bool disposed = false;
+			if (!disposed)
+			{
+				// TODO
+				disposed = true;
+			}
+		}  
 	}
 }
