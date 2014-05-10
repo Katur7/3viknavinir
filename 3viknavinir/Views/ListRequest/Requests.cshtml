@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<_3viknavinir.Models.Requests>
 @{
-    ViewBag.Title = "Requests";
+    ViewBag.Title = "Beiðnir";
 }
 
 <div class="breadcrumb">
@@ -15,7 +15,7 @@
 	</ul>
 </div>
 
-<h2>Beiðnir</h2>
+<h2>@ViewBag.Title</h2>
 
 <div>
 	<form action="/ListRequest/NewRequest/"><input type="submit" value="" id="addRequestButton" /></form>
@@ -31,7 +31,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			@foreach (var item in Model)
+			@*@foreach (var item in Model)
 			{
 				<tr class="requestRow">
 					<td class="requestName">@Html.ActionLink(item.title, "Edit", new { id = item.Id })</td>
@@ -39,7 +39,7 @@
 					<td class="requestIMDBID">@Html.DisplayFor(modelItem => item.imdbID)</td>
 					<td class="requestUpvote">@Html.DisplayFor(modelItem => item.upvote)</td>
 				</tr>
-			}
+			}*@
 		</tbody>
 	</table>
 </div>
