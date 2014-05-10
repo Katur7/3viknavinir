@@ -267,6 +267,16 @@ input[type="checkbox"].input-validation-error {
     font-size:20px;
     color:#000000;
 }
+
+#editTranslationButton {
+	
+}
+
+#editDetailsButton {
+	background-image: url(pencil.png);
+	background-repeat: no-repeat;
+}
+
 .loginout
 {
     font-size: 17px;

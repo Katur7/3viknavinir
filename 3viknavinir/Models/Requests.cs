@@ -8,15 +8,13 @@ namespace _3viknavinir.Models
 
     public partial class Requests
     {
-        public Requests()
+		public Requests()
         {
-            Upvote1 = new HashSet<Upvote>();
+            Upvote = new HashSet<Upvote>();
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
-
-        public int? upvote { get; set; }
 
         public DateTime dateOfRequest { get; set; }
 
@@ -33,6 +31,6 @@ namespace _3viknavinir.Models
         [StringLength(128)]
         public string userID { get; set; }
 
-        public virtual ICollection<Upvote> Upvote1 { get; set; }
+        public virtual ICollection<Upvote> Upvote { get; set; }
     }
 }

@@ -26,6 +26,8 @@ namespace _3viknavinir.Models
 
         public string userID { get; set; }
 
+		public DateTime dateAdded { get; set; }
+
         public virtual Language Language { get; set; }
 
         public virtual ICollection<TranslationLines> TranslationLines { get; set; }
