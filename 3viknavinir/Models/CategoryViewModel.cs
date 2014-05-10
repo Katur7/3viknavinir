@@ -10,8 +10,12 @@ namespace _3viknavinir.Models
         
     }
 
-    public class DocumentaryViewModel
+    public class DocumentViewModel
     {
         public IEnumerable<Category> documentaries { get; set; }
+    }
+    public class ComedyViewModel
+    {
+        public IEnumerable<Category> comedies { get; set; }
     }
 }

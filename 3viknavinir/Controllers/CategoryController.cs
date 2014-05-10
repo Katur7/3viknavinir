@@ -32,17 +32,37 @@ namespace _3viknavinir.Controllers
         }
         public ActionResult Adventure()
         {
-            return View();
+            using ( MediaRepo mediaRepo = new MediaRepo( ) )
+            {
+                var comedies = ( from m in mediaRepo.GetMediaByCategoryID( 0 )
+                                 orderby m.title descending
+                                 select m );
+                if ( comedies != null )
+                {
+                    return View( comedies );
+                }
+            }
+            return View( );
         }
         public ActionResult Anime()
         {
-            return View();
+            using ( MediaRepo mediaRepo = new MediaRepo( ) )
+            {
+                var comedies = ( from m in mediaRepo.GetMediaByCategoryID( 13 )
+                                 orderby m.title descending
+                                 select m );
+                if ( comedies != null )
+                {
+                    return View( comedies );
+                }
+            }
+            return View( );
         }
         public ActionResult Comedy()
         {
             using ( MediaRepo mediaRepo = new MediaRepo( ) )
             {
-                var comedies = ( from m in mediaRepo.GetMediaByCategoryID(1)
+                var comedies = ( from m in mediaRepo.GetMediaByCategoryID( 1 )
                                  orderby m.title descending
                                  select m);
                 if ( comedies != null)
@@ -54,43 +74,143 @@ namespace _3viknavinir.Controllers
         }
         public ActionResult Drama()
         {
-            return View();
+            using ( MediaRepo mediaRepo = new MediaRepo( ) )
+            {
+                var comedies = ( from m in mediaRepo.GetMediaByCategoryID( 10 )
+                                 orderby m.title descending
+                                 select m );
+                if ( comedies != null )
+                {
+                    return View( comedies );
+                }
+            }
+            return View( );
         }
         public ActionResult Family()
         {
-            return View();
+            using ( MediaRepo mediaRepo = new MediaRepo( ) )
+            {
+                var comedies = ( from m in mediaRepo.GetMediaByCategoryID( 2 )
+                                 orderby m.title descending
+                                 select m );
+                if ( comedies != null )
+                {
+                    return View( comedies );
+                }
+            }
+            return View( );
         }
         public ActionResult Horror()
         {
-            return View();
+            using ( MediaRepo mediaRepo = new MediaRepo( ) )
+            {
+                var comedies = ( from m in mediaRepo.GetMediaByCategoryID( 7 )
+                                 orderby m.title descending
+                                 select m );
+                if ( comedies != null )
+                {
+                    return View( comedies );
+                }
+            }
+            return View( );
         }
         public ActionResult Icelandic()
         {
-            return View();
+            using ( MediaRepo mediaRepo = new MediaRepo( ) )
+            {
+                var comedies = ( from m in mediaRepo.GetMediaByCategoryID( 3 )
+                                 orderby m.title descending
+                                 select m );
+                if ( comedies != null )
+                {
+                    return View( comedies );
+                }
+            }
+            return View( );
         }
         public ActionResult Kids()
         {
-            return View();
+            using ( MediaRepo mediaRepo = new MediaRepo( ) )
+            {
+                var comedies = ( from m in mediaRepo.GetMediaByCategoryID( 9 )
+                                 orderby m.title descending
+                                 select m );
+                if ( comedies != null )
+                {
+                    return View( comedies );
+                }
+            }
+            return View( );
         }
         public ActionResult Musical()
         {
-            return View();
+            using ( MediaRepo mediaRepo = new MediaRepo( ) )
+            {
+                var comedies = ( from m in mediaRepo.GetMediaByCategoryID( 4 )
+                                 orderby m.title descending
+                                 select m );
+                if ( comedies != null )
+                {
+                    return View( comedies );
+                }
+            }
+            return View( );
         }
         public ActionResult Romantic()
         {
-            return View();
+            using ( MediaRepo mediaRepo = new MediaRepo( ) )
+            {
+                var comedies = ( from m in mediaRepo.GetMediaByCategoryID( 5 )
+                                 orderby m.title descending
+                                 select m );
+                if ( comedies != null )
+                {
+                    return View( comedies );
+                }
+            }
+            return View( );
         }
         public ActionResult Scifi()
         {
-            return View();
+            using ( MediaRepo mediaRepo = new MediaRepo( ) )
+            {
+                var comedies = ( from m in mediaRepo.GetMediaByCategoryID( 11 )
+                                 orderby m.title descending
+                                 select m );
+                if ( comedies != null )
+                {
+                    return View( comedies );
+                }
+            }
+            return View( );
         }
         public ActionResult Show()
         {
-            return View();
+            using ( MediaRepo mediaRepo = new MediaRepo( ) )
+            {
+                var comedies = ( from m in mediaRepo.GetMediaByCategoryID( 12 )
+                                 orderby m.title descending
+                                 select m );
+                if ( comedies != null )
+                {
+                    return View( comedies );
+                }
+            }
+            return View( );
         }
         public ActionResult Thriller()
         {
-            return View();
+            using ( MediaRepo mediaRepo = new MediaRepo( ) )
+            {
+                var comedies = ( from m in mediaRepo.GetMediaByCategoryID( 6 )
+                                 orderby m.title descending
+                                 select m );
+                if ( comedies != null )
+                {
+                    return View( comedies );
+                }
+            }
+            return View( );
         }
 	}
 }
