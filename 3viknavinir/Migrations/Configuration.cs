@@ -81,8 +81,8 @@ namespace _3viknavinir.Migrations
 
             context.Translation.AddOrUpdate(
                 t => t.Id,
-                new Translation { Id = 0, finished = false, mediaID = 0, languageID = 0, userID =  "419deb0b-479c-4daa-93c5-4d15180d7bce" },
-                new Translation { Id = 1, finished = false, mediaID = 1, languageID = 0, userID = "419deb0b-479c-4daa-93c5-4d15180d7bce" }
+				new Translation { Id = 0, finished = false, mediaID = 0, languageID = 0, userID = "419deb0b-479c-4daa-93c5-4d15180d7bce", dateAdded = DateTime.Now },
+				new Translation { Id = 1, finished = false, mediaID = 1, languageID = 0, userID = "419deb0b-479c-4daa-93c5-4d15180d7bce", dateAdded = DateTime.Now }
             );
 
             context.TranslationLines.AddOrUpdate(
