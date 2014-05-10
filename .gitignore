@@ -154,3 +154,29 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+/packages/EntityFramework.6.1.0/tools/migrate.exe
+/3viknavinir/Controllers/Default1Controller.cs
+/3viknavinir/Views/Default1/Create.cshtml
+/3viknavinir/Views/Default1/Delete.cshtml
+/3viknavinir/Views/Default1/Details.cshtml
+/3viknavinir/Views/Default1/Edit.cshtml
+/3viknavinir/Views/Default1/Index.cshtml
+/packages/EntityFramework.6.0.0/tools/about_EntityFramework.help.txt
+/packages/EntityFramework.6.0.0/tools/EntityFramework.PowerShell.dll
+/packages/EntityFramework.6.0.0/tools/EntityFramework.PowerShell.Utility.dll
+/packages/EntityFramework.6.0.0/tools/EntityFramework.psd1
+/packages/EntityFramework.6.0.0/tools/EntityFramework.psm1
+/packages/EntityFramework.6.0.0/tools/init.ps1
+/packages/EntityFramework.6.0.0/tools/install.ps1
+/packages/EntityFramework.6.0.0/tools/migrate.exe
+/packages/EntityFramework.6.1.0/EntityFramework.6.1.0.nupkg
+/packages/EntityFramework.6.1.0/lib/net40/EntityFramework.SqlServer.xml
+/packages/EntityFramework.6.1.0/lib/net40/EntityFramework.xml
+/packages/EntityFramework.6.1.0/lib/net45/EntityFramework.SqlServer.xml
+/packages/EntityFramework.6.1.0/tools/about_EntityFramework.help.txt
+/packages/EntityFramework.6.1.0/tools/EntityFramework.PowerShell.dll
+/packages/EntityFramework.6.1.0/tools/EntityFramework.PowerShell.Utility.dll
+/packages/EntityFramework.6.1.0/tools/EntityFramework.psd1
+/packages/EntityFramework.6.1.0/tools/EntityFramework.psm1
+/packages/EntityFramework.6.1.0/tools/init.ps1
+/packages/EntityFramework.6.1.0/tools/install.ps1
