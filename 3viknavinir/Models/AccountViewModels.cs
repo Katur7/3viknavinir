@@ -23,7 +23,7 @@ namespace _3viknavinir.Models
         [Display(Name = "Nýtt lykilorð")]
         public string NewPassword { get; set; }
 
-        [Required( ErrorMessage = "Vinsamlegast staðfestu nýja lykilorðið." )]
+        //[Required( ErrorMessage = "Vinsamlegast staðfestu nýja lykilorðið." )]
         [DataType(DataType.Password)]
         [Display(Name = "Staðfestu nýtt lykilorð")]
         [Compare("NewPassword", ErrorMessage = "Lykilorðin passa ekki saman")]
