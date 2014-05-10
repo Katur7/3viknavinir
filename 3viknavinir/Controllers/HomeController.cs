@@ -1,4 +1,5 @@
 ﻿using _3viknavinir.Repo;
+using _3viknavinir.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,23 @@ namespace _3viknavinir.Controllers
 	{
 		public ActionResult Index()
 		{
-			using(TranslationRepo translationrepo = new TranslationRepo())
+			using(MediaRepo mediaRepo = new MediaRepo())
 			{
-				translationrepo.GetAllTranslations();
+				// TODO Fix so it ordersby date from Translations
+				var newestMedia = (from m in mediaRepo.GetAllMedia()
+								  orderby m.title descending
+								  select m).Take(25);
+				if(newestMedia != null)
+				{
+					return View(newestMedia);
+				}
+				
+				//FrontpageViewModel model = new FrontpageViewModel();
+				//model.newestMedia = mediaRepo.GetAllMedia().Take(25);
+				//if(model.newestMedia != null)
+				//{
+				//	return View(model);
+				//}
 			}
 			return View();
 		}
