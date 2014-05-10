@@ -9,10 +9,14 @@
 <div>
 	<hr />
     <dl class="dl-horizontal">
-        <dd>
-            @Html.DisplayFor(model => model.yearOfRelease)
-        </dd>
+		<dt id="">
+		<dt>
+			@Html.DisplayName("Sett inn af: ")
+		</dt>
 
+		<dd>
+			@Html.DisplayFor(model => model.title)
+		</dd>
         <dt>
 			@Html.DisplayName("Lýsing: ")
         </dt>
@@ -31,6 +35,10 @@
     </dl>
 </div>
 <p>
-	@Html.ActionLink("Breyta", "Edit", routeValues: null, htmlAttributes: new { id = "editLink" })
+	@Html.ActionLink("Athugasemdir", "Discussion", routeValues: null, htmlAttributes: new { id = "discussionLink" })
+</p>
+<form action="/Translation/EditTranslation/"><input type="submit" value="Breyta þýðingu" class="btn btn-default" id="editTranslationButton" /></form>
+<form action="/Translation/Edit/"><input type="submit" value="Breyta lýsingu" class="btn btn-default" id="editDetailsButton"/></form>
+<p>
     @Html.ActionLink("Til baka á forsíðu", "Index")
 </p>
