@@ -81,8 +81,23 @@ namespace _3viknavinir.Migrations
 
             context.Translation.AddOrUpdate(
                 t => t.Id,
-				new Translation { Id = 0, finished = false, mediaID = 0, languageID = 0, userID = "419deb0b-479c-4daa-93c5-4d15180d7bce", dateAdded = DateTime.Now },
-				new Translation { Id = 1, finished = false, mediaID = 1, languageID = 0, userID = "419deb0b-479c-4daa-93c5-4d15180d7bce", dateAdded = DateTime.Now }
+				new Translation { Id = 0, finished = false, mediaID = 0, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = DateTime.Now },
+				new Translation { Id = 1, finished = false, mediaID = 1, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = DateTime.Now },
+				new Translation { Id = 2, finished = false, mediaID = 2, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = DateTime.Now },
+				new Translation { Id = 3, finished = false, mediaID = 3, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = new DateTime(2001, 12, 7) },
+				new Translation { Id = 4, finished = false, mediaID = 4, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = DateTime.Now },
+				new Translation { Id = 5, finished = false, mediaID = 5, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = DateTime.Now },
+				new Translation { Id = 6, finished = false, mediaID = 6, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = DateTime.Now },
+				new Translation { Id = 7, finished = false, mediaID = 7, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = DateTime.Now },
+				new Translation { Id = 8, finished = false, mediaID = 8, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = DateTime.Now },
+				new Translation { Id = 9, finished = false, mediaID = 9, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = DateTime.Now },
+				new Translation { Id = 10, finished = false, mediaID = 10, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = DateTime.Now },
+				new Translation { Id = 11, finished = false, mediaID = 11, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = DateTime.Now },
+				new Translation { Id = 12, finished = false, mediaID = 12, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = DateTime.Now },
+				new Translation { Id = 13, finished = false, mediaID = 13, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = new DateTime(2000, 12, 7) },
+				new Translation { Id = 14, finished = false, mediaID = 14, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = DateTime.Now },
+				new Translation { Id = 15, finished = false, mediaID = 15, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = DateTime.Now },
+				new Translation { Id = 16, finished = false, mediaID = 16, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = DateTime.Now }
             );
 
             context.TranslationLines.AddOrUpdate(
