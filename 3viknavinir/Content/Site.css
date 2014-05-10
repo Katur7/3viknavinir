@@ -299,3 +299,13 @@ input[type="checkbox"].input-validation-error {
 {
     font-size: 17px;
 }
+#searchBox
+{
+    position: relative;
+    width: 160px;
+    margin: 0;
+}
+.searchButton
+{
+    
+}
