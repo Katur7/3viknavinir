@@ -292,6 +292,8 @@
     <Content Include="Views\Home\FAQ.cshtml" />
     <Content Include="Views\Account\LostPassword.cshtml" />
     <Content Include="Views\Translation\Translate.cshtml" />
+    <Content Include="Views\Translation\Details.cshtml" />
+    <Content Include="Views\Translation\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

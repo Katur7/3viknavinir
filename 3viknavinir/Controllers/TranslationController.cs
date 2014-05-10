@@ -20,5 +20,15 @@ namespace _3viknavinir.Controllers
 		{
 			return View();
 		}
+
+		public ActionResult Details()
+		{
+			return View();
+		}
+
+		public ActionResult Edit()
+		{
+			return View();
+		}
 	}
 }
