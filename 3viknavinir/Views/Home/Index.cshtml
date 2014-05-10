@@ -5,9 +5,10 @@
 }
 @*Svava*@
 <div id="searchBox">
+    <p>Mynd/Þáttur</p>
     <form action="search" id="searchForm" method="get" target="top">
-        <input id="searchText" name="q" placeholder="type here" type="text" />
-        <button id="searchButton" type="submit"><span>Search</span></button>
+        <input id="searchText" name="q" placeholder="Cars" type="text" />
+        <button id="searchButton" type="submit"><span>Leita</span></button>
     </form>
 </div>
 @*Erla og Grímur*@
@@ -25,10 +26,10 @@
                 @foreach (var item in Model)
                 {
                     <tr class="homePageTableRows">
-					    <td>@item.title (@item.yearOfRelease)</td>
-					    <td>@item.title (@item.yearOfRelease)</td>
-					    <td>Drasl sem fólk diggar í döðlur...</td>
-				    </tr>
+                        <td>@item.title (@item.yearOfRelease)</td>
+                        <td>@item.title (@item.yearOfRelease)</td>
+                        <td>Drasl sem fólk diggar í döðlur...</td>
+                    </tr>
                 }
             </tbody>
         </table>
