@@ -20,7 +20,9 @@ namespace _3viknavinir.Controllers
 		{
 			using(MediaRepo mediarepo = new MediaRepo())
 			{
-				var allmedia = mediarepo.GetAllMedia();
+				var allmedia = (from m in mediarepo.GetAllMedia()
+                                orderby m.title ascending
+                                select m).ToList();
 				if(allmedia != null)
 				{
 					return View(allmedia);
