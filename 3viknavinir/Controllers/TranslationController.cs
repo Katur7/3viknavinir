@@ -27,9 +27,15 @@ namespace _3viknavinir.Controllers
 			if (id.HasValue)
 			{
 				int realid = id.Value;
+				using(MediaRepo mediaRepo = new MediaRepo())
+				{
+					var media = mediaRepo.GetMediaByID(realid);
 
-				//var media = MediaRepo.GetMediaByID(realid);
-
+					if (media != null)
+					{
+						return View(media);
+					}
+				}
 			}
 			return View();
 		}
