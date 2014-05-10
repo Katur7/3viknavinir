@@ -219,6 +219,7 @@
     <Content Include="Content\categoryImg\action.jpg" />
     <Content Include="Content\categoryImg\musical.jpg" />
     <Content Include="Content\categoryImg\scifi.jpg" />
+    <Content Include="Content\download.PNG" />
     <Content Include="Content\jquery-ui-1.10.4.custom.css" />
     <Content Include="Content\pencil.png" />
     <Content Include="Content\siat_logo.jpg" />
