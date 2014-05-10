@@ -15,12 +15,21 @@ namespace _3viknavinir.Controllers
 		{
 			using(MediaRepo mediaRepo = new MediaRepo())
 			{
-				FrontpageViewModel model = new FrontpageViewModel();
-				model.newestMedia = mediaRepo.GetAllMedia().Take(25);
-				if(model.newestMedia != null)
+				// TODO Fix so it ordersby date from Translations
+				var newestMedia = (from m in mediaRepo.GetAllMedia()
+								  orderby m.title descending
+								  select m).Take(25);
+				if(newestMedia != null)
 				{
-					return View(model);
+					return View(newestMedia);
 				}
+				
+				//FrontpageViewModel model = new FrontpageViewModel();
+				//model.newestMedia = mediaRepo.GetAllMedia().Take(25);
+				//if(model.newestMedia != null)
+				//{
+				//	return View(model);
+				//}
 			}
 			return View();
 		}
