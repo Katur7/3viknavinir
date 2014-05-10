@@ -5,7 +5,7 @@ using System.Web;
 
 namespace _3viknavinir.Models
 {
-	public class FrontpageViewModel
+	public class FrontpageViewModel : _3viknaContext
 	{
 		public IEnumerable<Media> newestMedia;
 	}
