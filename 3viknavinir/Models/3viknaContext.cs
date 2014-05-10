@@ -29,11 +29,6 @@ namespace _3viknavinir.Models
 				.WithRequired(e => e.Language)
 				.WillCascadeOnDelete(false);
 
-			modelBuilder.Entity<Requests>()
-				.HasMany(e => e.Upvote1)
-				.WithOptional(e => e.Requests)
-				.HasForeignKey(e => e.requestID);
-
 			modelBuilder.Entity<Translation>()
 				.HasMany(e => e.TranslationLines)
 				.WithRequired(e => e.Translation)

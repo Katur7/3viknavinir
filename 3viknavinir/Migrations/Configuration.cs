@@ -75,8 +75,8 @@ namespace _3viknavinir.Migrations
 
             context.Requests.AddOrUpdate(
                 r => r.Id,
-                new Requests { Id = 0, upvote = null, dateOfRequest = DateTime.Now, title = "Superstar", yearOfRelease = 1999, imdbID = "", userID = "419deb0b-479c-4daa-93c5-4d15180d7bce" },
-                new Requests { Id = 1, upvote = null, dateOfRequest = DateTime.Now, title = "300", yearOfRelease = 2006, imdbID = "", userID = "419deb0b-479c-4daa-93c5-4d15180d7bce" } 
+                new Requests { Id = 0, dateOfRequest = DateTime.Now, title = "Superstar", yearOfRelease = 1999, imdbID = "", userID = "419deb0b-479c-4daa-93c5-4d15180d7bce" },
+                new Requests { Id = 1, dateOfRequest = DateTime.Now, title = "300", yearOfRelease = 2006, imdbID = "", userID = "419deb0b-479c-4daa-93c5-4d15180d7bce" } 
             );
 
             context.Translation.AddOrUpdate(
