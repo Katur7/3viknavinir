@@ -40,9 +40,26 @@ namespace _3viknavinir.Controllers
 			return View();
 		}
 		[HttpGet]
+		public ActionResult Edit(int? id)
+		{
+			if(id.HasValue)
+			{
+				int realid = id.Value;
+				using(MediaRepo mediaRepo = new MediaRepo())
+				{
+					var media = mediaRepo.GetMediaByID(realid);
+					if(media != null)
+					{
+						return View(media);
+					}
+				}
+			}
+			return View();
+		}
+
+		[HttpPost]
 		public ActionResult Edit()
 		{
-
 			return View();
 		}
 	}
