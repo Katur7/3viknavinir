@@ -17,30 +17,17 @@ namespace _3viknavinir.Controllers
 			{
 				using(TranslationRepo translationRepo = new TranslationRepo())
 				{
-					/*
 					// TODO Fix so it ordersby date from Translations
-					var newestMedia = from t in translationRepo.GetAllTranslations()
-									  join m in mediaRepo.GetAllMedia() on t.mediaID equals m.Id
-									  orderby t.
-					*/
-
-					var newestMedia = (from m in mediaRepo.GetAllMedia()
-									   orderby m.title ascending
-									   select m).Take(25);
+					var newestMedia = (from t in translationRepo.GetAllTranslations()
+									   join m in mediaRepo.GetAllMedia() on t.mediaID equals m.Id
+									   orderby t.dateAdded descending
+									   select m).Take(20);
 					 
 					if (newestMedia != null)
 					{
 						return View(newestMedia);
 					}
 				}
-				
-				
-				//FrontpageViewModel model = new FrontpageViewModel();
-				//model.newestMedia = mediaRepo.GetAllMedia().Take(25);
-				//if(model.newestMedia != null)
-				//{
-				//	return View(model);
-				//}
 			}
 			return View();
 		}
