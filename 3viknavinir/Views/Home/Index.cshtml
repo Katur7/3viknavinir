@@ -1,9 +1,9 @@
-﻿@{
+﻿@model IEnumerable<_3viknavinir.Models.Media>
+@*_3viknavinir.Models.FrontpageViewModel*@
+@{
     ViewBag.Title = "SÍÁT";
 }
-<div>
-</div>
-@*Erla*@
+@*Erla og Grímur*@
 <div class="row">
     <div class="col-md-4">
         <table id="homePageTable" class="table-striped">
@@ -15,6 +15,14 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="homePageTableRows">
+					    <td>Drasl sem er mest sótt</td>
+					    <td>@item.title (@item.yearOfRelease)</td>
+					    <td>Drasl sem fólk diggar í döðlur...</td>
+				    </tr>
+                }
 				<tr class="homePageTableRows">
 					<td>Drasl sem er mest sótt</td>
 					<td>Drasl sem fólk setti inn nýlega</td>
