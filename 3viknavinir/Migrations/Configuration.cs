@@ -36,7 +36,8 @@ namespace _3viknavinir.Migrations
                 new Category { Id = 11, name = "Vísindaskáldskapur", posterPath = "~/Content/categoryImg/scifi.jpg" },
                 new Category { Id = 12, name = "Þættir", posterPath = "~/Content/categoryImg/show.jpg" },
                 new Category { Id = 13, name = "Anime", posterPath = "~/Content/categoryImg/anime.jpg" },
-                new Category { Id = 14, name = "Heimildamyndir", posterPath = "~/Content/categoryImg/documentary.jpg" }
+                new Category { Id = 14, name = "Heimildamyndir", posterPath = "~/Content/categoryImg/documentary.jpg" },
+				new Category { Id = 15, name = "Annað", posterPath = "~/Content/categoryImg/other.jpg" }
             );
 
 			context.Language.AddOrUpdate(
@@ -55,13 +56,27 @@ namespace _3viknavinir.Migrations
                 m => m.Id,
                 new Media { Id = 0, title = "Narnia", yearOfRelease = 2005, description = "Skemmtileg mynd um skápa.", posterPath = "~/Content/categoryImg/adventure.jpg", categoryID = 0 },
                 new Media { Id = 1, title = "Ace Ventura: Pet Detective", yearOfRelease = 1994, description = "Mjög fyndin mynd.", posterPath = "~/Content/categoryImg/comedy.jpg", categoryID = 1 },
-                new Media { Id = 2, title = "Notebook", yearOfRelease = 2004, description = "Þriggja vasaklúta mynd.", posterPath = "~/Content/categoryImg/romantic.jpg", categoryID = 5 }
+                new Media { Id = 2, title = "Notebook", yearOfRelease = 2004, description = "Þriggja vasaklúta mynd.", posterPath = "~/Content/categoryImg/romantic.jpg", categoryID = 5 },
+				new Media { Id = 3, title = "Fight Club", yearOfRelease = 1999, description = "First rule of Fight Club, you don't talk about the fight club.", posterPath = null, categoryID = 6 },
+				new Media { Id = 4, title = "Pulp Fiction", yearOfRelease = 1997, description = "Quintin Tarantino, nuff said.", posterPath = null, categoryID = 6 },
+				new Media { Id = 5, title = "The Expendables", yearOfRelease = 2011, description = "Testesteron.", posterPath = null, categoryID = 8 },
+				new Media { Id = 6, title = "Sódóma Reykjavík", yearOfRelease = 1995, description = "Hver hata ekki þegar fjarstýringin týnist, þúst steinöld much.", posterPath = null, categoryID = 3 },
+				new Media { Id = 7, title = "Braveheart", yearOfRelease = 1998, description = "Skotar skutu skota, nema það voru ekki til skot.", posterPath = null, categoryID = 2 },
+				new Media { Id = 8, title = "Sound of Music", yearOfRelease = 1998, description = "Kona að syngja", posterPath = null, categoryID = 4 },
+				new Media { Id = 9, title = "Saw", yearOfRelease = 2004, description = "Fjallar um smið sem týnir söginni sinni og lendir í miklum vandræðum þegar hann fer að leita að henni", posterPath = null, categoryID = 7 },
+				new Media { Id = 10, title = "Cars", yearOfRelease = 2009, description = "Talandi bílar", posterPath = null, categoryID = 9 },
+				new Media { Id = 11, title = "Green Mile", yearOfRelease = 2000, description = "Fangavörður fær krabbamein", posterPath = null, categoryID = 10 },
+				new Media { Id = 12, title = "Star Wars", yearOfRelease = 1996, description = "Loðinn kall og Indiana Jones fljúga um geiminn", posterPath = null, categoryID = 11 },
+				new Media { Id = 13, title = "Friends", yearOfRelease = 1998, description = "Nokkrir vinir búa í New York", posterPath = null, categoryID = 12 },
+				new Media { Id = 14, title = "Pokemon", yearOfRelease = 1997, description = "Skrímsli í kúlum", posterPath = null, categoryID = 13 },
+				new Media { Id = 15, title = "Planet Earth", yearOfRelease = 2012, description = "Breski gamli kallinn skoða jörðina", posterPath = null, categoryID = 14 },
+				new Media { Id = 16, title = "Pirates", yearOfRelease = 1998, description = "Það eru sjóræningjar og beinagrindur og fleira", posterPath = null, categoryID = 15 }
             );
 
             context.Requests.AddOrUpdate(
                 r => r.Id,
-                new Requests { Id = 0, upvote = 5, dateOfRequest = DateTime.Now, title = "Superstar", yearOfRelease = 1999, imdbID = "", userID = "419deb0b-479c-4daa-93c5-4d15180d7bce" },
-                new Requests { Id = 1, upvote = 300, dateOfRequest = DateTime.Now, title = "300", yearOfRelease = 2006, imdbID = "", userID = "419deb0b-479c-4daa-93c5-4d15180d7bce" } 
+                new Requests { Id = 0, upvote = null, dateOfRequest = DateTime.Now, title = "Superstar", yearOfRelease = 1999, imdbID = "", userID = "419deb0b-479c-4daa-93c5-4d15180d7bce" },
+                new Requests { Id = 1, upvote = null, dateOfRequest = DateTime.Now, title = "300", yearOfRelease = 2006, imdbID = "", userID = "419deb0b-479c-4daa-93c5-4d15180d7bce" } 
             );
 
             context.Translation.AddOrUpdate(
@@ -78,8 +93,9 @@ namespace _3viknavinir.Migrations
 
             context.Upvote.AddOrUpdate(
                 u => u.Id,
-                new Upvote { Id = 0, userID = "419deb0b-479c-4daa-93c5-4d15180d7bce", translationID = 0, requestID = 0, discussionID = 0 },
-                new Upvote { Id = 1, userID = "419deb0b-479c-4daa-93c5-4d15180d7bce", translationID = 1, requestID = 1, discussionID = 1 }
+                new Upvote { Id = 0, userID = "419deb0b-479c-4daa-93c5-4d15180d7bce", translationID = 1, requestID = 0, discussionID = 0 },
+                new Upvote { Id = 1, userID = "419deb0b-479c-4daa-93c5-4d15180d7bce", translationID = 0, requestID = 1, discussionID = 0 },
+				new Upvote { Id = 2, userID = "419deb0b-479c-4daa-93c5-4d15180d7bce", translationID = 0, requestID = 0, discussionID = 1 }
             );
 			context.SaveChanges();
         }
