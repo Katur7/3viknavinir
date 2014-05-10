@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+// Grímur
 namespace _3viknavinir.Repo
 {
-	public class TranslationRepo
+	public class TranslationRepo : IDisposable
 	{
 		private _3viknaContext db = new _3viknaContext();
 
@@ -50,6 +51,16 @@ namespace _3viknavinir.Repo
             var all = db.Translation.ToList( );
             return all;
         }
-        
+
+		// Grímur
+		public void Dispose()
+		{
+			bool disposed = false;
+			if (!disposed)
+			{
+				// TODO
+				disposed = true;
+			}
+		}  
 	}
 }

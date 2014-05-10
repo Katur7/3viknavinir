@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _3viknavinir.Repo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,6 +18,14 @@ namespace _3viknavinir.Controllers
 
 		public ActionResult AlphabetizedTexts()
 		{
+			using(MediaRepo mediarepo = new MediaRepo())
+			{
+				var allmedia = mediarepo.GetAllMedia();
+				if(allmedia != null)
+				{
+					return View(allmedia);
+				}
+			}
 			return View();
 		}
 	}
