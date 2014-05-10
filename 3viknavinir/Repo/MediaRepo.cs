@@ -44,6 +44,14 @@ namespace _3viknavinir.Repo
                             select c).ToList();
             return category;
         }
+
+		public Media GetMediaByID(int id)
+		{
+			var media = (from m in db.Media
+						 where m.Id == id
+						 select m).SingleOrDefault();
+			return media;
+		}
 		// Grímur
 		public void Dispose()
 		{
