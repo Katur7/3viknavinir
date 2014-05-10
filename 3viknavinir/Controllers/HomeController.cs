@@ -17,7 +17,7 @@ namespace _3viknavinir.Controllers
 			{
 				// TODO Fix so it ordersby date from Translations
 				var newestMedia = (from m in mediaRepo.GetAllMedia()
-								  orderby m.title descending
+								  orderby m.title ascending
 								  select m).Take(25);
 				if(newestMedia != null)
 				{
