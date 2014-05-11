@@ -1,4 +1,4 @@
-﻿@model IEnumerable<_3viknavinir.Models.Media>
+﻿@model _3viknavinir.Models.IndexViewModel
 @{
     ViewBag.Title = "SÍÁT";
 }
@@ -6,8 +6,8 @@
 <div id="searchBox">
     <p>Mynd/Þáttur</p>
     <form action="search" class="textBox">
-    <input class="searchtext" placeholder="Cars" type="text" />
-    <button class="searchButton" type="submit"><span>Leita</span></button>
+	    <input class="searchtext" placeholder="Cars" type="text" />
+        <button class="btn btn-default" id="searchButton" type="submit"><span>Leita</span></button>
     </form>
 </div>
 
@@ -23,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var item in Model.recentMedia)
                 {
                     <tr class="homePageTableRows">
                         <td>@Html.ActionLink(item.title, "Details", "Translation", new { id = item.Id }, null) (@item.yearOfRelease)</td>
