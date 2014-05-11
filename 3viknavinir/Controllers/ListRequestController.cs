@@ -40,26 +40,32 @@ namespace _3viknavinir.Controllers
             return View( );
         }
 
+        [HttpGet]
         public ActionResult NewRequest( )
         {
             return View( );
         }
-
         [HttpPost]
         public ActionResult NewRequest( NewRequestViewModel model )
         {
-            /*string bla = "";
-            using (RequestRepo repo = new RequestRepo())
+            using ( RequestRepo requestRepo = new RequestRepo( ) )
             {
-                repo.AddRequest(new Requests() {
-                    title = model.movieName,
-                    yearOfRelease = model.yearOfRelease,
-                    imdbID = model.imdbID,
-                    userID = User.Identity.GetUserId()
-                });
-            }
-            */
+                if ( ModelState.IsValid )
+                {
+                    var newRequest = new Requests( );
+                        
+                        newRequest.Id = 3; // TODO
+                        newRequest.title = model.movieName;
+                        newRequest.dateOfRequest = DateTime.Now;
+                        newRequest.yearOfRelease = model.yearOfRelease;
+                        newRequest.imdbID = model.imdbID;
+                        newRequest.userID = "419deb0b-479c-4daa-93c5-4d15180d7bce"; // TODO
 
+                    requestRepo.AddRequest( newRequest );
+                    return RedirectToAction("Requests", "ListRequest");
+                }
+            }
+            
             return View( );
         }
 
