@@ -178,6 +178,7 @@
     <Compile Include="Models\AlphabetizedTextsViewmodel.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Discussion.cs" />
+    <Compile Include="Models\EditTranslationViewModel.cs" />
     <Compile Include="Models\FrontpageViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Language.cs" />
@@ -296,6 +297,7 @@
     <Content Include="Views\Translation\Translate.cshtml" />
     <Content Include="Views\Translation\Details.cshtml" />
     <Content Include="Views\Translation\Edit.cshtml" />
+    <Content Include="Views\Translation\EditTranslation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

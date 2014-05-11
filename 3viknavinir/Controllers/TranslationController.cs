@@ -62,5 +62,29 @@ namespace _3viknavinir.Controllers
 		{
 			return View();
 		}
+
+        [HttpGet]
+        public ActionResult EditTranslation( int? id)
+        {
+            if ( id.HasValue )
+            {
+                int realid = id.Value;
+                using ( TranslationLinesRepo translationLinesRepo = new TranslationLinesRepo( ) )
+                {
+                    var translationLine = translationLinesRepo.GetTranslationLineByID(realid);
+                    if ( translationLine != null )
+                    {
+                        return View( translationLine );
+                    }
+                }
+            }
+            return View( );
+        }
+
+        [HttpPost]
+        public ActionResult EditTranslation( )
+        {
+            return View( );
+        }
 	}
 }
