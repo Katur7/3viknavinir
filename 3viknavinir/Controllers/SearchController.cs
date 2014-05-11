@@ -23,13 +23,22 @@ namespace _3viknavinir.Controllers
 					{
 						if(!String.IsNullOrEmpty(searchString))
 						{
-							var movies = (from m in mediaRepo.GetMediaByTitle(searchString)
-										  select m); 
+							var movies = (from m in mediaRepo.GetMediaLike(searchString)
+										  select m);
 
-							//movies = movies.Where(s => s.title.Contains(searchString));
+							/*var moviesByYear = (from m in mediaRepo.GetMediaByYear(searchString)
+												select m);
+
+							var moviesByCategory = (from m in mediaRepo.GetMediaByCategory(searchString)
+												  select m);
+
+							var moviesByIMDBId = (from m in mediaRepo.GetMediaByImdbID(searchString)
+												  select m);*/
 
 							var viewModel = new SearchMediaViewModel();
 							viewModel.searchedMedia = movies;
+
+							
 
 							if (movies != null)
 							{
