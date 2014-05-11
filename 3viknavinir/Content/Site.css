@@ -320,16 +320,20 @@ input[type="checkbox"].input-validation-error {
 {
     font-size: 17px;
 }
-.searchText{
-    max-width: 600px;
-    width: 600px;
+.searchtext{
+	max-width: 636px;
+    width: 900px;
+	height: 34px;
+	border-color: #eeeeee;
+	border-radius: 4px;
 }
 .textBox
 {
-    width: 600px;
-    margin-left: 400px;
+    width: 700px;
+    margin: auto;
+	height: 32px;
 }
-.searchButton
+#searchButton
 {
-    width: 1000px;
+	margin: 0px 0px 4px 0px;
 }
