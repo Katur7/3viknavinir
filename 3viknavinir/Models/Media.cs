@@ -25,5 +25,7 @@ namespace _3viknavinir.Models
 		public string imdbID { get; set; }
 
         public int categoryID { get; set; }
+
+		public virtual Category Category { get; set; }
     }
 }

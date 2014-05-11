@@ -6,7 +6,6 @@ namespace _3viknavinir.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Upvote")]
     public partial class Upvote
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

@@ -6,7 +6,6 @@ namespace _3viknavinir.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Translation")]
     public partial class Translation
     {
         public Translation()
@@ -29,6 +28,8 @@ namespace _3viknavinir.Models
 		public DateTime dateAdded { get; set; }
 
         public virtual Language Language { get; set; }
+
+		public virtual Media Media { get; set; }
 
         public virtual ICollection<TranslationLines> TranslationLines { get; set; }
 
