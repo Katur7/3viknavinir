@@ -5,7 +5,7 @@
  @*Fanney*@
 <ul class="crumbs">
     <li class="crumb crumb-first">
-        <a href="/">SÍÁT</a>
+        @Html.ActionLink("SÍÁT", "Index", "Home")
     </li>
     <li class="crumb crumbs">
         <span class="crumb-seperator"> > </span>
@@ -13,7 +13,7 @@
     </li>
     <li class="crumb crumb-last">
         <span class="crumb-seperator"> > </span>
-        <a href="">@Html.DisplayFor(model => model.media.title)</a>
+        @*<a href="">@Html.DisplayFor(model => model.media.title)</a>*@
     </li>
 </ul>
 <h2>Nafn Myndar - Athugasemdir</h2>
