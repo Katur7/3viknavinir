@@ -8,15 +8,15 @@ using System.Web;
 namespace _3viknavinir.Repo
 {
     //Svava
-    public class DiscussionRepo
+    public class DiscussionRepo : IDisposable
     {
         private _3viknaContext db = new _3viknaContext();
 
-        public IEnumerable<string> GetCommentByMediaID(int mediaid)
+        public IEnumerable<Discussion> GetCommentByMediaID(int mediaid)
         {
             var all = (from m in db.Discussion
                        where m.mediaID == mediaid
-                       select m.comment).ToList();
+                       select m).ToList();
             return all;
         }
         public void AddComment(Discussion c)
@@ -31,6 +31,16 @@ namespace _3viknavinir.Repo
                                select c).FirstOrDefault();
             return comment;
         }
+
+        public void Dispose()
+        {
+            bool disposed = false;
+            if (!disposed)
+            {
+                // TODO
+                disposed = true;
+            }
+        } 
     }
 }
 
