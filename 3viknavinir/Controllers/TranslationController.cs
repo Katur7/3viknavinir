@@ -78,6 +78,7 @@ namespace _3viknavinir.Controllers
 		[HttpPost]
 		public ActionResult Edit()
 		{
+
 			return View();
 		}
 

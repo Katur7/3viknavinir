@@ -168,6 +168,7 @@
     <Compile Include="Controllers\ListRequestController.cs" />
     <Compile Include="Controllers\ListTranslationsController.cs" />
     <Compile Include="Controllers\RequestController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\TranslationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -186,6 +187,8 @@
     <Compile Include="Models\MediaDetailsViewModel.cs" />
     <Compile Include="Models\Requests.cs" />
     <Compile Include="Models\RequestViewModels.cs" />
+    <Compile Include="Models\SearchMediaViewModel.cs" />
+    <Compile Include="Models\SearchRequestViewModel.cs" />
     <Compile Include="Models\Translation.cs" />
     <Compile Include="Models\TranslationLines.cs" />
     <Compile Include="Models\TranslationViewModel.cs" />
@@ -198,6 +201,7 @@
     <Compile Include="Repo\RequestRepo.cs" />
     <Compile Include="Repo\TranslationLinesRepo.cs" />
     <Compile Include="Repo\TranslationRepo.cs" />
+    <Compile Include="Repo\Upvote.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -277,6 +281,9 @@
     <Content Include="Views\Category\Show.cshtml" />
     <Content Include="Views\Category\Thriller.cshtml" />
     <Content Include="Views\Category\Other.cshtml" />
+    <Content Include="Views\Search\SearchMediaView.cshtml" />
+    <Content Include="Views\Search\SearchRequestView.cshtml" />
+    <Content Include="Views\Search\SearchResults.cshtml" />
     <None Include="Views\Shared\Error404.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
