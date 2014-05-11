@@ -1,9 +1,11 @@
-﻿using _3viknavinir.Repo;
+﻿using _3viknavinir.Models;
+using _3viknavinir.Repo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace _3viknavinir.Controllers
 {
@@ -29,11 +31,27 @@ namespace _3viknavinir.Controllers
 				int realid = id.Value;
 				using(MediaRepo mediaRepo = new MediaRepo())
 				{
-					var media = mediaRepo.GetMediaByID(realid);
-
-					if (media != null)
+					using(TranslationRepo translationRepo = new TranslationRepo())
 					{
-						return View(media);
+						var media = mediaRepo.GetMediaByID(realid);
+						var translation = translationRepo.GetTranslationByMediaID(realid);
+						var viewModel = new MediaDetailsViewModel();
+						/*
+						List<MembershipUser> allUsers = Membership.GetAllUsers();
+						MembershipUser mu1 = (from u in allUsers
+								   where u.UserID == translation.userID
+								   select u).SingleOrDefault();
+						MembershipUser mu = Membership.GetUser(translation.userID);
+						string userName = mu.UserName;
+						*/
+						viewModel.media = media;
+						viewModel.translation = translation;
+						//viewModel.userName = userName;
+
+						if (media != null && translation != null)
+						{
+							return View(viewModel);
+						}
 					}
 				}
 			}
