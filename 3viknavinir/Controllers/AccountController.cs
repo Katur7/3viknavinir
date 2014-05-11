@@ -139,7 +139,7 @@ namespace _3viknavinir.Controllers
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Lykilorðinu hefur verið breytt."
                 : message == ManageMessageId.SetPasswordSuccess ? "Lykilorðið hefur verið stillt."
-                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
+                : message == ManageMessageId.RemoveLoginSuccess ? "Ytri tenging hefur verið fjarlægð."
                 : message == ManageMessageId.Error ? "Villa hefur komið upp."
                 : "";
             ViewBag.HasLocalPassword = HasPassword();

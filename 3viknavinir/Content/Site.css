@@ -327,9 +327,9 @@ input[type="checkbox"].input-validation-error {
 .textBox
 {
     width: 600px;
-    margin-left: 360px;
+    margin-left: 400px;
 }
 .searchButton
 {
-    
+    width: 1000px;
 }

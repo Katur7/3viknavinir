@@ -7,6 +7,7 @@ namespace _3viknavinir.Models
     public class TranslationViewModel
     {
         [Required( ErrorMessage = "Slá verður inn nafn myndefnis" )]
+        [DataType(DataType.Text)]
         [Display( Name = "Nafn Kvikmyndar" )]
         public string movieName { get; set; }
 
