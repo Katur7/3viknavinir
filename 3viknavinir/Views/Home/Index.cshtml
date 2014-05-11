@@ -6,18 +6,16 @@
 <div id="welcome">
     <p>
         Velkominn á síðu Samfélags Íslenskra Áhugafólks um Texta!
-        Hér geturu sótt, deilt, þýtt og spáð í textaþýðingum fyrir myndefni.
+        Hér getur þú sótt, deilt, þýtt og spáð í textaþýðingum fyrir myndefni.
     </p>
 </div>
-@*Svava / Erla*@
+@*Erla*@
 <div id="searchBox">
-	<p>Mynd/Þáttur</p>
+    <p>Mynd/Þáttur</p>
 	@using (Html.BeginForm("SearchMediaView", "Search", FormMethod.Get))
 	{
-		<p>
-			@Html.TextBox("SearchString") <br />
-			<input type="submit" value="Leita" class="btn btn-default" />
-		</p>
+		@Html.TextBox("SearchString")
+		<input type="submit" value="Leita" class="btn btn-default" id="searchButton" />
 	}
 </div>
 
