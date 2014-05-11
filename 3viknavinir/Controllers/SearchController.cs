@@ -13,7 +13,7 @@ namespace _3viknavinir.Controllers
         //
         // GET: /Search/
 
-		public ActionResult SearchResults(string searchString)
+		public ActionResult SearchMediaView(string searchString)
 		{
 			using (MediaRepo mediaRepo = new MediaRepo())
 			{
@@ -21,12 +21,20 @@ namespace _3viknavinir.Controllers
 				{
 					using (TranslationRepo translationRepo = new TranslationRepo())
 					{
-						var movies = (from m in mediaRepo.GetAllMedia()
-										   select m);
-
 						if(!String.IsNullOrEmpty(searchString))
 						{
-							movies = movies.Where(s => s.title.Contains(searchString));
+							var movies = (from m in mediaRepo.GetMediaByTitle(searchString)
+										  select m); 
+
+							//movies = movies.Where(s => s.title.Contains(searchString));
+
+							var viewModel = new SearchMediaViewModel();
+							viewModel.searchedMedia = movies;
+
+							if (movies != null)
+							{
+								return View(viewModel);
+							}
 						}
 
 					}

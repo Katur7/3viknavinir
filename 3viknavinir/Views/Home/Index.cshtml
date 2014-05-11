@@ -5,10 +5,17 @@
 @*Svava / Erla*@
 <div id="searchBox">
     <p>Mynd/Þáttur</p>
-	<form action="SearchResults();" class="textBox">
+	@using (Html.BeginForm("SearchMediaView", "Search", FormMethod.Get))
+	{
+		<p>
+			@Html.TextBox("SearchString") <br />
+			<input type="submit" value="Leita" class="btn btn-default"/>
+		</p>
+	}
+	<!--<form action="SearchResults();" class="textBox">
 		<input class="searchtext" placeholder="Myndefni..." type="text" />
 		<input type="submit" value="Leita" class="btn btn-default" id="searchButton" />
-	</form>
+	</form>-->
 </div>
 
 @*Erla og Grímur*@
