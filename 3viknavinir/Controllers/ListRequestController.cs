@@ -30,7 +30,7 @@ namespace _3viknavinir.Controllers
             using ( RequestRepo requestRepo = new RequestRepo( ) )
             {
                 var allRequests = ( from r in requestRepo.GetAllRequests()
-                                 orderby r.title ascending
+                                 orderby r.dateOfRequest descending
                                  select r ).ToList( );
                 if ( allRequests != null )
                 {
