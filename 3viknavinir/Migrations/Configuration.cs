@@ -39,11 +39,13 @@ namespace _3viknavinir.Migrations
                 new Category { Id = 14, name = "Heimildamyndir", posterPath = "~/Content/categoryImg/documentary.jpg" },
 				new Category { Id = 15, name = "Annað", posterPath = "~/Content/categoryImg/other.jpg" }
             );
+			context.SaveChanges();
 
 			context.Language.AddOrUpdate(
 				l => l.Id,
 				new Language { Id = 0, name = "Íslenska"}
             );
+			context.SaveChanges();
 
             context.Discussion.AddOrUpdate(
                 d => d.Id,
@@ -51,12 +53,13 @@ namespace _3viknavinir.Migrations
                 new Discussion { Id = 1, comment = "Second!", dateAdded = DateTime.Now, userID = "419deb0b-479c-4daa-93c5-4d15180d7bce", mediaID = 1 },
                 new Discussion { Id = 2, comment = "Yolo", dateAdded = DateTime.Now, userID = "419deb0b-479c-4daa-93c5-4d15180d7bce", mediaID = 2 }
             );
+			context.SaveChanges();
 
             context.Media.AddOrUpdate(
                 m => m.Id,
-                new Media { Id = 0, title = "Narnia", yearOfRelease = 2005, description = "Skemmtileg mynd um skápa.", posterPath = "~/Content/categoryImg/adventure.jpg", categoryID = 0 },
-                new Media { Id = 1, title = "Ace Ventura: Pet Detective", yearOfRelease = 1994, description = "Mjög fyndin mynd.", posterPath = "~/Content/categoryImg/comedy.jpg", categoryID = 1 },
-                new Media { Id = 2, title = "Notebook", yearOfRelease = 2004, description = "Þriggja vasaklúta mynd.", posterPath = "~/Content/categoryImg/romantic.jpg", categoryID = 5 },
+                new Media { Id = 0, title = "Narnia", yearOfRelease = 2005, description = "Skemmtileg mynd um skápa.", posterPath = "/Content/categoryImg/adventure.jpg", categoryID = 0 },
+                new Media { Id = 1, title = "Ace Ventura: Pet Detective", yearOfRelease = 1994, description = "Mjög fyndin mynd.", posterPath = "/Content/categoryImg/comedy.jpg", categoryID = 1 },
+                new Media { Id = 2, title = "Notebook", yearOfRelease = 2004, description = "Þriggja vasaklúta mynd.", posterPath = "/Content/categoryImg/romantic.jpg", categoryID = 5 },
 				new Media { Id = 3, title = "Fight Club", yearOfRelease = 1999, description = "First rule of Fight Club, you don't talk about the fight club.", posterPath = null, categoryID = 6 },
 				new Media { Id = 4, title = "Pulp Fiction", yearOfRelease = 1997, description = "Quintin Tarantino, nuff said.", posterPath = null, categoryID = 6 },
 				new Media { Id = 5, title = "The Expendables", yearOfRelease = 2011, description = "Testesteron.", posterPath = null, categoryID = 8 },
@@ -72,12 +75,14 @@ namespace _3viknavinir.Migrations
 				new Media { Id = 15, title = "Planet Earth", yearOfRelease = 2012, description = "Breski gamli kallinn skoða jörðina", posterPath = null, categoryID = 14 },
 				new Media { Id = 16, title = "Pirates", yearOfRelease = 2005, description = "Það eru sjóræningjar og beinagrindur og fleira", posterPath = null, categoryID = 15 }
             );
+			context.SaveChanges();
 
             context.Requests.AddOrUpdate(
                 r => r.Id,
                 new Requests { Id = 0, dateOfRequest = DateTime.Now, title = "Superstar", yearOfRelease = 1999, imdbID = "", userID = "419deb0b-479c-4daa-93c5-4d15180d7bce" },
                 new Requests { Id = 1, dateOfRequest = DateTime.Now, title = "300", yearOfRelease = 2006, imdbID = "", userID = "419deb0b-479c-4daa-93c5-4d15180d7bce" } 
             );
+			context.SaveChanges();
 
             context.Translation.AddOrUpdate(
                 t => t.Id,
@@ -97,14 +102,18 @@ namespace _3viknavinir.Migrations
 				new Translation { Id = 13, finished = false, mediaID = 13, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = new DateTime(2000, 12, 7) },
 				new Translation { Id = 14, finished = false, mediaID = 14, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = DateTime.Now },
 				new Translation { Id = 15, finished = false, mediaID = 15, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = DateTime.Now },
-				new Translation { Id = 16, finished = false, mediaID = 16, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = DateTime.Now }
+				new Translation { Id = 16, finished = false, mediaID = 16, languageID = 0, userID = "5914b583-645b-4793-a9da-b2d49669706f", dateAdded = new DateTime(2002, 12, 7) }
             );
-
-            context.TranslationLines.AddOrUpdate(
-                tl => tl.Id,
-                new TranslationLines {Id = 0, chapterNumber = 1, startTime = "01:02", endTime = "01:03", subtitle = "Við erum bílar.", isEditing = false, dateOfSubmission = DateTime.Now, translationID = 0},
-                new TranslationLines { Id = 1, chapterNumber = 3, startTime = "03:02", endTime = "03:03", subtitle = "Við keyrum örugglega eitthvað.", isEditing = false, dateOfSubmission = DateTime.Now, translationID = 1}
-            );
+			context.SaveChanges();
+			
+			/*
+			context.TranslationLines.AddOrUpdate(
+				tl => tl.Id,
+				new TranslationLines { Id = 0, chapterNumber = 1, startTime = "01:02", endTime = "01:03", subtitle = "Við erum bílar.", isEditing = false, dateOfSubmission = DateTime.Now, translationID = 0 },
+				new TranslationLines { Id = 1, chapterNumber = 2, startTime = "03:02", endTime = "03:03", subtitle = "Við keyrum örugglega eitthvað.", isEditing = false, dateOfSubmission = DateTime.Now, translationID = 0 }
+			);
+			context.SaveChanges();
+			*/
 
             context.Upvote.AddOrUpdate(
                 u => u.Id,

@@ -20,17 +20,17 @@
 <h2>@Html.DisplayFor(model => model.media.title) ( @Html.DisplayFor(model => model.media.yearOfRelease) )</h2>
 
 <div>
-    <hr />
+	<hr />
     <dl class="dl-horizontal">
-        <dt id="">
+		<dt id="">
+		<dt>
+			@Html.DisplayName("Sett inn af: ")
+		</dt>
+		<dd>
+			@Html.DisplayFor(model => Model.translation.userID)
+		</dd>
         <dt>
-            @Html.DisplayName("Sett inn af: ")
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => Model.translation.userID)
-        </dd>
-        <dt>
-            @Html.DisplayName("Lýsing: ")
+			@Html.DisplayName("Lýsing: ")
         </dt>
         <dd>
             @Html.DisplayFor(model => model.media.description)
@@ -38,11 +38,11 @@
     </dl>
     <div class="detailPhoto">
         <img src="@Html.DisplayFor(model => model.media.posterPath)" alt="@Html.DisplayFor(model => model.media.title)">
-    </div>
-    <p>
-        @Html.ActionLink("Athugasemdir", "Discussion", routeValues: null, htmlAttributes: new { id = "discussionLink" })
-    </p>
 </div>
-    <form action="/Translation/Download/"><input type="submit" value="Hlaða niður þýðingu" class="btn btn-default" id="downloadTranslationButton" /></form>
-    <form action="/Translation/EditTranslation/"><input type="submit" value="Breyta þýðingu" class="btn btn-default" id="editTranslationButton" /></form>
-    <form action="/Translation/Edit/"><input type="submit" value="Breyta lýsingu" class="btn btn-default" id="editDetailsButton" /></form>
+<p>
+	@Html.ActionLink("Athugasemdir", "Discussion", routeValues: null, htmlAttributes: new { id = "discussionLink" })
+</p>
+</div>
+<form action="/Translation/Download/"><input type="submit" value="Hlaða niður þýðingu" class="btn btn-default" id="downloadTranslationButton" /></form>
+<form action="/Translation/EditTranslation/@Model.media.Id"><input type="submit" value="Breyta þýðingu" class="btn btn-default" id="editTranslationButton" /></form>
+<form action="/Translation/Edit/"><input type="submit" value="Breyta lýsingu" class="btn btn-default" id="editDetailsButton"/></form>

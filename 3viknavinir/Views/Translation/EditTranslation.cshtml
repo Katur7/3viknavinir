@@ -1,65 +1,101 @@
-﻿@model _3viknavinir.Models.TranslationLines
+﻿@model _3viknavinir.Models.EditTranslationViewModel
 
 @{
-    ViewBag.Title = "Breyta þýðingu";
+    ViewBag.Title = "Breyta þýðingu á " + Model.title + " (" + Model.year + ")";
 }
 
 <h2>@ViewBag.Title</h2>
 
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>TranslationLines</h4>
-        <hr />
+<div id="TextToEdit">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
-        @Html.HiddenFor(model => model.Id)
+        foreach(var item in Model.textToTranslate)
+        {
+            <div class="form-group">
+                @Html.HiddenFor(model => item.Id)
+                <div class="col-md-10">
+                    @Html.EditorFor(model => item.chapterNumber)
+                    @Html.ValidationMessageFor(model => item.chapterNumber)
+                </div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => item.startTime)
+                    @Html.ValidationMessageFor(model => item.startTime)
+                </div>
+                <p>-></p>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => item.endTime)
+                    @Html.ValidationMessageFor(model => item.endTime)
+                </div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => item.subtitle)
+                    @Html.ValidationMessageFor(model => item.subtitle)
+                </div>
+            </div>
+        }
+        
+        // Input button for "Fullkláraður texti"
+        
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.chapterNumber, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.chapterNumber)
-                @Html.ValidationMessageFor(model => model.chapterNumber)
+
+    @*@using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="form-horizontal">
+
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.chapterNumber, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.chapterNumber)
+                    @Html.ValidationMessageFor(model => model.chapterNumber)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.startTime, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.startTime)
+                    @Html.ValidationMessageFor(model => model.startTime)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.endTime, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.endTime)
+                    @Html.ValidationMessageFor(model => model.endTime)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.subtitle, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.subtitle)
+                    @Html.ValidationMessageFor(model => model.subtitle)
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
             </div>
         </div>
+        *@
+</div>
+<div id="EditedText">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.startTime, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.startTime)
-                @Html.ValidationMessageFor(model => model.startTime)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.endTime, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.endTime)
-                @Html.ValidationMessageFor(model => model.endTime)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.subtitle, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.subtitle)
-                @Html.ValidationMessageFor(model => model.subtitle)
-            </div>
-        </div>
-
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {

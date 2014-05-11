@@ -8,7 +8,7 @@ namespace _3viknavinir.Models
 {
     public class EditTranslationViewModel : _3viknaContext
     {
-        public IEnumerable<TranslationLines> translationLines { get; set; }
+        public IEnumerable<TranslationLines> textToTranslate { get; set; }
         public IEnumerable<TranslationLines> translatedText { get; set; }
         public string title { get; set; }
         public int year { get; set; }

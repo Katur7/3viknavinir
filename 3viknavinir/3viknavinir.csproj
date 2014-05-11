@@ -181,7 +181,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Discussion.cs" />
     <Compile Include="Models\DiscussionViewModel.cs" />
-    <Compile Include="Models\EditTranslationViewModel.cs" />
+    <Compile Include="Models\ViewModels\EditTranslationViewModel.cs" />
     <Compile Include="Models\ViewModels\IndexViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Language.cs" />

@@ -46,6 +46,15 @@ namespace _3viknavinir.Repo
 							   select t).SingleOrDefault();
 			return translation;
 		}
+
+		public Translation GetTranslationByID(int id)
+		{
+			var translation = (from t in db.Translation
+							   where t.Id == id
+							   select t).SingleOrDefault();
+			return translation;
+		}
+
 		public IEnumerable<Translation> GetAllTranslations()
 		{
 			var all = db.Translation.ToList();

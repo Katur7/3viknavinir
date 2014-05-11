@@ -55,7 +55,7 @@ namespace _3viknavinir.Controllers
 					}
 				}
 			}
-			return View();
+			return RedirectToAction("Index", "Home");
 		}
 		[HttpGet]
         [Authorize]
@@ -89,17 +89,39 @@ namespace _3viknavinir.Controllers
         {
             if ( id.HasValue )
             {
+				EditTranslationViewModel viewModel = new EditTranslationViewModel();
+
                 int realid = id.Value;
                 using ( TranslationLinesRepo translationLinesRepo = new TranslationLinesRepo( ) )
                 {
-                    var translationLine = translationLinesRepo.GetTranslationLineByID(realid);
-                    if ( translationLine != null )
-                    {
-                        return View( translationLine );
-                    }
+					using (TranslationRepo translationRepo = new TranslationRepo())
+					{ 
+						using(MediaRepo mediaRepo = new MediaRepo())
+						{
+							var translationLines = from tl in translationLinesRepo.GetTranslationLinesByTranslationID(realid)
+												   orderby tl.chapterNumber
+												   select tl;
+
+							viewModel.textToTranslate = translationLines;
+							viewModel.translatedText = translationLines;
+
+							var translation = translationRepo.GetTranslationByID(realid);
+							viewModel.isFinished = translation.finished;
+
+							var media = mediaRepo.GetMediaByID(translation.mediaID);
+							viewModel.title = media.title;
+							viewModel.year = media.yearOfRelease;
+						
+
+							if ( translationLines != null && translation != null && media != null)
+							{
+								return View( viewModel );
+							}
+						}
+					}
                 }
             }
-            return View( );
+			return RedirectToAction("Index", "Home");  // Should be Error/404
         }
 
         [HttpPost]
