@@ -22,6 +22,8 @@ namespace _3viknavinir.Models
         [StringLength(50)]
         public string posterPath { get; set; }
 
+		public string imdbID { get; set; }
+
         public int categoryID { get; set; }
     }
 }
