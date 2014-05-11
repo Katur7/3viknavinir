@@ -2,19 +2,13 @@
 @{
     ViewBag.Title = "SÍÁT";
 }
-@*Liljar*@
-<div id="welcome">
-    <p>
-    Velkominn á síðu Samfélags Íslenskra Áhugafólks um Texta!
-    Hér geturu sótt, deilt, þýtt og spáð í textaþýðingum fyrir myndefni.
-    </p>
-</div>
-@*Svava*@
+@*Svava / Erla*@
 <div id="searchBox">
-    <form action="search();" class="textBox" >
-	    <input class="searchtext" placeholder="Myndefni..." type="text" />
+    <p>Mynd/Þáttur</p>
+	<form action="SearchResults();" class="textBox">
+		<input class="searchtext" placeholder="Myndefni..." type="text" />
 		<input type="submit" value="Leita" class="btn btn-default" id="searchButton" />
-    </form>
+	</form>
 </div>
 
 @*Erla og Grímur*@
