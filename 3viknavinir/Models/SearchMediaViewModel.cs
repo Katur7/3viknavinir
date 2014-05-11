@@ -7,5 +7,8 @@ namespace _3viknavinir.Models
 {
     public class SearchMediaViewModel
     {
+		public IEnumerable<Media> searchedMedia { get; set; }
+
+		public IEnumerable<Media> recentMedia { get; set; }
     }
 }

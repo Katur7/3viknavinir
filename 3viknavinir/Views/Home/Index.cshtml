@@ -11,10 +11,14 @@
 </div>
 @*Svava / Erla*@
 <div id="searchBox">
-	<form action="SearchResults();" class="textBox">
-		<input class="searchtext" placeholder="Myndefni..." type="text" />
-		<input type="submit" value="Leita" class="btn btn-default" id="searchButton" />
-	</form>
+	<p>Mynd/Þáttur</p>
+	@using (Html.BeginForm("SearchMediaView", "Search", FormMethod.Get))
+	{
+		<p>
+			@Html.TextBox("SearchString") <br />
+			<input type="submit" value="Leita" class="btn btn-default" />
+		</p>
+	}
 </div>
 
 @*Erla og Grímur*@
