@@ -340,7 +340,7 @@ input[type="checkbox"].input-validation-error {
 }
 #welcome
 {
-    margin: auto;
+    text-align:center;
     border-bottom: 1px solid #eeeeee;
 
 }
