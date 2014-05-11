@@ -5,8 +5,12 @@ using System.Web;
 
 namespace _3viknavinir.Models
 {
-	public class IndexViewModel : _3viknaContext
+	public class IndexViewModel
 	{
-		public IEnumerable<Media> newestMedia;
+		public IEnumerable<Media> recentMedia { get; set; }
+
+		public IEnumerable<Media> popularMedia { get; set; }
+
+		public IEnumerable<Requests> popularRequests { get; set; }
 	}
 }
