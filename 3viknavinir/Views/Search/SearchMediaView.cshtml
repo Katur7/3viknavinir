@@ -1,4 +1,4 @@
-﻿
+﻿@model _3viknavinir.Models.SearchMediaViewModel
 @{
     ViewBag.Title = "SearchMediaView";
 }
@@ -7,11 +7,11 @@
 <div class="breadcrumb">
     <ul class="crumbs">
         <li class="crumb crumb-first">
-            <a href="/">SÍÁT</a>
+            @Html.ActionLink("SÍÁT", "Index", "Home")
         </li>
         <li class="crumb crumb-last">
             <span class="crumb-seperator"> > </span>
-            <a href="#">Leita</a>
+            @Html.ActionLink("Leita", "SearchMedia", "Search")
         </li>
     </ul>
 </div>
@@ -28,7 +28,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var item in Model.searchedMedia)
             {
                 <tr class="requestRow">
                     <td class="alphabetname">@Html.ActionLink(item.title, "Details", "Translation", new { id = item.Id }, null)</td>
