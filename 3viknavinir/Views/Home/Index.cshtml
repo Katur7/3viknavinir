@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<_3viknavinir.Models.Media>
-@*_3viknavinir.Models.FrontpageViewModel*@
 @{
     ViewBag.Title = "SÍÁT";
 }
@@ -27,8 +26,8 @@
                 @foreach (var item in Model)
                 {
                     <tr class="homePageTableRows">
-                        <td>@item.title (@item.yearOfRelease)</td>
-                        <td>@item.title (@item.yearOfRelease)</td>
+                        <td>@Html.ActionLink(item.title, "Details", "Translation", new { id = item.Id }, null) (@item.yearOfRelease)</td>
+                        <td>@Html.ActionLink(item.title, "Details", "Translation", new { id = item.Id }, null) (@item.yearOfRelease)</td>
                         <td>Drasl sem fólk diggar í döðlur...</td>
                     </tr>
                 }
