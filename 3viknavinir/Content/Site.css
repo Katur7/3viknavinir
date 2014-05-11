@@ -326,6 +326,7 @@ input[type="checkbox"].input-validation-error {
 	height: 34px;
 	border-color: #eeeeee;
 	border-radius: 4px;
+	padding-left: 5px;
 }
 .textBox
 {
