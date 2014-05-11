@@ -6,7 +6,6 @@ namespace _3viknavinir.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Category")]
     public partial class Category
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

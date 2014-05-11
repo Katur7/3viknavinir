@@ -6,7 +6,6 @@ namespace _3viknavinir.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Language")]
     public partial class Language
     {
         public Language()
