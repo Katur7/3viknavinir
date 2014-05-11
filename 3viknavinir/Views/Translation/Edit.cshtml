@@ -42,14 +42,14 @@
         <div class="form-group">
 			@Html.Label("Mynd: ", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.posterPath)
+                @Html.EditorFor(model => model.posterPath)<input type="file" value="Velja mynd" id="choosePoster"/>
                 @Html.ValidationMessageFor(model => model.posterPath)
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Vista" class="btn btn-default" id="saveEditDescriptionButton"/>
             </div>
         </div>
     </div>

@@ -40,10 +40,51 @@ namespace _3viknavinir.Controllers
 			return View();
 		}
 		[HttpGet]
-		public ActionResult Edit()
+		public ActionResult Edit(int? id)
 		{
-
+			if(id.HasValue)
+			{
+				int realid = id.Value;
+				using(MediaRepo mediaRepo = new MediaRepo())
+				{
+					var media = mediaRepo.GetMediaByID(realid);
+					if(media != null)
+					{
+						return View(media);
+					}
+				}
+			}
 			return View();
 		}
+
+		[HttpPost]
+		public ActionResult Edit()
+		{
+			return View();
+		}
+
+        [HttpGet]
+        public ActionResult EditTranslation( int? id)
+        {
+            if ( id.HasValue )
+            {
+                int realid = id.Value;
+                using ( TranslationLinesRepo translationLinesRepo = new TranslationLinesRepo( ) )
+                {
+                    var translationLine = translationLinesRepo.GetTranslationLineByID(realid);
+                    if ( translationLine != null )
+                    {
+                        return View( translationLine );
+                    }
+                }
+            }
+            return View( );
+        }
+
+        [HttpPost]
+        public ActionResult EditTranslation( )
+        {
+            return View( );
+        }
 	}
 }

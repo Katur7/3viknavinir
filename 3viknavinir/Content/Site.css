@@ -275,6 +275,9 @@ input[type="checkbox"].input-validation-error {
 	background-position-y: center;
 	width: 130px;
 	padding-left: 25px;
+	float: left;
+	clear: both;
+	margin: 10px 0px 0px 0px;
 }
 
 #editDetailsButton {
@@ -284,6 +287,9 @@ input[type="checkbox"].input-validation-error {
 	background-position-y: center;
 	width: 130px;
 	padding-left: 25px;
+	float: right;
+	clear: both;
+	margin: 150px 0px 0px 0px;
 }
 
 #downloadTranslationButton {
@@ -293,9 +299,37 @@ input[type="checkbox"].input-validation-error {
 	background-position-y: center;
 	width: 160px;
 	padding-left: 25px;
+	float: left;
+	margin: 0px;
+}
+
+.dl-horizontal dt {
+	text-align: left;
+}
+
+.dl-horizontal dd {
+	margin: 0px;
+	text-align: left;
+}
+
+#saveEditDescriptionButton {
+	margin-left: 98px;
 }
 
 .loginout
 {
     font-size: 17px;
+}
+.searchText{
+    max-width: 600px;
+    width: 600px;
+}
+.textBox
+{
+    width: 600px;
+    margin-left: 360px;
+}
+.searchButton
+{
+    
 }
