@@ -17,7 +17,6 @@ namespace _3viknavinir.Controllers
 			{
 				using(TranslationRepo translationRepo = new TranslationRepo())
 				{
-					// TODO Fix so it ordersby date from Translations
 					var newestMedia = (from t in translationRepo.GetAllTranslations()
 									   join m in mediaRepo.GetAllMedia() on t.mediaID equals m.Id
 									   orderby t.dateAdded descending

@@ -52,6 +52,23 @@ namespace _3viknavinir.Repo
 						 select m).SingleOrDefault();
 			return media;
 		}
+
+		public IEnumerable<Media> GetMediaByTitle(string title)
+		{
+			var media = from m in db.Media
+						where m.title == title
+						select m;
+			return media;
+		}
+		
+		public IEnumerable<Media> GetMediaByImdbID(string imdbid)
+		{
+			var media = from m in db.Media
+						where m.imdbID == imdbid
+						select m;
+			return media;
+		}
+		
 		// Grímur
 		public void Dispose()
 		{
