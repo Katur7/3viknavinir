@@ -22,16 +22,19 @@ namespace _3viknavinir.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Add( int? id )
+        public ActionResult Add( Requests request )
         {
-            if ( id.HasValue )
+            using ( RequestRepo requestRepo = new RequestRepo( ) )
             {
-                int realid = id.Value;
-                using ( RequestRepo requestRepo = new RequestRepo() )
+                var newRequest = new Requests( );
+
+                if ( ModelState.IsValid )
                 {
-                    return View();
+                        requestRepo.AddRequest( newRequest );
+                        return RedirectToAction("Requests", "ListRequest");
                 }
             }
+            
             return View( );
         }
         public ActionResult Delete()
