@@ -1,10 +1,11 @@
-﻿@model _3viknavinir.Models.Media
+﻿@model _3viknavinir.Models.MediaDetailsViewModel
+@using Microsoft.AspNet.Identity
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>@Html.DisplayFor(model => model.title) ( @Html.DisplayFor(model => model.yearOfRelease) )</h2>
+<h2>@Html.DisplayFor(model => model.media.title) ( @Html.DisplayFor(model => model.media.yearOfRelease) )</h2>
 
 <div>
 	<hr />
@@ -15,14 +16,14 @@
 		</dt>
 
 		<dd>
-			@Html.DisplayFor(model => model.title)
+			@Html.DisplayFor(model => Model.translation.userID)
 		</dd>
         <dt>
 			@Html.DisplayName("Lýsing: ")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.description)
+            @Html.DisplayFor(model => model.media.description)
         </dd>
 
         <dt>
@@ -30,7 +31,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.posterPath)
+            @Html.DisplayFor(model => model.media.posterPath)
         </dd>
     </dl>
 </div>
