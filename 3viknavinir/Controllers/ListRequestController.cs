@@ -52,7 +52,7 @@ namespace _3viknavinir.Controllers
             {
                 if ( ModelState.IsValid )
                 {
-                    var newRequest = new Requests( );
+                        var newRequest = new Requests( );
                         
                         int nextID = requestRepo.GetNextRequestID();
 
@@ -61,7 +61,7 @@ namespace _3viknavinir.Controllers
                         newRequest.dateOfRequest = DateTime.Now;
                         newRequest.yearOfRelease = model.yearOfRelease;
                         newRequest.imdbID = model.imdbID;
-                        newRequest.userID = "419deb0b-479c-4daa-93c5-4d15180d7bce"; // TODO
+                        newRequest.userID = User.Identity.GetUserId();
 
                     requestRepo.AddRequest( newRequest );
                     return RedirectToAction("Requests", "ListRequest");
