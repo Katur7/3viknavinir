@@ -338,3 +338,9 @@ input[type="checkbox"].input-validation-error {
 {
 	margin: 0px 0px 4px 0px;
 }
+#welcome
+{
+    margin: auto;
+    border-bottom: 1px solid #eeeeee;
+
+}

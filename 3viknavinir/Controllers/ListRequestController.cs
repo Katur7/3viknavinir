@@ -30,7 +30,7 @@ namespace _3viknavinir.Controllers
             using ( RequestRepo requestRepo = new RequestRepo( ) )
             {
                 var allRequests = ( from r in requestRepo.GetAllRequests()
-                                 orderby r.title ascending
+                                 orderby r.dateOfRequest descending
                                  select r ).ToList( );
                 if ( allRequests != null )
                 {
@@ -54,7 +54,9 @@ namespace _3viknavinir.Controllers
                 {
                     var newRequest = new Requests( );
                         
-                        newRequest.Id = 3; // TODO
+                        int nextID = requestRepo.GetNextRequestID();
+
+                        newRequest.Id = nextID;
                         newRequest.title = model.movieName;
                         newRequest.dateOfRequest = DateTime.Now;
                         newRequest.yearOfRelease = model.yearOfRelease;

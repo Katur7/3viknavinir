@@ -12,7 +12,6 @@ namespace _3viknavinir.Models
         {
             Upvote = new HashSet<Upvote>();
         }
-
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
