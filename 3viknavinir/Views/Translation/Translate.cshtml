@@ -1,4 +1,4 @@
-﻿g@model _3viknavinir.Models.TranslationViewModel
+﻿@model _3viknavinir.Models.TranslationViewModel
 @{
     ViewBag.Title = "Þýða";
 }
@@ -36,17 +36,23 @@
             </div>
         </div>
 
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
         <div class="form-group">
             @Html.LabelFor(m => m.yearOfRelease, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
                 @Html.TextBoxFor(m => m.yearOfRelease, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.yearOfRelease)
             </div>
         </div>
 
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
         <div class="form-group">
             @Html.LabelFor(m => m.imdbID, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
                 @Html.TextBoxFor(m => m.imdbID, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.imdbID)
             </div>
         </div>
         <div class="form-group uploadfile">
