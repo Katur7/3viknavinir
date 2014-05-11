@@ -103,7 +103,7 @@ namespace _3viknavinir.Migrations
             context.TranslationLines.AddOrUpdate(
                 tl => tl.Id,
                 new TranslationLines {Id = 0, chapterNumber = 1, startTime = "01:02", endTime = "01:03", subtitle = "Við erum bílar.", isEditing = false, dateOfSubmission = DateTime.Now, translationID = 0},
-                new TranslationLines { Id = 1, chapterNumber = 3, startTime = "03:02", endTime = "03:03", subtitle = "Við keyrum örugglega eitthvað.", isEditing = false, dateOfSubmission = DateTime.Now, translationID = 1}
+                new TranslationLines { Id = 0, chapterNumber = 3, startTime = "03:02", endTime = "03:03", subtitle = "Við keyrum örugglega eitthvað.", isEditing = false, dateOfSubmission = DateTime.Now, translationID = 1}
             );
 
             context.Upvote.AddOrUpdate(
