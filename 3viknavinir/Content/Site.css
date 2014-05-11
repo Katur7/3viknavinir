@@ -320,13 +320,15 @@ input[type="checkbox"].input-validation-error {
 {
     font-size: 17px;
 }
-.searchtext{
+
+#SearchString{
 	max-width: 636px;
     width: 900px;
 	height: 34px;
 	border-color: #eeeeee;
 	border-radius: 4px;
 	padding-left: 5px;
+	margin-left: 220px;
 }
 .textBox
 {
@@ -338,13 +340,25 @@ input[type="checkbox"].input-validation-error {
 {
 	margin: 0px 0px 4px 0px;
 }
+
 #welcome
 {
     text-align:center;
     border-bottom: 1px solid #eeeeee;
-
+    margin-right: -15px;
+    margin-left: -15px;
 }
 
 .pageCount a {
 	margin-right: 15px;
+}
+
+.detailPhoto img{
+    max-height: 250px;
+    max-width: 250px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;   
 }
