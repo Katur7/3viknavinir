@@ -31,15 +31,15 @@
 			</tr>
 		</thead>
 		<tbody>
-			@*@foreach (var item in Model)
+			@foreach (var item in Model)
 			{
 				<tr class="requestRow">
 					<td class="requestName">@Html.ActionLink(item.title, "Edit", new { id = item.Id })</td>
 					<td class="requestYear">@Html.DisplayFor(modelItem => item.yearOfRelease)</td>
 					<td class="requestIMDBID">@Html.DisplayFor(modelItem => item.imdbID)</td>
-					<td class="requestUpvote">@Html.DisplayFor(modelItem => item.upvote)</td>
+					@*<td class="requestUpvote">@Html.DisplayFor(modelItem => item.)</td><*@
 				</tr>
-			}*@
+			}
 		</tbody>
 	</table>
 </div>
