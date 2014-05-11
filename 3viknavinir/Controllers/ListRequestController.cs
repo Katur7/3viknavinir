@@ -10,50 +10,58 @@ using Microsoft.AspNet.Identity;
 
 namespace _3viknavinir.Controllers
 {
-	[HandleError]
+    [HandleError]
     public class ListRequestController : Controller
     {
-		private RequestRepo requestRepo;
+        private RequestRepo requestRepo;
 
-		public ListRequestController()
-		{
-			this.requestRepo = new RequestRepo();
-		}
+        public ListRequestController( )
+        {
+            this.requestRepo = new RequestRepo( );
+        }
 
-		public ListRequestController(RequestRepo requestRepo)
-		{
-			this.requestRepo = requestRepo;
-		}
+        public ListRequestController( RequestRepo requestRepo )
+        {
+            this.requestRepo = requestRepo;
+        }
 
-		public ActionResult Requests()
-		{
-			//var model = db.News.OrderByDescending(n => n.DateCreated).Take(10);
+        public ActionResult Requests( )
+        {
+            using ( RequestRepo requestRepo = new RequestRepo( ) )
+            {
+                var allRequests = ( from r in requestRepo.GetAllRequests()
+                                 orderby r.title ascending
+                                 select r ).ToList( );
+                if ( allRequests != null )
+                {
+                    return View( allRequests );
+                }
+            }
+            return View( );
+        }
 
-			return View();
-		}
+        public ActionResult NewRequest( )
+        {
+            return View( );
+        }
 
-		public ActionResult NewRequest()
-		{
-			return View();
-		}
+        [HttpPost]
+        public ActionResult NewRequest( NewRequestViewModel model )
+        {
+            /*string bla = "";
+            using (RequestRepo repo = new RequestRepo())
+            {
+                repo.AddRequest(new Requests() {
+                    title = model.movieName,
+                    yearOfRelease = model.yearOfRelease,
+                    imdbID = model.imdbID,
+                    userID = User.Identity.GetUserId()
+                });
+            }
+            */
 
-		[HttpPost]
-		public ActionResult NewRequest(NewRequestViewModel model)
-		{
-			/*string bla = "";
-			using (RequestRepo repo = new RequestRepo())
-			{
-				repo.AddRequest(new Requests() {
-					title = model.movieName,
-					yearOfRelease = model.yearOfRelease,
-					imdbID = model.imdbID,
-					userID = User.Identity.GetUserId()
-				});
-			}
-			*/
+            return View( );
+        }
 
-			return View();
-		}
-
-	}
+    }
 }

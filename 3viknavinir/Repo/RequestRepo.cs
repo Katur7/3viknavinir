@@ -7,7 +7,7 @@ using System.Web;
 
 namespace _3viknavinir.Repo
 {
-	public class RequestRepo
+    public class RequestRepo : IDisposable
 	{
 		private _3viknaContext db = new _3viknaContext();
 		
@@ -59,5 +59,14 @@ namespace _3viknavinir.Repo
 			upvote.translationID = null;
 			upvote.discussionID = null;
 		}
+        public void Dispose( )
+        {
+            bool disposed = false;
+            if ( !disposed )
+            {
+                // TODO
+                disposed = true;
+            }
+        }  
 	}
 }
