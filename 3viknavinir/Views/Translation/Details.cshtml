@@ -43,7 +43,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.media.posterPath)
+            <img src="@Model.media.posterPath" />
         </dd>
     </dl>
 </div>
@@ -51,5 +51,5 @@
 	@Html.ActionLink("Athugasemdir", "Discussion", routeValues: null, htmlAttributes: new { id = "discussionLink" })
 </p>
 <form action="/Translation/Download/"><input type="submit" value="Hlaða niður þýðingu" class="btn btn-default" id="downloadTranslationButton" /></form>
-<form action="/Translation/EditTranslation/"><input type="submit" value="Breyta þýðingu" class="btn btn-default" id="editTranslationButton" /></form>
+<form action="/Translation/EditTranslation/@Model.media.Id"><input type="submit" value="Breyta þýðingu" class="btn btn-default" id="editTranslationButton" /></form>
 <form action="/Translation/Edit/"><input type="submit" value="Breyta lýsingu" class="btn btn-default" id="editDetailsButton"/></form>

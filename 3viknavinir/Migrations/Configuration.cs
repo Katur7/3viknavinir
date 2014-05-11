@@ -54,9 +54,9 @@ namespace _3viknavinir.Migrations
 
             context.Media.AddOrUpdate(
                 m => m.Id,
-                new Media { Id = 0, title = "Narnia", yearOfRelease = 2005, description = "Skemmtileg mynd um skápa.", posterPath = "~/Content/categoryImg/adventure.jpg", categoryID = 0 },
-                new Media { Id = 1, title = "Ace Ventura: Pet Detective", yearOfRelease = 1994, description = "Mjög fyndin mynd.", posterPath = "~/Content/categoryImg/comedy.jpg", categoryID = 1 },
-                new Media { Id = 2, title = "Notebook", yearOfRelease = 2004, description = "Þriggja vasaklúta mynd.", posterPath = "~/Content/categoryImg/romantic.jpg", categoryID = 5 },
+                new Media { Id = 0, title = "Narnia", yearOfRelease = 2005, description = "Skemmtileg mynd um skápa.", posterPath = "/Content/categoryImg/adventure.jpg", categoryID = 0 },
+                new Media { Id = 1, title = "Ace Ventura: Pet Detective", yearOfRelease = 1994, description = "Mjög fyndin mynd.", posterPath = "/Content/categoryImg/comedy.jpg", categoryID = 1 },
+                new Media { Id = 2, title = "Notebook", yearOfRelease = 2004, description = "Þriggja vasaklúta mynd.", posterPath = "/Content/categoryImg/romantic.jpg", categoryID = 5 },
 				new Media { Id = 3, title = "Fight Club", yearOfRelease = 1999, description = "First rule of Fight Club, you don't talk about the fight club.", posterPath = null, categoryID = 6 },
 				new Media { Id = 4, title = "Pulp Fiction", yearOfRelease = 1997, description = "Quintin Tarantino, nuff said.", posterPath = null, categoryID = 6 },
 				new Media { Id = 5, title = "The Expendables", yearOfRelease = 2011, description = "Testesteron.", posterPath = null, categoryID = 8 },
@@ -103,7 +103,7 @@ namespace _3viknavinir.Migrations
             context.TranslationLines.AddOrUpdate(
                 tl => tl.Id,
                 new TranslationLines {Id = 0, chapterNumber = 1, startTime = "01:02", endTime = "01:03", subtitle = "Við erum bílar.", isEditing = false, dateOfSubmission = DateTime.Now, translationID = 0},
-                new TranslationLines { Id = 0, chapterNumber = 3, startTime = "03:02", endTime = "03:03", subtitle = "Við keyrum örugglega eitthvað.", isEditing = false, dateOfSubmission = DateTime.Now, translationID = 1}
+                new TranslationLines { Id = 1, chapterNumber = 3, startTime = "03:02", endTime = "03:03", subtitle = "Við keyrum örugglega eitthvað.", isEditing = false, dateOfSubmission = DateTime.Now, translationID = 1}
             );
 
             context.Upvote.AddOrUpdate(

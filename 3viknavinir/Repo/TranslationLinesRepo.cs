@@ -45,11 +45,11 @@ namespace _3viknavinir.Repo
 
             return translationLine;
         }
-        public TranslationLines GetTranslationLineByTranslationID(int id)
+        public IEnumerable<TranslationLines> GetTranslationLinesByTranslationID(int id)
         {
-            var translationLine = ( from t in db.TranslationLines
-                                    where t.translationID == id
-                                    select t).SingleOrDefault();
+            var translationLine = from t in db.TranslationLines
+							      where t.translationID == id
+								  select t;
 
             return translationLine;
         }
