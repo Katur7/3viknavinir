@@ -14,5 +14,10 @@ namespace _3viknavinir.Controllers
         {
             return View();
         }
+
+		public ActionResult SearchResults()
+		{
+			return View( );
+		}
 	}
 }
