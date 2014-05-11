@@ -30,7 +30,7 @@ namespace _3viknavinir.Controllers
             using ( RequestRepo requestRepo = new RequestRepo( ) )
             {
                 var allRequests = ( from r in requestRepo.GetAllRequests()
-                                 orderby r.title ascending
+                                 orderby r.dateOfRequest descending
                                  select r ).ToList( );
                 if ( allRequests != null )
                 {
@@ -52,14 +52,16 @@ namespace _3viknavinir.Controllers
             {
                 if ( ModelState.IsValid )
                 {
-                    var newRequest = new Requests( );
+                        var newRequest = new Requests( );
                         
-                        newRequest.Id = 3; // TODO
+                        int nextID = requestRepo.GetNextRequestID();
+
+                        newRequest.Id = nextID;
                         newRequest.title = model.movieName;
                         newRequest.dateOfRequest = DateTime.Now;
                         newRequest.yearOfRelease = model.yearOfRelease;
                         newRequest.imdbID = model.imdbID;
-                        newRequest.userID = "419deb0b-479c-4daa-93c5-4d15180d7bce"; // TODO
+                        newRequest.userID = User.Identity.GetUserId();
 
                     requestRepo.AddRequest( newRequest );
                     return RedirectToAction("Requests", "ListRequest");

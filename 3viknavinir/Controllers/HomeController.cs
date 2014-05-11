@@ -20,9 +20,10 @@ namespace _3viknavinir.Controllers
 					var newestMedia = (from t in translationRepo.GetAllTranslations()
 									   join m in mediaRepo.GetAllMedia() on t.mediaID equals m.Id
 									   orderby t.dateAdded descending
-									   select m).Take(20);
+									   select m).Take(10);
 
 					var viewModel = new IndexViewModel();
+
 					viewModel.recentMedia = newestMedia;
 					 
 					if (newestMedia != null)

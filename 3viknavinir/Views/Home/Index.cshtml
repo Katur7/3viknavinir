@@ -2,20 +2,23 @@
 @{
     ViewBag.Title = "SÍÁT";
 }
+@*Liljar*@
+<div id="welcome">
+    <p>
+        Velkominn á síðu Samfélags Íslenskra Áhugafólks um Texta!
+        Hér geturu sótt, deilt, þýtt og spáð í textaþýðingum fyrir myndefni.
+    </p>
+</div>
 @*Svava / Erla*@
 <div id="searchBox">
-    <p>Mynd/Þáttur</p>
+	<p>Mynd/Þáttur</p>
 	@using (Html.BeginForm("SearchMediaView", "Search", FormMethod.Get))
 	{
 		<p>
 			@Html.TextBox("SearchString") <br />
-			<input type="submit" value="Leita" class="btn btn-default"/>
+			<input type="submit" value="Leita" class="btn btn-default" />
 		</p>
 	}
-	<!--<form action="SearchResults();" class="textBox">
-		<input class="searchtext" placeholder="Myndefni..." type="text" />
-		<input type="submit" value="Leita" class="btn btn-default" id="searchButton" />
-	</form>-->
 </div>
 
 @*Erla og Grímur*@
@@ -35,7 +38,7 @@
                     <tr class="homePageTableRows">
                         <td>TODO</td>
                         <td>@Html.ActionLink(item.title, "Details", "Translation", new { id = item.Id }, null) (@item.yearOfRelease)</td>
-                        <td>Drasl sem fólk diggar í döðlur...</td>
+                        <td></td>
                     </tr>
                 }
             </tbody>

@@ -6,11 +6,11 @@
 <div class="breadcrumb">
 	<ul class="crumbs">
 		<li class="crumb crumb-first">
-			<a href="/">SÍÁT</a>
+			@Html.ActionLink("SÍÁT", "Index", "Home")
 		</li>
 		<li class="crumb crumb-last">
 			<span class="crumb-seperator"> > </span>
-			<a href="#">Beiðnir</a>
+			@Html.ActionLink("Beiðnir", "Request", "Request")
 		</li>
 	</ul>
 </div>
@@ -34,10 +34,10 @@
 			@foreach (var item in Model)
 			{
 				<tr class="requestRow">
-					<td class="requestName">@Html.ActionLink(item.title, "Edit", new { id = item.Id })</td>
+					<td class="requestName">@Html.DisplayFor(modelItem => item.title )</td>
 					<td class="requestYear">@Html.DisplayFor(modelItem => item.yearOfRelease)</td>
 					<td class="requestIMDBID">@Html.DisplayFor(modelItem => item.imdbID)</td>
-					@*<td class="requestUpvote">@Html.DisplayFor(modelItem => item.)</td><*@
+					<td class="requestUpvote">@Html.DisplayFor(modelItem => item.Upvote)</td>
 				</tr>
 			}
 		</tbody>

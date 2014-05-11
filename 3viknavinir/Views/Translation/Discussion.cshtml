@@ -1,4 +1,4 @@
-﻿@model _3viknavinir.Models.Discussion
+﻿@model _3viknavinir.Models.DiscussionViewModel
 @{
     ViewBag.Title = "Discussion";
 }
@@ -9,7 +9,7 @@
     </li>
     <li class="crumb crumbs">
         <span class="crumb-seperator"> > </span>
-        <a href="/ListTranslations/AlphabetizedTexts">Textar A-Ö</a>
+        @Html.ActionLink("Textar A-Ö", "AlphabetizedTexts", "ListTranslations")
     </li>
     <li class="crumb crumb-last">
         <span class="crumb-seperator"> > </span>
@@ -18,19 +18,19 @@
 </ul>
 <h2>Nafn Myndar - Athugasemdir</h2>
 <div class="mainContent">
-    @*foreach(var item in Model)
-    {*@
+    @foreach(var item in Model.discussions)
+    {
         <div class="comment">
             <div class="commentHeader">
                 <p>
-                    @*item.userID*@
+                    item.userID
                 </p>
             </div>
             <div class="commentBody">
 
             </div>
         </div>
-    @*}*@
+    }
     <div class="addComment">
         <div class="addCommentHeader">
             <p>

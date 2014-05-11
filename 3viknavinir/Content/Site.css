@@ -338,3 +338,13 @@ input[type="checkbox"].input-validation-error {
 {
 	margin: 0px 0px 4px 0px;
 }
+#welcome
+{
+    text-align:center;
+    border-bottom: 1px solid #eeeeee;
+
+}
+
+.pageCount a {
+	margin-right: 15px;
+}

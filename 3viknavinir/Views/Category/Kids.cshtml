@@ -6,15 +6,15 @@
 <div class="breadcrumb">
     <ul class="crumbs">
         <li class="crumb crumb-first">
-            <a href="/">SÍÁT</a>
+            @Html.ActionLink("SÍÁT", "Index", "Home")
         </li>
         <li class="crumb crumb-last">
             <span class="crumb-seperator"> > </span>
-            <a href="/Category/Categories">Flokkar</a>
+            @Html.ActionLink("Flokkar", "Categories", "Category")
         </li>
         <li class="crumb crumb-last">
             <span class="crumb-seperator"> > </span>
-            <a href="#">Barnamyndir</a>
+            @Html.ActionLink("Barnamyndir", "Kids", "Category")
         </li>
     </ul>
 </div>
@@ -33,8 +33,8 @@
             @foreach ( var item in Model )
             {
                 <tr class="homePageTableRows">
-                    <td>@item.title</td>
-                    <td>@item.yearOfRelease</td>
+                    <td>@Html.ActionLink(item.title, "Details", "Translation", new { id = item.Id }, null)</td>
+                    <td>@item.yearOfRelease</td>               
                     <td class="alphabetNumberDownload">82</td>
                     <td class="alphabetUpvote">49<a href="#" class="glyphicon glyphicon-thumbs-up" style="left: 35px"></a></td>
                     <td class="alphabetDownload"><a href="#" class="glyphicon glyphicon-download" style="left: 35px"></a></td>
