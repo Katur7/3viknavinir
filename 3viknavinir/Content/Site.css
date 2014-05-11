@@ -348,3 +348,14 @@ input[type="checkbox"].input-validation-error {
 .pageCount a {
 	margin-right: 15px;
 }
+
+.detailPhoto img{
+    max-height: 250px;
+    max-width: 250px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+    
+}
