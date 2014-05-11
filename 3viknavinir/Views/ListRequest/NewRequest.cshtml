@@ -19,8 +19,10 @@
 </div>
 
 <h2>@ViewBag.Title</h2>
+
 <p>Sláðu inn nafn á myndefni sem þú vilt að verði þýtt, ásamt ártali og IMDB ID</p>
-@using (Html.BeginForm("NewRequest", "ListRequest", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+
+@using ( Html.BeginForm( "NewRequest", "ListRequest", FormMethod.Post, new { @class = "form-horizontal", role = "form" } ) )
 {
     @Html.AntiForgeryToken()
     <hr />
