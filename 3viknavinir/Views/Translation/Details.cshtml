@@ -6,15 +6,15 @@
 }
 <ul class="crumbs">
     <li class="crumb crumb-first">
-        <a href="/">SÍÁT</a>
+        @Html.ActionLink("SÍÁT", "Index", "Home")
     </li>
     <li class="crumb crumbs">
         <span class="crumb-seperator"> > </span>
-        <a href="/ListTranslations/AlphabetizedTexts">Textar A-Ö</a>
+        @Html.ActionLink("Textar A-Ö", "AlphabetizedTexts", "ListTranslations")
     </li>
     <li class="crumb crumb-last">
         <span class="crumb-seperator"> > </span>
-        <a href="#">@Html.DisplayFor(model => model.media.title)</a>
+        @Html.ActionLink(Model.media.title, "Details", "Translation", new { id = Model.media.title }, null)
     </li>
 </ul>
 <h2>@Html.DisplayFor(model => model.media.title) ( @Html.DisplayFor(model => model.media.yearOfRelease) )</h2>
