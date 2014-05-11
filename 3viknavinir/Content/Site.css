@@ -320,11 +320,14 @@ input[type="checkbox"].input-validation-error {
 {
     font-size: 17px;
 }
-#searchBox
+.searchText{
+    max-width: 600px;
+    width: 600px;
+}
+.textBox
 {
-    position: relative;
-    width: 160px;
-    margin: 0;
+    width: 600px;
+    margin-left: 360px;
 }
 .searchButton
 {
