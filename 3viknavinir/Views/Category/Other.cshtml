@@ -6,15 +6,15 @@
 <div class="breadcrumb">
     <ul class="crumbs">
         <li class="crumb crumb-first">
-            <a href="/">SÍÁT</a>
+            @Html.ActionLink("SÍÁT", "Index", "Home")
         </li>
         <li class="crumb crumb-last">
             <span class="crumb-seperator"> > </span>
-            <a href="/Category/Categories">Flokkar</a>
+            @Html.ActionLink("Flokkar", "Categories", "Category")
         </li>
         <li class="crumb crumb-last">
             <span class="crumb-seperator"> > </span>
-            <a href="#">Annað</a>
+            @Html.ActionLink("Annað", "Other", "Category")
         </li>
     </ul>
 </div>

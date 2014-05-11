@@ -1,6 +1,6 @@
-﻿@model IEnumerable<_3viknavinir.Models.Media>
+﻿@model _3viknavinir.Models.AlphabetizedTextsViewmodel
 @{
-    ViewBag.Title = "AlphabetizedTexts";
+    ViewBag.Title = "Textar A-Ö";
 }
     <div class="breadcrumb">
         <ul class="crumbs">
@@ -29,7 +29,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model) 
+                @foreach (var item in Model.allMedia) 
 				{
                     <tr class="requestRow">
                         <td class="alphabetname">@Html.ActionLink(item.title, "Details", "Translation", new { id=item.Id }, null)</td>
@@ -42,4 +42,11 @@
 				}
                 </tbody>
             </table>
+            <div class="pageCount">
+                @for(int i = 0; i < Model.pageCount; i++)
+                {
+                    @Html.ActionLink((i + 1).ToString(), "AlphabetizedTexts", "ListTranslations", new { id = i }, null)
+                }
+            </div>
+
         </div>
