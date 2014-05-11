@@ -21,10 +21,13 @@ namespace _3viknavinir.Controllers
 									   join m in mediaRepo.GetAllMedia() on t.mediaID equals m.Id
 									   orderby t.dateAdded descending
 									   select m).Take(20);
+
+					var viewModel = new IndexViewModel();
+					viewModel.recentMedia = newestMedia;
 					 
 					if (newestMedia != null)
 					{
-						return View(newestMedia);
+						return View(viewModel);
 					}
 				}
 			}
