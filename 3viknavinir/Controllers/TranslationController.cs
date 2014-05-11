@@ -26,6 +26,7 @@ namespace _3viknavinir.Controllers
 
 		public ActionResult Details(int? id)
 		{
+			var viewModel = new MediaDetailsViewModel();
 			if (id.HasValue)
 			{
 				int realid = id.Value;
@@ -35,7 +36,6 @@ namespace _3viknavinir.Controllers
 					{
 						var media = mediaRepo.GetMediaByID(realid);
 						var translation = translationRepo.GetTranslationByMediaID(realid);
-						var viewModel = new MediaDetailsViewModel();
 						/*
 						List<MembershipUser> allUsers = Membership.GetAllUsers();
 						MembershipUser mu1 = (from u in allUsers
