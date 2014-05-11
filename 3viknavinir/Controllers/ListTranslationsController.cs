@@ -31,10 +31,11 @@ namespace _3viknavinir.Controllers
 
 				var allmedia = (from m in mediarepo.GetAllMedia()
 								orderby m.title ascending
-								select m).ToList().Skip(realid * ITEMSPERPAGE).Take(ITEMSPERPAGE);
+								select m).ToList();
 
 				var viewModel = new AlphabetizedTextsViewmodel();
-				viewModel.allMedia = allmedia;
+				viewModel.pageCount = (allmedia.Count() / ITEMSPERPAGE) + 1;
+				viewModel.allMedia = allmedia.Skip(realid * ITEMSPERPAGE).Take(ITEMSPERPAGE);
 
 				if(allmedia != null)
 				{

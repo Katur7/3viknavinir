@@ -9,5 +9,7 @@ namespace _3viknavinir.Models
 	public class AlphabetizedTextsViewmodel : _3viknaContext
     {
         public IEnumerable<Media> allMedia {get; set;}
+
+		public int pageCount { get; set; }
     }
 }
