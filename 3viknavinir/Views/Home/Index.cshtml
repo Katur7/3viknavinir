@@ -1,4 +1,4 @@
-﻿@model _3viknavinir.Models.IndexViewModel
+﻿@model _3viknavinir.Models.ViewModels.IndexViewModel
 @{
     ViewBag.Title = "SÍÁT";
 }
@@ -28,7 +28,7 @@
                     <tr class="homePageTableRows">
                         <td>TODO</td>
                         <td>@Html.ActionLink(item.title, "Details", "Translation", new { id = item.Id }, null) (@item.yearOfRelease)</td>
-                        <td>Drasl sem fólk diggar í döðlur...</td>
+                        <td></td>
                     </tr>
                 }
             </tbody>
