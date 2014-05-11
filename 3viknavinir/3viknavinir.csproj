@@ -178,10 +178,11 @@
     <Compile Include="Models\AlphabetizedTextsViewmodel.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Discussion.cs" />
-    <Compile Include="Models\FrontpageViewModel.cs" />
+    <Compile Include="Models\IndexViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Language.cs" />
     <Compile Include="Models\Media.cs" />
+    <Compile Include="Models\MediaDetailsViewModel.cs" />
     <Compile Include="Models\Requests.cs" />
     <Compile Include="Models\RequestViewModels.cs" />
     <Compile Include="Models\Translation.cs" />
