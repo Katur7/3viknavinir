@@ -1,4 +1,4 @@
-﻿@model _3viknavinir.Models.TranslationViewModel
+﻿g@model _3viknavinir.Models.TranslationViewModel
 @{
     ViewBag.Title = "Þýða";
 }
@@ -26,11 +26,13 @@
     <form>
     @using (Html.BeginForm("Translate", "Translation", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
-
-        <div class="form-group">
+           @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+         <div class="form-group">
             @Html.LabelFor(m => m.movieName, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
                 @Html.TextBoxFor(m => m.movieName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.movieName)
             </div>
         </div>
 
