@@ -22,6 +22,7 @@ namespace _3viknavinir.Controllers
             return View();
         }
         [HttpPost]
+        [Authorize]
         public ActionResult Add( Requests request )
         {
             using ( RequestRepo requestRepo = new RequestRepo( ) )

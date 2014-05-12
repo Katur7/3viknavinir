@@ -41,6 +41,7 @@ namespace _3viknavinir.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult NewRequest( )
         {
             return View( );

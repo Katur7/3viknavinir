@@ -101,6 +101,7 @@ namespace _3viknavinir.Controllers
 			return RedirectToAction("Index", "Home");
 		}
 		[HttpGet]
+        [Authorize]
 		public ActionResult Edit(int? id)
 		{
 			if(id.HasValue)
@@ -126,6 +127,7 @@ namespace _3viknavinir.Controllers
 		}
 
         [HttpGet]
+        [Authorize]
         public ActionResult EditTranslation( int? id)
         {
             if ( id.HasValue )
