@@ -27,7 +27,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			@foreach (var item in Model)
+			@foreach (var item in Model.searchedRequests)
 			{
 				<tr class="requestRow">
 					<td class="alphabetname">@Html.ActionLink(item.title, "Details", "Translation", new { id = item.Id }, null)</td>

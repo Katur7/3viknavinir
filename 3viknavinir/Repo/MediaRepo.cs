@@ -65,18 +65,20 @@ namespace _3viknavinir.Repo
 		public IEnumerable<Media> GetMediaLike(string titleLike)
 		{
 			var media = from m in db.Media
-						where m.title.Contains(titleLike) || m.Category.name.Contains(titleLike) || m.imdbID.Contains(titleLike)
+						where m.title.Contains(titleLike) || m.Category.name.Contains(titleLike) || m.imdbID.Contains(titleLike) || m.yearOfRelease.ToString().Contains(titleLike)
 						select m;
 			return media;
 		}
-        public int GetNextMediaID()
-        {
-            int id = ( from m in db.Media
-                       select m.Id).Max();
 
-            return id + 1;
-        }
-		/*public IEnumerable<Media> GetMediaByYear(string year)
+		public int GetNextMediaID()
+		{
+			int id = ( from m in db.Media
+					   select m.Id).Max();
+
+			return id + 1;
+		}
+		
+		public IEnumerable<Media> GetMediaByYear(string year)
 		{
 			int yearInt = Convert.ToInt32(year);
 			var media = from m in db.Media

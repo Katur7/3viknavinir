@@ -31,7 +31,7 @@ namespace _3viknavinir.Repo
 		public IEnumerable<Requests> GetRequestLike(string searchString)
 		{
 			var request = (from r in db.Requests
-						   where r.title.Contains(searchString) || r.imdbID.Contains(searchString)
+						   where r.title.Contains(searchString) || r.imdbID.Contains(searchString) || r.yearOfRelease.ToString().Contains(searchString)
 						   select r);
 			return request;
 		}
