@@ -8,16 +8,8 @@ namespace _3viknavinir.Models
 
     public partial class Discussion
     {
-        public Discussion()
-        {
-            Upvote = new HashSet<Upvote>();
-        }
+        public int ID { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Id { get; set; }
-
-        [Required]
-        [StringLength(50)]
         public string comment { get; set; }
 
         public DateTime dateAdded { get; set; }

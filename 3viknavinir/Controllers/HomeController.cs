@@ -18,7 +18,7 @@ namespace _3viknavinir.Controllers
 				using(TranslationRepo translationRepo = new TranslationRepo())
 				{
 					var newestMedia = (from t in translationRepo.GetAllTranslations()
-									   join m in mediaRepo.GetAllMedia() on t.mediaID equals m.Id
+									   join m in mediaRepo.GetAllMedia() on t.mediaID equals m.ID
 									   orderby t.dateAdded descending
 									   select m).Take(10);
 

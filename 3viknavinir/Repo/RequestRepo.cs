@@ -14,7 +14,7 @@ namespace _3viknavinir.Repo
 		public Requests GetRequestByID(int id)
 		{
 			var request = (from r in db.Requests 
-							where r.Id == id
+							where r.ID == id
 							select r).FirstOrDefault();
 			return request;
 		}
@@ -71,7 +71,7 @@ namespace _3viknavinir.Repo
         public int GetNextRequestID()
         {
             int id = ( from r in db.Requests
-                       select r.Id ).Max();
+                       select r.ID ).Max();
             return id + 1;
         }
         public void Dispose( )

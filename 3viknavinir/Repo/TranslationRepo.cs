@@ -20,7 +20,7 @@ namespace _3viknavinir.Repo
 		public void UpdateTranslation(Translation t)
 		{
 			Translation translationToUpdate = (from translation in db.Translation
-											   where translation.Id == t.Id
+											   where translation.ID == t.ID
 											   select translation).SingleOrDefault();
 			translationToUpdate.userID = t.userID;
 			translationToUpdate.languageID = t.languageID;
@@ -50,7 +50,7 @@ namespace _3viknavinir.Repo
 		public Translation GetTranslationByID(int id)
 		{
 			var translation = (from t in db.Translation
-							   where t.Id == id
+							   where t.ID == id
 							   select t).SingleOrDefault();
 			return translation;
 		}
@@ -64,7 +64,7 @@ namespace _3viknavinir.Repo
         public int GetNextTranslationID( )
         {
             int id = ( from t in db.Translation
-                       select t.Id ).Max( );
+                       select t.ID ).Max( );
             return id + 1;
         }
 		// Grímur
