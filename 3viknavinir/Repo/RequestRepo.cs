@@ -33,7 +33,8 @@ namespace _3viknavinir.Repo
 			var request = (from r in db.Requests
 						   where r.title.Contains(searchString) || r.imdbID.Contains(searchString) || r.yearOfRelease.ToString().Contains(searchString)
 						   select r);
-			return request;
+
+			return request.Distinct();
 		}
 
 		public Requests GetRequestByIMDBID(string imdbid)
