@@ -94,8 +94,7 @@ namespace _3viknavinir.Repo
 						select m;
 			return media;
 		}
-
-		
+        
 		// Grímur
 		public void Dispose()
 		{

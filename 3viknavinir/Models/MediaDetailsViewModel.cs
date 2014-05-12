@@ -30,6 +30,5 @@ namespace _3viknavinir.Models
 
         public IEnumerable<Category> categories { get; set; }
         public Image posterPath { get; set; }
-
 	}
 }

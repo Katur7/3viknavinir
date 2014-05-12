@@ -58,7 +58,7 @@ namespace _3viknavinir.Controllers
                         int nextTranslationID = translationRepo.GetNextTranslationID();
 
                         newTranslation.Id = nextTranslationID;
-                        newTranslation.languageID = 1; // TODO
+                        newTranslation.languageID = 0; // TODO
                         newTranslation.mediaID = newMedia.Id;
                         newTranslation.finished = false; // TODO
                         newTranslation.userID = User.Identity.GetUserId(); // TODO Username
