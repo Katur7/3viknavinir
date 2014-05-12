@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SÍÁT <<</title>
-    @Styles.Render( "~/Content/css" )
-    @Scripts.Render( "~/bundles/modernizr" )
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <div class="wrapper">
@@ -28,17 +28,17 @@
                     <span class="icon-bar"></span>
                 </button>
             </div>
-            <div>
+            <div id="tabs">
                 <ul class="nav nav-tabs nav-justified">
-                    <li class="active">@Html.ActionLink( "Forsíða", "Index", "Home" )</li>
-                    <li class="active">@Html.ActionLink( "Textar A-Ö", "AlphabetizedTexts", "ListTranslations" )</li>
-                    <li class="active">@Html.ActionLink( "Flokkar", "Categories", "Category" )</li>
-                    <li class="active">@Html.ActionLink( "Beiðnir", "Requests", "ListRequest" )</li>
-                    <li class="active">@Html.ActionLink( "Þýða", "Translate", "Translation" )</li>
-                    <li class="active">@Html.ActionLink( "Um Okkur", "About", "Home" )</li>
+                    <li class="active">@Html.ActionLink("Forsíða", "Index", "Home")</li>
+                    <li class="active">@Html.ActionLink("Textar A-Ö", "AlphabetizedTexts", "ListTranslations")</li>
+                    <li class="active">@Html.ActionLink("Flokkar", "Categories", "Category")</li>
+                    <li class="active">@Html.ActionLink("Beiðnir", "Requests", "ListRequest")</li>
+                    <li class="active">@Html.ActionLink("Þýða", "Translate", "Translation")</li>
+                    <li class="active">@Html.ActionLink("Um Okkur", "About", "Home")</li>
                 </ul>
             </div>
-            <div class="clearfooter"></div>
+			<div class="clearfooter"></div>
         </div>
         <div class="container body-content">
             @RenderBody( )
@@ -49,9 +49,10 @@
             <span class="right h4">@Html.ActionLink( "Hafa Samband", "Contact", "Home" )</span>
         </footer>
     </div>
-    @Scripts.Render( "~/bundles/jquery" )
-    @Scripts.Render( "~/bundles/bootstrap" )
-    @Scripts.Render( "~/Scripts/Scripts.js" )
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/Scripts.js")
     <link rel="stylesheet" href="~/Content/jquery-ui-1.10.4.custom.css" />
     <link rel="stylesheet" href="~/Content/jquery-ui-1.10.4.custom.css" />
     <script src="~/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
