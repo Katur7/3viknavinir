@@ -14,17 +14,25 @@ namespace _3viknavinir.Controllers
         // GET: /Discussion/
         public ActionResult Index(int? id)
         {
-            if(id.HasValue)
-            {
-                int realid = id.Value;
-            
-                using (DiscussionRepo discussionRepo = new DiscussionRepo()) 
+                if (id.HasValue)
                 {
-                    IEnumerable<Discussion> discussion = (from d in discussionRepo.GetCommentByMediaID(realid)
-                                                          select d);
+                    int realid = id.Value;
+
+                    using (DiscussionRepo discussionRepo = new DiscussionRepo())
+                    {
+                        var allDiscussions = (from d in discussionRepo.GetCommentByMediaID(realid)
+                                              orderby d.dateAdded descending
+                                              select d).ToList();
+                        if (allDiscussions != null)
+                        {
+                            return View(allDiscussions);
+                        }
+                        //IEnumerable<Discussion> discussion = (from d in discussionRepo.GetCommentByMediaID(realid)
+                        //                                      select d).ToList();
+                    }
                 }
-            }
-            return View( );
+                return View();
+            
         }
 	}
 }
