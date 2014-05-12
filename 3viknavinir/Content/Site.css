@@ -265,8 +265,7 @@ input[type="checkbox"].input-validation-error {
     text-align: center;
 }
 .categoryName {
-    font-size:20px;
-    color:#000000;
+    font-size:16px;
 }
 
 #editTranslationButton {
