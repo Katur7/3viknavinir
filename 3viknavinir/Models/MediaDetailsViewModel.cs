@@ -21,7 +21,7 @@ namespace _3viknavinir.Models
 
         [Required( ErrorMessage = "Slá verður inn ár sem  mynd var gefin út" )]
         [Display( Name = "Ártal" )]
-        public uint yearOfRelease { get; set; }
+        public int yearOfRelease { get; set; }
 
         [Display( Name = "IMDB ID" )]
         public string imdbID { get; set; }

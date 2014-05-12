@@ -15,7 +15,7 @@ namespace _3viknavinir.Models
         [StringLength(50)]
         public string title { get; set; }
 
-        public uint yearOfRelease { get; set; }
+        public int yearOfRelease { get; set; }
 
         public string description { get; set; }
 
