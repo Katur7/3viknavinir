@@ -69,8 +69,30 @@ namespace _3viknavinir.Repo
 						select m;
 			return media;
 		}
+        public int GetNextMediaID()
+        {
+            int id = ( from m in db.Media
+                       select m.Id).Max();
 
-		
+            return id + 1;
+        }
+		/*public IEnumerable<Media> GetMediaByYear(string year)
+		{
+			int yearInt = Convert.ToInt32(year);
+			var media = from m in db.Media
+						where m.yearOfRelease == yearInt
+						select m;
+			return media;
+		}
+
+		public IEnumerable<Media> GetMediaByCategory(string category)
+		{
+			var media = from m in db.Media
+						where m.Category.name.Contains(category)
+						select m;
+			return media;
+		}
+
 		
 		// Grímur
 		public void Dispose()

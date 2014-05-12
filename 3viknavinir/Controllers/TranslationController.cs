@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using Microsoft.AspNet.Identity;
 
 namespace _3viknavinir.Controllers
 {
@@ -19,10 +20,59 @@ namespace _3viknavinir.Controllers
             return View();
         }
 
-		public ActionResult Translate()
+        [HttpGet]
+        public ActionResult Translate()
+        {
+            if ( User.Identity.IsAuthenticated )
+            {
+                return View( );
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+        }
+        [HttpPost]
+		public ActionResult Translate(MediaDetailsViewModel media)
 		{
-			return View();
-		}
+            using(MediaRepo mediaRepo = new MediaRepo())
+            {
+                using(TranslationRepo translationRepo = new TranslationRepo())
+                {
+                    if ( ModelState.IsValid )
+                    {
+                        var newMedia = new Media( );
+
+                        int nextMediaID = mediaRepo.GetNextMediaID( );
+
+                        newMedia.Id = nextMediaID;
+                        newMedia.title = media.title;
+                        newMedia.yearOfRelease = media.yearOfRelease;
+                        newMedia.description = media.description;
+                        newMedia.categoryID = 1; // TODO
+                        newMedia.imdbID = media.imdbID;
+                        newMedia.posterPath = "~/Content/siat_logo.jpg";
+
+                        var newTranslation = new Translation();
+
+                        int nextTranslationID = translationRepo.GetNextTranslationID();
+
+                        newTranslation.Id = nextTranslationID;
+                        newTranslation.languageID = 1; // TODO
+                        newTranslation.mediaID = newMedia.Id;
+                        newTranslation.finished = false; // TODO
+                        newTranslation.userID = User.Identity.GetUserId(); // TODO Username
+                        newTranslation.dateAdded = DateTime.Now;
+
+
+                        mediaRepo.AddMedia( newMedia );
+                        translationRepo.AddTranslation(newTranslation);
+                        return RedirectToAction( "AlphabetizedTexts", "ListTranslations" );
+                     }
+                }
+            }
+            return View();
+        }
 
 		public ActionResult Details(int? id)
 		{
