@@ -12,7 +12,6 @@ namespace _3viknavinir.Controllers
     {
         // Erla
         // GET: /Search/
-
 		public ActionResult SearchMediaView(string searchString)
 		{
 			using (MediaRepo mediaRepo = new MediaRepo())
@@ -29,18 +28,14 @@ namespace _3viknavinir.Controllers
 							var viewModel = new SearchMediaViewModel();
 							viewModel.searchedMedia = movies;
 
-							
-
 							if (movies != null)
 							{
 								return View(viewModel);
 							}
 						}
-
 					}
 				}
 			}
-
 			return View( );
 		}
 		
