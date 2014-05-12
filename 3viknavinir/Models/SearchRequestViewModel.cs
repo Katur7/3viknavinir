@@ -7,5 +7,6 @@ namespace _3viknavinir.Models
 {
     public class SearchRequestViewModel
     {
+		public IEnumerable<Requests> searchedRequests { get; set; }
     }
 }

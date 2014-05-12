@@ -10,9 +10,8 @@ namespace _3viknavinir.Controllers
 {
     public class SearchController : Controller
     {
-        //
+        // Erla
         // GET: /Search/
-
 		public ActionResult SearchMediaView(string searchString)
 		{
 			using (MediaRepo mediaRepo = new MediaRepo())
@@ -26,31 +25,39 @@ namespace _3viknavinir.Controllers
 							var movies = (from m in mediaRepo.GetMediaLike(searchString)
 										  select m);
 
-							/*var moviesByYear = (from m in mediaRepo.GetMediaByYear(searchString)
-												select m);
-
-							var moviesByCategory = (from m in mediaRepo.GetMediaByCategory(searchString)
-												  select m);
-
-							var moviesByIMDBId = (from m in mediaRepo.GetMediaByImdbID(searchString)
-												  select m);*/
-
 							var viewModel = new SearchMediaViewModel();
 							viewModel.searchedMedia = movies;
-
-							
 
 							if (movies != null)
 							{
 								return View(viewModel);
 							}
 						}
-
 					}
 				}
 			}
-
 			return View( );
+		}
+		
+		public ActionResult SearchRequestView(string searchString)
+		{
+			using (RequestRepo requestRepo = new RequestRepo())
+			{
+				if (!String.IsNullOrEmpty(searchString))
+				{
+					var requests = (from m in requestRepo.GetRequestLike(searchString)
+								    select m);
+
+					var viewModel = new SearchRequestViewModel();
+					viewModel.searchedRequests = requests;
+
+					if (requests != null)
+					{
+						return View(viewModel);
+					}
+				}
+			}
+			return View();
 		}
 	}
 }

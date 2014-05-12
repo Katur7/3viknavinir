@@ -30,7 +30,7 @@ namespace _3viknavinir
 
             //app.UseFacebookAuthentication(
             //   appId: "",
-            //   appSecret: "");
+            //   appSecret: "" );
 
             //app.UseGoogleAuthentication();
         }

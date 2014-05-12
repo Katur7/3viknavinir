@@ -17,6 +17,15 @@
 
 <h2>@ViewBag.Title</h2>
 
+@*Erla*@
+<div id="searchBox">
+	@using (Html.BeginForm("SearchRequestView", "Search", FormMethod.Get))
+	{
+		@Html.TextBox("SearchString")
+		<input type="submit" value="Leita" class="btn btn-default" id="searchButton" />
+	}
+</div>
+
 <div>
 	<form action="/ListRequest/NewRequest/"><input type="submit" value="" id="addRequestButton" /></form>
 </div>

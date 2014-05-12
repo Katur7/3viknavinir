@@ -11,7 +11,7 @@ namespace _3viknavinir.Models
         public IEnumerable<TranslationLines> textToTranslate { get; set; }
         public IEnumerable<TranslationLines> translatedText { get; set; }
         public string title { get; set; }
-        public int year { get; set; }
+        public uint year { get; set; }
         public bool isFinished { get; set; }
     }
 }

@@ -60,7 +60,13 @@ namespace _3viknavinir.Repo
 			var all = db.Translation.ToList();
 			return all;
 		}
-
+        // Steinunn
+        public int GetNextTranslationID( )
+        {
+            int id = ( from t in db.Translation
+                       select t.Id ).Max( );
+            return id + 1;
+        }
 		// Grímur
 		public void Dispose()
 		{

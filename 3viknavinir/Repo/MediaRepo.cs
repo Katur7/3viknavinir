@@ -61,15 +61,24 @@ namespace _3viknavinir.Repo
 			return media;
 		}
 
+		// Erla
 		public IEnumerable<Media> GetMediaLike(string titleLike)
 		{
-			var media = from m in db.Media
-						where m.title.Contains(titleLike) || m.Category.name.Contains(titleLike) || m.imdbID.Contains(titleLike)
-						select m;
+			var media = (from m in db.Media
+						 where m.title.Contains(titleLike) || m.Category.name.Contains(titleLike) || m.imdbID.Contains(titleLike) //|| m.yearOfRelease.ToString().Contains(titleLike)
+						 select m);
 			return media;
 		}
 
-		/*public IEnumerable<Media> GetMediaByYear(string year)
+		public int GetNextMediaID()
+		{
+			int id = ( from m in db.Media
+					   select m.Id).Max();
+
+			return id + 1;
+		}
+		
+		public IEnumerable<Media> GetMediaByYear(string year)
 		{
 			int yearInt = Convert.ToInt32(year);
 			var media = from m in db.Media
@@ -86,13 +95,6 @@ namespace _3viknavinir.Repo
 			return media;
 		}
 
-		public IEnumerable<Media> GetMediaByImdbID(string imdbid)
-		{
-			var media = from m in db.Media
-						where m.imdbID == imdbid
-						select m;
-			return media;
-		}*/
 		
 		// Grímur
 		public void Dispose()
