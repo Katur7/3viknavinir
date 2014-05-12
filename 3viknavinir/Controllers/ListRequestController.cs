@@ -47,6 +47,7 @@ namespace _3viknavinir.Controllers
             return View( );
         }
         [HttpPost]
+        [Authorize]
         public ActionResult NewRequest( NewRequestViewModel model )
         {
             using ( RequestRepo requestRepo = new RequestRepo( ) )
@@ -54,10 +55,7 @@ namespace _3viknavinir.Controllers
                 if ( ModelState.IsValid )
                 {
                         var newRequest = new Requests( );
-                        
-                        int nextID = requestRepo.GetNextRequestID();
 
-                        newRequest.ID = nextID;
                         newRequest.title = model.movieName;
                         newRequest.dateOfRequest = DateTime.Now;
                         newRequest.yearOfRelease = model.yearOfRelease;
@@ -68,7 +66,6 @@ namespace _3viknavinir.Controllers
                     return RedirectToAction("Requests", "ListRequest");
                 }
             }
-            
             return View( );
         }
 
