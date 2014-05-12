@@ -9,7 +9,7 @@ namespace _3viknavinir.Models
         [Required( ErrorMessage = "Slá verður inn nafn myndefnis" )]
         [DataType(DataType.Text)]
         [Display( Name = "Nafn Kvikmyndar" )]
-        public string movieName { get; set; }
+        public string title { get; set; }
 
         [Required( ErrorMessage = "Slá verður inn ár sem  mynd var gefin út" )]
         [Display( Name = "Ártal" )]
@@ -17,5 +17,7 @@ namespace _3viknavinir.Models
 
         [Display( Name = "IMDB ID" )]
         public string imdbID { get; set; }
+        [Display( Name = "Lýsing")]
+        public string description { get; set; }
     }
 }

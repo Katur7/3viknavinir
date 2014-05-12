@@ -68,7 +68,13 @@ namespace _3viknavinir.Repo
 						select m;
 			return media;
 		}
+        public int GetNextMediaID()
+        {
+            int id = ( from m in db.Media
+                       select m.Id).Max();
 
+            return id + 1;
+        }
 		/*public IEnumerable<Media> GetMediaByYear(string year)
 		{
 			int yearInt = Convert.ToInt32(year);
