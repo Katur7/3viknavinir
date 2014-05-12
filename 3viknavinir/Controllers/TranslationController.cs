@@ -23,7 +23,14 @@ namespace _3viknavinir.Controllers
         [HttpGet]
         public ActionResult Translate()
         {
-            return View();
+            if ( User.Identity.IsAuthenticated )
+            {
+                return View( );
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
         }
         [HttpPost]
 		public ActionResult Translate(MediaDetailsViewModel media)
@@ -64,7 +71,7 @@ namespace _3viknavinir.Controllers
                      }
                 }
             }
-			return View();
+            return View();
         }
 
 		public ActionResult Details(int? id)
