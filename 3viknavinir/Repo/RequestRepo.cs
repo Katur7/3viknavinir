@@ -68,12 +68,6 @@ namespace _3viknavinir.Repo
 			upvote.translationID = null;
 			upvote.discussionID = null;
 		}
-        public int GetNextRequestID()
-        {
-            int id = ( from r in db.Requests
-                       select r.ID ).Max();
-            return id + 1;
-        }
         public void Dispose( )
         {
             bool disposed = false;
