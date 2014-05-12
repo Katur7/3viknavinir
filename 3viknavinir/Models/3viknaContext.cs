@@ -5,6 +5,7 @@ namespace _3viknavinir.Models
 	using System.ComponentModel.DataAnnotations.Schema;
 	using System.Linq;
 	using Microsoft.AspNet.Identity.EntityFramework;
+    using System.Data.Entity.ModelConfiguration.Conventions;
 
 	public partial class _3viknaContext : IdentityDbContext
 	{
@@ -35,6 +36,7 @@ namespace _3viknavinir.Models
 				.WillCascadeOnDelete(false);
 
 			base.OnModelCreating(modelBuilder);
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>( );
 		}
 	}
 }

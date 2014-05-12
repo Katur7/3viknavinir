@@ -20,7 +20,7 @@ namespace _3viknavinir.Repo
         public void UpdateTranslationLine( TranslationLines t )
         {
             TranslationLines translationLinesToUpdate = ( from translationLine in db.TranslationLines
-                                                where translationLine.Id == t.Id
+                                                where translationLine.ID == t.ID
                                                 select translationLine ).SingleOrDefault( );
             translationLinesToUpdate.chapterNumber = t.chapterNumber;
             translationLinesToUpdate.startTime = t.startTime;
@@ -40,7 +40,7 @@ namespace _3viknavinir.Repo
         public TranslationLines GetTranslationLineByID(int id)
         {
             var translationLine = ( from t in db.TranslationLines 
-                                    where t.Id == id
+                                    where t.ID == id
                                     select t).SingleOrDefault();
 
             return translationLine;

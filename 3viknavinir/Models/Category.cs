@@ -8,14 +8,10 @@ namespace _3viknavinir.Models
 
     public partial class Category
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Id { get; set; }
+        public int ID { get; set; }
 
-        [Required]
-        [StringLength(50)]
         public string name { get; set; }
 
-        [StringLength(50)]
         public string posterPath { get; set; }
     }
 }

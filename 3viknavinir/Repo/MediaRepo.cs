@@ -18,9 +18,9 @@ namespace _3viknavinir.Repo
 
 		public void UpdateMedia(Media newmedia)
 		{
-			int id = newmedia.Id;
+			int id = newmedia.ID;
 			Media mediaToUpdate = (from media in db.Media
-								   where media.Id == id
+								   where media.ID == id
 								   select media).SingleOrDefault();
 			mediaToUpdate.title = newmedia.title;
 			mediaToUpdate.yearOfRelease = newmedia.yearOfRelease;
@@ -48,7 +48,7 @@ namespace _3viknavinir.Repo
 		public Media GetMediaByID(int id)
 		{
 			var media = (from m in db.Media
-						 where m.Id == id
+						 where m.ID == id
 						 select m).SingleOrDefault();
 			return media;
 		}
@@ -73,7 +73,7 @@ namespace _3viknavinir.Repo
 		public int GetNextMediaID()
 		{
 			int id = ( from m in db.Media
-					   select m.Id).Max();
+					   select m.ID).Max();
 
 			return id + 1;
 		}

@@ -57,7 +57,7 @@ namespace _3viknavinir.Controllers
                         
                         int nextID = requestRepo.GetNextRequestID();
 
-                        newRequest.Id = nextID;
+                        newRequest.ID = nextID;
                         newRequest.title = model.movieName;
                         newRequest.dateOfRequest = DateTime.Now;
                         newRequest.yearOfRelease = model.yearOfRelease;
