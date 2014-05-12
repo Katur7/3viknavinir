@@ -23,10 +23,10 @@ namespace _3viknavinir.Repo
         {
             int realid = id.Value;
 
-            var IdReal = ( from m in db.Discussion
-                           where m.mediaID == realid
-                           select m).SingleOrDefault()
-            if (IdReal != NULL)
+            var IdReal = (from m in db.Discussion
+                          where m.mediaID == realid
+                          select m).SingleOrDefault();
+            if (IdReal != null)
             {
                 return true;
             }
