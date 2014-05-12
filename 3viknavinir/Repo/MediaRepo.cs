@@ -64,9 +64,9 @@ namespace _3viknavinir.Repo
 		// Erla
 		public IEnumerable<Media> GetMediaLike(string titleLike)
 		{
-			var media = from m in db.Media
-						where m.title.Contains(titleLike) || m.Category.name.Contains(titleLike) || m.imdbID.Contains(titleLike) || m.yearOfRelease.ToString().Contains(titleLike)
-						select m;
+			var media = (from m in db.Media
+						 where m.title.Contains(titleLike) || m.Category.name.Contains(titleLike) || m.imdbID.Contains(titleLike) || m.yearOfRelease.ToString().Contains(titleLike)
+						 select m)
 			return media;
 		}
 

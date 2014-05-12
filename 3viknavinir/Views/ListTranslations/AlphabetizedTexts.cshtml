@@ -14,6 +14,14 @@
         </ul>
     </div>
     <h2>Textar A-Ö</h2>
+@*Erla*@
+<div id="searchBox">
+	@using (Html.BeginForm("SearchMediaView", "Search", FormMethod.Get))
+	{
+		@Html.TextBox("SearchString")
+		<input type="submit" value="Leita" class="btn btn-default" id="searchButton" />
+	}
+</div>
     <form action="/Translation/Translate">
         <input type="submit" value="" id="addRequestButton" />
     </form>
