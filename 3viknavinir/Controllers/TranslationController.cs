@@ -43,30 +43,31 @@ namespace _3viknavinir.Controllers
                     {
                         var newMedia = new Media( );
 
-                        int nextMediaID = mediaRepo.GetNextMediaID( );
+                        //int nextMediaID = mediaRepo.GetNextMediaID( );
 
-                        newMedia.ID = nextMediaID;
+                        //newMedia.ID = nextMediaID;
                         newMedia.title = media.title;
                         newMedia.yearOfRelease = media.yearOfRelease;
                         newMedia.description = media.description;
-                        newMedia.categoryID = 1; // TODO
+                        newMedia.categoryID = 41; // TODO
                         newMedia.imdbID = media.imdbID;
-                        newMedia.posterPath = "~/Content/siat_logo.jpg";
+                        newMedia.posterPath = "~/Content/siat_logo.jpg"; //TODO
+						mediaRepo.AddMedia(newMedia);
 
                         var newTranslation = new Translation();
 
-                        int nextTranslationID = translationRepo.GetNextTranslationID();
+                        //int nextTranslationID = translationRepo.GetNextTranslationID();
 
-                        newTranslation.ID = nextTranslationID;
-                        newTranslation.languageID = 0; // TODO
+                        //newTranslation.ID = nextTranslationID;
+                        newTranslation.languageID = 10; // TODO
                         newTranslation.mediaID = newMedia.ID;
                         newTranslation.finished = false; // TODO
-                        newTranslation.userID = User.Identity.GetUserId(); // TODO Username
+                        newTranslation.userID = User.Identity.GetUserId(); // TODO UserRepo
                         newTranslation.dateAdded = DateTime.Now;
 
 
-                        mediaRepo.AddMedia( newMedia );
-                        translationRepo.AddTranslation(newTranslation);
+                        
+                        translationRepo.AddTranslation( newTranslation );
                         return RedirectToAction( "AlphabetizedTexts", "ListTranslations" );
                      }
                 }
