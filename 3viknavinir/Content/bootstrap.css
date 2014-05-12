@@ -2537,10 +2537,12 @@ input[type="button"].btn-block {
 
 .glyphicon-download-alt:before {
   content: "\e025";
+  color: #13a00e;
 }
 
 .glyphicon-download:before {
   content: "\e026";
+  color: #13a00e;
 }
 
 .glyphicon-upload:before {
