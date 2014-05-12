@@ -6,18 +6,11 @@ namespace _3viknavinir.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-	//Don't know why this is, can't take it out, regards Grímur
-    [Table("Translation")]
+	// Don't know why this is, can't take it out, regards Grímur
+    // [Table("Translation")]
     public partial class Translation
     {
-        public Translation()
-        {
-            TranslationLines = new HashSet<TranslationLines>();
-            Upvote = new HashSet<Upvote>();
-        }
-
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         public bool finished { get; set; }
 

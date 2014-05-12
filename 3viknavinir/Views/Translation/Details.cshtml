@@ -14,7 +14,7 @@
     </li>
     <li class="crumb crumb-last">
         <span class="crumb-seperator"> > </span>
-        @Html.ActionLink(Model.media.title, "Details", "Translation", new { id = Model.media.Id }, null)
+        @Html.ActionLink(Model.media.title, "Details", "Translation", new { id = Model.media.ID }, null)
     </li>
 </ul>
 <h2>@Html.DisplayFor(model => model.media.title) ( @Html.DisplayFor(model => model.media.yearOfRelease) )</h2>
@@ -40,9 +40,9 @@
         <img src="@Html.DisplayFor(model => model.media.posterPath)" alt="@Html.DisplayFor(model => model.media.title)">
 </div>
 <p>
-	@Html.ActionLink("Athugasemdir", "Discussion", routeValues: null, htmlAttributes: new { id = "discussionLink" })
+	@Html.ActionLink("Athugasemdir", "Translation", "Discussion", routeValues: null, htmlAttributes: new { id = "discussionLink" })
 </p>
 </div>
 <form action="/Translation/Download/"><input type="submit" value="Hlaða niður þýðingu" class="btn btn-default" id="downloadTranslationButton" /></form>
-<form action="/Translation/EditTranslation/@Model.media.Id"><input type="submit" value="Breyta þýðingu" class="btn btn-default" id="editTranslationButton" /></form>
+<form action="/Translation/EditTranslation/@Model.media.ID"><input type="submit" value="Breyta þýðingu" class="btn btn-default" id="editTranslationButton" /></form>
 <form action="/Translation/Edit/"><input type="submit" value="Breyta lýsingu" class="btn btn-default" id="editDetailsButton"/></form>

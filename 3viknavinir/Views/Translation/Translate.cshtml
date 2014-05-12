@@ -1,6 +1,6 @@
 ﻿@model _3viknavinir.Models.MediaDetailsViewModel
 @{
-    ViewBag.Title = "Þýða";
+    ViewBag.Title = "Setja inn þýðingu fyrir myndefni";
 }
 
 
@@ -13,7 +13,7 @@
             <span class="crumb-seperator"> > </span>
             @Html.ActionLink("Þýða", "Translate", "Translation")
         </li>
-    </ul>
+    </ul> 
 </div>
 
 <h2>@ViewBag.Title</h2>
@@ -48,9 +48,20 @@
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
         <div class="form-group">
-            @Html.LabelFor(m => m.description, new { @class = "col-md-2 control-label" })
+            @Html.LabelFor(m => m.yearOfRelease, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.TextAreaFor(m => m.description, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.yearOfRelease, new { @class = "form-control" })
+                @*@Html.RadioButtonFor()*@
+                @Html.ValidationMessageFor(m => m.yearOfRelease)
+            </div>
+        </div>
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(m => m.description, new { @class = "col-md-2 control-label "})
+            <div class="col-md-10">
+                <textarea id="description" name="description" class="form-control" rows="5"></textarea>
             </div>
         </div>
 

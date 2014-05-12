@@ -20,7 +20,7 @@ namespace _3viknavinir.Repo
 		public Category GetCategoryByID(int id)
 		{
 			Category category = (from c in db.Category
-							   where c.Id == id
+							   where c.ID == id
 							   select c).SingleOrDefault();
 			return category;
 		}

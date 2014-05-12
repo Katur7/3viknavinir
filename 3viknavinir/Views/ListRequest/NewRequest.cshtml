@@ -28,10 +28,10 @@
     <hr />
     @Html.ValidationSummary( true )
 	<div class="form-group">
-		@Html.LabelFor(m => m.movieName, new { @class = "col-md-2 control-label" })
+		@Html.LabelFor(m => m.title, new { @class = "col-md-2 control-label" })
 		<div class="col-md-10">
-			@Html.TextBoxFor(m => m.movieName, new { @class = "form-control" })
-			@Html.ValidationMessageFor(m => m.movieName)
+			@Html.TextBoxFor(m => m.title, new { @class = "form-control" })
+			@Html.ValidationMessageFor(m => m.title)
 		</div>
 	</div>
 	<div class="form-group">

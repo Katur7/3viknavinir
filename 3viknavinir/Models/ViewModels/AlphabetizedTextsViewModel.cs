@@ -6,7 +6,7 @@ using System.Web;
 
 namespace _3viknavinir.Models
 {
-	public class AlphabetizedTextsViewmodel : _3viknaContext
+	public class AlphabetizedTextsViewmodel
     {
         public IEnumerable<Media> allMedia {get; set;}
 

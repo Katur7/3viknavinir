@@ -14,7 +14,7 @@ namespace _3viknavinir.Repo
         public Language GetLanguageByID(int id)
         {
             var language = (from l in db.Language
-                            where l.Id == id
+                            where l.ID == id
                             select l).FirstOrDefault();
             return language;
         }
