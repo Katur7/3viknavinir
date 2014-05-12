@@ -27,6 +27,10 @@ namespace _3viknavinir.Controllers
                         {
                             return View(allDiscussions);
                         }
+                        else
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
                         //IEnumerable<Discussion> discussion = (from d in discussionRepo.GetCommentByMediaID(realid)
                         //                                      select d).ToList();
                     }
