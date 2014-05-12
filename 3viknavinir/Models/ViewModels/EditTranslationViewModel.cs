@@ -6,7 +6,7 @@ using System.Web;
 
 namespace _3viknavinir.Models
 {
-    public class EditTranslationViewModel : _3viknaContext
+    public class EditTranslationViewModel
     {
         public IEnumerable<TranslationLines> textToTranslate { get; set; }
         public IEnumerable<TranslationLines> translatedText { get; set; }

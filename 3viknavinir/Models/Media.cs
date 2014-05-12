@@ -8,18 +8,14 @@ namespace _3viknavinir.Models
 
     public partial class Media
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Id { get; set; }
+        public int ID { get; set; }
 
-        [Required]
-        [StringLength(50)]
         public string title { get; set; }
 
         public int yearOfRelease { get; set; }
 
         public string description { get; set; }
 
-        [StringLength(50)]
         public string posterPath { get; set; }
 
 		public string imdbID { get; set; }

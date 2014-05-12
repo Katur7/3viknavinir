@@ -27,7 +27,7 @@ namespace _3viknavinir.Repo
         public Discussion GetCommentByID(int id)
         {
             var comment = (from c in db.Discussion
-                           where c.Id == id
+                           where c.ID == id
                                select c).FirstOrDefault();
             return comment;
         }

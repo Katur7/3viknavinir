@@ -45,7 +45,7 @@ namespace _3viknavinir.Controllers
 
                         int nextMediaID = mediaRepo.GetNextMediaID( );
 
-                        newMedia.Id = nextMediaID;
+                        newMedia.ID = nextMediaID;
                         newMedia.title = media.title;
                         newMedia.yearOfRelease = media.yearOfRelease;
                         newMedia.description = media.description;
@@ -57,9 +57,9 @@ namespace _3viknavinir.Controllers
 
                         int nextTranslationID = translationRepo.GetNextTranslationID();
 
-                        newTranslation.Id = nextTranslationID;
+                        newTranslation.ID = nextTranslationID;
                         newTranslation.languageID = 0; // TODO
-                        newTranslation.mediaID = newMedia.Id;
+                        newTranslation.mediaID = newMedia.ID;
                         newTranslation.finished = false; // TODO
                         newTranslation.userID = User.Identity.GetUserId(); // TODO Username
                         newTranslation.dateAdded = DateTime.Now;

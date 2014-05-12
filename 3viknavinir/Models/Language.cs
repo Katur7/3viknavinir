@@ -8,16 +8,8 @@ namespace _3viknavinir.Models
 
     public partial class Language
     {
-        public Language()
-        {
-            Translation = new HashSet<Translation>();
-        }
+        public int ID { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Id { get; set; }
-
-        [Required]
-        [StringLength(50)]
         public string name { get; set; }
 
         public virtual ICollection<Translation> Translation { get; set; }

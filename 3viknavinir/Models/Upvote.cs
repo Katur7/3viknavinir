@@ -8,7 +8,6 @@ namespace _3viknavinir.Models
 
     public partial class Upvote
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         public string userID { get; set; }
