@@ -66,7 +66,7 @@ namespace _3viknavinir.Repo
 		{
 			var media = (from m in db.Media
 						 where m.title.Contains(titleLike) || m.Category.name.Contains(titleLike) || m.imdbID.Contains(titleLike) || m.yearOfRelease.ToString().Contains(titleLike)
-						 select m)
+						 select m);
 			return media;
 		}
 
