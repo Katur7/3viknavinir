@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using _3viknavinir.Models.ViewModels;
 
 namespace _3viknavinir.Controllers
 {
@@ -27,17 +28,22 @@ namespace _3viknavinir.Controllers
 
         public ActionResult Requests( )
         {
-            using ( RequestRepo requestRepo = new RequestRepo( ) )
-            {
-                var allRequests = ( from r in requestRepo.GetAllRequests()
-                                 orderby r.dateOfRequest descending
-                                 select r ).ToList( );
-                if ( allRequests != null )
-                {
-                    return View( allRequests );
-                }
-            }
-            return View( );
+			using (UserRepo userRepo = new UserRepo())
+			{			
+				using (RequestRepo requestRepo = new RequestRepo( ) )
+				{
+					var allRequests = ( from r in requestRepo.GetAllRequests()
+										join u in userRepo.GetAllUsers() on r.userID equals u.Id
+										orderby r.title ascending
+										select new ListRequestViewModel() { Id = r.ID, title = r.title, IMDBId = r.imdbID, yearOfRelease = r.yearOfRelease, requestById = u.Id, requestByName = u.UserName }).ToList();
+
+					if ( allRequests != null )
+					{
+						return View( allRequests );
+					}
+				}
+				return View( );
+			}
         }
 
         [HttpGet]
