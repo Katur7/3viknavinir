@@ -48,9 +48,9 @@
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
         <div class="form-group">
-            @Html.LabelFor(m => m.description, new { @class = "col-md-2 control-label" })
+            @Html.LabelFor(m => m.description, new { @class = "col-md-2 control-label "})
             <div class="col-md-10">
-                @Html.TextAreaFor(m => m.description, new { @class = "form-control" })
+                <textarea id="description" name="description" class="form-control" rows="5"></textarea>
             </div>
         </div>
 
