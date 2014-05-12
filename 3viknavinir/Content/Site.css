@@ -345,8 +345,10 @@ input[type="checkbox"].input-validation-error {
 {
     text-align:center;
     border-bottom: 1px solid #eeeeee;
-    margin-right: -15px;
-    margin-left: -15px;
+    margin: auto;
+	color: #00558B;
+	font-weight: bold;
+	font-size: 18px;
 }
 
 .pageCount a {
