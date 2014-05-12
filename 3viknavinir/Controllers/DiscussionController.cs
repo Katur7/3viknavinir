@@ -14,11 +14,16 @@ namespace _3viknavinir.Controllers
         // GET: /Discussion/
         public ActionResult Index(int? id)
         {
-                if (id.HasValue)
+            if (id.HasValue)
+            {
+
+
+
+
+                using (DiscussionRepo discussionRepo = new DiscussionRepo())
                 {
                     int realid = id.Value;
-
-                    using (DiscussionRepo discussionRepo = new DiscussionRepo())
+                    if (discussionRepo.IsExistingID(realid))
                     {
                         var allDiscussions = (from d in discussionRepo.GetCommentByMediaID(realid)
                                               orderby d.dateAdded descending
@@ -27,10 +32,15 @@ namespace _3viknavinir.Controllers
                         {
                             return View(allDiscussions);
                         }
+                        else
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
                         //IEnumerable<Discussion> discussion = (from d in discussionRepo.GetCommentByMediaID(realid)
                         //                                      select d).ToList();
                     }
                 }
+            }
                 return View();
             
         }

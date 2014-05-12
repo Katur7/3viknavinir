@@ -38,7 +38,7 @@
 			@foreach (var item in Model.searchedRequests)
 			{
 				<tr class="requestRow">
-					<td class="alphabetname">@Html.ActionLink(item.title, "Details", "Translation", new { id = item.Id }, null)</td>
+					<td class="alphabetname">@Html.ActionLink(item.title, "Details", "Translation", new { id = item.ID }, null)</td>
 					<td class="alphabetYear">@item.yearOfRelease</td>
 					<td class="alphabettNumberDownload">er víst ekki til fall/breyta</td>
 					@*<td class="alphabetUpvote">@Html.ActionLink("", "", "", new { @class="glyphicon glyphicon-thumbs-up")</td>*@

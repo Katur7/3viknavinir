@@ -14,7 +14,7 @@
         foreach(var item in Model.textToTranslate)
         {
             <div class="form-group">
-                @Html.HiddenFor(model => item.Id)
+                @Html.HiddenFor(model => item.ID)
                 <div class="col-md-10">
                     @Html.EditorFor(model => item.chapterNumber)
                     @Html.ValidationMessageFor(model => item.chapterNumber)
@@ -33,6 +33,13 @@
                     @Html.ValidationMessageFor(model => item.subtitle)
                 </div>
             </div>
+            <div class="col-md-10"></div>
+          <div class="col-md-10">
+            <form action="demo_form.asp">
+                <input type="file" name="pic" accept="image/*">
+                <input type="submit">
+            </form>
+        </div>
         }
         <div class="fullyTranslateCheckbox">
             <input type="checkbox" class="fullyTranslated" />
@@ -42,6 +49,7 @@
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Save" class="btn btn-default" />
         </div>
+      
     }
 
 

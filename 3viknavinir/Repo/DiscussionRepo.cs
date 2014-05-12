@@ -19,6 +19,19 @@ namespace _3viknavinir.Repo
                        select m).ToList();
             return all;
         }
+        public bool IsExistingID (int? id)
+        {
+            int realid = id.Value;
+
+            var IdReal = (from m in db.Discussion
+                          where m.mediaID == realid
+                          select m).SingleOrDefault();
+            if (IdReal != null)
+            {
+                return true;
+            }
+            return false;
+        }
         public void AddComment(Discussion c)
         {
             db.Discussion.Add(c);

@@ -289,7 +289,10 @@ input[type="checkbox"].input-validation-error {
 	padding-left: 25px;
 	float: right;
 	clear: both;
-	margin: 150px 0px 0px 0px;
+	margin: 10px 0px 0px 0px;
+}
+#detailsPreview {
+
 }
 
 #downloadTranslationButton {

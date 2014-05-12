@@ -33,7 +33,8 @@ namespace _3viknavinir.Repo
 			var request = (from r in db.Requests
 						   where r.title.Contains(searchString) || r.imdbID.Contains(searchString) || r.yearOfRelease.ToString().Contains(searchString)
 						   select r);
-			return request;
+
+			return request.Distinct();
 		}
 
 		public Requests GetRequestByIMDBID(string imdbid)
@@ -68,12 +69,6 @@ namespace _3viknavinir.Repo
 			upvote.translationID = null;
 			upvote.discussionID = null;
 		}
-        public int GetNextRequestID()
-        {
-            int id = ( from r in db.Requests
-                       select r.ID ).Max();
-            return id + 1;
-        }
         public void Dispose( )
         {
             bool disposed = false;

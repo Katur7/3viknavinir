@@ -208,6 +208,7 @@
     <Compile Include="Repo\TranslationLinesRepo.cs" />
     <Compile Include="Repo\TranslationRepo.cs" />
     <Compile Include="Repo\Upvote.cs" />
+    <Compile Include="Repo\UserRepo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
