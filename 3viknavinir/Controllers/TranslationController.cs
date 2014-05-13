@@ -75,10 +75,10 @@ namespace _3viknavinir.Controllers
                         //int nextTranslationID = translationRepo.GetNextTranslationID();
 
                         //newTranslation.ID = nextTranslationID;
-                        newTranslation.languageID = 10; // TODO
+                        newTranslation.languageID = 1; 
                         newTranslation.mediaID = newMedia.ID;
-                        newTranslation.finished = false; // TODO
-                        newTranslation.userID = User.Identity.GetUserId(); // TODO UserRepo
+                        newTranslation.finished = false; 
+                        newTranslation.userID = User.Identity.GetUserId();
                         newTranslation.dateAdded = DateTime.Now;
 
 
