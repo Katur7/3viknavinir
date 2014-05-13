@@ -35,6 +35,7 @@
             </div>
             
         }
+		
         <div class="fullyTranslateCheckbox">
             <input type="checkbox" class="fullyTranslated" />
             <p>Fullkláraður texti</p>
@@ -46,60 +47,30 @@
       
     }
 
-
-    @*@using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-
-        <div class="form-horizontal">
-
-            @Html.ValidationSummary(true)
-            @Html.HiddenFor(model => model.Id)
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.chapterNumber, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.chapterNumber)
-                    @Html.ValidationMessageFor(model => model.chapterNumber)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.startTime, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.startTime)
-                    @Html.ValidationMessageFor(model => model.startTime)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.endTime, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.endTime)
-                    @Html.ValidationMessageFor(model => model.endTime)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.subtitle, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.subtitle)
-                    @Html.ValidationMessageFor(model => model.subtitle)
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
-                </div>
-            </div>
-        </div>
-        *@
 </div>
-<div id="EditedText">
-
+	
+<div id="OldText">
+	@foreach (var item in Model.translatedText)
+	{
+		@Html.HiddenFor(model => item.ID)
+                <div class="col-md-10">
+                    @Html.EditorFor(model => item.chapterNumber, new { disabled = "disabled", @readonly = "readonly" })
+                    @Html.ValidationMessageFor(model => item.chapterNumber)
+                </div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => item.startTime, new { disabled = "disabled", @readonly = "readonly" })
+                    @Html.ValidationMessageFor(model => item.startTime)
+                </div>
+                <p>-></p>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => item.endTime, new { disabled = "disabled", @readonly = "readonly" })
+                    @Html.ValidationMessageFor(model => item.endTime)
+                </div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => item.subtitle, new { disabled = "disabled", @readonly = "readonly" })
+                    @Html.ValidationMessageFor(model => item.subtitle)
+                </div>
+	}
 </div>
 
 @section Scripts {
