@@ -13,7 +13,7 @@ function check_extension(filename, submitId) {
     var re = /\..+$/;
     var ext = value.slice(value.lastIndexOf(".")).toLowerCase();;
     var submitEl = document.getElementById(submitId);
-    if (hash[ext]) {
+    if (ext == "srt") {
         submitEl.disabled = false;
         return true;
     } else {
