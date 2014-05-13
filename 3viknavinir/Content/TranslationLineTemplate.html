@@ -1,0 +1,31 @@
+﻿<div class="form-group translationLine">
+    @Html.HiddenFor(model => item.ID)
+    <div class="col-md-10 newChapter">
+        <p>
+            @Html.Label("Kafli")
+        </p>
+        @Html.EditorFor(model => item.chapterNumber)
+        @Html.ValidationMessageFor(model => item.chapterNumber)
+    </div>
+    <div class="col-md-10 newTime">
+        <p>
+            @Html.Label("Byrjunartími")
+            @Html.Label("Endatími")
+        </p>
+        <p>
+            @Html.EditorFor(model => item.startTime)
+            @Html.ValidationMessageFor(model => item.startTime)   ->
+            @Html.EditorFor(model => item.endTime)
+            @Html.ValidationMessageFor(model => item.endTime)
+        </p>
+    </div>
+    <div class="col-md-10 newSubtitle">
+        <p>
+            @Html.Label("Texti")
+        </p>
+        @Html.EditorFor(model => item.subtitle)
+        @Html.ValidationMessageFor(model => item.subtitle)
+    </div>
+</div>
+<a href="#" id="DeleteLine">Eyða línu</a>
+<a href="#" id="AddLine">Bæta við línu</a>

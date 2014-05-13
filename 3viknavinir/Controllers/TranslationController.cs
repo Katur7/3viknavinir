@@ -167,7 +167,7 @@ namespace _3viknavinir.Controllers
 				if (ModelState.IsValid)
 				{
 					Media newMedia = new Media();
-
+					/*
 					string path = Server.MapPath("~/Content/posterImg/");
 
 					if (media.choosePoster != null)
@@ -194,8 +194,8 @@ namespace _3viknavinir.Controllers
 					{
 						newMedia.posterPath = media.posterPath;
 					}
-						
-
+						*/
+					
 					newMedia.ID = media.ID;
 					newMedia.title = media.title;
 					newMedia.yearOfRelease = media.year;

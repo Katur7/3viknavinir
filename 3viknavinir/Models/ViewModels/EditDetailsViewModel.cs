@@ -24,6 +24,6 @@ namespace _3viknavinir.Models.ViewModels
 
 		public string posterPath { get; set; }
 
-		public HttpPostedFileBase choosePoster { get; set; }
+		//public HttpPostedFileBase choosePoster { get; set; }
 	}
 }

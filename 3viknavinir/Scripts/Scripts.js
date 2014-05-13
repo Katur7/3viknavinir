@@ -3,7 +3,11 @@
         $("#accordion").accordion();
     });
 
-    $
+    var translationLine = $().load()
+
+    $(function () {
+        $("#AddLine").click((this).append($().load("/Content/TranslationLineTemplate")));
+    })
 });
 
 //fanney
