@@ -35,6 +35,7 @@
 		<thead>
 			<tr class="requestRow">
 				<th class="requestName">Nafn</th>
+                <th class="requestName">Sett inn af</th>
 				<th class="requestYear">Ártal</th>
 				<th class="requestIMDBID">IMDB ID</th>
 				<th class="requestUpvote">Upvote</th>
@@ -45,6 +46,7 @@
 			{
 				<tr class="requestRow">
 					<td class="requestName">@Html.DisplayFor(modelItem => item.title )</td>
+                    <td class="requestName">@Html.DisplayFor(modelItem => item.requestByName)</td>
 					<td class="requestYear">@Html.DisplayFor(modelItem => item.yearOfRelease)</td>
 					<td class="requestIMDBID">@Html.DisplayFor(modelItem => item.IMDBId)</td>
 					<td class="requestUpvote">TODO</td>
