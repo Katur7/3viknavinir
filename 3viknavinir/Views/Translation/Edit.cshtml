@@ -31,6 +31,14 @@
             </div>
         </div>
 
+        <div class="form-group"> @*VANTAR AÐ TENGJA ÞETTA VIÐ LÝSNGARGÆJANN idkh*@
+            @Html.Label("IMDB ID: ", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.imdbId)
+                @Html.ValidationMessageFor(model => model.imdbId)
+            </div>
+        </div>
+
         <div class="form-group">
 			@Html.Label("Lýsing: ", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
