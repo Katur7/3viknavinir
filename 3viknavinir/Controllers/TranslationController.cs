@@ -112,25 +112,48 @@ namespace _3viknavinir.Controllers
         [Authorize]
 		public ActionResult Edit(int? id)
 		{
-			if(id.HasValue)
+			using (DiscussionRepo discussionRepo = new DiscussionRepo())
 			{
-				int realid = id.Value;
-				using(MediaRepo mediaRepo = new MediaRepo())
+				if (id.HasValue)
 				{
-					var media = mediaRepo.GetMediaByID(realid);
-					if(media != null)
+					int realid = id.Value;
+					using (MediaRepo mediaRepo = new MediaRepo())
 					{
-						return View(media);
+						var media = mediaRepo.GetMediaByID(realid);
+						if (media != null)
+						{
+							if(!String.IsNullOrEmpty(media.title))
+							return View(media);
+						}
 					}
 				}
+				return View();
 			}
-			return View();
 		}
 
 		[HttpPost]
-		public ActionResult Edit()
+		public ActionResult Edit(MediaDetailsViewModel media)
 		{
+			using (MediaRepo mediaRepo = new MediaRepo())
+			{
+				if (ModelState.IsValid)
+				{
+					var newMedia = new Media();
 
+					//int nextMediaID = mediaRepo.GetNextMediaID( );
+
+					//newMedia.ID = nextMediaID;
+					newMedia.title = media.title;
+					newMedia.yearOfRelease = media.yearOfRelease;
+					newMedia.description = media.description;
+					newMedia.categoryID = media.media.categoryID; // TODO
+					newMedia.imdbID = media.imdbID;
+					newMedia.posterPath = "~/Content/siat_logo.jpg"; //TODO
+					mediaRepo.AddMedia(newMedia);
+
+					return RedirectToAction("AlphabetizedTexts", "ListTranslations");
+				}
+			}
 			return View();
 		}
 
