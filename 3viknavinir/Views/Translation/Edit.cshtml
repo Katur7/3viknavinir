@@ -58,7 +58,7 @@
         <div class="form-group">
 			@Html.Label("Mynd: ", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@Html.EditorFor(model => model.posterPath)*@<input type="file" value="Velja mynd" id="choosePoster"/>
+                <input type="file" value="Velja mynd" id="choosePoster"/>
                 @Html.ValidationMessageFor(model => model.posterPath)
             </div>
         </div>
