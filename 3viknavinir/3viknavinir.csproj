@@ -292,6 +292,7 @@
     <Content Include="Views\Category\Other.cshtml" />
     <Content Include="Views\Search\SearchMediaView.cshtml" />
     <Content Include="Views\Search\SearchRequestView.cshtml" />
+    <Content Include="Views\Home\ProcessRequest.cshtml" />
     <None Include="Views\Shared\Error404.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />

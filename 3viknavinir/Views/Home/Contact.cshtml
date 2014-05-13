@@ -14,12 +14,12 @@
 </div>
 <h2>@ViewBag.Title</h2>
 
-<p>
+@*<p>
     Síðan SÍÁT er verkefni nemanda við Háskólann í Reykjavík. Höfuðstöðvar síðunnar eru innan veggja
     skólans og því aðeins hægt að hafa samband við umsjónarmenn vefsíðunnar í gegnum
     fyrirspurnarform hér að neðan.
 </p>
-@* Fanney og Steinunn *@
+@* Fanney og Steinunn 
 <form class="form-control-static">
     <div>
         <div>
@@ -35,5 +35,25 @@
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="Senda" />
         </div>
+    </div>
+</form>*@
+<form method="post" action="ProcessRequest.cshtml">
+    <div>
+        Your name:
+        <input type="text" name="customerName" />
+    </div>
+
+    <div>
+        Your email address:
+        <input type="text" name="customerEmail" />
+    </div>
+
+    <div>
+        Details about your problem: <br />
+        <textarea name="customerRequest" cols="45" rows="4"></textarea>
+    </div>
+
+    <div>
+        <input type="submit" value="Submit" />
     </div>
 </form>
