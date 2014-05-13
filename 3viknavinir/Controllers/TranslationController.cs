@@ -65,7 +65,7 @@ namespace _3viknavinir.Controllers
                         newMedia.title = media.title;
                         newMedia.yearOfRelease = media.yearOfRelease;
                         newMedia.description = media.description;
-                        newMedia.categoryID = 41; // TODO
+                        newMedia.categoryID = media.category; // TODO?
                         newMedia.imdbID = media.imdbID;
                         newMedia.posterPath = "~/Content/siat_logo.jpg"; //TODO
 						mediaRepo.AddMedia(newMedia);
