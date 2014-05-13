@@ -1,4 +1,4 @@
-﻿@model _3viknavinir.Models.ViewModels.ListRequestViewModel
+﻿@model IEnumerable<_3viknavinir.Models.ViewModels.ListRequestViewModel>
 @{
     ViewBag.Title = "Beiðnir";
 }
@@ -45,8 +45,8 @@
 				<tr class="requestRow">
 					<td class="requestName">@Html.DisplayFor(modelItem => item.title )</td>
 					<td class="requestYear">@Html.DisplayFor(modelItem => item.yearOfRelease)</td>
-					<td class="requestIMDBID">@Html.DisplayFor(modelItem => item.imdbID)</td>
-					<td class="requestUpvote">@Html.DisplayFor(modelItem => item.Upvote)</td>
+					<td class="requestIMDBID">@Html.DisplayFor(modelItem => item.IMDBId)</td>
+					<td class="requestUpvote">TODO</td>
 				</tr>
 			}
 		</tbody>
