@@ -142,6 +142,7 @@ namespace _3viknavinir.Controllers
 							viewModel.year = media.yearOfRelease;
 							viewModel.description = media.description;
 							viewModel.posterPath = media.posterPath;
+							viewModel.imdbId = media.imdbID;
 							
 							List<Category> categories = categoryRepo.GetAllCategories().ToList();
 
