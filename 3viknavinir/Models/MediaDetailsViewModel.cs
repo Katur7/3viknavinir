@@ -5,6 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 using System.Drawing;
+using System.Web.Mvc;
 
 namespace _3viknavinir.Models
 {
@@ -27,8 +28,8 @@ namespace _3viknavinir.Models
         public string imdbID { get; set; }
         [Display( Name = "Lýsing" )]
         public string description { get; set; }
-
-        public IEnumerable<Category> categories { get; set; }
+		public int category { get; set; }
+		public List<SelectListItem> categories { get; set; }
         public Image posterPath { get; set; }
 	}
 }
