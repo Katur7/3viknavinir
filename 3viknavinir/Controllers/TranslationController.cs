@@ -59,15 +59,12 @@ namespace _3viknavinir.Controllers
                     {
                         var newMedia = new Media( );
 
-                        //int nextMediaID = mediaRepo.GetNextMediaID( );
-
-                        //newMedia.ID = nextMediaID;
                         newMedia.title = media.title;
                         newMedia.yearOfRelease = media.yearOfRelease;
                         newMedia.description = media.description;
-                        newMedia.categoryID = media.category; // TODO?
+                        newMedia.categoryID = media.category;
                         newMedia.imdbID = media.imdbID;
-                        newMedia.posterPath = media.posterPath; //TODO
+						newMedia.posterPath = media.posterPath; //TODO
 						mediaRepo.AddMedia(newMedia);
 
                         var newTranslation = new Translation();
@@ -106,7 +103,7 @@ namespace _3viknavinir.Controllers
 							var media = mediaRepo.GetMediaByID(realid);
 							var translation = translationRepo.GetTranslationByMediaID(realid);
 
-							viewModel.userName = userRepo.GetUserByID(translation.userID).UserName;
+							viewModel.userName = userRepo.GetUserNameByID(translation.userID);
 								
 							viewModel.media = media;
 							viewModel.translation = translation;
@@ -171,14 +168,11 @@ namespace _3viknavinir.Controllers
 				{
 					Media newMedia = new Media();
 
-					string path = "/Content/posterImg/";
+					string path = Server.MapPath("~/Content/posterImg/");
 
-					HttpPostedFileBase photo = Request.Files["choosePoster"];
-					
-					
-					if (photo != null)
+					if (media.choosePoster != null)
 					{
-						if (photo.ContentLength > 102400)
+						if (media.choosePoster.ContentLength > 102400)
 						{
 							ModelState.AddModelError("choosePoster", "Stærð myndarinnar ætti ekki að fara yfir 100 KB");
 							return View(media);
@@ -186,7 +180,7 @@ namespace _3viknavinir.Controllers
 
 						var supportedTypes = new[] { "jpg", "jpeg" };
 
-						var fileExt = System.IO.Path.GetExtension(photo.FileName).Substring(1);
+						var fileExt = System.IO.Path.GetExtension(media.choosePoster.FileName).Substring(1);
 
 						if (!supportedTypes.Contains(fileExt))
 						{
@@ -194,8 +188,8 @@ namespace _3viknavinir.Controllers
 							return View(media);
 						}
 
-						photo.SaveAs(path + media.ID + ".jpg");
-						newMedia.posterPath = path + media.ID + ".jpg";
+						media.choosePoster.SaveAs(path + media.ID + ".jpg");
+						newMedia.posterPath = "/Content/posterImg/" + media.ID + ".jpg";
 					} else
 					{
 						newMedia.posterPath = media.posterPath;
