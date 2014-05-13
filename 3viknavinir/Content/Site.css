@@ -368,7 +368,7 @@ input[type="checkbox"].input-validation-error {
 .detailPhoto img{
     max-height: 450px;
     max-width: 450px;
-    position: fixed;
+    position: relative;
     top: 50%;
     left: 50%;
     margin-top: -120px;

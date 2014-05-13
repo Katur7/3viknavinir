@@ -31,7 +31,7 @@
             </div>
         </div>
 
-        <div class="form-group"> @*VANTAR AÐ TENGJA ÞETTA VIÐ LÝSNGARGÆJANN idkh*@
+        <div class="form-group">
             @Html.Label("IMDB ID: ", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.imdbId)
@@ -58,7 +58,7 @@
         <div class="form-group">
 			@Html.Label("Mynd: ", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.posterPath)<input type="file" value="Velja mynd" id="choosePoster"/>
+                @*@Html.EditorFor(model => model.posterPath)*@<input type="file" value="Velja mynd" id="choosePoster"/>
                 @Html.ValidationMessageFor(model => model.posterPath)
             </div>
         </div>
