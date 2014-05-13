@@ -11,7 +11,7 @@ namespace _3viknavinir.Controllers
 	[HandleError]
     public class ListTranslationsController : Controller
     {
-		const int ITEMSPERPAGE = 15;
+		const int ITEMSPERPAGE = 10;
 
         // GET: /ListTranslations/
         public ActionResult Index()

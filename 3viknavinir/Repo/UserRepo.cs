@@ -16,6 +16,13 @@ namespace _3viknavinir.Repo
 		{
 			return from user in db.Users select user;
 		}
+        public string GetUserNameByID(string id)
+        {
+            var username = ( from u in db.Users
+                             where u.Id == id
+                             select u.UserName).SingleOrDefault();
+            return username;
+        }
 
 		public IdentityUser GetUserByID(string id)
 		{
