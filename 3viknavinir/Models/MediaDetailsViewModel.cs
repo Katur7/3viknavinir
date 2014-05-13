@@ -30,6 +30,6 @@ namespace _3viknavinir.Models
         public string description { get; set; }
 		public int category { get; set; }
 		public List<SelectListItem> categories { get; set; }
-        public Image posterPath { get; set; }
+        public string posterPath { get; set; }
 	}
 }
