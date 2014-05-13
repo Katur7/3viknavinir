@@ -24,7 +24,7 @@ namespace _3viknavinir.Controllers
 
 						IEnumerable<Discussion> allDiscussions = (from d in discussionRepo.GetCommentByMediaID(realid)
 																  orderby d.dateAdded descending
-															      select d).ToList();
+																  select d);
                         if (allDiscussions != null)
                         {
                             return View(allDiscussions);
