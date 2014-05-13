@@ -128,9 +128,28 @@ namespace _3viknavinir.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult Edit()
+		public ActionResult Edit(MediaDetailsViewModel media)
 		{
+			using (MediaRepo mediaRepo = new MediaRepo())
+			{
+				if (ModelState.IsValid)
+				{
+					var newMedia = new Media();
 
+					//int nextMediaID = mediaRepo.GetNextMediaID( );
+
+					//newMedia.ID = nextMediaID;
+					newMedia.title = media.title;
+					newMedia.yearOfRelease = media.yearOfRelease;
+					newMedia.description = media.description;
+					newMedia.categoryID = media.media.categoryID; // TODO
+					newMedia.imdbID = media.imdbID;
+					newMedia.posterPath = "~/Content/siat_logo.jpg"; //TODO
+					mediaRepo.AddMedia(newMedia);
+
+					return RedirectToAction("AlphabetizedTexts", "ListTranslations");
+				}
+			}
 			return View();
 		}
 

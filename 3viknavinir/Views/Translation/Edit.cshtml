@@ -41,23 +41,24 @@
         <div class="form-group">
             @Html.Label("Flokkur: ", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                @Html.DropDownList("category", new SelectListItem { Selected=true, Text="Annað", Value="16"}, null)
                 <select>
-                    <option value="Annað">Annað</option>
-                    <option value="Ævintýramynd">Ævintýramynd</option>
-                    <option value="Gamanmynd">Gamanmynd</option>
-                    <option value="Fjölskyldumyndir">Fjölskyldumyndir</option>
-                    <option value="Íslenskar">Íslenskar</option>
-                    <option value="Söngleikur">Söngleikur</option>
-                    <option value="Rómantík">Rómantík</option>
-                    <option value="Spennumyndir">Spennumyndir</option>
-                    <option value="Hryllingsmyndir">Hryllingsmyndir</option>
-                    <option value="Hasarmyndir">Hasarmyndir</option>
-                    <option value="Barnamyndir">Barnamyndir</option>
-                    <option value="Drama">Drama</option>
-                    <option value="Vísindaskáldskapur">Vísindaskáldskapur</option>
-                    <option value="Þættir">Þættir</option>
-                    <option value="Anime">Anime</option>
-                    <option value="Heimildamyndir">Heimildamyndir</option>
+                    <option value="16">Annað</option> @*id=16*@
+                    <option value="1">Ævintýramynd</option> @*id=1*@
+                    <option value="2">Gamanmynd</option> @*id=2*@
+                    <option value="3">Fjölskyldumyndir</option> @*id=3*@
+                    <option value="4">Íslenskar</option> @*id=4*@
+                    <option value="5">Söngleikur</option> @*id=5*@
+                    <option value="6">Rómantík</option> @*id=6*@
+                    <option value="7">Spennumyndir</option> @*id=7*@
+                    <option value="8">Hryllingsmyndir</option> @*id=8*@
+                    <option value="9">Hasarmyndir</option> @*id=9*@
+                    <option value="10">Barnamyndir</option> @*id=10*@
+                    <option value="11">Drama</option> @*id=11*@
+                    <option value="12">Vísindaskáldskapur</option> @*id=12*@
+                    <option value="13">Þættir</option> @*id=13*@
+                    <option value="14">Anime</option> @*id=14*@
+                    <option value="15">Heimildamyndir</option> @*id=15*@
                     
                  </select>
                  @Html.ValidationMessageFor(model => model.Category)
