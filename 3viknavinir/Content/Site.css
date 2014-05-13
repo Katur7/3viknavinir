@@ -361,6 +361,37 @@ input[type="checkbox"].input-validation-error {
 	padding-bottom: 25px;
 }
 
+#parentTimeDiv {
+    float: left;
+}
+
+#item_endTime {
+	clear: both;
+}
+
+#newTime, #oldTime {
+	padding: 0px;
+}
+
+#newSubtitle, #oldSubtitle{
+	margin: 0px;
+	padding: 0px;
+}
+
+#newChapter, #oldChapter {
+	margin: 0px;
+	padding: 0px;
+}
+
+.timeLabels {
+	margin: 0px;
+	padding: 0px;
+}
+
+#newSubtitle {
+	display: inline-block;
+}
+
 .pageCount a {
 	margin-right: 15px;
 }
