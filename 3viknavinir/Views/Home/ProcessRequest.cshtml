@@ -1,17 +1,10 @@
 ﻿@{
-    var customerName = Request["customerName"];
-    var customerEmail = Request["customerEmail"];
-    var customerRequest = Request["customerRequest"];
+    var userName = Request["userName"];
+    var userEmail = Request["userEmail"];
+    var userRequest = Request["userRequest"];
     var errorMessage = "";
-    var debuggingFlag = false;
     try
     {
-        // Initialize WebMail helper
-        //WebMail.SmtpServer = "smtp.gmail.com";
-        //WebMail.SmtpPort = 587;
-        //WebMail.UserName = "siatnoreply@gmail.com";
-        //WebMail.Password = "stringerla";
-        //WebMail.From = "siatnoreply@gmail.com";
         WebMail.SmtpServer = "smtp.gmail.com";
         WebMail.EnableSsl = true;
         WebMail.SmtpPort = 587;
@@ -19,9 +12,13 @@
         WebMail.Password = "stringerla";
         WebMail.From = "siatnoreply@gmail.com";
         // Send email
-        WebMail.Send(to: customerEmail,
-            subject: "Help request from - " + customerName,
-            body: customerRequest
+        WebMail.Send(to: "siatnoreply@gmail.com",
+            subject: "Fyrirspurn frá - " + userName,
+            body: userName + " hafði samband, hann/hún vildi láta okkur vita af þessu: " + userRequest
+        );
+        WebMail.Send(to: userEmail, 
+            subject: userName + ", þú sendir fyrirspurn á SÍÁT",
+            body: "Takk fyrir að hafa samband við okkur, við munum svara beiðni þinni eins fljótt og hægt er. Hún hljómaði svona: " + userRequest
         );
     }
     catch (Exception ex)
@@ -30,31 +27,46 @@
     }
 }
 
-<head>
-    <title>Request for Assistance</title>
-</head>
-<body>
-    <p>Sorry to hear that you are having trouble, <b>@customerName</b>.</p>
+@{
+    ViewBag.Title = "Þú hafðir samband";
+}
+
+    <div class="breadcrumb">
+        <ul class="crumbs">
+            <li class="crumb crumb-first">
+                @Html.ActionLink("SÍÁR", "Index", "Home")
+            </li>
+            <li class="crumb crumb-last">
+                <span class="crumb-seperator"> > </span>
+                @Html.ActionLink("Hafa samband", "Contact", "Home")
+            </li>
+            <li class="crumb crumb-last">
+                <span class="crumb-seperator"> > </span>
+                @Html.ActionLink("Fyrirspurn send", "ProcessRequest", "Contact")
+            </li>
+        </ul>
+    </div>
+    
     @if (errorMessage == "")
     {
+        <h2>@ViewBag.Title</h2>
+
+    <p>Takk fyrir að hafa samband við okkur, <b>@userName</b>.</p>
         <p>
-            An email message has been sent to our customer service
-            department regarding the following problem:
+            Við höfum fengið fyrirspurnina þína og munum bregðast við eins fljótt og hægt er.
+            Við sendum þér einnig tölvupóst með fyrirspurninni þinni, vertu sem oftast í sambandi!
+            Þetta eru skilaboðin sem þú sendir:
         </p>
-        <p><b>@customerRequest</b></p>
+        <p><b>@userRequest</b></p>
     }
     else
     {
-        <p><b>The email was <em>not</em> sent.</b></p>
+        <h2>Skilaboð mistókust</h2>
+    <p>Takk fyrir að reyna hafa samband við okkur, <b>@userName</b>.</p>
+        
+        <p><b>Því miður var fyrirspurnin þín <em>ekki</em> send.</b></p>
         <p>
-            Please check that the code in the ProcessRequest page has
-            correct settings for the SMTP server name, a user name,
-            a password, and a "from" address.
+            Líklegast var tölvupóstfangið sem þú settir inn ekki á réttu formi. Endilega reyndu aftur.
         </p>
-        if (debuggingFlag)
-        {
-            <p>The following error was reported:</p>
-            <p><em>@errorMessage</em></p>
-        }
+      
     }
-</body>
