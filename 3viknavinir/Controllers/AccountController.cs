@@ -27,23 +27,23 @@ namespace _3viknavinir.Controllers
 
         public UserManager<ApplicationUser> UserManager { get; private set; }
 
-		//Erla
-		//Get /Account/LostPassword
-		[AllowAnonymous]
-		public ActionResult LostPassword()
-		{
-			return View();
-		}
+        //Erla
+        //Get /Account/LostPassword
+        [AllowAnonymous]
+        public ActionResult LostPassword()
+        {
+            return View();
+        }
 
-		//Erla
-		//POST /Account/LostPassword
-		[AllowAnonymous]
-		[HttpPost]
-		public async Task<ActionResult> LostPassword(LostPasswordViewModel model)
-		{
+        //Erla
+        //POST /Account/LostPassword
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<ActionResult> LostPassword(LostPasswordViewModel model)
+        {
 
-			return View(model);
-		}
+            return View(model);
+        }
 
         //
         // GET: /Account/Login
@@ -360,7 +360,8 @@ namespace _3viknavinir.Controllers
         {
             foreach (var error in result.Errors)
             {
-                ModelState.AddModelError("", error);
+                if (error.EndsWith("is already taken."))
+                    ModelState.AddModelError("", error);   
             }
         }
 
@@ -396,7 +397,8 @@ namespace _3viknavinir.Controllers
 
         private class ChallengeResult : HttpUnauthorizedResult
         {
-            public ChallengeResult(string provider, string redirectUri) : this(provider, redirectUri, null)
+            public ChallengeResult(string provider, string redirectUri)
+                : this(provider, redirectUri, null)
             {
             }
 
