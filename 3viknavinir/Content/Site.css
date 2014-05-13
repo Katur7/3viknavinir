@@ -238,7 +238,12 @@ input[type="checkbox"].input-validation-error {
 .NewRequestForm {
 	font-weight: bold;
 }
-
+.newRequestButton {
+    float: right
+}
+.newTranslationButton {
+    float: right;
+}
 .alphabetizedTextDiv {
     padding-left: 20px;
 }
