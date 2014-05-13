@@ -313,7 +313,7 @@
     <Content Include="Views\Translation\Details.cshtml" />
     <Content Include="Views\Translation\Edit.cshtml" />
     <Content Include="Views\Translation\EditTranslation.cshtml" />
-    <Content Include="Views\Discussion\Discussion.cshtml" />
+    <Content Include="Views\Discussion\Translation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
