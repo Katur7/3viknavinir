@@ -1,4 +1,4 @@
-﻿@model _3viknavinir.Models.Media
+﻿@model _3viknavinir.Models.ViewModels.EditDetailsViewModel
 
 @{
     ViewBag.Title = "Edit";
@@ -26,8 +26,8 @@
         <div class="form-group">
 			@Html.Label("Ártal: ", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.yearOfRelease)
-                @Html.ValidationMessageFor(model => model.yearOfRelease)
+                @Html.EditorFor(model => model.year)
+                @Html.ValidationMessageFor(model => model.year)
             </div>
         </div>
 
@@ -41,7 +41,7 @@
         <div class="form-group">
             @Html.Label("Flokkur: ", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@Html.DropDownList("category", new SelectListItem { Selected=true, Text="Annað", Value="16"}, null)*@
+                @*@Html.DropDownList(model => model.categories.ID, model.categories.name)*@
                 <select>
                     <option value="16">Annað</option> @*id=16*@
                     <option value="1">Ævintýramynd</option> @*id=1*@
@@ -61,7 +61,7 @@
                     <option value="15">Heimildamyndir</option> @*id=15*@
                     
                  </select>
-                 @Html.ValidationMessageFor(model => model.Category)
+                 @Html.ValidationMessageFor(model => model.categories)
             </div>
         </div>
       
