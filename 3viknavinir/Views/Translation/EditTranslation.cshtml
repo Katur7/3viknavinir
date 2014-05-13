@@ -1,5 +1,4 @@
 ﻿@model _3viknavinir.Models.EditTranslationViewModel
-
 @{
     ViewBag.Title = "Breyta þýðingu á " + Model.title + " (" + Model.year + ")";
 }
@@ -15,20 +14,23 @@
         {
             <div class="form-group">
                 @Html.HiddenFor(model => item.ID)
-                <div class="col-md-10">
+                <div class="col-md-10" id="newChapter">
+					@Html.Label("Kafli")
                     @Html.EditorFor(model => item.chapterNumber)
                     @Html.ValidationMessageFor(model => item.chapterNumber)
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-10" id="newBeginTime">
+					@Html.Label("Byrjunartími")
                     @Html.EditorFor(model => item.startTime)
-                    @Html.ValidationMessageFor(model => item.startTime)
+                    @Html.ValidationMessageFor(model => item.startTime)   ->
                 </div>
-                <p>-></p>
                 <div class="col-md-10">
+					@Html.Label("Endatími")
                     @Html.EditorFor(model => item.endTime)
                     @Html.ValidationMessageFor(model => item.endTime)
                 </div>
                 <div class="col-md-10">
+					@Html.Label("Texti")
                     @Html.EditorFor(model => item.subtitle)
                     @Html.ValidationMessageFor(model => item.subtitle)
                 </div>
@@ -53,20 +55,23 @@
 	@foreach (var item in Model.translatedText)
 	{
 		@Html.HiddenFor(model => item.ID)
-                <div class="col-md-10">
+                <div class="col-md-10" id="oldChapter">
+					@Html.Label("Kafli")
                     @Html.EditorFor(model => item.chapterNumber, new { disabled = "disabled", @readonly = "readonly" })
                     @Html.ValidationMessageFor(model => item.chapterNumber)
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-10" id="oldStartTime">
+					@Html.Label("Byrjunartími")
                     @Html.EditorFor(model => item.startTime, new { disabled = "disabled", @readonly = "readonly" })
-                    @Html.ValidationMessageFor(model => item.startTime)
+                    @Html.ValidationMessageFor(model => item.startTime)   -> 
                 </div>
-                <p>-></p>
-                <div class="col-md-10">
+                <div class="col-md-10" id="oldEndTime">
+					@Html.Label("Endatími")
                     @Html.EditorFor(model => item.endTime, new { disabled = "disabled", @readonly = "readonly" })
                     @Html.ValidationMessageFor(model => item.endTime)
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-10" id="oldSubtitle">
+					@Html.Label("Texti")
                     @Html.EditorFor(model => item.subtitle, new { disabled = "disabled", @readonly = "readonly" })
                     @Html.ValidationMessageFor(model => item.subtitle)
                 </div>
