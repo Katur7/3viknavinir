@@ -292,7 +292,7 @@ input[type="checkbox"].input-validation-error {
 	background-position-y: center;
 	width: 130px;
 	padding-left: 25px;
-	float: right;
+	float: left;
 	clear: both;
 	margin: 10px 0px 0px 0px;
 }
@@ -366,11 +366,11 @@ input[type="checkbox"].input-validation-error {
 }
 
 .detailPhoto img{
-    max-height: 250px;
-    max-width: 250px;
+    max-height: 450px;
+    max-width: 450px;
     position: fixed;
     top: 50%;
     left: 50%;
-    margin-top: -50px;
-    margin-left: -100px;   
+    margin-top: -120px;
+    margin-left: -70px;   
 }
