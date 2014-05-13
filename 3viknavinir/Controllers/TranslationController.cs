@@ -127,13 +127,23 @@ namespace _3viknavinir.Controllers
 							viewModel.year = media.yearOfRelease;
 							viewModel.description = media.description;
 							viewModel.posterPath = media.posterPath;
-							viewModel.categories = categoryRepo.GetAllCategories();
+							
+							List<Category> categories = categoryRepo.GetAllCategories().ToList();
+
+							viewModel.categories = new List<SelectListItem>();
+
+							foreach (Category category in categories)
+							{
+								viewModel.categories.Add(new SelectListItem() { Text = category.name, Value = category.ID.ToString() });
+							}
+
 							return View(viewModel);
 						}
 					}
 				}
 			}
-			return View();
+
+			return HttpNotFound();
 		}
 
 		[HttpPost]

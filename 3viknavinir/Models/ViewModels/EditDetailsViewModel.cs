@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace _3viknavinir.Models.ViewModels
 {
@@ -14,7 +15,9 @@ namespace _3viknavinir.Models.ViewModels
 
 		public string description { get; set; }
 
-		public IEnumerable<Category> categories { get; set; }
+		public int Category { get; set; }
+
+		public List<SelectListItem> categories { get; set; }
 
 		public string posterPath { get; set; }
 	}
