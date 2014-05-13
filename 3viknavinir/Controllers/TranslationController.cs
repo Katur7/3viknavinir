@@ -86,23 +86,20 @@ namespace _3viknavinir.Controllers
 				{
 					using(TranslationRepo translationRepo = new TranslationRepo())
 					{
-						var media = mediaRepo.GetMediaByID(realid);
-						var translation = translationRepo.GetTranslationByMediaID(realid);
-						/*
-						List<MembershipUser> allUsers = Membership.GetAllUsers();
-						MembershipUser mu1 = (from u in allUsers
-								   where u.UserID == translation.userID
-								   select u).SingleOrDefault();
-						MembershipUser mu = Membership.GetUser(translation.userID);
-						string userName = mu.UserName;
-						*/
-						viewModel.media = media;
-						viewModel.translation = translation;
-						//viewModel.userName = userName;
-
-						if (media != null && translation != null)
+						using(UserRepo userRepo = new UserRepo())
 						{
-							return View(viewModel);
+							var media = mediaRepo.GetMediaByID(realid);
+							var translation = translationRepo.GetTranslationByMediaID(realid);
+
+							viewModel.userName = userRepo.GetUserByID(translation.userID).UserName;
+								
+							viewModel.media = media;
+							viewModel.translation = translation;
+
+							if (media != null && translation != null)
+							{
+								return View(viewModel);
+							}
 						}
 					}
 				}
