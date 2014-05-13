@@ -59,15 +59,12 @@ namespace _3viknavinir.Controllers
                     {
                         var newMedia = new Media( );
 
-                        //int nextMediaID = mediaRepo.GetNextMediaID( );
-
-                        //newMedia.ID = nextMediaID;
                         newMedia.title = media.title;
                         newMedia.yearOfRelease = media.yearOfRelease;
                         newMedia.description = media.description;
-                        newMedia.categoryID = media.category; // TODO?
+                        newMedia.categoryID = media.category;
                         newMedia.imdbID = media.imdbID;
-                        newMedia.posterPath = media.posterPath; //TODO
+						newMedia.posterPath = media.posterPath; //TODO
 						mediaRepo.AddMedia(newMedia);
 
                         var newTranslation = new Translation();
@@ -84,7 +81,7 @@ namespace _3viknavinir.Controllers
 
                         
                         translationRepo.AddTranslation( newTranslation );
-                        return RedirectToAction( "AlphabetizedTexts", "ListTranslations" );
+                        return RedirectToAction("EditTranslation", "Translation", new {ID = newTranslation.mediaID});
                      }
                 }
             }
@@ -106,7 +103,7 @@ namespace _3viknavinir.Controllers
 							var media = mediaRepo.GetMediaByID(realid);
 							var translation = translationRepo.GetTranslationByMediaID(realid);
 
-							viewModel.userName = userRepo.GetUserByID(translation.userID).UserName;
+							viewModel.userName = userRepo.GetUserNameByID(translation.userID);
 								
 							viewModel.media = media;
 							viewModel.translation = translation;
@@ -171,13 +168,40 @@ namespace _3viknavinir.Controllers
 				{
 					Media newMedia = new Media();
 
+					string path = Server.MapPath("~/Content/posterImg/");
+
+					if (media.choosePoster != null)
+					{
+						if (media.choosePoster.ContentLength > 102400)
+						{
+							ModelState.AddModelError("choosePoster", "Stærð myndarinnar ætti ekki að fara yfir 100 KB");
+							return View(media);
+						}
+
+						var supportedTypes = new[] { "jpg", "jpeg" };
+
+						var fileExt = System.IO.Path.GetExtension(media.choosePoster.FileName).Substring(1);
+
+						if (!supportedTypes.Contains(fileExt))
+						{
+							ModelState.AddModelError("choosePoster", "Vitlaus skráarending. Aðeins jpg og jpeg skrár eru studdar.");
+							return View(media);
+						}
+
+						media.choosePoster.SaveAs(path + media.ID + ".jpg");
+						newMedia.posterPath = "/Content/posterImg/" + media.ID + ".jpg";
+					} else
+					{
+						newMedia.posterPath = media.posterPath;
+					}
+						
+
 					newMedia.ID = media.ID;
 					newMedia.title = media.title;
 					newMedia.yearOfRelease = media.year;
 					newMedia.description = media.description;
 					newMedia.categoryID = media.category;
 					newMedia.imdbID = media.imdbId;
-					newMedia.posterPath = "/Content/siat_logo.jpg"; //TODO
 					mediaRepo.UpdateMedia( newMedia );
 
 					return RedirectToAction("AlphabetizedTexts", "ListTranslations");

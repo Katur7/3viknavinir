@@ -316,8 +316,18 @@ input[type="checkbox"].input-validation-error {
 }
 
 .dl-horizontal dd {
-	margin: 0px;
-	text-align: left;
+    margin: 0px;
+    text-align: left;
+}
+
+.description {
+    width: 380px;
+    display: block;
+    text-align: left;
+    padding-left: 100px;
+}
+.description-headder{
+    display: block;
 }
 
 #saveEditDescriptionButton {
@@ -359,6 +369,37 @@ input[type="checkbox"].input-validation-error {
 	font-size: 18px;
 	margin-bottom: 30px;
 	padding-bottom: 25px;
+}
+
+#parentTimeDiv {
+    float: left;
+}
+
+#item_endTime {
+	clear: both;
+}
+
+#newTime, #oldTime {
+	padding: 0px;
+}
+
+#newSubtitle, #oldSubtitle{
+	margin: 0px;
+	padding: 0px;
+}
+
+#newChapter, #oldChapter {
+	margin: 0px;
+	padding: 0px;
+}
+
+.timeLabels {
+	margin: 0px;
+	padding: 0px;
+}
+
+#newSubtitle {
+	display: inline-block;
 }
 
 .pageCount a {

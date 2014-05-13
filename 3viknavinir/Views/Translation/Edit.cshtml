@@ -6,7 +6,7 @@
 
 <h2>Breyta lýsingu</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype="multipart/form-data"}))
 {
     @Html.AntiForgeryToken()
     
@@ -62,8 +62,10 @@
                    <img src="@Html.DisplayFor(model => model.posterPath)" alt="@Html.DisplayFor(model => model.title)">
                     <p>Núverandi mynd</p>
                 </div>
-                    <input type="file" value="Velja mynd" id="choosePoster"/>
-                @Html.ValidationMessageFor(model => model.posterPath)
+                @Html.TextBoxFor(m => m.choosePoster, new { type = "file" })
+                @Html.ValidationMessageFor(m => m.choosePoster)
+                @*<input type="file" value="choosePoster" id="choosePoster" />*@
+                
             </div>
         </div>
 

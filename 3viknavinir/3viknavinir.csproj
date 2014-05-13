@@ -237,6 +237,7 @@
     <Content Include="Content\download.PNG" />
     <Content Include="Content\jquery-ui-1.10.4.custom.css" />
     <Content Include="Content\pencil.png" />
+    <Content Include="Content\posterImg\31.jpg" />
     <Content Include="Content\siat_logo.jpg" />
     <Content Include="Content\workaboutpicjpg.jpg" />
     <Content Include="favicon.ico" />

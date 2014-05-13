@@ -15,22 +15,28 @@
             <div class="form-group">
                 @Html.HiddenFor(model => item.ID)
                 <div class="col-md-10" id="newChapter">
-					@Html.Label("Kafli")
+					<p class="timeLabels">
+						@Html.Label("Kafli")
+					</p>
                     @Html.EditorFor(model => item.chapterNumber)
                     @Html.ValidationMessageFor(model => item.chapterNumber)
                 </div>
-                <div class="col-md-10" id="newBeginTime">
-					@Html.Label("Byrjunartími")
-                    @Html.EditorFor(model => item.startTime)
-                    @Html.ValidationMessageFor(model => item.startTime)   ->
-                </div>
-                <div class="col-md-10">
-					@Html.Label("Endatími")
-                    @Html.EditorFor(model => item.endTime)
-                    @Html.ValidationMessageFor(model => item.endTime)
-                </div>
-                <div class="col-md-10">
-					@Html.Label("Texti")
+					<div class="col-md-10" id="newTime">
+						<p class="timeLabels">
+							@Html.Label("Byrjunartími")
+							@Html.Label("Endatími")
+						</p>
+						<p>
+							@Html.EditorFor(model => item.startTime)
+							@Html.ValidationMessageFor(model => item.startTime)   ->
+							@Html.EditorFor(model => item.endTime)
+							@Html.ValidationMessageFor(model => item.endTime)
+						</p>
+					</div>
+                <div class="col-md-10" id="newSubtitle">
+					<p class="timeLabels">
+						@Html.Label("Texti")
+					</p>
                     @Html.EditorFor(model => item.subtitle)
                     @Html.ValidationMessageFor(model => item.subtitle)
                 </div>
@@ -56,22 +62,28 @@
 	{
 		@Html.HiddenFor(model => item.ID)
                 <div class="col-md-10" id="oldChapter">
-					@Html.Label("Kafli")
+					<p class="timeLabels">
+						@Html.Label("Kafli")
+					</p>
                     @Html.EditorFor(model => item.chapterNumber, new { disabled = "disabled", @readonly = "readonly" })
                     @Html.ValidationMessageFor(model => item.chapterNumber)
                 </div>
-                <div class="col-md-10" id="oldStartTime">
-					@Html.Label("Byrjunartími")
-                    @Html.EditorFor(model => item.startTime, new { disabled = "disabled", @readonly = "readonly" })
-                    @Html.ValidationMessageFor(model => item.startTime)   -> 
-                </div>
-                <div class="col-md-10" id="oldEndTime">
-					@Html.Label("Endatími")
-                    @Html.EditorFor(model => item.endTime, new { disabled = "disabled", @readonly = "readonly" })
-                    @Html.ValidationMessageFor(model => item.endTime)
-                </div>
+                <div class="col-md-10" id="oldTime">
+						<p class="timeLabels">
+							@Html.Label("Byrjunartími")
+							@Html.Label("Endatími")
+						</p>
+						<p>
+							@Html.EditorFor(model => item.startTime)
+							@Html.ValidationMessageFor(model => item.startTime)   ->
+							@Html.EditorFor(model => item.endTime)
+							@Html.ValidationMessageFor(model => item.endTime)
+						</p>
+					</div>
                 <div class="col-md-10" id="oldSubtitle">
-					@Html.Label("Texti")
+					<p class="timeLabels">
+						@Html.Label("Texti")
+					</p>
                     @Html.EditorFor(model => item.subtitle, new { disabled = "disabled", @readonly = "readonly" })
                     @Html.ValidationMessageFor(model => item.subtitle)
                 </div>
