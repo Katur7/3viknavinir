@@ -12,7 +12,7 @@ namespace _3viknavinir.Controllers
     {
         //
         // GET: /Discussion/
-        public ActionResult Index(int? id)
+        public ActionResult Translation(int? id)
         {
 			using (DiscussionRepo discussionRepo = new DiscussionRepo())
 			{
