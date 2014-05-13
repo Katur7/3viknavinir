@@ -41,7 +41,7 @@
         <div class="form-group">
             @Html.Label("Flokkur: ", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@Html.DropDownList*@
+                @*@Html.DropDownListFor()*@
                 <select>
                     <option value="16">Annað</option> @*id=16*@
                     <option value="1">Ævintýramynd</option> @*id=1*@
@@ -59,7 +59,6 @@
                     <option value="13">Þættir</option> @*id=13*@
                     <option value="14">Anime</option> @*id=14*@
                     <option value="15">Heimildamyndir</option> @*id=15*@
-                    
                  </select>
                  @Html.ValidationMessageFor(model => model.categories)
             </div>
