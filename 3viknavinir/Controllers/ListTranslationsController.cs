@@ -21,28 +21,34 @@ namespace _3viknavinir.Controllers
 
 		public ActionResult AlphabetizedTexts(int? id)
 		{
-			using(MediaRepo mediarepo = new MediaRepo())
+			using (UserRepo userRepo = new UserRepo())
 			{
-				int realid = 0;
-				if(id.HasValue)
+				using (TranslationRepo translationRepo = new TranslationRepo())
 				{
-					realid = id.Value;
-				}
+					using(MediaRepo mediarepo = new MediaRepo())
+					{
+						int realid = 0;
+						if(id.HasValue)
+						{
+							realid = id.Value;
+						}
 
-				var allmedia = (from m in mediarepo.GetAllMedia()
-								orderby m.title ascending
-								select m).ToList();
+						var allmedia = (from m in mediarepo.GetAllMedia()
+										orderby m.title ascending
+										select m).ToList();
 
-				var viewModel = new AlphabetizedTextsViewmodel();
-				viewModel.pageCount = (allmedia.Count() / ITEMSPERPAGE) + 1;
-				viewModel.allMedia = allmedia.Skip(realid * ITEMSPERPAGE).Take(ITEMSPERPAGE);
+						var viewModel = new AlphabetizedTextsViewmodel();
+						viewModel.pageCount = (allmedia.Count() / ITEMSPERPAGE) + 1;
+						viewModel.allMedia = allmedia.Skip(realid * ITEMSPERPAGE).Take(ITEMSPERPAGE);
 
-				if(allmedia != null)
-				{
-					return View(viewModel);
+						if(allmedia != null)
+						{
+							return View(viewModel);
+						}
+					}
+					return View();
 				}
 			}
-			return View();
 		}
 	}
 }
