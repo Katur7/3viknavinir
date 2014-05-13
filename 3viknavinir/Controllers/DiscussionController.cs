@@ -18,15 +18,17 @@ namespace _3viknavinir.Controllers
 			{
 				if (id.HasValue)
 			    {
+                    DiscussionViewModel viewModel = new DiscussionViewModel();
                     int realid = id.Value;
                     if (discussionRepo.IsExistingID(realid))
                     {
-						DiscussionViewModel viewModel = new DiscussionViewModel();
+
 
 						IEnumerable<Discussion> allDiscussions = (from d in discussionRepo.GetCommentByMediaID(realid)
 																  orderby d.dateAdded descending
 																  select d);
 						viewModel.discussions = allDiscussions;
+                        viewModel.isEmpty = false;
                         if (allDiscussions != null)
                         {
                             return View(viewModel);
@@ -40,7 +42,8 @@ namespace _3viknavinir.Controllers
                     }
 					else
 					{
-						return View( );
+                        viewModel.isEmpty = true;
+						return View(viewModel);
 					}
                 }
 				return View();
