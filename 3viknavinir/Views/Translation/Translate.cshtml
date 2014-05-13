@@ -48,17 +48,6 @@
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
         <div class="form-group">
-            @Html.LabelFor(m => m.yearOfRelease, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.yearOfRelease, new { @class = "form-control" })
-                @*@Html.RadioButtonFor()*@
-                @Html.ValidationMessageFor(m => m.yearOfRelease)
-            </div>
-        </div>
-
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-        <div class="form-group">
             @Html.LabelFor(m => m.description, new { @class = "col-md-2 control-label "})
             <div class="col-md-10">
                 <textarea id="description" name="description" class="form-control" rows="5"></textarea>

@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using Microsoft.AspNet.Identity;
+using _3viknavinir.Models.ViewModels;
 
 namespace _3viknavinir.Controllers
 {
@@ -112,23 +113,30 @@ namespace _3viknavinir.Controllers
         [Authorize]
 		public ActionResult Edit(int? id)
 		{
-			using (DiscussionRepo discussionRepo = new DiscussionRepo())
+			if (id.HasValue)
 			{
-				if (id.HasValue)
+				int realid = id.Value;
+				using (MediaRepo mediaRepo = new MediaRepo())
 				{
-					int realid = id.Value;
-					using (MediaRepo mediaRepo = new MediaRepo())
+					using(CategoryRepo categoryRepo = new CategoryRepo())
 					{
+						EditDetailsViewModel viewModel = new EditDetailsViewModel();
+
 						var media = mediaRepo.GetMediaByID(realid);
 						if (media != null)
 						{
-							if(!String.IsNullOrEmpty(media.title))
-							return View(media);
+							viewModel.ID = media.ID;
+							viewModel.title = media.title;
+							viewModel.year = media.yearOfRelease;
+							viewModel.description = media.description;
+							viewModel.posterPath = media.posterPath;
+							viewModel.categories = categoryRepo.GetAllCategories();
+							return View(viewModel);
 						}
 					}
 				}
-				return View();
 			}
+			return View();
 		}
 
 		[HttpPost]
