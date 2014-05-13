@@ -84,7 +84,7 @@ namespace _3viknavinir.Controllers
 
                         
                         translationRepo.AddTranslation( newTranslation );
-                        return RedirectToAction( "AlphabetizedTexts", "ListTranslations" );
+                        return RedirectToAction("EditTranslation", "Translation", new {ID = newTranslation.mediaID});
                      }
                 }
             }
