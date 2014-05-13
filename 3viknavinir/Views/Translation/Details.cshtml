@@ -40,7 +40,8 @@
         <img src="@Html.DisplayFor(model => model.media.posterPath)" alt="@Html.DisplayFor(model => model.media.title)">
 </div>
 <p>
-	@Html.ActionLink("Athugasemdir", "Translation", "Discussion", routeValues: null, htmlAttributes: new { id = "discussionLink" })
+		@Html.ActionLink("Athugasemdir", "Translation", "Discussion", new { id =  Model.media.ID}, null)
+
 </p>
 </div>
 <form action="/Translation/Download/"><input type="submit" value="Hlaða niður þýðingu" class="btn btn-default" id="downloadTranslationButton" /></form>
