@@ -112,19 +112,23 @@ namespace _3viknavinir.Controllers
         [Authorize]
 		public ActionResult Edit(int? id)
 		{
-			if(id.HasValue)
+			using (DiscussionRepo discussionRepo = new DiscussionRepo())
 			{
-				int realid = id.Value;
-				using(MediaRepo mediaRepo = new MediaRepo())
+				if (id.HasValue)
 				{
-					var media = mediaRepo.GetMediaByID(realid);
-					if(media != null)
+					int realid = id.Value;
+					using (MediaRepo mediaRepo = new MediaRepo())
 					{
-						return View(media);
+						var media = mediaRepo.GetMediaByID(realid);
+						if (media != null)
+						{
+							if(!String.IsNullOrEmpty(media.title))
+							return View(media);
+						}
 					}
 				}
+				return View();
 			}
-			return View();
 		}
 
 		[HttpPost]

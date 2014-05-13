@@ -14,14 +14,10 @@ namespace _3viknavinir.Controllers
         // GET: /Discussion/
         public ActionResult Index(int? id)
         {
-            if (id.HasValue)
-            {
-
-
-
-
-                using (DiscussionRepo discussionRepo = new DiscussionRepo())
-                {
+			using (DiscussionRepo discussionRepo = new DiscussionRepo())
+			{
+				if (id.HasValue)
+			    {
                     int realid = id.Value;
                     if (discussionRepo.IsExistingID(realid))
                     {
