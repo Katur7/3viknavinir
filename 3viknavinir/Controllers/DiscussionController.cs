@@ -34,15 +34,14 @@ namespace _3viknavinir.Controllers
 
 							using( UserRepo userRepo = new UserRepo())
 							{
-								viewModel.userName = userRepo.GetUserNameByID()
+								viewModel.userName = userRepo.GetUserNameByID("");
 							}
 
 							return View(viewModel);
 						}
 						else
 						{
-							viewModel.isEmpty = true;
-							return View(viewModel);
+							return HttpNotFound();
 						}
 					}
                 }
