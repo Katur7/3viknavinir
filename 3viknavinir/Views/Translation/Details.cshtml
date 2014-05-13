@@ -35,11 +35,11 @@
         <dd>
             @Html.DisplayFor(model => model.media.imdbID)
         </dd>
-        <dt>
+        <dt class="description-headder">
 			@Html.DisplayName("Lýsing: ")
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.media.description)
+            <div class="description">@Html.DisplayFor(model => model.media.description)</div>
         </dd>
     </dl>
     <div class="detailPhoto">
