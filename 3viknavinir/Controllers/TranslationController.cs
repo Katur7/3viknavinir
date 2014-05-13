@@ -147,29 +147,27 @@ namespace _3viknavinir.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult Edit(MediaDetailsViewModel media)
+		public ActionResult Edit(EditDetailsViewModel media)
 		{
 			using (MediaRepo mediaRepo = new MediaRepo())
 			{
 				if (ModelState.IsValid)
 				{
-					var newMedia = new Media();
+					Media newMedia = new Media();
 
-					//int nextMediaID = mediaRepo.GetNextMediaID( );
-
-					//newMedia.ID = nextMediaID;
+					newMedia.ID = media.ID;
 					newMedia.title = media.title;
-					newMedia.yearOfRelease = media.yearOfRelease;
+					newMedia.yearOfRelease = media.year;
 					newMedia.description = media.description;
-					newMedia.categoryID = media.media.categoryID; // TODO
-					newMedia.imdbID = media.imdbID;
+					newMedia.categoryID = media.category;
+					newMedia.imdbID = media.imdbId;
 					newMedia.posterPath = "~/Content/siat_logo.jpg"; //TODO
-					mediaRepo.AddMedia(newMedia);
+					mediaRepo.UpdateMedia( newMedia );
 
 					return RedirectToAction("AlphabetizedTexts", "ListTranslations");
 				}
 			}
-			return View();
+			return View(media);
 		}
 
         [HttpGet]

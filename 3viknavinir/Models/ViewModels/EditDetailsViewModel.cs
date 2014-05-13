@@ -15,7 +15,9 @@ namespace _3viknavinir.Models.ViewModels
 
 		public string description { get; set; }
 
-		public int Category { get; set; }
+		public int category { get; set; }
+
+		public string imdbId { get; set; }
 
 		public List<SelectListItem> categories { get; set; }
 

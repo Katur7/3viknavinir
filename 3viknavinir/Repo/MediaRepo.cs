@@ -27,6 +27,7 @@ namespace _3viknavinir.Repo
 			mediaToUpdate.description = newmedia.description;
 			mediaToUpdate.categoryID = newmedia.categoryID;
 			mediaToUpdate.posterPath = newmedia.posterPath;
+			mediaToUpdate.imdbID = newmedia.imdbID;
 			db.SaveChanges();
 		}
 
