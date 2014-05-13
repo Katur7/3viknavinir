@@ -7,12 +7,17 @@
     try
     {
         // Initialize WebMail helper
+        //WebMail.SmtpServer = "smtp.gmail.com";
+        //WebMail.SmtpPort = 587;
+        //WebMail.UserName = "siatnoreply@gmail.com";
+        //WebMail.Password = "stringerla";
+        //WebMail.From = "siatnoreply@gmail.com";
         WebMail.SmtpServer = "smtp.gmail.com";
+        WebMail.EnableSsl = true;
         WebMail.SmtpPort = 587;
-        WebMail.UserName = "siatnoreply";
+        WebMail.UserName = "siatnoreply@gmail.com";
         WebMail.Password = "stringerla";
         WebMail.From = "siatnoreply@gmail.com";
-
         // Send email
         WebMail.Send(to: customerEmail,
             subject: "Help request from - " + customerName,
