@@ -30,8 +30,8 @@
     </div>
     <h3>Hvernig set ég inn skrá til þess að þýða?</h3>
     <div>
-        <p>@* Hér má setja actionlink fyrir flokkar þegar sú síða er tilbúin - SMF *@
-            Undir flipanum ,,Flokkar'' er form til þess að bæta við þýðingu á nýrri mynd.
+            <p>
+            Undir flipanum @Html.ActionLink("\"Þýða\"","Translate", "Translation") er form til þess að bæta við þýðingu á nýrri mynd.
             Þar er hægt að hlaða inn .srt skrá, jafnvel á erlendu tungumáli til þess að hafa til hliðsjónar við þýðingu.
             Einnig er hægt að hlaða inn .srt skrá á öðru tungumáli sé ekki önnur slík til staðar inni á síðunni þar sem texta fyrir ákveðna mynd er breytt.
         </p>
@@ -39,7 +39,7 @@
     <h3>Hvernig bý ég til nýjan aðgang?</h3>
     <div>
         <p>
-            Efst uppi í hægra horninu má sjá hlekk sem á stendur @Html.ActionLink("Nýskrá", "Register", "Account").
+            Efst uppi í hægra horninu má sjá hlekk sem á stendur @Html.ActionLink("\"Nýskrá\"", "Register", "Account").
             Ef smellt er á þann hlekk opnast nýskráningarsíða þar sem fylla þarf út upplýsingar um notanda.
             Þegar smellt er á nýskrá hnappinn verður nýr notandi til og getur viðkomandi þaðan frá innskráð sig.
         </p>
@@ -48,7 +48,7 @@
     <div>
         <p>
             Til þess að óska eftir texta fyrir myndefni þarf notandi að vera innskráður.
-            Því næst velur notandinn flipann sem á stendur @Html.ActionLink( "Beiðnir", "Requests", "ListRequest" ). Þar er smellt á græna plús hnappinn, þá er notanda beint inn á nýja síðu þar
+            Því næst velur notandinn flipann sem á stendur @Html.ActionLink( "\"Beiðnir\"", "Requests", "ListRequest" ). Þar er smellt á græna plús hnappinn, þá er notanda beint inn á nýja síðu þar
             sem fylla verður út helstu upplýsingar um myndefni.
             Þegar allar nauðsynlegar upplýsingar hafa verið settar inn er hægt að senda inn beiðnina.
             Sé beiðni fyrir sömu mynd nú þegar til staðar virkar beiðnin sem upvote á þá beiðni.
@@ -56,10 +56,10 @@
     </div>
     <h3>Hvernig leita ég af texta?</h3>
     <div>
-        <p>@* Hér má setja actionlink fyrir flokka þegar sú síða er tilbúin- SMF *@
-            Hægt er að leita að textum eftir flokkum  undir  ,,Flokkar“  flipanum.
+        <p>
+            Hægt er að leita að textum eftir flokkum  undir @Html.ActionLink("\"Flokkar\"", "Categories", "Category")  flipanum.
             Textum er raðað í stafrófsröð eftir heiti mynda í @Html.ActionLink("Textar A-Ö", "AlphabetizedTexts", "ListTranslations") flipanum.
-            Einnig er hægt að leita að texta fyrir ákveðina mynd  í leitarkassa bæði á forsíðu og í flipanum 
+            Einnig er hægt að leita að texta fyrir ákveðina mynd  í leitarkassa bæði á forsíðu og í flipanum
             @Html.ActionLink( "Textar A-Ö", "AlphabetizedTexts", "ListTranslations" ).
         </p>
     </div>
@@ -67,8 +67,8 @@
     <div>
         <p>
             Innskráðir notendur hafa aðgang að fleiri aðgerðum en óinnskráðir notendur.
-            Sem dæmi geta innskráðir notendur breytt þýðingum ásamt því að geta bætt við nýjum einnig geta þeir sent inn beiðnir,
-            kosið upp fyrri beiðnir og þýðingar og uppfært lýsingu á myndefni.
+            Sem dæmi geta innskráðir notendur breytt þýðingum ásamt því að geta bætt við nýjum einnig geta þeir sent inn beiðnir, þýðingar,
+            kosið upp fyrri beiðnir og uppfært lýsingu á myndefni.
         </p>
     </div>
     <h3>Hvernig nota ég textann sem ég sótti?</h3>
@@ -78,8 +78,8 @@
     <h3>Hvað geri ég ef ég gleymi notendanafn/lykilorðinu mínu?</h3>
     <div>
         <p>
-            Ef lykilorð hefur gleymst er hægt að ýta á @Html.ActionLink( "Gleymt Lykilorð", "LostPassword", "Account" ) á 
-            innskráningarsíðunni og setja þar inn tölvupóstinn sinn og við sendum þér notendanafn og nýtt lykilorð í tölvupósti. 
+            Ef lykilorð hefur gleymst er hægt að ýta á @Html.ActionLink( "Gleymt Lykilorð", "LostPassword", "Account" ) á
+            innskráningarsíðunni og setja þar inn tölvupóstinn sinn og við sendum þér notendanafn og nýtt lykilorð í tölvupósti.
             Athugaðu að það getur tekið nokkrar mínútur fyrir lykilorðið að berast.
         </p>
     </div>
