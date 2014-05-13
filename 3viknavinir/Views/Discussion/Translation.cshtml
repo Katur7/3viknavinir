@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Discussion";
 }
- @*Fanney*@
+@*Grímur*@
 @if (Model.isEmpty == false)
 {
     <ul class="crumbs">
@@ -15,12 +15,10 @@
         </li>
         <li class="crumb crumb-last">
             <span class="crumb-seperator"> > </span>
-        
-            @*@Html.ActionLink(Model.media.title, "", "", new { id=Model.media.ID})*@
-
+            <a href="#">@Model.media.title</a>
         </li>
     </ul>
-    <h2>Nafn Myndar - Athugasemdir</h2>
+    <h2>@Model.media.title - Athugasemdir</h2>
     <div class="mainContent">
         @foreach(var item in Model.discussions)
         {
@@ -49,4 +47,7 @@
             </div>
         </div>
     </div>
+} else
+{
+    <h2>Vitlaust mediaID</h2>
 }
