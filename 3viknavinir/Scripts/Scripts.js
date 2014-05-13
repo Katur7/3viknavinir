@@ -2,6 +2,8 @@
     $(function () {
         $("#accordion").accordion();
     });
+
+    $
 });
 
 //fanney

@@ -10,40 +10,40 @@
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
-        foreach(var item in Model.textToTranslate)
+        foreach (var item in Model.textToTranslate)
         {
-            <div class="form-group">
+            <div class="form-group translationline">
                 @Html.HiddenFor(model => item.ID)
                 <div class="col-md-10" id="newChapter">
-					<p class="timeLabels">
-						@Html.Label("Kafli")
-					</p>
+                    <p class="timeLabels">
+                        @Html.Label("Kafli")
+                    </p>
                     @Html.EditorFor(model => item.chapterNumber)
                     @Html.ValidationMessageFor(model => item.chapterNumber)
                 </div>
-					<div class="col-md-10" id="newTime">
-						<p class="timeLabels">
-							@Html.Label("Byrjunartími")
-							@Html.Label("Endatími")
-						</p>
-						<p>
-							@Html.EditorFor(model => item.startTime)
-							@Html.ValidationMessageFor(model => item.startTime)   ->
-							@Html.EditorFor(model => item.endTime)
-							@Html.ValidationMessageFor(model => item.endTime)
-						</p>
-					</div>
+                <div class="col-md-10" id="newTime">
+                    <p class="timeLabels">
+                        @Html.Label("Byrjunartími")
+                        @Html.Label("Endatími")
+                    </p>
+                    <p>
+                        @Html.EditorFor(model => item.startTime)
+                        @Html.ValidationMessageFor(model => item.startTime)   ->
+                        @Html.EditorFor(model => item.endTime)
+                        @Html.ValidationMessageFor(model => item.endTime)
+                    </p>
+                </div>
                 <div class="col-md-10" id="newSubtitle">
-					<p class="timeLabels">
-						@Html.Label("Texti")
-					</p>
+                    <p class="timeLabels">
+                        @Html.Label("Texti")
+                    </p>
                     @Html.EditorFor(model => item.subtitle)
                     @Html.ValidationMessageFor(model => item.subtitle)
                 </div>
             </div>
-            
+
         }
-		
+
         <div class="fullyTranslateCheckbox">
             <input type="checkbox" class="fullyTranslated" />
             <p>Fullkláraður texti</p>
@@ -59,35 +59,30 @@
 	
 <div id="OldText">
 	@foreach (var item in Model.translatedText)
-	{
-		@Html.HiddenFor(model => item.ID)
-                <div class="col-md-10" id="oldChapter">
-					<p class="timeLabels">
-						@Html.Label("Kafli")
-					</p>
-                    @Html.EditorFor(model => item.chapterNumber, new { disabled = "disabled", @readonly = "readonly" })
-                    @Html.ValidationMessageFor(model => item.chapterNumber)
+    {
+        <div class="translationLine">
+            @Html.HiddenFor(model => item.ID)
+            <div class="oldChapter">
+                <p>@Html.Label("Kafli")</p>
+                <input type="text" name="chapterNumber" value="@item.chapterNumber" readonly>
+            </div>
+            <div class="timeStamps">
+                <div class="oldStartTime">
+                    <p>@Html.Label("Byrjunartími")</p>
+                    <input type="text" name="startTime" value="@item.startTime" readonly>
                 </div>
-                <div class="col-md-10" id="oldTime">
-						<p class="timeLabels">
-							@Html.Label("Byrjunartími")
-							@Html.Label("Endatími")
-						</p>
-						<p>
-							@Html.EditorFor(model => item.startTime)
-							@Html.ValidationMessageFor(model => item.startTime)   ->
-							@Html.EditorFor(model => item.endTime)
-							@Html.ValidationMessageFor(model => item.endTime)
-						</p>
-					</div>
-                <div class="col-md-10" id="oldSubtitle">
-					<p class="timeLabels">
-						@Html.Label("Texti")
-					</p>
-                    @Html.EditorFor(model => item.subtitle, new { disabled = "disabled", @readonly = "readonly" })
-                    @Html.ValidationMessageFor(model => item.subtitle)
+                <p>-></p>
+                <div class="oldEndTime">
+                    <p>@Html.Label("Endatími")</p>
+                    <input type="text" name="endTime" value="@item.endTime" readonly>
                 </div>
-	}
+            </div>
+            <div class="oldSubtitle">
+                <p>@Html.Label("Texti")</p>
+                <input type="text" name="subtitle" value="@item.subtitle" readonly>
+            </div>
+        </div>
+    }
 </div>
 
 @section Scripts {

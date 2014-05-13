@@ -415,3 +415,25 @@ input[type="checkbox"].input-validation-error {
     margin-top: -120px;
     margin-left: -70px;   
 }
+
+.timeStamps {
+    display: inline;
+    margin: 0px;
+	padding: 0px;
+}
+
+.timeStamps p {
+    width: 30px;
+}
+
+#TextToEdit {
+    position: relative;
+    float: left;
+    max-width: 500px;
+}
+
+#OldText {
+    position: relative;
+    float: right;
+    width: 500px;
+}
