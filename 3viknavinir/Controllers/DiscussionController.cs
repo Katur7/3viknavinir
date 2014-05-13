@@ -33,15 +33,18 @@ namespace _3viknavinir.Controllers
                         }
                         else
                         {
-                            return RedirectToAction("Index", "Home");
+                            return View( );
                         }
                         //IEnumerable<Discussion> discussion = (from d in discussionRepo.GetCommentByMediaID(realid)
                         //                                      select d).ToList();
                     }
+					else
+					{
+						return View( );
+					}
                 }
+				return View();
             }
-                return View();
-            
         }
 	}
 }
