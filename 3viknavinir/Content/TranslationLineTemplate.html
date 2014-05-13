@@ -1,9 +1,7 @@
 ﻿<div class="form-group translationLine">
     @Html.HiddenFor(model => item.ID)
     <div class="col-md-10 newChapter">
-        <p>
-            @Html.Label("Kafli")
-        </p>
+        <p>@Html.Label("Kafli")</p>
         @Html.EditorFor(model => item.chapterNumber)
         @Html.ValidationMessageFor(model => item.chapterNumber)
     </div>
