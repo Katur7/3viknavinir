@@ -21,9 +21,10 @@ namespace _3viknavinir.Controllers
                     int realid = id.Value;
                     if (discussionRepo.IsExistingID(realid))
                     {
-                        var allDiscussions = (from d in discussionRepo.GetCommentByMediaID(realid)
-                                              orderby d.dateAdded descending
-                                              select d).ToList();
+
+						IEnumerable<Discussion> allDiscussions = (from d in discussionRepo.GetCommentByMediaID(realid)
+																  orderby d.dateAdded descending
+															      select d).ToList();
                         if (allDiscussions != null)
                         {
                             return View(allDiscussions);
