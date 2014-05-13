@@ -14,7 +14,7 @@
         // Send email
         WebMail.Send(to: "siatnoreply@gmail.com",
             subject: "Fyrirspurn frá - " + userName,
-            body: userName + " hafði samband, hann/hún vildi láta okkur vita af þessu: " + userRequest
+            body: userName + " með tölvupóstinn " + userEmail + " hafði samband, hann/hún vildi láta okkur vita af þessu: " + userRequest
         );
         WebMail.Send(to: userEmail, 
             subject: userName + ", þú sendir fyrirspurn á SÍÁT",
