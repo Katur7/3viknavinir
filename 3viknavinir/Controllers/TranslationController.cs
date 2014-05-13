@@ -67,7 +67,7 @@ namespace _3viknavinir.Controllers
                         newMedia.description = media.description;
                         newMedia.categoryID = media.category; // TODO?
                         newMedia.imdbID = media.imdbID;
-                        newMedia.posterPath = "~/Content/siat_logo.jpg"; //TODO
+                        newMedia.posterPath = media.posterPath; //TODO
 						mediaRepo.AddMedia(newMedia);
 
                         var newTranslation = new Translation();
@@ -142,6 +142,7 @@ namespace _3viknavinir.Controllers
 							viewModel.year = media.yearOfRelease;
 							viewModel.description = media.description;
 							viewModel.posterPath = media.posterPath;
+							viewModel.imdbId = media.imdbID;
 							
 							List<Category> categories = categoryRepo.GetAllCategories().ToList();
 
@@ -170,13 +171,43 @@ namespace _3viknavinir.Controllers
 				{
 					Media newMedia = new Media();
 
+					string path = "/Content/posterImg/";
+
+					HttpPostedFileBase photo = Request.Files["choosePoster"];
+					
+					
+					if (photo != null)
+					{
+						if (photo.ContentLength > 102400)
+						{
+							ModelState.AddModelError("choosePoster", "Stærð myndarinnar ætti ekki að fara yfir 100 KB");
+							return View(media);
+						}
+
+						var supportedTypes = new[] { "jpg", "jpeg" };
+
+						var fileExt = System.IO.Path.GetExtension(photo.FileName).Substring(1);
+
+						if (!supportedTypes.Contains(fileExt))
+						{
+							ModelState.AddModelError("choosePoster", "Vitlaus skráarending. Aðeins jpg og jpeg skrár eru studdar.");
+							return View(media);
+						}
+
+						photo.SaveAs(path + media.ID + ".jpg");
+						newMedia.posterPath = path + media.ID + ".jpg";
+					} else
+					{
+						newMedia.posterPath = media.posterPath;
+					}
+						
+
 					newMedia.ID = media.ID;
 					newMedia.title = media.title;
 					newMedia.yearOfRelease = media.year;
 					newMedia.description = media.description;
 					newMedia.categoryID = media.category;
 					newMedia.imdbID = media.imdbId;
-					newMedia.posterPath = "/Content/siat_logo.jpg"; //TODO
 					mediaRepo.UpdateMedia( newMedia );
 
 					return RedirectToAction("AlphabetizedTexts", "ListTranslations");
