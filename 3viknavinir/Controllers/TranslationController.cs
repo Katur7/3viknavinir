@@ -21,12 +21,27 @@ namespace _3viknavinir.Controllers
             return View();
         }
 
+		[Authorize]
         [HttpGet]
         public ActionResult Translate()
         {
             if ( User.Identity.IsAuthenticated )
             {
-                return View( );
+				using(CategoryRepo categoryRepo = new CategoryRepo())
+				{
+					MediaDetailsViewModel viewModel = new MediaDetailsViewModel();
+
+					List<Category> categories = categoryRepo.GetAllCategories().ToList();
+
+					viewModel.categories = new List<SelectListItem>();
+
+					foreach (Category category in categories)
+					{
+						viewModel.categories.Add(new SelectListItem() { Text = category.name, Value = category.ID.ToString() });
+					}
+					return View(viewModel);
+				}
+				
             }
             else
             {
@@ -50,7 +65,7 @@ namespace _3viknavinir.Controllers
                         newMedia.title = media.title;
                         newMedia.yearOfRelease = media.yearOfRelease;
                         newMedia.description = media.description;
-                        newMedia.categoryID = 41; // TODO
+                        newMedia.categoryID = media.category; // TODO?
                         newMedia.imdbID = media.imdbID;
                         newMedia.posterPath = "~/Content/siat_logo.jpg"; //TODO
 						mediaRepo.AddMedia(newMedia);
@@ -60,10 +75,10 @@ namespace _3viknavinir.Controllers
                         //int nextTranslationID = translationRepo.GetNextTranslationID();
 
                         //newTranslation.ID = nextTranslationID;
-                        newTranslation.languageID = 10; // TODO
+                        newTranslation.languageID = 1; 
                         newTranslation.mediaID = newMedia.ID;
-                        newTranslation.finished = false; // TODO
-                        newTranslation.userID = User.Identity.GetUserId(); // TODO UserRepo
+                        newTranslation.finished = false; 
+                        newTranslation.userID = User.Identity.GetUserId();
                         newTranslation.dateAdded = DateTime.Now;
 
 
@@ -161,7 +176,7 @@ namespace _3viknavinir.Controllers
 					newMedia.description = media.description;
 					newMedia.categoryID = media.category;
 					newMedia.imdbID = media.imdbId;
-					newMedia.posterPath = "~/Content/siat_logo.jpg"; //TODO
+					newMedia.posterPath = "/Content/siat_logo.jpg"; //TODO
 					mediaRepo.UpdateMedia( newMedia );
 
 					return RedirectToAction("AlphabetizedTexts", "ListTranslations");

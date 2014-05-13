@@ -50,7 +50,7 @@
             @Html.Label("Flokkur: ", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.category, (IEnumerable<SelectListItem>)Model.categories)
-                 @Html.ValidationMessageFor(model => model.categories)
+                @Html.ValidationMessageFor(model => model.categories)
             </div>
         </div>
       
