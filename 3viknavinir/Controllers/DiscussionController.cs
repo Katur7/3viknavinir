@@ -21,13 +21,15 @@ namespace _3viknavinir.Controllers
                     int realid = id.Value;
                     if (discussionRepo.IsExistingID(realid))
                     {
+						DiscussionViewModel viewModel = new DiscussionViewModel();
 
 						IEnumerable<Discussion> allDiscussions = (from d in discussionRepo.GetCommentByMediaID(realid)
 																  orderby d.dateAdded descending
-															      select d).ToList();
+																  select d);
+						viewModel.discussions = allDiscussions;
                         if (allDiscussions != null)
                         {
-                            return View(allDiscussions);
+                            return View(viewModel);
                         }
                         else
                         {
