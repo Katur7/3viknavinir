@@ -58,7 +58,11 @@
         <div class="form-group">
 			@Html.Label("Mynd: ", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input type="file" value="Velja mynd" id="choosePoster"/>
+                <div class="oldDetailPhoto">
+                   <img src="@Html.DisplayFor(model => model.posterPath)" alt="@Html.DisplayFor(model => model.title)">
+                    <p>Núverandi mynd</p>
+                </div>
+                    <input type="file" value="Velja mynd" id="choosePoster"/>
                 @Html.ValidationMessageFor(model => model.posterPath)
             </div>
         </div>
