@@ -16,35 +16,37 @@ namespace _3viknavinir.Controllers
         {
 			using (DiscussionRepo discussionRepo = new DiscussionRepo())
 			{
-				if (id.HasValue)
-			    {
-                    DiscussionViewModel viewModel = new DiscussionViewModel();
-                    int realid = id.Value;
-                    if (discussionRepo.IsExistingID(realid))
+                
+                    if (id.HasValue)
                     {
-
-
-						IEnumerable<Discussion> allDiscussions = (from d in discussionRepo.GetCommentByMediaID(realid)
-																  orderby d.dateAdded descending
-																  select d);
-						viewModel.discussions = allDiscussions;
-                        viewModel.isEmpty = false;
-                        if (allDiscussions != null)
+                        DiscussionViewModel viewModel = new DiscussionViewModel();
+                        int realid = id.Value;
+                        if (discussionRepo.IsExistingID(realid))
                         {
-                            return View(viewModel);
+
+
+                            var allDiscussions = (from d in discussionRepo.GetCommentByMediaID(realid)
+                                                                      orderby d.dateAdded descending
+                                                                      select d);
+                            viewModel.discussions = allDiscussions;
+                            viewModel.isEmpty = false;
+                            if (allDiscussions != null)
+                            {
+                                return View(viewModel);
+                            }
+                            else
+                            {
+                                return View();
+                            }
+                            //IEnumerable<Discussion> discussion = (from d in discussionRepo.GetCommentByMediaID(realid)
+                            //                                      select d).ToList();
                         }
                         else
                         {
-                            return View( );
+                            viewModel.isEmpty = true;
+                            return View(viewModel);
                         }
-                        //IEnumerable<Discussion> discussion = (from d in discussionRepo.GetCommentByMediaID(realid)
-                        //                                      select d).ToList();
-                    }
-					else
-					{
-                        viewModel.isEmpty = true;
-						return View(viewModel);
-					}
+                    
                 }
 				return View();
             }
