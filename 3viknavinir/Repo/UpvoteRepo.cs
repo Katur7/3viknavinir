@@ -8,7 +8,7 @@ using System.Web;
 // Grímur
 namespace _3viknavinir.Repo
 {
-	public class Upvote : IDisposable
+	public class UpvoteRepo : IDisposable
 	{
 		private _3viknaContext db = new _3viknaContext();
 		/*
@@ -21,7 +21,32 @@ namespace _3viknavinir.Repo
 			return upvotes;
 			
 		}
-	*/
+	    */
+
+		public IEnumerable<Upvote> GetUpvotesByTranslationID(int id)
+		{
+			var upvotes = from u in db.Upvote
+						  where u.translationID == id
+						  select u;
+			return upvotes;
+		}
+
+		//public void AddTranslationUpvote(int id)
+		//{
+		//	Upvote newUpvote = new Upvote();
+		//	newUpvote.userID = 
+		//}
+
+		public void AddDiscussionUpvote(int id)
+		{
+
+		}
+		public void AddRequestUpvote(int id)
+		{
+
+		}
+
+	
 		public void Dispose()
 		{
 			bool disposed = false;

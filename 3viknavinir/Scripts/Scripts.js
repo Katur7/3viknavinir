@@ -31,6 +31,8 @@
         '<a href="#" id="AddLine">Bæta við línu</a>');
         newTranslationLineDiv.insertAfter(this);
     });
+
+    $("a[id|='upvote-media']").ajax
 });
 
 //fanney

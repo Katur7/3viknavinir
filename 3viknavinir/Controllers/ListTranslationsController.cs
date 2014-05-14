@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace _3viknavinir.Controllers
 {
@@ -62,6 +63,41 @@ namespace _3viknavinir.Controllers
 						}
 					}
 					return View();
+				}
+			}
+		}
+
+		[HttpPost]
+		public ActionResult AlphabetizedTexts(int id)
+		{
+
+			return RedirectToAction("AlphabetizedTexts");
+		}
+
+		public void UpvoteMedia(int mediaId)
+		{
+			using (TranslationRepo translationRepo = new TranslationRepo())
+			{
+				using(UpvoteRepo upvoteRepo = new UpvoteRepo())
+				{
+					var translationId = translationRepo.GetTranslationByMediaID(mediaId).ID;
+					var userId = User.Identity.GetUserId();
+					var upvotes = upvoteRepo.GetUpvotesByTranslationID(translationId);
+					var userUpvote = (from u in upvotes
+									 where u.userID == userId
+									 select u).FirstOrDefault();
+									 
+					if(userUpvote != null)
+					{
+						return;
+					} else
+					{
+						Upvote newUpvote = new Upvote();
+						newUpvote.userID = userId;
+						newUpvote.translationID = translationId;
+						newUpvote.requestID = null;
+						newUpvote.discussionID = null;
+					}
 				}
 			}
 		}
