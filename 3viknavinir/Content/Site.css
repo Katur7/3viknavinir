@@ -445,6 +445,19 @@ input[type="checkbox"].input-validation-error {
     float: left;
     clear: left;
 }
-div{
+div {
     border: solid;
+}
+
+.commentHeader{
+    border: solid;
+}
+
+.comment{
+
+}
+
+.commentBody
+{
+
 }
