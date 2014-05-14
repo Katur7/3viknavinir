@@ -31,22 +31,12 @@ namespace _3viknavinir.Repo
 			return upvotes;
 		}
 
-		//public void AddTranslationUpvote(int id)
-		//{
-		//	Upvote newUpvote = new Upvote();
-		//	newUpvote.userID = 
-		//}
-
-		public void AddDiscussionUpvote(int id)
+		public void AddUpvote(Upvote u)
 		{
-
-		}
-		public void AddRequestUpvote(int id)
-		{
-
+			db.Upvote.Add(u);
+			db.SaveChanges();
 		}
 
-	
 		public void Dispose()
 		{
 			bool disposed = false;

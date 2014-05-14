@@ -49,7 +49,7 @@ namespace _3viknavinir.Controllers
 						{
 							MediaUpvoteViewModel mediaUpvote = new MediaUpvoteViewModel();
 							mediaUpvote.media = item;
-							var translation = translationRepo.GetTranslationByMediaID(realid);
+							var translation = translationRepo.GetTranslationByMediaID(item.ID);
 							if(translation != null)
 							{
 								mediaUpvote.upvotes = translationRepo.GetTranslationByMediaID(item.ID).Upvote.Count;
@@ -97,6 +97,8 @@ namespace _3viknavinir.Controllers
 						newUpvote.translationID = translationId;
 						newUpvote.requestID = null;
 						newUpvote.discussionID = null;
+
+						upvoteRepo.AddUpvote(newUpvote);
 					}
 				}
 			}
