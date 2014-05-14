@@ -383,13 +383,23 @@ input[type="checkbox"].input-validation-error {
 	padding: 0px;
 }
 
-#newSubtitle, #oldSubtitle{
+.newSubtitle{
 	margin: 0px;
+	padding: 0px;
+    position: relative;
+    top: -18px;
+    left: -1px;
+}
+.oldSubtitle {
+    margin: 0px;
 	padding: 0px;
 }
 .newChapter{
     margin: -4px;
-    padding: 2px
+    padding: 2px;
+    left: 2px;
+    position: relative;
+    top: 38px;
 }
 .oldChapter {
 	margin: 6px;
@@ -397,14 +407,24 @@ input[type="checkbox"].input-validation-error {
 }
 
 .timeLabels {
-	margin: 0px;
-	padding: 0px;
+	position: relative;
+    top: -11px;
+    left: 168px;
 }
-
-#newSubtitle {
-	display: inline-block;
+.newStartTime{
+    left: -1px;
+    top: 43px;
+    padding: 0;
+    position: relative;
 }
-
+.newEndTime
+{
+    top: -48px;
+    right: -55px;
+    padding: 0;
+    float: right;
+    position: relative;
+}
 .pageCount a {
 	margin-right: 15px;
 }
@@ -428,7 +448,10 @@ input[type="checkbox"].input-validation-error {
 .timeStamps p {
     width: 30px;
 }
-
+.subtitleTextLabel{
+    position: relative;
+    top: 38px;
+}
 #TextToEdit {
     position: relative;
     float: left;

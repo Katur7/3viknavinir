@@ -235,35 +235,40 @@ namespace _3viknavinir.Controllers
         {
             if ( id.HasValue )
             {
-				EditTranslationViewModel viewModel = new EditTranslationViewModel();
+				int realid = id.Value;
 
-                int realid = id.Value;
-                using ( TranslationLinesRepo translationLinesRepo = new TranslationLinesRepo( ) )
-                {
-					using (TranslationRepo translationRepo = new TranslationRepo())
-					{ 
-						using(MediaRepo mediaRepo = new MediaRepo())
+				using (MediaRepo mediaRepo = new MediaRepo())
+				{
+					if(mediaRepo.IsExistingID(realid))
+					{
+						EditTranslationViewModel viewModel = new EditTranslationViewModel();
+
+						using (TranslationRepo translationRepo = new TranslationRepo())
 						{
-							var translationLines = from tl in translationLinesRepo.GetTranslationLinesByTranslationID(realid)
-												   orderby tl.chapterNumber
-												   select tl;
-
-							viewModel.textToTranslate = translationLines;
-							viewModel.translatedText = translationLines;
-
-							var translation = translationRepo.GetTranslationByID(realid);
-							viewModel.isFinished = translation.finished;
+							var translation = translationRepo.GetTranslationByMediaID(realid);
 
 							var media = mediaRepo.GetMediaByID(translation.mediaID);
 							viewModel.title = media.title;
 							viewModel.year = media.yearOfRelease;
-						
 
-							if ( translationLines != null && translation != null && media != null)
+							using (TranslationLinesRepo translationLinesRepo = new TranslationLinesRepo())
 							{
-								return View( viewModel );
+								var translationLines = from tl in translationLinesRepo.GetTranslationLinesByTranslationID(realid)
+													   orderby tl.chapterNumber
+													   select tl;
+
+								viewModel.textToTranslate = translationLines;
+								viewModel.translatedText = translationLines;
+
+
+								viewModel.isFinished = translation.finished;
+
+								return View(viewModel);
 							}
 						}
+					} else
+					{
+						return HttpNotFound();
 					}
                 }
             }
@@ -280,5 +285,10 @@ namespace _3viknavinir.Controllers
 		{
 			return View( );
 		}
+
+        public ActionResult Download()
+        {
+            return View();
+        }
 	}
 }

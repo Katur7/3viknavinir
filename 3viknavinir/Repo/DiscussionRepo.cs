@@ -20,14 +20,12 @@ namespace _3viknavinir.Repo
             return all;
         }
 
-        public bool IsExistingID (int? id)
+        public bool IsExistingID (int id)
         {
-            int realid = id.Value;
-
-            var IdReal = (from m in db.Discussion
-                          where m.mediaID == realid
-                          select m).SingleOrDefault();
-            if (IdReal != null)
+            var isExisting = (from m in db.Discussion
+                          where m.mediaID == id
+                          select m).FirstOrDefault();
+            if (isExisting != null)
             {
                 return true;
             }

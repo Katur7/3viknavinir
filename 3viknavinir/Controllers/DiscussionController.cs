@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using _3viknavinir.Models.ViewModels;
 
 namespace _3viknavinir.Controllers
 {
@@ -23,23 +24,35 @@ namespace _3viknavinir.Controllers
 					{
 						DiscussionViewModel viewModel = new DiscussionViewModel();
 
-						if (discussionRepo.IsExistingID(realid))
+						if (mediaRepo.IsExistingID(realid))
 						{
-							var allDiscussions = (from d in discussionRepo.GetCommentByMediaID(realid)
-												  orderby d.dateAdded descending
-												  select d);
-							viewModel.discussions = allDiscussions;
 							viewModel.media = mediaRepo.GetMediaByID(realid);
-							viewModel.isEmpty = false;
 
-							using( UserRepo userRepo = new UserRepo())
+							if(discussionRepo.IsExistingID(realid))
 							{
-								viewModel.userName = userRepo.GetUserNameByID("");
-							}
+								var allDiscussions = (from d in discussionRepo.GetCommentByMediaID(realid)
+													  orderby d.dateAdded ascending
+													  select d);
+								using (UserRepo userRepo = new UserRepo())
+								{
+									viewModel.discussions = new List<DiscussionUserViewModel>();
+									foreach (var item in allDiscussions)
+									{
+										DiscussionUserViewModel newDiscussionUserViewModel = new DiscussionUserViewModel();
+										newDiscussionUserViewModel.userName = userRepo.GetUserNameByID(item.userID);
+										newDiscussionUserViewModel.discussion = item;
 
-							return View(viewModel);
-						}
-						else
+										viewModel.discussions.Add(newDiscussionUserViewModel);
+									}
+								}
+
+								return View(viewModel);
+							} else
+							{
+								viewModel.isEmpty = true;
+								return View(viewModel);
+							}
+						} else
 						{
 							return HttpNotFound();
 						}
