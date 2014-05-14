@@ -32,7 +32,6 @@
                 <tr class="requestRow">
                     <th class="alphabetName">Nafn</th>
                     <th class="alphabetYear">Ártal</th>
-                    <th class="alphabetNumberDonwload">Sótt</th>
                     <th class="alphabetUpvote">Upvote</th>
                     <th class="alphabettDownload">Niðurhal</th>
                 </tr>
@@ -43,7 +42,6 @@
                     <tr class="requestRow">
                         <td class="alphabetname">@Html.ActionLink(item.media.title, "Details", "Translation", new { id = item.media.ID }, null)</td>
                         <td class="alphabetYear">@item.media.yearOfRelease</td>
-                        <td class="alphabettNumberDownload">er víst ekki til fall/breyta</td>
                         @*<td class="alphabetUpvote">@Html.ActionLink("", "", "", new { @class="glyphicon glyphicon-thumbs-up")</td>*@
                         <td class="alphabetUpvote">@item.upvotes<a href="#" class="glyphicon glyphicon-thumbs-up" id="@item.media.ID" style="left: 35px"></a></td>
                         <td class="alphabetDownload"><a href="#" class="glyphicon glyphicon-download" style="left: 35px"></a></td>
