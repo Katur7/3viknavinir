@@ -47,6 +47,7 @@ $(document).ready(function () {
             },
             success: function (data) {
                 // Todo: refresh counter in table
+                // Could use ajax, call repo, replace html element
             }
         });
     });
@@ -67,6 +68,7 @@ $(document).ready(function () {
             },
             success: function (data) {
                 // Todo: refresh counter in table
+                // Could use ajax, call repo, replace html element
             }
         });
     });
