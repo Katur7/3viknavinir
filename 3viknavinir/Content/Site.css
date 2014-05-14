@@ -520,11 +520,17 @@ div{
 .userName{
     font-weight: bold;
     text-align:left;
+    position:relative;
+    top: 8px;
+    left: 20px;
 }
 
 .dayAdded{
     font-style: italic;
     text-align:right;
+    position: relative;
+    top: 8px;
+    left: -4px;
 }
 
 .commentBody{
