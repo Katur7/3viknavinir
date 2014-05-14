@@ -387,17 +387,28 @@ input[type="checkbox"].input-validation-error {
 	margin: 0px;
 	padding: 0px;
 }
-
-#newChapter, #oldChapter {
-	margin: 0px;
-	padding: 0px;
+.newChapter{
+    margin: -4px;
+    padding: 2px
+}
+.oldChapter {
+	margin: 6px;
+    padding: 2px;
 }
 
 .timeLabels {
 	margin: 0px;
 	padding: 0px;
 }
-
+.newStartTime{
+    left: -17px;
+}
+.newEndTime
+{
+    float: right;
+    top: -97px;
+    right: -111px;
+}
 #newSubtitle {
 	display: inline-block;
 }
@@ -441,4 +452,27 @@ input[type="checkbox"].input-validation-error {
 #TextToEdit form a {
     float: left;
     clear: left;
+}
+div {
+    border: solid;
+}
+
+.commentHeader{
+    border: solid;
+}
+
+.comment{
+
+}
+
+.commentBody {
+
+}
+
+.userName{
+
+}
+
+.dayAdded{
+
 }

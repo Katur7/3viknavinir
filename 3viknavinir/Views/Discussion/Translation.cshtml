@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Discussion";
 }
-@*Grímur*@
+@*Grímur og Fanney*@
 <ul class="crumbs">
     <li class="crumb crumb-first">
         @Html.ActionLink("SÍÁT", "Index", "Home")
@@ -13,28 +13,28 @@
     </li>
     <li class="crumb crumb-last">
         <span class="crumb-seperator"> > </span>
-        <a href="#">@*@Model.media.title*@</a>
+        <a href="#">@Model.media.title</a>
     </li>
 </ul>
-<h2>@*@Model.media.title*@ - Athugasemdir</h2>
+<h2>@Model.media.title - Athugasemdir</h2>
 <div class="mainContent">
     @if(Model.isEmpty == false)
     {
         foreach(var item in Model.discussions)
         {
-            <div class="comment">
-                <div class="commentHeader">
-                    <p>
-                        @item.userName
-                    </p>
-                    <p> @item.discussion.dateAdded</p>
+        <div class="comment">
+            <div class="commentHeader">
+                <p class="userName">
+                    @item.userName
+                </p>
+                    <p class="dayAdded"> @item.discussion.dateAdded</p>
                 
-                </div>
-                <div class="commentBody">
-                    <p> @item.discussion.comment </p>
-                </div>
             </div>
-        }
+            <div class="commentBody">
+                    <p> @item.discussion.comment </p>
+            </div>
+        </div>
+    }
     }
 
     <div class="addComment">
