@@ -6,47 +6,63 @@
 
 <h2>@ViewBag.Title</h2>
 
+<ul class="crumbs">
+    <li class="crumb crumb-first">
+        @Html.ActionLink("SÍÁT", "Index", "Home")
+    </li>
+    <li class="crumb crumbs">
+        <span class="crumb-seperator"> > </span>
+        @Html.ActionLink("Textar A-Ö", "AlphabetizedTexts", "ListTranslations")
+    </li>
+    <li class="crumb crumbs">
+        <span class="crumb-seperator"> > </span>
+        @Html.ActionLink(Model.title, "Details", "Translation", new { id = @Model.mediaID }, null)
+    </li>
+    <li class="crumb crumb-last">
+        <span class="crumb-seperator"> > </span>
+        <a href="#">Breyta þýðingu</a>
+    </li>
+</ul>
+
 <div id="TextToEdit">
-    @using (Html.BeginForm())
+    @using ( Html.BeginForm( ) )
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
-        <a href="#" class="AddLine">Bæta við línu</a>
         foreach (var item in Model.textToTranslate)
         {
             <div class="translationLine">
                 @Html.HiddenFor(model => item.ID)
                 <div class="newChapter">
-                    <p>@Html.Label("Kafli")</p>
+                    <p class="startendTimeLabel">@Html.Label("Kafli")</p>
                     @Html.EditorFor(model => item.chapterNumber)
                     @Html.ValidationMessageFor(model => item.chapterNumber)
                 </div>
                 <div class="timeStamps">
                     <div class="newStartTime">
-                        <p>@Html.Label("Byrjunartími")</p>
-                        @Html.EditorFor(model => item.startTime)
+                        <p class="startendTimeLabel">@Html.Label("Byrjunartími")</p>
+                        @Html.EditorFor( model => item.startTime)
                         @Html.ValidationMessageFor(model => item.startTime)
                     </div>
                     <div>
                         <p class="timeLabels">-></p>
                     </div>
                         <div class="newEndTime">
-                        <p>@Html.Label("Endatími")</p>
+                            <p class="startendTimeLabel">@Html.Label( "Endatími" )</p>
                         @Html.EditorFor(model => item.endTime)
                         @Html.ValidationMessageFor(model => item.endTime)
                     </div>
                 </div>
                 <div class="newSubtitle">
-                    <p class="newsubtitlebox">@Html.Label( "Texti" )</p>
+                    <p class="subtitleTextLabel">@Html.Label( "Texti" )</p>
                     @Html.EditorFor(model => item.subtitle)
                     @Html.ValidationMessageFor(model => item.subtitle)
                 </div>
             </div>
-    <div class="editLines">
-        <a href="#">Eyða línu</a>
-        <a href="#">Bæta við línu</a>
-    </div>
         }
+        <div class="editLines">
+            <a href="#" class="AddLine">Bæta við línu</a>
+        </div>
 
         <div class="fullyTranslateCheckbox">
             <input type="checkbox" class="fullyTranslated" />

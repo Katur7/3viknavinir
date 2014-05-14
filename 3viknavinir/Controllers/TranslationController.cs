@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using Microsoft.AspNet.Identity;
 using _3viknavinir.Models.ViewModels;
+using System.IO;
 
 namespace _3viknavinir.Controllers
 {
@@ -20,6 +21,11 @@ namespace _3viknavinir.Controllers
         {
             return View();
         }
+
+		public bool HasFile(HttpPostedFileBase file)
+		{
+			return (file != null && file.ContentLength > 0) ? true : false;
+		}
 
 		[Authorize]
         [HttpGet]
@@ -57,14 +63,14 @@ namespace _3viknavinir.Controllers
                 {
                     if ( ModelState.IsValid )
                     {
-                        var newMedia = new Media( );
+                        Media newMedia = new Media( );
 
                         newMedia.title = media.title;
                         newMedia.yearOfRelease = media.yearOfRelease;
                         newMedia.description = media.description;
                         newMedia.categoryID = media.category;
                         newMedia.imdbID = media.imdbID;
-						newMedia.posterPath = media.posterPath; //TODO
+
 						mediaRepo.AddMedia(newMedia);
 
                         var newTranslation = new Translation();
@@ -77,10 +83,20 @@ namespace _3viknavinir.Controllers
                         newTranslation.finished = false; 
                         newTranslation.userID = User.Identity.GetUserId();
                         newTranslation.dateAdded = DateTime.Now;
-
-
                         
                         translationRepo.AddTranslation( newTranslation );
+
+						BinaryReader b = new BinaryReader(media.srtFile.InputStream);
+						byte[] binData = b.ReadBytes((int)media.srtFile.InputStream.Length);
+						string result = System.Text.Encoding.UTF8.GetString(binData);
+
+						var lines = result.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+						foreach(var line in lines)
+						{
+
+							System.Diagnostics.Debug.WriteLine(line);
+						}
+
                         return RedirectToAction("EditTranslation", "Translation", new {ID = newTranslation.mediaID});
                      }
                 }
@@ -107,6 +123,7 @@ namespace _3viknavinir.Controllers
 								
 							viewModel.media = media;
 							viewModel.translation = translation;
+							//int upvote = translation.Upvote.Count;
 
 							if (media != null && translation != null)
 							{
@@ -231,6 +248,7 @@ namespace _3viknavinir.Controllers
 							var media = mediaRepo.GetMediaByID(translation.mediaID);
 							viewModel.title = media.title;
 							viewModel.year = media.yearOfRelease;
+                            viewModel.mediaID = media.ID;
 
 							using (TranslationLinesRepo translationLinesRepo = new TranslationLinesRepo())
 							{

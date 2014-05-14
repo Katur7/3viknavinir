@@ -393,7 +393,7 @@ input[type="checkbox"].input-validation-error {
 	margin: 0px;
 	padding: 0px;
     position: relative;
-    top: 17px;
+    top: -18px;
     left: -1px;
 }
 .oldSubtitle {
@@ -408,24 +408,24 @@ input[type="checkbox"].input-validation-error {
     top: 38px;
 }
 .oldChapter {
-	margin: 6px;
+	margin: -1px;
     padding: 2px;
 }
 
 .timeLabels {
 	position: relative;
-    top: -11px;
-    left: 168px;
+    top: 15px;
+    left: 171px;
 }
 .newStartTime{
     left: -1px;
-    top: 43px;
+    top: 39px;
     padding: 0;
     position: relative;
 }
 .newEndTime
 {
-    top: -48px;
+    top: -52px;
     right: -55px;
     padding: 0;
     float: right;
@@ -444,7 +444,7 @@ input[type="checkbox"].input-validation-error {
     margin-top: -120px;
     margin-left: -70px;   
 }
-
+/*css for edittranslation*/
 .timeStamps {
     display: inline;
     margin: 0px;
@@ -454,9 +454,25 @@ input[type="checkbox"].input-validation-error {
 .timeStamps p {
     width: 30px;
 }
+.subtitleTextLabel{
+    position: relative;
+    top: 38px;
+}
+.startendTimeLabel{
+    position: relative;
+    top: 12px;
+}
+.timeTextBox {
+}
+.chapterTextBox{
 
+}
+.subtitleTextBox{
+
+}
 #TextToEdit {
     position: relative;
+    top: -35px;
     float: left;
     max-width: 500px;
 }
@@ -471,6 +487,72 @@ input[type="checkbox"].input-validation-error {
     float: left;
     clear: left;
 }
-/*div{
+div{
+    /*border: solid;*/
+}
+
+.commentHeader{
+    border-top:solid;
+    border-bottom: solid;
+    border-width:thin;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: inline;
+    
+}
+
+.comment{
+    border:solid;
+    border-width: thin;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+.userName{
+    font-weight: bold;
+    text-align:left;
+    position:relative;
+    top: 8px;
+    left: 20px;
+}
+
+.dayAdded{
+    font-style: italic;
+    text-align:right;
+    position: relative;
+    top: 8px;
+    left: -4px;
+}
+
+.commentBody{
+    
+    margin: 20px;
+  
+}
+
+.addCommentHeader{
+    border-top:solid;
+    border-bottom: solid;
+    border-width: thin;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.addComment{
     border: solid;
-}*/
+    border-width: thin;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.addCommentBody{
+    margin: 20px;
+ 
+}
+
+.mainContent{
+    margin-top: 20px;
+    margin-right:500px;
+}

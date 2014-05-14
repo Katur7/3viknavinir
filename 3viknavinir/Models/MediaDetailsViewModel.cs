@@ -11,6 +11,9 @@ namespace _3viknavinir.Models
 {
 	public class MediaDetailsViewModel
 	{
+
+		public HttpPostedFileBase srtFile { get; set; }
+
 		public Media media { get; set; }
 		public Translation translation { get; set; }
 		public string userName { get; set; }
