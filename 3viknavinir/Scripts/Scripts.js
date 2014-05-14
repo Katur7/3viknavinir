@@ -55,6 +55,10 @@ $(document).ready(function () {
         var id = event.target.id;
 
         var param = { requestId: id }
+   
+    $('.glyphicon-thumbs-up').click(id = $(this).element.attr('id'), function(id) {
+        console.log(id);
+    } )
 
         $.ajax({
             url: "/ListRequest/UpvoteRequest",
@@ -70,7 +74,7 @@ $(document).ready(function () {
                 // Could use ajax, call repo, replace html element
             }
         });
-    });
+    })*/
 });
 
 //fanney

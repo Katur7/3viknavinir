@@ -75,23 +75,25 @@
         <div class="translationLine">
             @Html.HiddenFor(model => item.ID)
             <div class="oldChapter">
-                <p>@Html.Label("Kafli")</p>
-                <input type="text" name="chapterNumber" value="@item.chapterNumber" readonly>
+                <p class="oldChapterLabel">@Html.Label("Kafli")</p>
+                <input type="text" name="chapterNumber" value="@item.chapterNumber" class="oldChapterTextBox" readonly>
             </div>
             <div class="timeStamps">
                 <div class="oldStartTime">
-                    <p>@Html.Label("Byrjunartími")</p>
-                    <input type="text" name="startTime" value="@item.startTime" readonly>
+                    <p class="oldStartTimeLabel">@Html.Label( "Byrjunartími" )</p>
+                    <input type="text" name="startTime" value="@item.startTime" class="oldStartTimeTextBox" readonly>
                 </div>
-                <p class="timeLabels">-></p>
+                <div>
+                    <p class="timeLabels">-></p>
+                </div>
                 <div class="oldEndTime">
-                    <p>@Html.Label("Endatími")</p>
-                    <input type="text" name="endTime" value="@item.endTime" readonly>
+                    <p class="oldEndTimeLabel">@Html.Label( "Endatími" )</p>
+                    <input type="text" name="endTime" value="@item.endTime" class="oldEndTimeTextBox" readonly>
                 </div>
             </div>
             <div class="oldSubtitle">
-                <p>@Html.Label("Texti")</p>
-                <input type="text" name="subtitle" value="@item.subtitle" readonly>
+                <p class="oldSubtitleLabel">@Html.Label( "Texti" )</p>
+                <input type="text" name="subtitle" value="@item.subtitle" class="oldSubtitleTextBox" readonly>
             </div>
         </div>
     }
