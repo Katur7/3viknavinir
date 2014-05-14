@@ -22,10 +22,12 @@ namespace _3viknavinir.Controllers
             return View();
         }
 
-		public void Upload(HttpPostedFileBase file)
+		/*public void Upload(MediaDetailsViewModel viewModel)
 		{
+			Media media = new Media();
+			media.title = viewModel.title;
 
-		}
+		}*/
 
 		public bool HasFile(HttpPostedFileBase file)
 		{
@@ -66,24 +68,16 @@ namespace _3viknavinir.Controllers
             {
                 using(TranslationRepo translationRepo = new TranslationRepo())
                 {
-					foreach (string upload in Request.Files)
-					{
-						if (!HasFile(Request.Files[upload])) continue;
-						string path = AppDomain.CurrentDomain.BaseDirectory + "uploads/";
-						string filename = Path.GetFileName(Request.Files[upload].FileName);
-						Request.Files[upload].SaveAs(Path.Combine(path, filename));
-					}
-
                     if ( ModelState.IsValid )
                     {
-                        var newMedia = new Media( );
+                        Media newMedia = new Media( );
 
                         newMedia.title = media.title;
                         newMedia.yearOfRelease = media.yearOfRelease;
                         newMedia.description = media.description;
                         newMedia.categoryID = media.category;
                         newMedia.imdbID = media.imdbID;
-						newMedia.posterPath = media.posterPath; //TODO
+
 						mediaRepo.AddMedia(newMedia);
 
                         var newTranslation = new Translation();
@@ -101,6 +95,14 @@ namespace _3viknavinir.Controllers
                         
                         translationRepo.AddTranslation( newTranslation );
                         return RedirectToAction("EditTranslation", "Translation", new {ID = newTranslation.mediaID});
+
+						foreach (string upload in Request.Files)
+						{
+							if (!HasFile(Request.Files[upload])) continue;
+							string path = AppDomain.CurrentDomain.BaseDirectory + "uploads/";
+							string filename = Path.GetFileName(Request.Files[upload].FileName);
+							Request.Files[upload].SaveAs(Path.Combine(path, filename));
+						}
                      }
                 }
             }
