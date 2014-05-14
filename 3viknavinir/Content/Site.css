@@ -489,73 +489,16 @@ input[type="checkbox"].input-validation-error {
     float: left;
     clear: left;
 }
-div{
-    /*border: solid;*/
-}
-
-.commentHeader{
-    border-top:solid;
-    border-bottom: solid;
-    border-width:thin;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    display: inline;
-    
-}
-
-.comment{
-    border:solid;
-    border-width: thin;
-    border-radius: 15px;
-    margin-top: 10px;
-}
-
-.userName{
-    font-weight: bold;
-    text-align:left;
-    position:relative;
-    top: 8px;
-    left: 20px;
-}
-
-.dayAdded{
-    font-style: italic;
-    text-align:right;
-    position: relative;
-    top: 8px;
-    left: -4px;
-}
-
-.commentBody{
-    
-    margin: 20px;
-  
-}
-
-.addCommentHeader{
-    border-top:solid;
-    border-bottom: solid;
-    border-width: thin;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.addComment{
-    border: solid;
-    border-width: thin;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    margin-top: 30px;
-}
-
-.addCommentBody{
-    margin: 20px;
- 
-}
-
 .mainContent{
     margin-top: 20px;
     margin-right:500px;
 }
-
+.commentName{
+     display: inline; 
+     font-size: larger;
+}
+.commentDate{
+    display: inline; 
+    position: relative; 
+    left: 275px;
+}
