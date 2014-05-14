@@ -35,7 +35,13 @@ namespace _3viknavinir.Controllers
 					var allRequests = ( from r in requestRepo.GetAllRequests()
 										join u in userRepo.GetAllUsers() on r.userID equals u.Id
 										orderby r.title ascending
-										select new ListRequestViewModel() { Id = r.ID, title = r.title, IMDBId = r.imdbID, yearOfRelease = r.yearOfRelease, requestById = u.Id, requestByName = u.UserName }).ToList();
+										select new ListRequestViewModel() { Id = r.ID, 
+																			title = r.title, 
+																			IMDBId = r.imdbID, 
+																			yearOfRelease = r.yearOfRelease, 
+																			requestById = u.Id, 
+																			requestByName = u.UserName, 
+																			upvotes =  requestRepo.CountUpvotesForRequest(r.ID) }).ToList();
 
 					if ( allRequests != null )
 					{
@@ -75,5 +81,35 @@ namespace _3viknavinir.Controllers
             return View( );
         }
 
+		public void UpvoteRequest(int requestId)
+		{
+			using (RequestRepo requestRepo = new RequestRepo())
+			{
+				using (UpvoteRepo upvoteRepo = new UpvoteRepo())
+				{
+					var id = requestRepo.GetRequestByID(requestId).ID;
+					var userId = User.Identity.GetUserId();
+					var upvotes = upvoteRepo.GetUpvotesByRequestID(id);
+					var userUpvote = (from u in upvotes
+									  where u.userID == userId
+									  select u).FirstOrDefault();
+
+					if (userUpvote != null)
+					{
+						return;
+					}
+					else
+					{
+						Upvote newUpvote = new Upvote();
+						newUpvote.userID = userId;
+						newUpvote.translationID = null;
+						newUpvote.requestID = id;
+						newUpvote.discussionID = null;
+
+						upvoteRepo.AddUpvote(newUpvote);
+					}
+				}
+			}
+		}
     }
 }
