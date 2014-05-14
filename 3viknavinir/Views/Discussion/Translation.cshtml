@@ -28,25 +28,25 @@
         {
             <div class="panel panel-info">
                 <div class="panel-heading">
-                   @item.userName
-                   @item.discussion.dateAdded
+                  <p style="display: inline; font-size: larger;">@item.userName</p>
+                    <p style ="display: inline; position: relative; left: 275px">Sett inn: @item.discussion.dateAdded</p>
                 </div>
                 <div class="panel-body">
-                   @item.discussion.comment
+                  <p style="font-size: initial;">@item.discussion.comment</p>
                 </div>
             </div>
         }
     }
 
-    <div class="panel panel-info">
-        <p class="panel-heading">Skrifa Athugasemd</p>
+    <div class="panel panel-info" id="commentingArea">
+        <p class="panel-heading" style="font-size: larger;">Skrifa Athugasemd</p>
         <div class="panel-body">
             @using ( Html.BeginForm( "Translation", "Discussion", FormMethod.Post, new { @class = "form-horizontal", role = "form" } ) )
             {
-                @Html.TextAreaFor( model => model.comment, new { @cols = "40", @rows = "6" } )
+                @Html.TextAreaFor( model => model.comment, new { @cols = "40", @rows = "4" } )
                 @Html.HiddenFor( model => model.media.ID )
                 <div class="form-group">
-                    <div class=" col-md-10">
+                    <div class="col-md-offset-1 col-md-10">
                         <input type="submit" class="btn btn-default" value="Skrá" />
                     </div>
                 </div>
