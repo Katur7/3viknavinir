@@ -24,7 +24,7 @@
     </li>
 </ul>
 
-<div id="TextToEdit">
+<div id="TextToEdit" class="col-md-6">
     @using ( Html.BeginForm( ) )
     {
         @Html.AntiForgeryToken()
@@ -32,25 +32,23 @@
         foreach (var item in Model.textToTranslate)
         {
             <div>
-                @Html.HiddenFor(model => item.ID)
-                    <p class="chapterLabel">@Html.Label("Kafli")</p>
-                    @Html.TextBoxFor(model => item.chapterNumber, new{ @class="chapterTextBox" })
-                    @Html.ValidationMessageFor(model => item.chapterNumber)
-
+                    @Html.HiddenFor( model => item.ID )
+                    <p class="chapterLabel">@Html.Label( "Kafli" )</p>
+                    @Html.TextBoxFor( model => item.chapterNumber, new { @class = "chapterTextBox" } )
+                    @Html.ValidationMessageFor( model => item.chapterNumber )
                     <p class="startTimeLabel">@Html.Label( "Byrjunartími" )</p>
-                        @Html.TextBoxFor( model => item.startTime, new { @class = "startTimeTextBox" } )
-                        @Html.ValidationMessageFor(model => item.startTime)
+                    @Html.TextBoxFor( model => item.startTime, new { @class = "startTimeTextBox" } )
+                    @Html.ValidationMessageFor( model => item.startTime )
                     <div>
                         <p class="timeLabels">-></p>
                     </div>
-                            <p class="endTimeLabel">@Html.Label( "Endatími" )</p>
-                        @Html.TextBoxFor( model => item.endTime, new { @class = "endTimeTextBox" } )
-                        @Html.ValidationMessageFor(model => item.endTime)
-
+                    <p class="endTimeLabel">@Html.Label( "Endatími" )</p>
+                    @Html.TextBoxFor( model => item.endTime, new { @class = "endTimeTextBox" } )
+                    @Html.ValidationMessageFor( model => item.endTime )
                     <p class="subtitleTextLabel">@Html.Label( "Texti" )</p>
-                    @Html.TextBoxFor(model => item.subtitle, new { @class ="subtitleTextBox" })
-                    @Html.ValidationMessageFor(model => item.subtitle)
-            </div>
+                    @Html.TextBoxFor( model => item.subtitle, new { @class = "subtitleTextBox" } )
+                    @Html.ValidationMessageFor( model => item.subtitle )
+              </div>
         }
         <div class="editLines">
             <a href="#" class="AddLine">Bæta við línu</a>
@@ -69,13 +67,13 @@
 
 </div>
 	
-<div id="OldText">
-	@foreach (var item in Model.translatedText)
+<div id="OldText" class="col-md-6">
+    @foreach ( var item in Model.translatedText )
     {
-        <div class="translationLine">
-            @Html.HiddenFor(model => item.ID)
+        <div style="position: relative; top: -32px;">
+            @Html.HiddenFor( model => item.ID )
             <div class="oldChapter">
-                <p class="oldChapterLabel">@Html.Label("Kafli")</p>
+                <p class="oldChapterLabel">@Html.Label( "Kafli" )</p>
                 <input type="text" name="chapterNumber" value="@item.chapterNumber" class="oldChapterTextBox" readonly>
             </div>
             <div class="timeStamps">
@@ -84,7 +82,7 @@
                     <input type="text" name="startTime" value="@item.startTime" class="oldStartTimeTextBox" readonly>
                 </div>
                 <div>
-                    <p class="timeLabels">-></p>
+                    <p class="oldTimeLabel">-></p>
                 </div>
                 <div class="oldEndTime">
                     <p class="oldEndTimeLabel">@Html.Label( "Endatími" )</p>
