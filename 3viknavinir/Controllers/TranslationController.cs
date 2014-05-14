@@ -14,7 +14,7 @@ namespace _3viknavinir.Controllers
 	[HandleError]
     public class TranslationController : Controller
     {
-        //
+        // comment
         // GET: /Translation/
         public ActionResult Index()
         {
