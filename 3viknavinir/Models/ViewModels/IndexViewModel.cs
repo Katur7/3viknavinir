@@ -9,8 +9,6 @@ namespace _3viknavinir.Models
 	{
 		public IEnumerable<Media> recentMedia { get; set; }
 
-		public IEnumerable<Media> popularMedia { get; set; }
-
-		public IEnumerable<Requests> popularRequests { get; set; }
+		public IEnumerable<Requests> recentRequests { get; set; }
 	}
 }

@@ -63,13 +63,19 @@ a h1 {
 	margin: 20px 0px 0px 5px;
 }
 
-#homePageTable {
+#homePageTable-1 {
 	width: 1180px;
 	border-collapse: collapse;
 	margin-right: 30px;
 }
 
-.homePageTableRows td {
+#homePageTable-2 {
+	width: 1180px;
+	border-collapse: collapse;
+	margin-right: 30px;
+}
+
+.homePageTableRows td{
 	padding: 5px 0px 5px 0px;
 }
 
