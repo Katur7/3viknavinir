@@ -1,10 +1,12 @@
-﻿using _3viknavinir.Repo;
+﻿using _3viknavinir;
 using _3viknavinir.Models;
+using _3viknavinir.Repo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using _3viknavinir.Models.ViewModels;
 
 namespace _3viknavinir.Controllers
@@ -13,6 +15,7 @@ namespace _3viknavinir.Controllers
     {
         //
         // GET: /Discussion/
+        [HttpGet]
         public ActionResult Translation(int? id)
         {
 			if (id.HasValue)
@@ -31,7 +34,7 @@ namespace _3viknavinir.Controllers
 							if(discussionRepo.IsExistingID(realid))
 							{
 								var allDiscussions = (from d in discussionRepo.GetCommentByMediaID(realid)
-													  orderby d.dateAdded ascending
+													  orderby d.dateAdded descending
 													  select d);
 								using (UserRepo userRepo = new UserRepo())
 								{
@@ -60,6 +63,27 @@ namespace _3viknavinir.Controllers
                 }
             }
 			return HttpNotFound();
+        }
+        [HttpPost]
+        [Authorize]
+        public ActionResult Translation(DiscussionViewModel model)
+        {
+            using (DiscussionRepo discussionRepo = new DiscussionRepo())
+            {
+                if (ModelState.IsValid)
+                {
+                    var newComment = new Discussion();
+
+                    newComment.comment = model.comment;
+                    newComment.dateAdded = DateTime.Now;
+                    newComment.userID = User.Identity.GetUserId();
+                    newComment.mediaID = model.media.ID;
+
+                    discussionRepo.AddComment(newComment);
+                    return RedirectToAction("Translation", "Discussion");
+                }
+            }
+            return View();
         }
 	}
 }

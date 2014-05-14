@@ -11,41 +11,46 @@
         <span class="crumb-seperator"> > </span>
         @Html.ActionLink("Textar A-Ö", "AlphabetizedTexts", "ListTranslations")
     </li>
+    <li class="crumb crumbs">
+        <span class="crumb-seperator"> > </span>
+        @Html.ActionLink(Model.media.title, "Details", "Translation", new { id = @Model.media.ID}, null)
+    </li>
     <li class="crumb crumb-last">
         <span class="crumb-seperator"> > </span>
-        <a href="#">@Model.media.title</a>
+        <a href="#">Athugasemdir</a>
     </li>
 </ul>
 <h2>@Model.media.title - Athugasemdir</h2>
-<div class="mainContent">
+<div>
     @if(Model.isEmpty == false)
     {
         foreach(var item in Model.discussions)
         {
-        <div class="comment">
-            <div class="commentHeader">
-                <p class="userName">
-                    @item.userName
-                </p>
-                    <p class="dayAdded"> @item.discussion.dateAdded</p>
-                
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                  <p class="commentName">@item.userName</p>
+                    <p class="commentDate">Sett inn: @item.discussion.dateAdded</p>
+                </div>
+                <div class="panel-body">
+                  <p style="font-size: initial;">@item.discussion.comment</p>
+                </div>
             </div>
-            <div class="commentBody">
-                    <p> @item.discussion.comment </p>
-            </div>
-        </div>
-    }
+        }
     }
 
-    <div class="addComment">
-        <div class="addCommentHeader">
-            <p>Skrifa Athugasemd</p>
-        </div>
-        <div class="addCommentBody">
-            <form>
-                <textarea class="form-control" rows="10" cols="60"></textarea>
-                <input type="submit" class="btn btn-default" value="Skrá" />
-            </form>
+    <div class="panel panel-info" id="commentingArea">
+        <p class="panel-heading" style="font-size: larger;">Skrifa Athugasemd</p>
+        <div class="panel-body">
+            @using ( Html.BeginForm( "Translation", "Discussion", FormMethod.Post, new { @class = "form-horizontal", role = "form" } ) )
+            {
+                @Html.TextAreaFor( model => model.comment, new { @cols = "40", @rows = "4" } )
+                @Html.HiddenFor( model => model.media.ID )
+                <div class="form-group">
+                    <div class="col-md-offset-1 col-md-10">
+                        <input type="submit" class="btn btn-default" value="Skrá" />
+                    </div>
+                </div>
+            }
         </div>
     </div>
 </div>

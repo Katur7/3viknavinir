@@ -12,5 +12,9 @@
 		public Media media{ get; set; }
 
 		public bool isEmpty { get; set; }
+        public string comment { get; set; }
+        public string userID { get; set; }
+        public DateTime dateAdded { get; set; }
+        public int mediaID { get; set; }
     }
 }

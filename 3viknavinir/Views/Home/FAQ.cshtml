@@ -47,28 +47,27 @@
     <h3>Hvernig óska ég eftir texta</h3>
     <div>
         <p>
-            Til þess að óska eftir texta fyrir myndefni þarf notandi að vera innskráður.
+            Til þess að óska eftir skjátexta fyrir myndefni þarf notandi að vera innskráður.
             Því næst velur notandinn flipann sem á stendur @Html.ActionLink( "\"Beiðnir\"", "Requests", "ListRequest" ). Þar er smellt á græna plús hnappinn, þá er notanda beint inn á nýja síðu þar
             sem fylla verður út helstu upplýsingar um myndefni.
             Þegar allar nauðsynlegar upplýsingar hafa verið settar inn er hægt að senda inn beiðnina.
-            Sé beiðni fyrir sömu mynd nú þegar til staðar virkar beiðnin sem upvote á þá beiðni.
         </p>
     </div>
     <h3>Hvernig leita ég af texta?</h3>
     <div>
         <p>
-            Hægt er að leita að textum eftir flokkum  undir @Html.ActionLink("\"Flokkar\"", "Categories", "Category")  flipanum.
-            Textum er raðað í stafrófsröð eftir heiti mynda í @Html.ActionLink("Textar A-Ö", "AlphabetizedTexts", "ListTranslations") flipanum.
-            Einnig er hægt að leita að texta fyrir ákveðina mynd  í leitarkassa bæði á forsíðu og í flipanum
+            Hægt er að leita að textum eftir flokkum  undir @Html.ActionLink("\"Flokkar\"", "Categories", "Category") flipanum.
+            Textum er raðað í stafrófsröð eftir heiti myndefnis undir @Html.ActionLink("Textar A-Ö", "AlphabetizedTexts", "ListTranslations") flipanum.
+            Einnig er hægt að leita að texta fyrir ákveðna mynd í leitarboxi á forsíðu eða undir Textar A-Ö.
             @Html.ActionLink( "Textar A-Ö", "AlphabetizedTexts", "ListTranslations" ).
         </p>
     </div>
     <h3>Af hverju þarf ég að vera innskráður?</h3>
     <div>
         <p>
-            Innskráðir notendur hafa aðgang að fleiri aðgerðum en óinnskráðir notendur.
+            Innskráðir notendur hafa aðgang að fleiri aðgerðum en þeir notendur sem ekki eru innskráðir.
             Sem dæmi geta innskráðir notendur breytt þýðingum ásamt því að geta bætt við nýjum einnig geta þeir sent inn beiðnir, þýðingar,
-            kosið upp fyrri beiðnir og uppfært lýsingu á myndefni.
+            kosið upp fyrri beiðnir ásamt því að geta uppfært lýsingu á myndefni.
         </p>
     </div>
     <h3>Hvernig nota ég textann sem ég sótti?</h3>
@@ -85,21 +84,21 @@
     </div>
     <h3>Hvernig get ég lagað þýðingu sem er nú þegar til?</h3>
     <div>
-        <p>@* Hér má setja actionlink fyrir breyta þýðingu þegar sú síða er tilbúin - SMF/ samt alveg spuring um að sleppa því þar sem að breyta þýðingu er sér fyrir hverja mynd - LMÞ *@
-            Til að laga þýðingu verðuru að vera innskráður. Þegar ákveðin mynd er valin þá er hægt að laga þýðingu með “Breyta þýðingu”
+        <p>
+            Til þess að laga þýðingu verður þú að vera innskráður. Þegar ákveðin mynd er valin þá er hægt að laga þýðingu með “Breyta þýðingu”
             hnappinum neðst á síðunni.
         </p>
     </div>
-    <h3>Munu þið nokkurtímar deila upplýsingunum sem ég gef ykkur?</h3>
+    <h3>Munið þið nokkurn tíma deila upplýsingunum sem ég gef ykkur?</h3>
     <div>
-        <p>Nei, við munum aðeins nota upplýsingarnar til að hafa geta sent þér gleymt lykilorð og muna hvað þú heitir.</p>
+        <p>Nei, við munum aðeins nota upplýsingarnar til þess að geta sent þér gleymt lykilorð.</p>
     </div>
-    <h3>Þýðingin sem ég sótti er ílla þýdd og/eða óviðeigandi, get ég tilkynnt þýðanda til stjórnanda?</h3>
+    <h3>Þýðingin sem ég sótti er illa þýdd og/eða óviðeigandi, get ég tilkynnt þýðanda til stjórnanda?</h3>
     <div>
         <p>
             Við viljum endilega vita af því ef þýðing er ekki til fyrirmyndar.
-            Niðri í vinsta horninu er @Html.ActionLink( "Hafðu samband", "Contact", "Home" ) hnappur.
-            Endilega sendu okkur notendanafn þýðanda og nafnið á tiltekinni þýðingu sem rætt er um.
+            Niðri í vinstra horninu er @Html.ActionLink( "Hafðu samband", "Contact", "Home" ) hnappur.
+            Endilega sendu okkur notendanafn þýðanda og nafnið á viðkomandi þýðingu.
         </p>
     </div>
 </div>
