@@ -400,7 +400,15 @@ input[type="checkbox"].input-validation-error {
 	margin: 0px;
 	padding: 0px;
 }
-
+.newStartTime{
+    left: -17px;
+}
+.newEndTime
+{
+    float: right;
+    top: -97px;
+    right: -111px;
+}
 #newSubtitle {
 	display: inline-block;
 }
@@ -457,7 +465,14 @@ div {
 
 }
 
-.commentBody
-{
+.commentBody {
+
+}
+
+.userName{
+
+}
+
+.dayAdded{
 
 }
