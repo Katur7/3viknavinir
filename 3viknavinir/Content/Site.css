@@ -385,7 +385,7 @@ input[type="checkbox"].input-validation-error {
 
 .newSubtitle{
 	margin: 0px;
-    padding: 0px;
+	padding: 0px;
     position: relative;
     top: 17px;
     left: -1px;
@@ -464,6 +464,29 @@ input[type="checkbox"].input-validation-error {
 #TextToEdit form a {
     float: left;
     clear: left;
+}
+div {
+    border: solid;
+}
+
+.commentHeader{
+    border: solid;
+}
+
+.comment{
+
+}
+
+.commentBody {
+
+}
+
+.userName{
+
+}
+
+.dayAdded{
+
 }
 .editArrow{
     margin: 0px;

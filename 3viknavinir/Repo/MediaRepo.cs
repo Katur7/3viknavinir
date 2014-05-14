@@ -95,6 +95,14 @@ namespace _3viknavinir.Repo
 						select m;
 			return media;
 		}
+
+		public bool IsExistingID(int mediaId)
+		{
+			var isExisting = (from m in db.Media
+							   where m.ID == mediaId
+							   select m).SingleOrDefault();
+			return (isExisting != null);
+		}
         
 		// Grímur
 		public void Dispose()
