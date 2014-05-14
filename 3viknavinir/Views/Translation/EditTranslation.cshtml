@@ -6,7 +6,7 @@
 
 <h2>@ViewBag.Title</h2>
 
-<div class="TextToEdit">
+<div id="TextToEdit">
     @using ( Html.BeginForm( ) )
     {
         @Html.AntiForgeryToken()
@@ -23,7 +23,7 @@
                 <div class="timeStamps">
                     <div class="newStartTime">
                         <p class="startendTimeLabel">@Html.Label("Byrjunartími")</p>
-                        @Html.EditorFor( model => item.startTime, new {@class="timeTextBox"} )
+                        @Html.EditorFor( model => item.startTime)
                         @Html.ValidationMessageFor(model => item.startTime)
                     </div>
                     <div>

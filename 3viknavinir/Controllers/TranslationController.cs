@@ -93,6 +93,7 @@ namespace _3viknavinir.Controllers
 						var lines = result.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 						foreach(var line in lines)
 						{
+
 							System.Diagnostics.Debug.WriteLine(line);
 						}
 
@@ -122,6 +123,7 @@ namespace _3viknavinir.Controllers
 								
 							viewModel.media = media;
 							viewModel.translation = translation;
+							//int upvote = translation.Upvote.Count;
 
 							if (media != null && translation != null)
 							{

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _3viknavinir.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -8,8 +9,7 @@ namespace _3viknavinir.Models
 {
 	public class AlphabetizedTextsViewmodel
     {
-        public IEnumerable<Media> allMedia {get; set;}
-
+        public List<MediaUpvoteViewModel> allMedia {get; set;}
 		public int pageCount { get; set; }
     }
 }
