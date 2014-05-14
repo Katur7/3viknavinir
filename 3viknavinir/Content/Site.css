@@ -465,38 +465,6 @@ input[type="checkbox"].input-validation-error {
     float: left;
     clear: left;
 }
-div {
+/*div{
     border: solid;
-}
-
-.commentHeader{
-    border: solid;
-}
-
-.comment{
-
-}
-
-.commentBody {
-
-}
-
-.userName{
-
-}
-
-.dayAdded{
-
-}
-.editArrow{
-    margin: 0px;
-}
-.editLines{
-    position: relative;
-    top: -42px;
-    left: 3px;
-}
-.newSubtitleBox{
-    position: relative;
-    top: -37px;
-}
+}*/
