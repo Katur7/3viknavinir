@@ -11,7 +11,6 @@
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
-        <a href="#" class="AddLine">Bæta við línu</a>
         foreach (var item in Model.textToTranslate)
         {
             <div class="form-group translationLine">
@@ -40,10 +39,9 @@
                     @Html.ValidationMessageFor(model => item.subtitle)
                 </div>
             </div>
-            <a href="#" class="DeleteLine">Eyða línu</a>
-            <a href="#" class="AddLine">Bæta við línu</a>
         }
-
+        <a href="#" class="AddLine">Bæta við línu</a>
+        
         <div class="fullyTranslateCheckbox">
             <input type="checkbox" class="fullyTranslated" />
             <p>Fullkláraður texti</p>
