@@ -12,36 +12,34 @@
         @Html.ValidationSummary(true)
         foreach (var item in Model.textToTranslate)
         {
-            <div class="form-group translationline">
+            <div class="form-group translationLine">
                 @Html.HiddenFor(model => item.ID)
-                <div class="col-md-10" id="newChapter">
-                    <p class="timeLabels">
-                        @Html.Label("Kafli")
-                    </p>
+                <div class="col-md-10 newChapter">
+                    <p>@Html.Label("Kafli")</p>
                     @Html.EditorFor(model => item.chapterNumber)
                     @Html.ValidationMessageFor(model => item.chapterNumber)
                 </div>
-                <div class="col-md-10" id="newTime">
-                    <p class="timeLabels">
-                        @Html.Label("Byrjunartími")
-                        @Html.Label("Endatími")
-                    </p>
-                    <p>
+                <div class="timeStamps">
+                    <div class="col-md-10 newStartTime">
+                        <p>@Html.Label("Byrjunartími")</p>
                         @Html.EditorFor(model => item.startTime)
-                        @Html.ValidationMessageFor(model => item.startTime)   ->
+                        @Html.ValidationMessageFor(model => item.startTime)
+                    </div>
+                    <p>-></p>
+                    <div class="col-md-10 newEndTime">
+                        <p>@Html.Label("Endatími")</p>
                         @Html.EditorFor(model => item.endTime)
                         @Html.ValidationMessageFor(model => item.endTime)
-                    </p>
+                    </div>
                 </div>
-                <div class="col-md-10" id="newSubtitle">
-                    <p class="timeLabels">
-                        @Html.Label("Texti")
-                    </p>
+                <div class="col-md-10 newSubtitle">
+                    <p>@Html.Label("Texti")</p>
                     @Html.EditorFor(model => item.subtitle)
                     @Html.ValidationMessageFor(model => item.subtitle)
                 </div>
             </div>
-
+            <a href="#" class="DeleteLine">Eyða línu</a>
+            <a href="#" class="AddLine">Bæta við línu</a>
         }
 
         <div class="fullyTranslateCheckbox">
