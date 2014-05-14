@@ -12,34 +12,38 @@
         @Html.ValidationSummary(true)
         foreach (var item in Model.textToTranslate)
         {
-            <div class="form-group translationLine">
+            <div class="translationLine">
                 @Html.HiddenFor(model => item.ID)
-                <div class="col-md-10 newChapter">
+                <div class="newChapter">
                     <p>@Html.Label("Kafli")</p>
                     @Html.EditorFor(model => item.chapterNumber)
                     @Html.ValidationMessageFor(model => item.chapterNumber)
                 </div>
                 <div class="timeStamps">
-                    <div class="col-md-10 newStartTime">
+                    <div class="newStartTime">
                         <p>@Html.Label("Byrjunartími")</p>
                         @Html.EditorFor(model => item.startTime)
                         @Html.ValidationMessageFor(model => item.startTime)
                     </div>
-                    <p>-></p>
-                    <div class="col-md-10 newEndTime">
+                    <div>
+                        <p class="timeLabels">-></p>
+                    </div>
+                        <div class="newEndTime">
                         <p>@Html.Label("Endatími")</p>
                         @Html.EditorFor(model => item.endTime)
                         @Html.ValidationMessageFor(model => item.endTime)
                     </div>
                 </div>
-                <div class="col-md-10 newSubtitle">
-                    <p>@Html.Label("Texti")</p>
+                <div class="newSubtitle">
+                    <p class="newsubtitlebox">@Html.Label( "Texti" )</p>
                     @Html.EditorFor(model => item.subtitle)
                     @Html.ValidationMessageFor(model => item.subtitle)
                 </div>
             </div>
-            <a href="#" class="DeleteLine">Eyða línu</a>
-            <a href="#" class="AddLine">Bæta við línu</a>
+    <div class="editLines">
+        <a href="#">Eyða línu</a>
+        <a href="#">Bæta við línu</a>
+    </div>
         }
 
         <div class="fullyTranslateCheckbox">
@@ -69,7 +73,7 @@
                     <p>@Html.Label("Byrjunartími")</p>
                     <input type="text" name="startTime" value="@item.startTime" readonly>
                 </div>
-                <p>-></p>
+                <p class="timeLabels">-></p>
                 <div class="oldEndTime">
                     <p>@Html.Label("Endatími")</p>
                     <input type="text" name="endTime" value="@item.endTime" readonly>
