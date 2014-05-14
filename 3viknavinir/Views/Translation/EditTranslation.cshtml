@@ -6,8 +6,8 @@
 
 <h2>@ViewBag.Title</h2>
 
-<div id="TextToEdit">
-    @using (Html.BeginForm())
+<div class="TextToEdit">
+    @using ( Html.BeginForm( ) )
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
@@ -16,21 +16,21 @@
             <div class="translationLine">
                 @Html.HiddenFor(model => item.ID)
                 <div class="newChapter">
-                    <p>@Html.Label("Kafli")</p>
+                    <p class="startendTimeLabel">@Html.Label("Kafli")</p>
                     @Html.EditorFor(model => item.chapterNumber)
                     @Html.ValidationMessageFor(model => item.chapterNumber)
                 </div>
                 <div class="timeStamps">
                     <div class="newStartTime">
-                        <p>@Html.Label("Byrjunartími")</p>
-                        @Html.EditorFor(model => item.startTime)
+                        <p class="startendTimeLabel">@Html.Label("Byrjunartími")</p>
+                        @Html.EditorFor( model => item.startTime, new {@class="timeTextBox"} )
                         @Html.ValidationMessageFor(model => item.startTime)
                     </div>
                     <div>
                         <p class="timeLabels">-></p>
                     </div>
                         <div class="newEndTime">
-                        <p>@Html.Label("Endatími")</p>
+                            <p class="startendTimeLabel">@Html.Label( "Endatími" )</p>
                         @Html.EditorFor(model => item.endTime)
                         @Html.ValidationMessageFor(model => item.endTime)
                     </div>
