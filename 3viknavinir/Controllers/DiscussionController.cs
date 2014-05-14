@@ -26,10 +26,12 @@ namespace _3viknavinir.Controllers
 
 						if (mediaRepo.IsExistingID(realid))
 						{
+							viewModel.media = mediaRepo.GetMediaByID(realid);
+
 							if(discussionRepo.IsExistingID(realid))
 							{
 								var allDiscussions = (from d in discussionRepo.GetCommentByMediaID(realid)
-													  orderby d.dateAdded descending
+													  orderby d.dateAdded ascending
 													  select d);
 								using (UserRepo userRepo = new UserRepo())
 								{
@@ -43,8 +45,6 @@ namespace _3viknavinir.Controllers
 										viewModel.discussions.Add(newDiscussionUserViewModel);
 									}
 								}
-
-								viewModel.media = mediaRepo.GetMediaByID(realid);
 
 								return View(viewModel);
 							} else
