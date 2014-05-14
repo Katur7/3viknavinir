@@ -387,10 +387,13 @@ input[type="checkbox"].input-validation-error {
 	margin: 0px;
 	padding: 0px;
 }
-
-#newChapter, #oldChapter {
-	margin: 0px;
-	padding: 0px;
+.newChapter{
+    margin: -4px;
+    padding: 2px
+}
+.oldChapter {
+	margin: 6px;
+    padding: 2px;
 }
 
 .timeLabels {
@@ -441,4 +444,7 @@ input[type="checkbox"].input-validation-error {
 #TextToEdit form a {
     float: left;
     clear: left;
+}
+div{
+    border: solid;
 }
