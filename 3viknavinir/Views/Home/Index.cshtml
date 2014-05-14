@@ -21,7 +21,7 @@
     @*Erla og Grímur*@
     <div class="row">
     <div>
-        <table id="homePageTable-1" class="table-striped">
+        <table id="homePageTable-2" class="table-striped">
             <thead>
                 <tr class="homePageTableRows">
                     <th>Nýjustu Textar</th>
@@ -37,7 +37,7 @@
                 }
             </tbody>
         </table>
-    <table id="homePageTable-2" class="table-striped">
+    <table id="homePageTable-1" class="table-striped">
         <thead>
             <tr class="homePageTableRows">
                 <th>Nýjustu Beiðnir</th>
@@ -47,7 +47,7 @@
             @foreach (var item in Model.recentRequests)
             {
                 <tr class="homePageTableRows">
-                    <td>@item.title, @item.yearOfRelease</td>
+                    <td>@item.title, (@item.yearOfRelease)</td>
                     <td></td>
                 </tr>
             }
