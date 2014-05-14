@@ -32,7 +32,49 @@
         newTranslationLineDiv.insertAfter(this);
     });
 
-    $("a[id|='upvote-media']").ajax
+    $('.glyphicon-thumbs-up').click(function ( event ) {
+        console.log(event.target.id)
+        var id = event.target.id;
+
+        var param = { mediaId: id }
+
+        $.ajax({
+            url: "/ListTranslations/UpvoteMedia",
+            contentType: "application/x-www-form-urlencoded",
+            type: "GET",
+            datatype: "json",
+            data: param,
+            error: function (xmlHttpRequest, errorText, thrownError) {
+                alert(xmlHttpRequest + "|" + errorText + "|" + thrownError);
+            },
+            success: function (data) {
+                alert("success");
+            }
+        });
+    });
+
+    /*
+    $('.glyphicon-thumbs-up').click(id = $(this).element.attr('id'), function(id) {
+        console.log(id);
+    } )
+
+    $("a[id|='upvote-media']").click(function () {
+        $.ajax({
+            url: "/ListTranslations/UpvoteMedia",
+            contentType: "application/x-www-form-urlencoded",
+            type: "POST",
+            datatype: "string",
+            data: this,
+            error: function (xmlHttpRequest, errorText, thrownError) {
+                alert(xmlHttpRequest + "|" + errorText + "|" + thrownError);
+            },
+            success: function (data) {
+                if (data != null) {
+                    alert("success");
+                }
+            }
+        });
+    })*/
 });
 
 //fanney
