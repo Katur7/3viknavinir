@@ -13,5 +13,6 @@ namespace _3viknavinir.Models
         public string title { get; set; }
         public int year { get; set; }
         public bool isFinished { get; set; }
+        public int mediaID { get; set; }
     }
 }
