@@ -64,15 +64,17 @@ a h1 {
 }
 
 #homePageTable-1 {
-	width: 1180px;
 	border-collapse: collapse;
-	margin-right: 30px;
+	margin-right: 250px;
+     float:right;
+     max-width:50%
 }
 
 #homePageTable-2 {
-	width: 1180px;
 	border-collapse: collapse;
-	margin-right: 30px;
+	margin-left: 250px;
+      float:left;
+     max-width:50%
 }
 
 .homePageTableRows td{
