@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using Microsoft.AspNet.Identity;
 using _3viknavinir.Models.ViewModels;
+using System.IO;
 
 namespace _3viknavinir.Controllers
 {
@@ -20,6 +21,16 @@ namespace _3viknavinir.Controllers
         {
             return View();
         }
+
+		public void Upload(HttpPostedFileBase file)
+		{
+
+		}
+
+		public bool HasFile(HttpPostedFileBase file)
+		{
+			return (file != null && file.ContentLength > 0) ? true : false;
+		}
 
 		[Authorize]
         [HttpGet]
@@ -55,6 +66,14 @@ namespace _3viknavinir.Controllers
             {
                 using(TranslationRepo translationRepo = new TranslationRepo())
                 {
+					foreach (string upload in Request.Files)
+					{
+						if (!HasFile(Request.Files[upload])) continue;
+						string path = AppDomain.CurrentDomain.BaseDirectory + "uploads/";
+						string filename = Path.GetFileName(Request.Files[upload].FileName);
+						Request.Files[upload].SaveAs(Path.Combine(path, filename));
+					}
+
                     if ( ModelState.IsValid )
                     {
                         var newMedia = new Media( );
