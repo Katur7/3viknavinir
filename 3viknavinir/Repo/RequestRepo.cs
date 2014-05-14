@@ -52,6 +52,16 @@ namespace _3viknavinir.Repo
 			return allRequests;
 		}
 
+		public int CountUpvotesForRequest(int id)
+		{
+			int count;
+			using(UpvoteRepo upvoteRepo = new UpvoteRepo())
+			{
+				count = upvoteRepo.CountUpvotesByRequestID(id);
+			}
+			return count;
+		}
+
 		public void AddRequest(Requests r)
 		{
 			db.Requests.Add(r);

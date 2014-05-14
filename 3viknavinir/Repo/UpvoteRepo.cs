@@ -31,6 +31,23 @@ namespace _3viknavinir.Repo
 			return upvotes;
 		}
 
+		public IEnumerable<Upvote> GetUpvotesByRequestID(int id)
+		{
+			var upvotes = from u in db.Upvote
+						  where u.requestID == id
+						  select u;
+			return upvotes;
+		}
+
+		public int CountUpvotesByRequestID(int id)
+		{
+			var upvotes = (from u in db.Upvote
+						   where u.requestID == id
+						   select u).Count();
+			return upvotes;
+						
+		}
+
 		public void AddUpvote(Upvote u)
 		{
 			db.Upvote.Add(u);

@@ -1,9 +1,8 @@
-﻿$(document).ready(function () {
+﻿// Grímur
+$(document).ready(function () {
     $(function () {
         $("#accordion").accordion();
     });
-
-    //var translationLine = $().load()
 
     $(".AddLine").click(function () {
         var newTranslationLineDiv = $(document.createElement('div')).attr("class", 'form-group translationLine');
@@ -32,8 +31,7 @@
         newTranslationLineDiv.insertAfter(this);
     });
 
-    $('.glyphicon-thumbs-up').click(function ( event ) {
-        console.log(event.target.id)
+    $('.upvoteTranslation').click(function ( event ) {
         var id = event.target.id;
 
         var param = { mediaId: id }
@@ -41,7 +39,7 @@
         $.ajax({
             url: "/ListTranslations/UpvoteMedia",
             contentType: "application/x-www-form-urlencoded",
-            type: "GET",
+            type: "POST",
             datatype: "json",
             data: param,
             error: function (xmlHttpRequest, errorText, thrownError) {
@@ -53,28 +51,25 @@
         });
     });
 
-    /*
-    $('.glyphicon-thumbs-up').click(id = $(this).element.attr('id'), function(id) {
-        console.log(id);
-    } )
+    $('.upvoteRequest').click(function (event) {
+        var id = event.target.id;
 
-    $("a[id|='upvote-media']").click(function () {
+        var param = { requestId: id }
+
         $.ajax({
-            url: "/ListTranslations/UpvoteMedia",
+            url: "/ListRequest/UpvoteRequest",
             contentType: "application/x-www-form-urlencoded",
             type: "POST",
-            datatype: "string",
-            data: this,
+            datatype: "json",
+            data: param,
             error: function (xmlHttpRequest, errorText, thrownError) {
-                alert(xmlHttpRequest + "|" + errorText + "|" + thrownError);
+                console.log(xmlHttpRequest + "|" + errorText + "|" + thrownError);
             },
             success: function (data) {
-                if (data != null) {
-                    alert("success");
-                }
+                // Todo: refresh counter in table
             }
         });
-    })*/
+    });
 });
 
 //fanney

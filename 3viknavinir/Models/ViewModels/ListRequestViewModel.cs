@@ -13,5 +13,6 @@ namespace _3viknavinir.Models.ViewModels
 		public string IMDBId { get; set; }
 		public string requestByName { get; set; }
 		public string requestById { get; set; }
+		public int upvotes { get; set; }
 	}
 }
