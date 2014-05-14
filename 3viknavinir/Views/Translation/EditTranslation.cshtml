@@ -31,33 +31,25 @@
         @Html.ValidationSummary(true)
         foreach (var item in Model.textToTranslate)
         {
-            <div class="translationLine">
+            <div>
                 @Html.HiddenFor(model => item.ID)
-                <div class="newChapter">
-                    <p class="startendTimeLabel">@Html.Label("Kafli")</p>
-                    @Html.EditorFor(model => item.chapterNumber)
+                    <p class="chapterLabel">@Html.Label("Kafli")</p>
+                    @Html.TextBoxFor(model => item.chapterNumber, new{ @class="chapterTextBox" })
                     @Html.ValidationMessageFor(model => item.chapterNumber)
-                </div>
-                <div class="timeStamps">
-                    <div class="newStartTime">
-                        <p class="startendTimeLabel">@Html.Label("Byrjunartími")</p>
-                        @Html.EditorFor( model => item.startTime)
+
+                    <p class="startTimeLabel">@Html.Label( "Byrjunartími" )</p>
+                        @Html.TextBoxFor( model => item.startTime, new { @class = "startTimeTextBox" } )
                         @Html.ValidationMessageFor(model => item.startTime)
-                    </div>
                     <div>
                         <p class="timeLabels">-></p>
                     </div>
-                        <div class="newEndTime">
-                            <p class="startendTimeLabel">@Html.Label( "Endatími" )</p>
-                        @Html.EditorFor(model => item.endTime)
+                            <p class="endTimeLabel">@Html.Label( "Endatími" )</p>
+                        @Html.TextBoxFor( model => item.endTime, new { @class = "endTimeTextBox" } )
                         @Html.ValidationMessageFor(model => item.endTime)
-                    </div>
-                </div>
-                <div class="newSubtitle">
+
                     <p class="subtitleTextLabel">@Html.Label( "Texti" )</p>
-                    @Html.EditorFor(model => item.subtitle)
+                    @Html.TextBoxFor(model => item.subtitle, new { @class ="subtitleTextBox" })
                     @Html.ValidationMessageFor(model => item.subtitle)
-                </div>
             </div>
         }
         <div class="editLines">

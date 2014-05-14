@@ -53,7 +53,7 @@
         });
     });
 
-    /*
+   
     $('.glyphicon-thumbs-up').click(id = $(this).element.attr('id'), function(id) {
         console.log(id);
     } )
@@ -74,7 +74,7 @@
                 }
             }
         });
-    })*/
+    })
 });
 
 //fanney
