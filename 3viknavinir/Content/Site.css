@@ -387,7 +387,7 @@ input[type="checkbox"].input-validation-error {
 	margin: 0px;
 	padding: 0px;
     position: relative;
-    top: 17px;
+    top: -18px;
     left: -1px;
 }
 .oldSubtitle {
@@ -448,7 +448,10 @@ input[type="checkbox"].input-validation-error {
 .timeStamps p {
     width: 30px;
 }
-
+.subtitleTextLabel{
+    position: relative;
+    top: 38px;
+}
 #TextToEdit {
     position: relative;
     float: left;
@@ -465,6 +468,3 @@ input[type="checkbox"].input-validation-error {
     float: left;
     clear: left;
 }
-/*div{
-    border: solid;
-}*/
