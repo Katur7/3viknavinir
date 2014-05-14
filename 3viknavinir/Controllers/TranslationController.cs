@@ -248,6 +248,7 @@ namespace _3viknavinir.Controllers
 							var media = mediaRepo.GetMediaByID(translation.mediaID);
 							viewModel.title = media.title;
 							viewModel.year = media.yearOfRelease;
+                            viewModel.mediaID = media.ID;
 
 							using (TranslationLinesRepo translationLinesRepo = new TranslationLinesRepo())
 							{

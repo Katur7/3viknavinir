@@ -63,13 +63,19 @@ a h1 {
 	margin: 20px 0px 0px 5px;
 }
 
-#homePageTable {
+#homePageTable-1 {
 	width: 1180px;
 	border-collapse: collapse;
 	margin-right: 30px;
 }
 
-.homePageTableRows td {
+#homePageTable-2 {
+	width: 1180px;
+	border-collapse: collapse;
+	margin-right: 30px;
+}
+
+.homePageTableRows td{
 	padding: 5px 0px 5px 0px;
 }
 
@@ -402,7 +408,7 @@ input[type="checkbox"].input-validation-error {
     top: 38px;
 }
 .oldChapter {
-	margin: 6px;
+	margin: -1px;
     padding: 2px;
 }
 
@@ -438,7 +444,7 @@ input[type="checkbox"].input-validation-error {
     margin-top: -120px;
     margin-left: -70px;   
 }
-
+/*css for edittranslation*/
 .timeStamps {
     display: inline;
     margin: 0px;
@@ -456,22 +462,7 @@ input[type="checkbox"].input-validation-error {
     position: relative;
     top: 12px;
 }
-.timeTextBox{
-    display: block;
-     width: 100%;
-     height: 34px;
-     padding: 6px 12px;
-     font-size: 14px;
-     line-height: 1.428571429;
-     color: #555555;
-     vertical-align: middle;
-     background-color: #ffffff;
-     border: 1px solid #cccccc;
-     border-radius: 4px;
-     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-     -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-          transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+.timeTextBox {
 }
 .chapterTextBox{
 
@@ -479,7 +470,7 @@ input[type="checkbox"].input-validation-error {
 .subtitleTextBox{
 
 }
-.TextToEdit {
+#TextToEdit {
     position: relative;
     top: -35px;
     float: left;
@@ -492,7 +483,7 @@ input[type="checkbox"].input-validation-error {
     width: 500px;
 }
 
-.TextToEdit form a {
+#TextToEdit form a {
     float: left;
     clear: left;
 }
@@ -520,11 +511,17 @@ div{
 .userName{
     font-weight: bold;
     text-align:left;
+    position:relative;
+    top: 8px;
+    left: 20px;
 }
 
 .dayAdded{
     font-style: italic;
     text-align:right;
+    position: relative;
+    top: 8px;
+    left: -4px;
 }
 
 .commentBody{

@@ -15,23 +15,33 @@ namespace _3viknavinir.Controllers
 		{
 			using(MediaRepo mediaRepo = new MediaRepo())
 			{
-				using(TranslationRepo translationRepo = new TranslationRepo())
-				{
-					var newestMedia = (from t in translationRepo.GetAllTranslations()
-									   join m in mediaRepo.GetAllMedia() on t.mediaID equals m.ID
-									   orderby t.dateAdded descending
-									   select m).Take(10);
+                using (TranslationRepo translationRepo = new TranslationRepo())
+                {
+                    using (RequestRepo RequestRepo = new RequestRepo())
+                    {
+                        var newestMedia = (from t in translationRepo.GetAllTranslations()
+                                           join m in mediaRepo.GetAllMedia() on t.mediaID equals m.ID
+                                           orderby t.dateAdded descending
+                                           select m).Take(10);
 
-					var viewModel = new IndexViewModel();
+                        var viewModel = new IndexViewModel();
 
-					viewModel.recentMedia = newestMedia;
-					 
-					if (newestMedia != null)
-					{
-						return View(viewModel);
-					}
-				}
+                        viewModel.recentMedia = newestMedia;
+
+                         var recentRequest = (from r in RequestRepo.GetAllRequests()
+                                           orderby r.dateOfRequest descending
+                                           select r).Take(10);
+
+                         viewModel.recentRequests = recentRequest;
+
+                        if (newestMedia != null && recentRequest != null)
+                        {
+                            return View(viewModel);
+                        }
+                    }
+                }
 			}
+        
 			return View();
 		}
 

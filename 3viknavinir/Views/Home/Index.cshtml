@@ -20,25 +20,40 @@
     </div>
     @*Erla og Grímur*@
     <div class="row">
-        <div class="col-md-4">
-            <table id="homePageTable" class="table-striped">
-                <thead>
+    <div class="col-md-4">
+        <table id="homePageTable-1" class="table-striped">
+            <thead>
+                <tr class="homePageTableRows">
+                    <th>Nýjustu Textar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.recentMedia)
+                {
                     <tr class="homePageTableRows">
-                        <th>Mest Sótt</th>
-                        <th>Nýjustu Textar</th>
-                        <th>Vinsælar Beiðnir</th>
+                        <td>@Html.ActionLink(item.title, "Details", "Translation", new { id = item.ID }, null) (@item.yearOfRelease)</td>
+                        <td></td>
                     </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.recentMedia)
-                    {
-                        <tr class="homePageTableRows">
-                            <td>TODO</td>
-                            <td>@Html.ActionLink(item.title, "Details", "Translation", new { id = item.ID }, null) (@item.yearOfRelease)</td>
-                            <td></td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+                }
+            </tbody>
+        </table>
+    </div>
+    <table id="homePageTable-2" class="table-striped">
+        <thead>
+            <tr class="homePageTableRows">
+                <th>Nýjustu Beiðnir</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.recentRequests)
+            {
+                <tr class="homePageTableRows">
+                    <td>@Html.ActionLink(item.title, "Details", "Translation", new { id = item.ID }, null) (@item.yearOfRelease)</td>
+                    <td></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
     </div>
