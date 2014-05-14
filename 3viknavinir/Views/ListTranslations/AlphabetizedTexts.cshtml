@@ -14,14 +14,14 @@
         </ul>
     </div>
     <h2>Textar A-Ö</h2>
-@*Erla*@
-<div id="searchBox">
-	@using (Html.BeginForm("SearchMediaView", "Search", FormMethod.Get))
-	{
-		@Html.TextBox("SearchString")
-		<input type="submit" value="Leita" class="btn btn-default" id="searchButton" />
-	}
-</div>
+    @*Erla*@
+    <div id="searchBox">
+        @using (Html.BeginForm("SearchMediaView", "Search", FormMethod.Get))
+        {
+            @Html.TextBox("SearchString")
+            <input type="submit" value="Leita" class="btn btn-default" id="searchButton" />
+        }
+    </div>
     <form action="/Translation/Translate">
         <input type="submit" value="" id="addRequestButton" />
         <div class="newTranslationButton"><p>Bæta við þýðingu</p></div>
@@ -38,24 +38,23 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.allMedia) 
-				{
+                @foreach (var item in Model.allMedia)
+                {
                     <tr class="requestRow">
-                        <td class="alphabetname">@Html.ActionLink(item.title, "Details", "Translation", new { id=item.ID }, null)</td>
+                        <td class="alphabetname">@Html.ActionLink(item.title, "Details", "Translation", new { id = item.ID }, null)</td>
                         <td class="alphabetYear">@item.yearOfRelease</td>
                         <td class="alphabettNumberDownload">er víst ekki til fall/breyta</td>
                         @*<td class="alphabetUpvote">@Html.ActionLink("", "", "", new { @class="glyphicon glyphicon-thumbs-up")</td>*@
                         <td class="alphabetUpvote">16<a href="#" class="glyphicon glyphicon-thumbs-up" style="left: 35px"></a></td>
                         <td class="alphabetDownload"><a href="#" class="glyphicon glyphicon-download" style="left: 35px"></a></td>
                     </tr>
-				}
-                </tbody>
-            </table>
-            <div class="pageCount">
-                @for(int i = 0; i < Model.pageCount; i++)
-                {
-                    @Html.ActionLink((i + 1).ToString(), "AlphabetizedTexts", "ListTranslations", new { id = i }, null)
                 }
-            </div>
-
+            </tbody>
+        </table>
+        <div class="pageCount">
+            @for (int i = 0; i < Model.pageCount; i++)
+            {
+                @Html.ActionLink((i + 1).ToString(), "AlphabetizedTexts", "ListTranslations", new { id = i }, null)
+            }
         </div>
+    </div>

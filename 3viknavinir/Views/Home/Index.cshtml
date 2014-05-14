@@ -1,44 +1,44 @@
-﻿@model _3viknavinir.Models.IndexViewModel
-@{
-    ViewBag.Title = "SÍÁT";
-}
-@*Liljar*@
-<div id="welcome">
-    <p>
-        Velkominn á síðu Samfélags Íslensks Áhugafólks um Texta!
-        Hér getur þú sótt, deilt, þýtt og spáð í textaþýðingum fyrir myndefni.
-    </p>
-</div>
-@*Erla*@
-<div id="searchBox">
-	@using (Html.BeginForm("SearchMediaView", "Search", FormMethod.Get))
-	{
-		@Html.TextBox("SearchString")
-		<input type="submit" value="Leita" class="btn btn-default" id="searchButton" />
-	}
-</div>
-
-@*Erla og Grímur*@
-<div class="row">
-    <div class="col-md-4">
-        <table id="homePageTable" class="table-striped">
-            <thead>
-                <tr class="homePageTableRows">
-                    <th>Mest Sótt</th>
-                    <th>Nýjustu Textar</th>
-                    <th>Vinsælar Beiðnir</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.recentMedia)
-                {
-                    <tr class="homePageTableRows">
-                        <td>TODO</td>
-                        <td>@Html.ActionLink(item.title, "Details", "Translation", new { id = item.ID }, null) (@item.yearOfRelease)</td>
-                        <td></td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+﻿
+    @model _3viknavinir.Models.IndexViewModel
+    @{
+        ViewBag.Title = "SÍÁT";
+    }
+    @*Liljar*@
+    <div id="welcome">
+        <p>
+            Velkominn á síðu Samfélags Íslensks Áhugafólks um Texta!
+            Hér getur þú sótt, deilt, þýtt og spáð í textaþýðingum fyrir myndefni.
+        </p>
     </div>
-</div>
+    @*Erla*@
+    <div id="searchBox">
+        @using (Html.BeginForm("SearchMediaView", "Search", FormMethod.Get))
+        {
+            @Html.TextBox("SearchString")
+            <input type="submit" value="Leita" class="btn btn-default" id="searchButton" />
+        }
+    </div>
+    @*Erla og Grímur*@
+    <div class="row">
+        <div class="col-md-4">
+            <table id="homePageTable" class="table-striped">
+                <thead>
+                    <tr class="homePageTableRows">
+                        <th>Mest Sótt</th>
+                        <th>Nýjustu Textar</th>
+                        <th>Vinsælar Beiðnir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.recentMedia)
+                    {
+                        <tr class="homePageTableRows">
+                            <td>TODO</td>
+                            <td>@Html.ActionLink(item.title, "Details", "Translation", new { id = item.ID }, null) (@item.yearOfRelease)</td>
+                            <td></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
