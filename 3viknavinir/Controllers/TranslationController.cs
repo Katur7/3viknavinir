@@ -22,13 +22,6 @@ namespace _3viknavinir.Controllers
             return View();
         }
 
-		/*public void Upload(MediaDetailsViewModel viewModel)
-		{
-			Media media = new Media();
-			media.title = viewModel.title;
-
-		}*/
-
 		public bool HasFile(HttpPostedFileBase file)
 		{
 			return (file != null && file.ContentLength > 0) ? true : false;
@@ -90,19 +83,28 @@ namespace _3viknavinir.Controllers
                         newTranslation.finished = false; 
                         newTranslation.userID = User.Identity.GetUserId();
                         newTranslation.dateAdded = DateTime.Now;
-
-
                         
                         translationRepo.AddTranslation( newTranslation );
+
+						BinaryReader b = new BinaryReader(media.srtFile.InputStream);
+						byte[] binData = b.ReadBytes((int)media.srtFile.InputStream.Length);
+						string result = System.Text.Encoding.UTF8.GetString(binData);
+
+						var lines = result.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+						foreach(var line in lines)
+						{
+							System.Diagnostics.Debug.WriteLine(line);
+						}
+
                         return RedirectToAction("EditTranslation", "Translation", new {ID = newTranslation.mediaID});
 
-						foreach (string upload in Request.Files)
+						/*foreach (string upload in Request.Files)
 						{
 							if (!HasFile(Request.Files[upload])) continue;
 							string path = AppDomain.CurrentDomain.BaseDirectory + "uploads/";
 							string filename = Path.GetFileName(Request.Files[upload].FileName);
 							Request.Files[upload].SaveAs(Path.Combine(path, filename));
-						}
+						}*/
                      }
                 }
             }
