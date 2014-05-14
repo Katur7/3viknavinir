@@ -97,14 +97,6 @@ namespace _3viknavinir.Controllers
 						}
 
                         return RedirectToAction("EditTranslation", "Translation", new {ID = newTranslation.mediaID});
-
-						/*foreach (string upload in Request.Files)
-						{
-							if (!HasFile(Request.Files[upload])) continue;
-							string path = AppDomain.CurrentDomain.BaseDirectory + "uploads/";
-							string filename = Path.GetFileName(Request.Files[upload].FileName);
-							Request.Files[upload].SaveAs(Path.Combine(path, filename));
-						}*/
                      }
                 }
             }
