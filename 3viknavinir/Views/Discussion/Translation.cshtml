@@ -42,10 +42,16 @@
             <p>Skrifa Athugasemd</p>
         </div>
         <div class="addCommentBody">
-            <form>
-                <textarea class="form-control" rows="10" cols="60"></textarea>
-                <input type="submit" class="btn btn-default" value="Skrá" />
-            </form>
+            @using (Html.BeginForm("Translation", "Discussion", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.TextAreaFor( model => model.comment, new { @cols = "40", @rows = "6" } )
+                @Html.HiddenFor(model => model.media.ID)
+                 <div class="form-group">
+                  <div class="col-md-offset-2 col-md-10">
+                     <input type="submit" class="btn btn-default" value="Skrá" />
+                  </div>
+                 </div>
+            }
         </div>
     </div>
 </div>
