@@ -3,11 +3,34 @@
         $("#accordion").accordion();
     });
 
-    var translationLine = $().load()
+    //var translationLine = $().load()
 
-    $(function () {
-        $("#AddLine").click((this).append($().load("/Content/TranslationLineTemplate")));
-    })
+    $(".AddLine").click(function () {
+        var newTranslationLineDiv = $(document.createElement('div')).attr("class", 'form-group translationLine');
+        newTranslationLineDiv.after().html('<div class="col-md-10 newChapter">' +
+            '<p><label for="Kafli">Kafli</label></p>' +
+            '<input class="text-box single-line" type="number" value="">' +
+            '</div>' + 
+            '<div class="timeStamps">' +
+                '<div class="col-md-10 newStartTime">' +
+                    '<p><label for="Byrjunart_mi">Byrjunartími</label></p>' +
+                    '<input class="text-box single-line" type="text" value="">' +
+                '</div>' + 
+                '<p>-&gt;</p>' +
+                '<div class="col-md-10 newEndTime">' +
+                    '<p><label for="Endat_mi">Endatími</label></p>' +
+                    '<input class="text-box single-line" type="text" value="">' +
+                '</div>' +
+            '</div>' +
+            '<div class="col-md-10 newSubtitle">' +
+                '<p><label for="Texti">Texti</label></p>' +
+                '<input class="text-box single-line" type="text" value="">' +
+            '</div>' +
+        '</div>' +
+        '<a href="#" id="DeleteLine">Eyða línu</a>' +
+        '<a href="#" id="AddLine">Bæta við línu</a>');
+        newTranslationLineDiv.insertAfter(this);
+    });
 });
 
 //fanney

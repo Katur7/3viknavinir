@@ -248,11 +248,11 @@ namespace _3viknavinir.Controllers
 					}
                 }
             }
-			return RedirectToAction("Index", "Home");  // Should be Error/404
+			return HttpNotFound();  // Should be Error/404
         }
 
         [HttpPost]
-        public ActionResult EditTranslation( )
+        public ActionResult EditTranslation( FormCollection translationLines )
         {
             return View( );
         }
