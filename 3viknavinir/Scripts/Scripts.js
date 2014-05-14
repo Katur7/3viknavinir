@@ -45,10 +45,10 @@
             datatype: "json",
             data: param,
             error: function (xmlHttpRequest, errorText, thrownError) {
-                alert(xmlHttpRequest + "|" + errorText + "|" + thrownError);
+                console.log(xmlHttpRequest + "|" + errorText + "|" + thrownError);
             },
             success: function (data) {
-                alert("success");
+                // Todo: refresh counter in table
             }
         });
     });
