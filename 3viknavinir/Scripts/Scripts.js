@@ -74,7 +74,7 @@ $(document).ready(function () {
                 // Could use ajax, call repo, replace html element
             }
         });
-    })*/
+    })
 });
 
 //fanney
