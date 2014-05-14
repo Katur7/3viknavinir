@@ -34,7 +34,7 @@ namespace _3viknavinir.Controllers
 							if(discussionRepo.IsExistingID(realid))
 							{
 								var allDiscussions = (from d in discussionRepo.GetCommentByMediaID(realid)
-													  orderby d.dateAdded ascending
+													  orderby d.dateAdded descending
 													  select d);
 								using (UserRepo userRepo = new UserRepo())
 								{
