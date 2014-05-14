@@ -1,4 +1,5 @@
 ﻿using _3viknavinir.Models;
+using _3viknavinir.Models.ViewModels;
 using _3viknavinir.Repo;
 using System;
 using System.Collections.Generic;
@@ -32,14 +33,28 @@ namespace _3viknavinir.Controllers
 						{
 							realid = id.Value;
 						}
+						var viewModel = new AlphabetizedTextsViewmodel();
+
+						var count = (from m in mediarepo.GetAllMedia()
+											   select m).Count();
+						viewModel.pageCount = (count / ITEMSPERPAGE) + 1;
 
 						var allmedia = (from m in mediarepo.GetAllMedia()
 										orderby m.title ascending
-										select m).ToList();
+										select m).Skip(realid * ITEMSPERPAGE).Take(ITEMSPERPAGE);
 
-						var viewModel = new AlphabetizedTextsViewmodel();
-						viewModel.pageCount = (allmedia.Count() / ITEMSPERPAGE) + 1;
-						viewModel.allMedia = allmedia.Skip(realid * ITEMSPERPAGE).Take(ITEMSPERPAGE);
+						viewModel.allMedia = new List<MediaUpvoteViewModel>();
+						foreach(var item in allmedia)
+						{
+							MediaUpvoteViewModel mediaUpvote = new MediaUpvoteViewModel();
+							mediaUpvote.media = item;
+							var translation = translationRepo.GetTranslationByMediaID(realid);
+							if(translation != null)
+							{
+								mediaUpvote.upvotes = translationRepo.GetTranslationByMediaID(item.ID).Upvote.Count;
+							}
+							viewModel.allMedia.Add(mediaUpvote);
+						}
 
 						if(allmedia != null)
 						{

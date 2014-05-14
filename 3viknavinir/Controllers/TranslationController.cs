@@ -128,6 +128,7 @@ namespace _3viknavinir.Controllers
 								
 							viewModel.media = media;
 							viewModel.translation = translation;
+							//int upvote = translation.Upvote.Count;
 
 							if (media != null && translation != null)
 							{
