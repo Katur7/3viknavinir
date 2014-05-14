@@ -11,6 +11,7 @@
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
+        <a href="#" class="AddLine">Bæta við línu</a>
         foreach (var item in Model.textToTranslate)
         {
             <div class="form-group translationLine">
