@@ -34,7 +34,7 @@
         @Html.HiddenFor(model => model.ID)
 
         <div class="form-group">
-            @Html.Label("Titill: ", new { @class = "control-label col-md-2" })
+            @Html.Label("title","Titill:", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.title)
                 @Html.ValidationMessageFor(model => model.title)
@@ -42,7 +42,7 @@
         </div>
 
         <div class="form-group">
-			@Html.Label("Ártal: ", new { @class = "control-label col-md-2" })
+			@Html.Label("year","Ártal:", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.year)
                 @Html.ValidationMessageFor(model => model.year)
@@ -50,7 +50,7 @@
         </div>
 
         <div class="form-group">
-            @Html.Label("IMDB ID: ", new { @class = "control-label col-md-2" })
+            @Html.Label("imdbId", "IMDB ID: ", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.imdbId)
                 @Html.ValidationMessageFor(model => model.imdbId)
@@ -58,14 +58,14 @@
         </div>
 
         <div class="form-group">
-			@Html.Label("Lýsing: ", new { @class = "control-label col-md-2" })
+			@Html.Label("description", "Lýsing: ", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextAreaFor(model => model.description, new { @cols="40", @rows="6" })
                 @Html.ValidationMessageFor(model => model.description)
             </div>
         </div>
         <div class="form-group">
-            @Html.Label("Flokkur: ", new { @class = "control-label col-md-2" })
+            @Html.Label("category", "Flokkur: ", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.category, (IEnumerable<SelectListItem>)Model.categories)
                 @Html.ValidationMessageFor(model => model.categories)
