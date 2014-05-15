@@ -107,7 +107,7 @@ $(document).ready(function () {
                 console.log(xmlHttpRequest + "|" + errorText + "|" + thrownError);
             },
             success: function (data) {
-                // Redirect to ...
+                window.location.href = "/Translation/Details/" + data.mediaId;
             }
         });
     });
