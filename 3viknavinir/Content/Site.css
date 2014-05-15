@@ -251,7 +251,13 @@ input[type="checkbox"].input-validation-error {
 }
 .newTranslationButton {
     float: right;
+	margin-bottom: 20px;
 }
+
+.addTranslationText {
+	margin: 0px 10px 0px 0px;
+}
+
 .alphabetizedTextDiv {
     padding-left: 20px;
 }
