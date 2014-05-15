@@ -9,6 +9,7 @@ using System.Web.Security;
 using Microsoft.AspNet.Identity;
 using _3viknavinir.Models.ViewModels;
 using System.IO;
+using System.Text;
 
 namespace _3viknavinir.Controllers
 {
@@ -296,12 +297,51 @@ namespace _3viknavinir.Controllers
 			return View( );
 		}
 
-        public void Download(int id)
+        public ActionResult Download(int? id)
         {
+			var mediaId = id.Value;
+			string titleYear;
+			int translationId;
+			using(MediaRepo mediaRepo = new MediaRepo())
+			{
+				var media = mediaRepo.GetMediaByID(mediaId);
+				titleYear = media.title + ".(" + media.yearOfRelease + ")";
+				using(TranslationRepo translationRepo = new TranslationRepo())
+				{
+					translationId = translationRepo.GetTranslationByMediaID(mediaId).ID;
+				}
+			}
             using (TranslationLinesRepo translationRepo = new TranslationLinesRepo())
             {
-                var translationLines = translationRepo.GetTranslationLinesByTranslationID(id);
+				var translationLines = translationRepo.GetTranslationLinesByTranslationID(translationId);
 
+				string document = "";
+				foreach(var item in translationLines)
+				{
+					document += item.chapterNumber.ToString() + Environment.NewLine;
+					document += item.startTime.ToString() + " -> " + item.endTime.ToString() + Environment.NewLine;
+					document += item.subtitle.ToString() + Environment.NewLine;
+					document += Environment.NewLine;
+				}
+
+				return File(Encoding.UTF8.GetBytes(document),
+				 "text/plain",
+				  titleYear + ".srt");
+
+				//var cd = new System.Net.Mime.ContentDisposition
+				//{
+				//	// for example foo.bak
+				//	FileName = titleYear + ".srt",
+
+				//	// always prompt the user for downloading, set to true if you want 
+				//	// the browser to try to show the file inline
+				//	Inline = false,
+				//};
+
+				//Response.AppendHeader("Content-Disposition", cd.ToString());
+				//return File(document, "srt");               
+
+				/*
                 foreach (var item in translationLines)
                 {
                     System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", item.chapterNumber.ToString( ) + System.Environment.NewLine );
@@ -310,6 +350,7 @@ namespace _3viknavinir.Controllers
                     System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", item.endTime + System.Environment.NewLine );
                     System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", item.subtitle + System.Environment.NewLine + System.Environment.NewLine );
                 }
+				*/
             }
         }
 	}
