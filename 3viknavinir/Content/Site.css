@@ -694,10 +694,25 @@ input[type="checkbox"].input-validation-error {
     position: relative; 
     left: 275px;
 }
+.largerFont{
+    font-size: larger;
+}
+.initialFont{
+    font-size: initial;
+}
 .fullyTranslateCheckbox{
     margin-Top: 20px;
 }
 .translateDropDown{
     position: relative;
     right: 214px;
+}
+#stillingarIs_turnUserstylesOnButton{
+    position: relative;
+    top: -80px;
+    float: right;
+    right: 30px;
+}
+.glyphicon-position{
+    left: 35px
 }
