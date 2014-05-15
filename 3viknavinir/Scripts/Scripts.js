@@ -120,18 +120,19 @@ $(document).ready(function () {
         console.log(json);
         //var json = { "textToTranslate": [{ "chapterNumber": 1, "startTime": "00:01", "endTime": "00:03", "subtitle": "Texti" }, { "chapterNumber": 2, "startTime": "00:05", "endTime": "00:08", "subtitle": "Texti2" }], "isFinished": false, "mediaID": 4, "counter": 2 }
         
-        /*
-        $.post('EditTranslation', json, function (data) {
-            // If you want to do something after the post
-            console.log(json);
-        });*/
-
+        
+        //$.post('EditTranslation', JSON.stringify(json), function (data) {
+        //    // If you want to do something after the post
+        //    console.log(json);
+        //});
+        
         $.ajax({
             url: "/Translation/EditTranslation",
             contentType: "application/x-www-form-urlencoded",
             type: "POST",
-            datatype: "json",
-            data: json,
+            datatype: "text",
+            data: {
+                json:JSON.stringify(json)},
             error: function (xmlHttpRequest, errorText, thrownError) {
                 console.log(xmlHttpRequest + "|" + errorText + "|" + thrownError);
             },
