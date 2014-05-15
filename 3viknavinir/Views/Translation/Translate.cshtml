@@ -46,7 +46,7 @@
             <div class="form-group">
                 @Html.Label("Flokkur: ", new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.category, (IEnumerable<SelectListItem>)Model.categories)
+                    @Html.DropDownListFor( model => model.category, ( IEnumerable<SelectListItem> )Model.categories, new { @class = "btn btn-default dropdown-toggle translateDropDown" } )
                     @Html.ValidationMessageFor(model => model.categories)
                 </div>
             </div>

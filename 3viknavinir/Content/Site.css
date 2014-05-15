@@ -697,3 +697,7 @@ input[type="checkbox"].input-validation-error {
 .fullyTranslateCheckbox{
     margin-Top: 20px;
 }
+.translateDropDown{
+    position: relative;
+    right: 214px;
+}
