@@ -80,21 +80,38 @@ $(document).ready(function () {
     $('#editTranslationForm').on('submit', function (event) {
         // Stop the default submission
         event.preventDefault();
+
+        /*
+        var divs = $('#TextToEdit form .translationLine');
+        var divarr = [];
+
+        for (var i = 0; i < counter; i++) {
+            var elem = divs[i];
+            var obj = new Object();
+            obj.chapterNumber = $(elem).find('.chapterTextBox').val();
+            obj.startTime = $(elem).find('.startTimeTextBox').val();
+            obj.endTime = $(elem).find('.endTimeTextBox').val();
+            obj.subtitle = $(elem).find('.subtitleTextBox').val();
+
+            divarr.push(obj);
+        }
+        var json = new Object();
+        json.textToTranslate = divarr;
+        json.isFinished = $('.fullyTranslateCheckbox').find('input').is(':checked');
+        json.mediaID = $('#mediaID').val();
+        json.counter = counter;
+        console.log(json);
+        */
         
         var divs = $('#TextToEdit form .translationLine');
         var divarr = [];
 
         for (var i = 0; i < counter; i++) {
             var elem = divs[i];
-            console.log(elem);
             var chapterNumber = $(elem).find('.chapterTextBox').val();
-            console.log(chapterNumber);
             var startTime = $(elem).find('.startTimeTextBox').val();
-            console.log(startTime);
             var endTime = $(elem).find('.endTimeTextBox').val();
-            console.log(endTime);
             var subtitle = $(elem).find('.subtitleTextBox').val();
-            console.log(subtitle);
 
             divarr.push({ "chapterNumber": chapterNumber, "startTime": startTime, "endTime": endTime, "subtitle": subtitle });
         }
@@ -103,9 +120,25 @@ $(document).ready(function () {
         console.log(json);
         //var json = { "textToTranslate": [{ "chapterNumber": 1, "startTime": "00:01", "endTime": "00:03", "subtitle": "Texti" }, { "chapterNumber": 2, "startTime": "00:05", "endTime": "00:08", "subtitle": "Texti2" }], "isFinished": false, "mediaID": 4, "counter": 2 }
         
+        /*
         $.post('EditTranslation', json, function (data) {
             // If you want to do something after the post
             console.log(json);
+        });*/
+
+        $.ajax({
+            url: "/Translation/EditTranslation",
+            contentType: "application/x-www-form-urlencoded",
+            type: "POST",
+            datatype: "json",
+            data: json,
+            error: function (xmlHttpRequest, errorText, thrownError) {
+                console.log(xmlHttpRequest + "|" + errorText + "|" + thrownError);
+            },
+            success: function (data) {
+                // Todo: refresh counter in table
+                // Could use ajax, call repo, replace html element
+            }
         });
     });
 });
