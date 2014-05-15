@@ -54,14 +54,6 @@ namespace _3viknavinir.Repo
 			return media;
 		}
 
-		public IEnumerable<Media> GetMediaByTitle(string title)
-		{
-			var media = from m in db.Media
-						where m.title == title
-						select m;
-			return media;
-		}
-
 		// Erla
 		public IEnumerable<Media> GetMediaLike(string titleLike)
 		{
@@ -69,31 +61,6 @@ namespace _3viknavinir.Repo
 						 where m.title.Contains(titleLike) || m.Category.name.Contains(titleLike) || m.imdbID.Contains(titleLike) || m.yearOfRelease.ToString().Contains(titleLike)
 						 select m).Distinct();
 			return media.Distinct();
-		}
-
-		public int GetNextMediaID()
-		{
-			int id = ( from m in db.Media
-					   select m.ID).Max();
-
-			return id + 1;
-		}
-		
-		public IEnumerable<Media> GetMediaByYear(string year)
-		{
-			int yearInt = Convert.ToInt32(year);
-			var media = from m in db.Media
-						where m.yearOfRelease == yearInt
-						select m;
-			return media;
-		}
-
-		public IEnumerable<Media> GetMediaByCategory(string category)
-		{
-			var media = from m in db.Media
-						where m.Category.name.Contains(category)
-						select m;
-			return media;
 		}
 
 		public bool IsExistingID(int mediaId)

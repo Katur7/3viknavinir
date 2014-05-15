@@ -19,14 +19,6 @@ namespace _3viknavinir.Repo
 			return request;
 		}
 
-		public Requests GetRequestByName(string name)
-		{
-			var request = (from r in db.Requests
-						   where r.title == name
-						   select r).FirstOrDefault();
-			return request;
-		}
-
 		// Erla
 		public IEnumerable<Requests> GetRequestLike(string searchString)
 		{
@@ -68,17 +60,6 @@ namespace _3viknavinir.Repo
 			db.SaveChanges();
 		}
 
-		public void UpvoteRequest(int id, string userId)
-		{
-			var upvote = (from u in db.Upvote
-						  where u.Id == id
-						  select u).SingleOrDefault();
-			//vantar id
-			upvote.userID = userId;
-			upvote.requestID = id;
-			upvote.translationID = null;
-			upvote.discussionID = null;
-		}
         public void Dispose( )
         {
             bool disposed = false;

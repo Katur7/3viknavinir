@@ -11,18 +11,7 @@ namespace _3viknavinir.Repo
 	public class UpvoteRepo : IDisposable
 	{
 		private _3viknaContext db = new _3viknaContext();
-		/*
-		public IEnumerable<Upvote> GetUpvotesByTranslationID(int translationId)
-		{
 		
-			var upvotes = (from u in db.Upvote
-						   where u.translationID == translationId
-						   select u).ToList();
-			return upvotes;
-			
-		}
-	    */
-
 		public IEnumerable<Upvote> GetUpvotesByTranslationID(int id)
 		{
 			var upvotes = from u in db.Upvote
