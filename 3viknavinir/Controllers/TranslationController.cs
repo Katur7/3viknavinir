@@ -275,9 +275,9 @@ namespace _3viknavinir.Controllers
         }
 
         [HttpPost]
-		public ActionResult EditTranslation(string JSONmodel)
+		public ActionResult EditTranslation(TranslatedTextViewModel json)
         {
-			System.Diagnostics.Debug.WriteLine(JSONmodel);
+			System.Diagnostics.Debug.WriteLine(json);
 			//System.Web.Script.Serialization.JavaScriptSerializer serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
 
 			//TranslatedTextViewModel model = serializer.Deserialize(JSONmodel, typeof(TranslatedTextViewModel));

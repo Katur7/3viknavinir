@@ -5,13 +5,12 @@ $(document).ready(function () {
     });
 
     var counter = $('#counter').val();
-    console.log(counter);
 
     $(".AddLine").click(function () {
         counter++;
         console.log(counter);
 
-        var newTranslationLineDiv = $(document.createElement('div')).attr('id', counter);
+        var newTranslationLineDiv = $(document.createElement('div')).attr({ id: counter, class: 'translationLine' });
         newTranslationLineDiv.after().html(
             '<input data-val="true" data-val-number="The field ID must be a number." data-val-required="The ID field is required." id="item_ID" name="item.ID" type="hidden" value="' + counter + '">' +
             '<p class="chapterLabel"><label for="Kafli">Kafli</label></p>' +
@@ -27,7 +26,7 @@ $(document).ready(function () {
             '<input class="endTimeTextBox" id="item_endTime" name="item.endTime" type="text" placeholder="00:02:18,712" value="">' +
             '<span class="field-validation-valid" data-valmsg-for="item.endTime" data-valmsg-replace="true"></span>' +
             '<p class="subtitleTextLabel"><label for="Texti">Texti</label></p>' +
-            '<input class="subtitleTextBox" id="item_subtitle" name="item.subtitle" type="text" value="">' +
+            '<input class="subtitleTextBox" id="item_subtitle" name="item.subtitle" type="text" placeholder="Hér kemur textinn" value="">' +
             '<span class="field-validation-valid" data-valmsg-for="item.subtitle" data-valmsg-replace="true"></span>' +
             '</div>');
 
@@ -61,10 +60,6 @@ $(document).ready(function () {
         var id = event.target.id;
 
         var param = { requestId: id }
-   
-    $('.glyphicon-thumbs-up').click(id = $(this).element.attr('id'), function(id) {
-        console.log(id);
-    } )
 
         $.ajax({
             url: "/ListRequest/UpvoteRequest",
@@ -85,12 +80,32 @@ $(document).ready(function () {
     $('#editTranslationForm').on('submit', function (event) {
         // Stop the default submission
         event.preventDefault();
-        alert('Hello!');
+        
+        var divs = $('#TextToEdit form .translationLine');
+        var divarr = [];
 
-        // Serialize (JSON) the form's contents and post it to your action
-        $.post('EditTranslation', $(this).serialize(), function (data) {
+        for (var i = 0; i < counter; i++) {
+            var elem = divs[i];
+            console.log(elem);
+            var chapterNumber = $(elem).find('.chapterTextBox').val();
+            console.log(chapterNumber);
+            var startTime = $(elem).find('.startTimeTextBox').val();
+            console.log(startTime);
+            var endTime = $(elem).find('.endTimeTextBox').val();
+            console.log(endTime);
+            var subtitle = $(elem).find('.subtitleTextBox').val();
+            console.log(subtitle);
+
+            divarr.push({ "chapterNumber": chapterNumber, "startTime": startTime, "endTime": endTime, "subtitle": subtitle });
+        }
+
+        var json = { "textToTranslate": divarr, "isFinished": $('.fullyTranslateCheckbox').find('input').is(':checked'), "mediaID": $('#mediaID').val(), "counter": counter }
+        console.log(json);
+        //var json = { "textToTranslate": [{ "chapterNumber": 1, "startTime": "00:01", "endTime": "00:03", "subtitle": "Texti" }, { "chapterNumber": 2, "startTime": "00:05", "endTime": "00:08", "subtitle": "Texti2" }], "isFinished": false, "mediaID": 4, "counter": 2 }
+        
+        $.post('EditTranslation', json, function (data) {
             // If you want to do something after the post
-            alert('Hello!');
+            console.log(json);
         });
     });
 });
