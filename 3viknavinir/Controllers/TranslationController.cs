@@ -9,6 +9,7 @@ using System.Web.Security;
 using Microsoft.AspNet.Identity;
 using _3viknavinir.Models.ViewModels;
 using System.IO;
+using System.Text;
 
 namespace _3viknavinir.Controllers
 {
@@ -93,7 +94,6 @@ namespace _3viknavinir.Controllers
 						var lines = result.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 						foreach(var line in lines)
 						{
-
 							System.Diagnostics.Debug.WriteLine(line);
 						}
 
@@ -258,7 +258,7 @@ namespace _3viknavinir.Controllers
 
 								viewModel.textToTranslate = translationLines;
 								viewModel.translatedText = translationLines;
-
+								viewModel.counter = translationLines.Count();
 
 								viewModel.isFinished = translation.finished;
 
@@ -275,10 +275,21 @@ namespace _3viknavinir.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditTranslation( FormCollection translationLines )
+		public ActionResult EditTranslation(string JSONmodel)
         {
+			System.Diagnostics.Debug.WriteLine(JSONmodel);
+			//System.Web.Script.Serialization.JavaScriptSerializer serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
 
-            return View( );
+			//TranslatedTextViewModel model = serializer.Deserialize(JSONmodel, typeof(TranslatedTextViewModel));
+
+			//foreach(var item in viewModel)
+			//{
+			//	string valuefromsubtitlebox = viewModel["item.subtitle"];
+			//	System.Diagnostics.Debug.WriteLine(valuefromsubtitlebox);
+			//}
+
+
+			return RedirectToAction("Details");
         }
 
 		public ActionResult Discussion()
@@ -286,9 +297,61 @@ namespace _3viknavinir.Controllers
 			return View( );
 		}
 
-        public ActionResult Download()
+        public ActionResult Download(int? id)
         {
-            return View();
+			var mediaId = id.Value;
+			string titleYear;
+			int translationId;
+			using(MediaRepo mediaRepo = new MediaRepo())
+			{
+				var media = mediaRepo.GetMediaByID(mediaId);
+				titleYear = media.title + ".(" + media.yearOfRelease + ")";
+				using(TranslationRepo translationRepo = new TranslationRepo())
+				{
+					translationId = translationRepo.GetTranslationByMediaID(mediaId).ID;
+				}
+			}
+            using (TranslationLinesRepo translationRepo = new TranslationLinesRepo())
+            {
+				var translationLines = translationRepo.GetTranslationLinesByTranslationID(translationId);
+
+				string document = "";
+				foreach(var item in translationLines)
+				{
+					document += item.chapterNumber.ToString() + Environment.NewLine;
+					document += item.startTime.ToString() + " -> " + item.endTime.ToString() + Environment.NewLine;
+					document += item.subtitle.ToString() + Environment.NewLine;
+					document += Environment.NewLine;
+				}
+
+				return File(Encoding.UTF8.GetBytes(document),
+				 "text/plain",
+				  titleYear + ".srt");
+
+				//var cd = new System.Net.Mime.ContentDisposition
+				//{
+				//	// for example foo.bak
+				//	FileName = titleYear + ".srt",
+
+				//	// always prompt the user for downloading, set to true if you want 
+				//	// the browser to try to show the file inline
+				//	Inline = false,
+				//};
+
+				//Response.AppendHeader("Content-Disposition", cd.ToString());
+				//return File(document, "srt");               
+
+				/*
+                foreach (var item in translationLines)
+                {
+                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", item.chapterNumber.ToString( ) + System.Environment.NewLine );
+                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", item.startTime);
+                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", " --> " );
+                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", item.endTime + System.Environment.NewLine );
+                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", item.subtitle + System.Environment.NewLine + System.Environment.NewLine );
+                }
+				*/
+            }
         }
 	}
 }

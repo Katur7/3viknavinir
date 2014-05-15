@@ -28,43 +28,43 @@ namespace _3viknavinir.Controllers
             this.requestRepo = requestRepo;
         }
 
-		public ActionResult Requests()
-        {
+		public ActionResult Requests(int? id)
+		{
+			int realid = 0;
+			if(id.HasValue)
+			{
+				realid = id.Value;
+			}
 			using (UserRepo userRepo = new UserRepo())
-			{			
-				using (RequestRepo requestRepo = new RequestRepo( ) )
+			{
+				using (RequestRepo requestRepo = new RequestRepo())
 				{
-					using (MediaRepo mediaRepo = new MediaRepo())
+					int count = (from r in requestRepo.GetAllRequests()
+								 select r).Count();
+					ViewBag.pagecount = (count / ITEMSPERPAGE) + 1;
+
+					var allRequests = (from r in requestRepo.GetAllRequests()
+									   join u in userRepo.GetAllUsers() on r.userID equals u.Id
+									   orderby r.title ascending
+									   select new ListRequestViewModel()
+									   {
+										   Id = r.ID,
+										   title = r.title,
+										   IMDBId = r.imdbID,
+										   yearOfRelease = r.yearOfRelease,
+										   requestById = u.Id,
+										   requestByName = u.UserName,
+										   upvotes = requestRepo.CountUpvotesForRequest(r.ID)
+									   }).Skip(realid * ITEMSPERPAGE).Take(ITEMSPERPAGE).ToList();
+
+					if (allRequests != null)
 					{
-						var viewModel = new ListRequestViewModel();
-
-						var count = (from m in requestRepo.GetAllRequests()
-									 select m).Count();
-
-						var allRequests = (from r in requestRepo.GetAllRequests()
-										   join u in userRepo.GetAllUsers() on r.userID equals u.Id
-										   orderby r.title ascending
-										   select new ListRequestViewModel()
-										   {
-											   Id = r.ID,
-											   title = r.title,
-											   IMDBId = r.imdbID,
-											   yearOfRelease = r.yearOfRelease,
-											   requestById = u.Id,
-											   requestByName = u.UserName,
-											   upvotes = requestRepo.CountUpvotesForRequest(r.ID),
-											   pageCount = ( count / ITEMSPERPAGE ) + 1
-										   }).Take(ITEMSPERPAGE);
-
-						if (allRequests != null)
-						{
-							return View(allRequests);
-						}
+						return View(allRequests);
 					}
 				}
-				return View( );
+				return View();
 			}
-        }
+		}
 
         [HttpGet]
         [Authorize]
