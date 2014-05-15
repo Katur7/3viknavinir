@@ -457,6 +457,7 @@ input[type="checkbox"].input-validation-error {
     margin-left: -70px;   
 }
 /*css for edittranslation*/
+
 .timeStamps {
     display: inline;
     margin: 0px;
@@ -668,14 +669,11 @@ input[type="checkbox"].input-validation-error {
     right: -130px;
 }
 #TextToEdit {
-    position: relative;
-    top: -35px;
     float: left;
     max-width: 500px;
 }
 
 #OldText {
-    position: relative;
     float: right;
     width: 500px;
     margin: 32px;
