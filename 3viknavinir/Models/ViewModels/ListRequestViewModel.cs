@@ -14,5 +14,6 @@ namespace _3viknavinir.Models.ViewModels
 		public string requestByName { get; set; }
 		public string requestById { get; set; }
 		public int upvotes { get; set; }
+		public int pageCount { get; set; }
 	}
 }
