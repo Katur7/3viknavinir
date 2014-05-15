@@ -28,10 +28,7 @@ namespace _3viknavinir.Repo
 			translationToUpdate.finished = t.finished;
 			db.SaveChanges();
 		}
-		public void UpvoteTranslation(Translation t)
-		{
-			// TODO
-		}
+		
 		public Translation GetTranslationByMediaID(int mediaid)
 		{
 			var translation = (from t in db.Translation
@@ -60,13 +57,7 @@ namespace _3viknavinir.Repo
 			var all = db.Translation.ToList();
 			return all;
 		}
-        // Steinunn
-        public int GetNextTranslationID( )
-        {
-            int id = ( from t in db.Translation
-                       select t.ID ).Max( );
-            return id + 1;
-        }
+        
 		// Grímur
 		public void Dispose()
 		{
