@@ -457,6 +457,7 @@ input[type="checkbox"].input-validation-error {
     margin-left: -70px;   
 }
 /*css for edittranslation*/
+
 .timeStamps {
     display: inline;
     margin: 0px;
@@ -481,18 +482,18 @@ input[type="checkbox"].input-validation-error {
 .endTimeLabel{
     position: relative;
     top: -52px;
-    right: -126px;
+    right: -156px;
 }
 .timeLabel{
     position: relative;
     top: 7px;
-    left: 107px;
+    left: 130px;
 }
 .startTimeTextBox{
     position: relative;
     top: 32px;
     display: block;
-    width: 22%;
+    width: 115px;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -510,9 +511,9 @@ input[type="checkbox"].input-validation-error {
 .endTimeTextBox{
     position: relative;
     top: -61px;
-    right: -125px;
+    right: -155px;
     display: block;
-    width: 22%;
+    width: 115px;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -531,7 +532,7 @@ input[type="checkbox"].input-validation-error {
     position: relative;
     top: 32px;
     display: block;
-    width: 9%;
+    width: 40px;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -550,7 +551,7 @@ input[type="checkbox"].input-validation-error {
     position: relative;
     top: -52px;
     display: block;
-    width: 56%;
+    width: 280px;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -570,7 +571,7 @@ input[type="checkbox"].input-validation-error {
     left: -1px;
     top: -4px;
     display: block;
-    width: 9%;
+    width: 40px;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -589,9 +590,9 @@ input[type="checkbox"].input-validation-error {
     position: relative;
     top: -98px;
     float: right;
-    left: -255px;
+    left: -230px;
     display: block;
-    width: 22%;
+    width: 115px;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -611,7 +612,7 @@ input[type="checkbox"].input-validation-error {
     left: 0px;
     top: -5px;
     display: block;
-    width: 22%;
+    width: 115px;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -629,7 +630,7 @@ input[type="checkbox"].input-validation-error {
 .oldSubtitleTextBox{
     position: relative;
     top: -55px;
-    width: 56%;
+    width: 280px;
     display: block;
     height: 34px;
     padding: 6px 12px;
@@ -656,7 +657,7 @@ input[type="checkbox"].input-validation-error {
 .oldEndTimeLabel{
     position: relative;
     top: -89px;
-    left: 126px;
+    left: 156px;
 }
 .oldSubtitleLabel{
     position: relative;
@@ -665,17 +666,14 @@ input[type="checkbox"].input-validation-error {
 .oldTimeLabel{
     position: relative;
     top: -30px;
-    right: -117px;
+    right: -130px;
 }
 #TextToEdit {
-    position: relative;
-    top: -35px;
     float: left;
     max-width: 500px;
 }
 
 #OldText {
-    position: relative;
     float: right;
     width: 500px;
     margin: 32px;
@@ -706,6 +704,10 @@ input[type="checkbox"].input-validation-error {
 }
 .fullyTranslateCheckbox{
     margin-Top: 20px;
+    clear:left;
+}
+.editLines{
+    float: left;
 }
 .translateDropDown{
     position: relative;
