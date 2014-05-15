@@ -286,9 +286,17 @@ namespace _3viknavinir.Controllers
 			return View( );
 		}
 
-        public ActionResult Download()
+        public void Download(int id)
         {
-            return View();
+            using (TranslationLinesRepo translationRepo = new TranslationLinesRepo())
+            {
+                var translationLines = translationRepo.GetTranslationLinesByTranslationID(id);
+
+                foreach (var item in translationLines)
+                {
+                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\write.srt", item.subtitle);
+                }
+            }
         }
 	}
 }
