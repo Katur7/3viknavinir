@@ -7,14 +7,17 @@
     <title>SÍÁT <<</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <link rel="stylesheet" type="text/html" href="~/Content/jquery-ui-1.10.4.custom.css" />
+    <link rel="stylesheet" type="text/html" href="~/Content/jquery-ui-1.10.4.custom.css" />
 </head>
 <body>
     <div class="wrapper">
         <div id="header" class="navbar navbar-default navbar-static-top">
             <div id="menu-top" class="navbar-collapse">
                 <div class="leftheader">
-                    <a href="@Url.Action("Index", "Home")"><img src="@Url.Content("~/Content/siat_logo.jpg")" class="logoimg" /></a>
-                    <a href="@Url.Action("Index", "Home")" class="logotext"><h1>SÍÁT <<</h1></a>
+                    <a href="@Url.Action("Index", "Home")"><img src="@Url.Content("~/Content/siat_logo.jpg")" class="logoimg" alt="logo" /></a>
+                    <a href="@Url.Action("Index", "Home")" class="logotext"><h1>SÍÁT &lt; &lt;</h1></a>
                 </div>
                 @Html.Partial( "_LoginPartial" )
             </div>
@@ -53,8 +56,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/Scripts/Scripts.js")
-    <link rel="stylesheet" href="~/Content/jquery-ui-1.10.4.custom.css" />
-    <link rel="stylesheet" href="~/Content/jquery-ui-1.10.4.custom.css" />
+   
     <script src="~/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
     @RenderSection( "scripts", required: false )
 </body>
