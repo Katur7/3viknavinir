@@ -28,12 +28,21 @@ namespace _3viknavinir.Controllers
             this.requestRepo = requestRepo;
         }
 
-		public ActionResult Requests()
+		public ActionResult Requests(int? id)
 		{
+			int realid = 0;
+			if(id.HasValue)
+			{
+				realid = id.Value;
+			}
 			using (UserRepo userRepo = new UserRepo())
 			{
 				using (RequestRepo requestRepo = new RequestRepo())
 				{
+					int count = (from r in requestRepo.GetAllRequests()
+								 select r).Count();
+					ViewBag.pagecount = (count / ITEMSPERPAGE) + 1;
+
 					var allRequests = (from r in requestRepo.GetAllRequests()
 									   join u in userRepo.GetAllUsers() on r.userID equals u.Id
 									   orderby r.title ascending
@@ -46,7 +55,7 @@ namespace _3viknavinir.Controllers
 										   requestById = u.Id,
 										   requestByName = u.UserName,
 										   upvotes = requestRepo.CountUpvotesForRequest(r.ID)
-									   }).ToList();
+									   }).Skip(realid * ITEMSPERPAGE).Take(ITEMSPERPAGE).ToList();
 
 					if (allRequests != null)
 					{

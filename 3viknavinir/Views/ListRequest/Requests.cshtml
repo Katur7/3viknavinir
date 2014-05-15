@@ -50,4 +50,10 @@
 			}
 		</tbody>
 	</table>
+    <div class="pageCount">
+        @for (int i = 0; i < ViewBag.pageCount; i++)
+        {
+            @Html.ActionLink((i + 1).ToString(), "Requests", "ListRequest", new { id = i }, null)
+        }
+    </div>
 </div>
