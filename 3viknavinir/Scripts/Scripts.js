@@ -18,13 +18,13 @@ $(document).ready(function () {
             '<input class="chapterTextBox valid" data-val="true" data-val-number="The field chapterNumber must be a number." data-val-required="The chapterNumber field is required." id="item_chapterNumber" name="item.chapterNumber" type="text" value="' + counter + '">' +
             '<span class="field-validation-valid" data-valmsg-for="item.chapterNumber" data-valmsg-replace="true"></span>' +
             '<p class="startTimeLabel"><label for="Byrjunart_mi">Byrjunartími</label></p>' +
-            '<input class="startTimeTextBox" id="item_startTime" name="item.startTime" type="text" value="">' +
+            '<input class="startTimeTextBox" id="item_startTime" name="item.startTime" type="text" placeholder="00:02:15,712" value="">' +
             '<span class="field-validation-valid" data-valmsg-for="item.startTime" data-valmsg-replace="true"></span>' +
             '<div>' +
                 '<p class="timeLabels">-&gt;</p>' +
             '</div>' +
             '<p class="endTimeLabel"><label for="Endat_mi">Endatími</label></p>' +
-            '<input class="endTimeTextBox" id="item_endTime" name="item.endTime" type="text" value="">' +
+            '<input class="endTimeTextBox" id="item_endTime" name="item.endTime" type="text" placeholder="00:02:18,712" value="">' +
             '<span class="field-validation-valid" data-valmsg-for="item.endTime" data-valmsg-replace="true"></span>' +
             '<p class="subtitleTextLabel"><label for="Texti">Texti</label></p>' +
             '<input class="subtitleTextBox" id="item_subtitle" name="item.subtitle" type="text" value="">' +
