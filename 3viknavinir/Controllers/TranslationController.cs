@@ -319,38 +319,15 @@ namespace _3viknavinir.Controllers
 				foreach(var item in translationLines)
 				{
 					document += item.chapterNumber.ToString() + Environment.NewLine;
-					document += item.startTime.ToString() + " -> " + item.endTime.ToString() + Environment.NewLine;
+					document += item.startTime.ToString() + ":00,000" + " --> " + item.endTime.ToString() + ":00,000" + Environment.NewLine;
 					document += item.subtitle.ToString() + Environment.NewLine;
 					document += Environment.NewLine;
 				}
 
 				return File(Encoding.UTF8.GetBytes(document),
-				 "text/plain",
+				 "text/srt",
 				  titleYear + ".srt");
 
-				//var cd = new System.Net.Mime.ContentDisposition
-				//{
-				//	// for example foo.bak
-				//	FileName = titleYear + ".srt",
-
-				//	// always prompt the user for downloading, set to true if you want 
-				//	// the browser to try to show the file inline
-				//	Inline = false,
-				//};
-
-				//Response.AppendHeader("Content-Disposition", cd.ToString());
-				//return File(document, "srt");               
-
-				/*
-                foreach (var item in translationLines)
-                {
-                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", item.chapterNumber.ToString( ) + System.Environment.NewLine );
-                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", item.startTime);
-                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", " --> " );
-                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", item.endTime + System.Environment.NewLine );
-                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", item.subtitle + System.Environment.NewLine + System.Environment.NewLine );
-                }
-				*/
             }
         }
 	}
