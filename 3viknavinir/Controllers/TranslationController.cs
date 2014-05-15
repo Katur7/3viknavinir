@@ -123,6 +123,7 @@ namespace _3viknavinir.Controllers
 								
 							viewModel.media = media;
 							viewModel.translation = translation;
+							//int upvote = translation.Upvote.Count;
 
 							if (media != null && translation != null)
 							{
@@ -247,6 +248,7 @@ namespace _3viknavinir.Controllers
 							var media = mediaRepo.GetMediaByID(translation.mediaID);
 							viewModel.title = media.title;
 							viewModel.year = media.yearOfRelease;
+                            viewModel.mediaID = media.ID;
 
 							using (TranslationLinesRepo translationLinesRepo = new TranslationLinesRepo())
 							{
@@ -275,6 +277,7 @@ namespace _3viknavinir.Controllers
         [HttpPost]
         public ActionResult EditTranslation( FormCollection translationLines )
         {
+
             return View( );
         }
 
