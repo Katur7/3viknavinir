@@ -29,42 +29,33 @@ namespace _3viknavinir.Controllers
         }
 
 		public ActionResult Requests()
-        {
+		{
 			using (UserRepo userRepo = new UserRepo())
-			{			
-				using (RequestRepo requestRepo = new RequestRepo( ) )
+			{
+				using (RequestRepo requestRepo = new RequestRepo())
 				{
-					using (MediaRepo mediaRepo = new MediaRepo())
+					var allRequests = (from r in requestRepo.GetAllRequests()
+									   join u in userRepo.GetAllUsers() on r.userID equals u.Id
+									   orderby r.title ascending
+									   select new ListRequestViewModel()
+									   {
+										   Id = r.ID,
+										   title = r.title,
+										   IMDBId = r.imdbID,
+										   yearOfRelease = r.yearOfRelease,
+										   requestById = u.Id,
+										   requestByName = u.UserName,
+										   upvotes = requestRepo.CountUpvotesForRequest(r.ID)
+									   }).ToList();
+
+					if (allRequests != null)
 					{
-						var viewModel = new ListRequestViewModel();
-
-						var count = (from m in requestRepo.GetAllRequests()
-									 select m).Count();
-
-						var allRequests = (from r in requestRepo.GetAllRequests()
-										   join u in userRepo.GetAllUsers() on r.userID equals u.Id
-										   orderby r.title ascending
-										   select new ListRequestViewModel()
-										   {
-											   Id = r.ID,
-											   title = r.title,
-											   IMDBId = r.imdbID,
-											   yearOfRelease = r.yearOfRelease,
-											   requestById = u.Id,
-											   requestByName = u.UserName,
-											   upvotes = requestRepo.CountUpvotesForRequest(r.ID),
-											   pageCount = ( count / ITEMSPERPAGE ) + 1
-										   }).Take(ITEMSPERPAGE);
-
-						if (allRequests != null)
-						{
-							return View(allRequests);
-						}
+						return View(allRequests);
 					}
 				}
-				return View( );
+				return View();
 			}
-        }
+		}
 
         [HttpGet]
         [Authorize]
