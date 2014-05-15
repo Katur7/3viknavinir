@@ -93,7 +93,6 @@ namespace _3viknavinir.Controllers
 						var lines = result.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 						foreach(var line in lines)
 						{
-
 							System.Diagnostics.Debug.WriteLine(line);
 						}
 
