@@ -8,7 +8,6 @@ $(document).ready(function () {
 
     $(".AddLine").click(function () {
         counter++;
-        console.log(counter);
 
         var newTranslationLineDiv = $(document.createElement('div')).attr({ id: counter, class: 'translationLine' });
         newTranslationLineDiv.after().html(
@@ -96,7 +95,6 @@ $(document).ready(function () {
         }
 
         var json = { "textToTranslate": divarr, "isFinished": $('.fullyTranslateCheckbox').find('input').is(':checked'), "mediaID": $('#mediaID').val(), "counter": counter }
-        console.log(json);
         
         $.ajax({
             url: "/Translation/EditTranslation",
@@ -109,8 +107,7 @@ $(document).ready(function () {
                 console.log(xmlHttpRequest + "|" + errorText + "|" + thrownError);
             },
             success: function (data) {
-                // Todo: refresh counter in table
-                // Could use ajax, call repo, replace html element
+                // Redirect to ...
             }
         });
     });
