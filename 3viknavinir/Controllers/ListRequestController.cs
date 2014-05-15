@@ -54,7 +54,7 @@ namespace _3viknavinir.Controllers
 											   requestByName = u.UserName,
 											   upvotes = requestRepo.CountUpvotesForRequest(r.ID),
 											   pageCount = ( count / ITEMSPERPAGE ) + 1
-										   }).ToList().Take(ITEMSPERPAGE);
+										   }).Take(ITEMSPERPAGE);
 
 						if (allRequests != null)
 						{

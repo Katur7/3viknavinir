@@ -1,4 +1,4 @@
-﻿@model IEnumerable<_3viknavinir.Models.ViewModels.ListRequestViewModel>
+﻿@model _3viknavinir.Models.ViewModels.ListRequestViewModel
 @{
     ViewBag.Title = "Beiðnir";
 }
@@ -51,7 +51,7 @@
             </tbody>
         </table>
 		<div class="pageCount">
-			@for (int i = 0; i < Model.pageCount; i++)
+			@for (int i = 0; i < Model.pageCount ; i++)
 			{
 				@Html.ActionLink((i + 1).ToString(), "AlphabetizedTexts", "ListTranslations", new { id = i }, null)
 			}
