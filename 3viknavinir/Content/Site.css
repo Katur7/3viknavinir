@@ -256,7 +256,7 @@ input[type="checkbox"].input-validation-error {
     padding-left: 20px;
 }
 #AlphabetListTable {
-	width: 1100px;
+	width: 900px;
 	padding: 0px;
 	margin: 0px;
 	border-collapse: collapse;
@@ -689,5 +689,5 @@ input[type="checkbox"].input-validation-error {
     left: 275px;
 }
 .fullyTranslateCheckbox{
-
+    margin-Top: 20px;
 }
