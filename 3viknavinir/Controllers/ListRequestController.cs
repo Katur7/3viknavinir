@@ -34,7 +34,7 @@ namespace _3viknavinir.Controllers
 				{
 					var allRequests = ( from r in requestRepo.GetAllRequests()
 										join u in userRepo.GetAllUsers() on r.userID equals u.Id
-										orderby r.title ascending
+										orderby r.dateOfRequest descending
 										select new ListRequestViewModel() { Id = r.ID, 
 																			title = r.title, 
 																			IMDBId = r.imdbID, 
