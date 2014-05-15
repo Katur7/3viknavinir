@@ -30,31 +30,39 @@ namespace _3viknavinir.Controllers
 					using(MediaRepo mediarepo = new MediaRepo())
 					{
 						int realid = 0;
+
 						if(id.HasValue)
 						{
 							realid = id.Value;
 						}
-						var viewModel = new AlphabetizedTextsViewmodel();
+						
+                        var viewModel = new AlphabetizedTextsViewmodel();
 
 						var count = (from m in mediarepo.GetAllMedia()
 											   select m).Count();
-						viewModel.pageCount = (count / ITEMSPERPAGE) + 1;
+						
+                        viewModel.pageCount = (count / ITEMSPERPAGE) + 1;
 
 						var allmedia = (from m in mediarepo.GetAllMedia()
 										orderby m.title ascending
 										select m).Skip(realid * ITEMSPERPAGE).Take(ITEMSPERPAGE);
 
 						viewModel.allMedia = new List<MediaUpvoteViewModel>();
-						foreach(var item in allmedia)
+						
+                        foreach(var item in allmedia)
 						{
 							MediaUpvoteViewModel mediaUpvote = new MediaUpvoteViewModel();
-							mediaUpvote.media = item;
-							var translation = translationRepo.GetTranslationByMediaID(item.ID);
-							if(translation != null)
+							
+                            mediaUpvote.media = item;
+							
+                            var translation = translationRepo.GetTranslationByMediaID(item.ID);
+							
+                            if(translation != null)
 							{
 								mediaUpvote.upvotes = translationRepo.GetTranslationByMediaID(item.ID).Upvote.Count;
 							}
-							viewModel.allMedia.Add(mediaUpvote);
+							
+                            viewModel.allMedia.Add(mediaUpvote);
 						}
 
 						if(allmedia != null)
@@ -70,7 +78,6 @@ namespace _3viknavinir.Controllers
 		[HttpPost]
 		public ActionResult AlphabetizedTexts(int id)
 		{
-
 			return RedirectToAction("AlphabetizedTexts");
 		}
 
@@ -83,14 +90,16 @@ namespace _3viknavinir.Controllers
 					var translationId = translationRepo.GetTranslationByMediaID(mediaId).ID;
 					var userId = User.Identity.GetUserId();
 					var upvotes = upvoteRepo.GetUpvotesByTranslationID(translationId);
-					var userUpvote = (from u in upvotes
+					
+                    var userUpvote = (from u in upvotes
 									 where u.userID == userId
 									 select u).FirstOrDefault();
 									 
 					if(userUpvote != null)
 					{
 						return;
-					} else
+					} 
+                    else
 					{
 						Upvote newUpvote = new Upvote();
 						newUpvote.userID = userId;

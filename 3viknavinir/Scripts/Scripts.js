@@ -8,7 +8,6 @@ $(document).ready(function () {
 
     $(".AddLine").click(function () {
         counter++;
-        console.log(counter);
 
         var newTranslationLineDiv = $(document.createElement('div')).attr({ id: counter, class: 'translationLine' });
         newTranslationLineDiv.after().html(
@@ -81,27 +80,6 @@ $(document).ready(function () {
         // Stop the default submission
         event.preventDefault();
 
-        /*
-        var divs = $('#TextToEdit form .translationLine');
-        var divarr = [];
-
-        for (var i = 0; i < counter; i++) {
-            var elem = divs[i];
-            var obj = new Object();
-            obj.chapterNumber = $(elem).find('.chapterTextBox').val();
-            obj.startTime = $(elem).find('.startTimeTextBox').val();
-            obj.endTime = $(elem).find('.endTimeTextBox').val();
-            obj.subtitle = $(elem).find('.subtitleTextBox').val();
-
-            divarr.push(obj);
-        }
-        var json = new Object();
-        json.textToTranslate = divarr;
-        json.isFinished = $('.fullyTranslateCheckbox').find('input').is(':checked');
-        json.mediaID = $('#mediaID').val();
-        json.counter = counter;
-        console.log(json);
-        */
         
         var divs = $('#TextToEdit form .translationLine');
         var divarr = [];
@@ -117,51 +95,20 @@ $(document).ready(function () {
         }
 
         var json = { "textToTranslate": divarr, "isFinished": $('.fullyTranslateCheckbox').find('input').is(':checked'), "mediaID": $('#mediaID').val(), "counter": counter }
-        console.log(json);
-        //var json = { "textToTranslate": [{ "chapterNumber": 1, "startTime": "00:01", "endTime": "00:03", "subtitle": "Texti" }, { "chapterNumber": 2, "startTime": "00:05", "endTime": "00:08", "subtitle": "Texti2" }], "isFinished": false, "mediaID": 4, "counter": 2 }
         
-        /*
-        $.post('EditTranslation', json, function (data) {
-            // If you want to do something after the post
-            console.log(json);
-        });*/
-
         $.ajax({
             url: "/Translation/EditTranslation",
             contentType: "application/x-www-form-urlencoded",
             type: "POST",
-            datatype: "json",
-            data: json,
+            datatype: "text",
+            data: {
+                json:JSON.stringify(json)},
             error: function (xmlHttpRequest, errorText, thrownError) {
                 console.log(xmlHttpRequest + "|" + errorText + "|" + thrownError);
             },
             success: function (data) {
-                // Todo: refresh counter in table
-                // Could use ajax, call repo, replace html element
+                // Redirect to ...
             }
         });
     });
 });
-
-//fanney
-var hash = {
-    'srt': 1,
-};
-
-function check_extension(filename, submitId) {
-    var re = /\..+$/;
-    var ext = value.slice(value.lastIndexOf(".")).toLowerCase();;
-    var submitEl = document.getElementById(submitId);
-    if (ext == "srt") {
-        submitEl.disabled = false;
-        return true;
-    } else {
-        alert("Vinsamlegast veldu .srt skrá");
-        submitEl.disabled = true;
-
-        return false;
-    }
-}
-
-
-

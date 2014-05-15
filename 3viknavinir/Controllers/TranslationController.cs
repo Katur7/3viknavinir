@@ -10,13 +10,13 @@ using Microsoft.AspNet.Identity;
 using _3viknavinir.Models.ViewModels;
 using System.IO;
 using System.Text;
+using System.Web.Script.Serialization;
 
 namespace _3viknavinir.Controllers
 {
 	[HandleError]
     public class TranslationController : Controller
     {
-        // comment
         // GET: /Translation/
         public ActionResult Index()
         {
@@ -46,7 +46,8 @@ namespace _3viknavinir.Controllers
 					{
 						viewModel.categories.Add(new SelectListItem() { Text = category.name, Value = category.ID.ToString() });
 					}
-					return View(viewModel);
+					
+                    return View(viewModel);
 				}
 				
             }
@@ -76,9 +77,6 @@ namespace _3viknavinir.Controllers
 
                         var newTranslation = new Translation();
 
-                        //int nextTranslationID = translationRepo.GetNextTranslationID();
-
-                        //newTranslation.ID = nextTranslationID;
                         newTranslation.languageID = 1; 
                         newTranslation.mediaID = newMedia.ID;
                         newTranslation.finished = false; 
@@ -92,7 +90,8 @@ namespace _3viknavinir.Controllers
 						string result = System.Text.Encoding.UTF8.GetString(binData);
 
 						var lines = result.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-						foreach(var line in lines)
+						
+                        foreach(var line in lines)
 						{
 							System.Diagnostics.Debug.WriteLine(line);
 						}
@@ -107,10 +106,12 @@ namespace _3viknavinir.Controllers
 		public ActionResult Details(int? id)
 		{
 			var viewModel = new MediaDetailsViewModel();
-			if (id.HasValue)
+			
+            if (id.HasValue)
 			{
 				int realid = id.Value;
-				using(MediaRepo mediaRepo = new MediaRepo())
+				
+                using(MediaRepo mediaRepo = new MediaRepo())
 				{
 					using(TranslationRepo translationRepo = new TranslationRepo())
 					{
@@ -123,7 +124,6 @@ namespace _3viknavinir.Controllers
 								
 							viewModel.media = media;
 							viewModel.translation = translation;
-							//int upvote = translation.Upvote.Count;
 
 							if (media != null && translation != null)
 							{
@@ -142,14 +142,16 @@ namespace _3viknavinir.Controllers
 			if (id.HasValue)
 			{
 				int realid = id.Value;
-				using (MediaRepo mediaRepo = new MediaRepo())
+				
+                using (MediaRepo mediaRepo = new MediaRepo())
 				{
 					using(CategoryRepo categoryRepo = new CategoryRepo())
 					{
 						EditDetailsViewModel viewModel = new EditDetailsViewModel();
 
 						var media = mediaRepo.GetMediaByID(realid);
-						if (media != null)
+						
+                        if (media != null)
 						{
 							viewModel.ID = media.ID;
 							viewModel.title = media.title;
@@ -246,7 +248,8 @@ namespace _3viknavinir.Controllers
 							var translation = translationRepo.GetTranslationByMediaID(realid);
 
 							var media = mediaRepo.GetMediaByID(translation.mediaID);
-							viewModel.title = media.title;
+							
+                            viewModel.title = media.title;
 							viewModel.year = media.yearOfRelease;
                             viewModel.mediaID = media.ID;
 
@@ -259,13 +262,13 @@ namespace _3viknavinir.Controllers
 								viewModel.textToTranslate = translationLines;
 								viewModel.translatedText = translationLines;
 								viewModel.counter = translationLines.Count();
-
 								viewModel.isFinished = translation.finished;
 
 								return View(viewModel);
 							}
 						}
-					} else
+					} 
+                    else
 					{
 						return HttpNotFound();
 					}
@@ -275,19 +278,32 @@ namespace _3viknavinir.Controllers
         }
 
         [HttpPost]
-		public ActionResult EditTranslation(TranslatedTextViewModel json)
+		public ActionResult EditTranslation(string json)
         {
-			System.Diagnostics.Debug.WriteLine(json);
-			//System.Web.Script.Serialization.JavaScriptSerializer serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+			TranslatedTextViewModel model = new JavaScriptSerializer().Deserialize<TranslatedTextViewModel>(json);
+			using(TranslationRepo translationRepo = new TranslationRepo())
+			{
+				var translation = translationRepo.GetTranslationByMediaID(model.mediaID);
+				
+                translation.finished = model.isFinished;
 
-			//TranslatedTextViewModel model = serializer.Deserialize(JSONmodel, typeof(TranslatedTextViewModel));
+				using(TranslationLinesRepo translationLinesRepo = new TranslationLinesRepo() )
+				{
+					foreach(var item in model.textToTranslate)
+					{
+						TranslationLines newTranslationLine = new TranslationLines();
+						newTranslationLine.chapterNumber = item.chapterNumber;
+						newTranslationLine.startTime = item.startTime;
+						newTranslationLine.endTime = item.endTime;
+						newTranslationLine.subtitle = item.subtitle;
+						newTranslationLine.isEditing = false;
+						newTranslationLine.dateOfSubmission = DateTime.Now;
+						newTranslationLine.translationID = translation.ID;
 
-			//foreach(var item in viewModel)
-			//{
-			//	string valuefromsubtitlebox = viewModel["item.subtitle"];
-			//	System.Diagnostics.Debug.WriteLine(valuefromsubtitlebox);
-			//}
-
+						translationLinesRepo.AddOrUpdateTranslationLine(newTranslationLine);
+					}
+				}
+			}
 
 			return RedirectToAction("Details");
         }
@@ -305,8 +321,10 @@ namespace _3viknavinir.Controllers
 			using(MediaRepo mediaRepo = new MediaRepo())
 			{
 				var media = mediaRepo.GetMediaByID(mediaId);
-				titleYear = media.title + ".(" + media.yearOfRelease + ")";
-				using(TranslationRepo translationRepo = new TranslationRepo())
+				
+                titleYear = media.title + ".(" + media.yearOfRelease + ")";
+				
+                using(TranslationRepo translationRepo = new TranslationRepo())
 				{
 					translationId = translationRepo.GetTranslationByMediaID(mediaId).ID;
 				}
@@ -316,7 +334,8 @@ namespace _3viknavinir.Controllers
 				var translationLines = translationRepo.GetTranslationLinesByTranslationID(translationId);
 
 				string document = "";
-				foreach(var item in translationLines)
+				
+                foreach(var item in translationLines)
 				{
 					document += item.chapterNumber.ToString() + Environment.NewLine;
 					document += item.startTime.ToString() + ":00,000" + " --> " + item.endTime.ToString() + ":00,000" + Environment.NewLine;
@@ -325,8 +344,8 @@ namespace _3viknavinir.Controllers
 				}
 
 				return File(Encoding.UTF8.GetBytes(document),
-				 "text/srt",
-				  titleYear + ".srt");
+				            "text/srt",
+			                titleYear + ".srt");
 
             }
         }
