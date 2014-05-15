@@ -26,13 +26,14 @@
 
 <div id="TextToEdit" class="col-md-6">
     @Html.HiddenFor(model => model.counter)
+    @Html.HiddenFor(model => model.mediaID)
     @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "editTranslationForm" }))
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
         foreach (var item in Model.textToTranslate)
         {
-            <div id="@item.ID">
+            <div class="translationLine" id="@item.ID">
                 @Html.HiddenFor(model => item.ID)
                 <p class="chapterLabel">@Html.Label("Kafli")</p>
                 @Html.TextBoxFor(model => item.chapterNumber, new { @class = "chapterTextBox" })
