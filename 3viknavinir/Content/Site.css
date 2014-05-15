@@ -473,16 +473,16 @@ input[type="checkbox"].input-validation-error {
     top: -52px;
     right: -126px;
 }
-.timeLabels{
+.timeLabel{
     position: relative;
     top: 7px;
-    left: 104px;
+    left: 107px;
 }
 .startTimeTextBox{
     position: relative;
     top: 32px;
     display: block;
-    width: 18%;
+    width: 22%;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -502,7 +502,7 @@ input[type="checkbox"].input-validation-error {
     top: -61px;
     right: -125px;
     display: block;
-    width: 18%;
+    width: 22%;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -579,9 +579,9 @@ input[type="checkbox"].input-validation-error {
     position: relative;
     top: -98px;
     float: right;
-    left: -284px;
+    left: -255px;
     display: block;
-    width: 18%;
+    width: 22%;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -601,7 +601,7 @@ input[type="checkbox"].input-validation-error {
     left: 0px;
     top: -5px;
     display: block;
-    width: 18%;
+    width: 22%;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -655,7 +655,7 @@ input[type="checkbox"].input-validation-error {
 .oldTimeLabel{
     position: relative;
     top: -30px;
-    right: -100px;
+    right: -117px;
 }
 #TextToEdit {
     position: relative;
