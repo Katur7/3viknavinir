@@ -14,6 +14,8 @@ namespace _3viknavinir.Controllers
     [HandleError]
     public class ListRequestController : Controller
     {
+		const int ITEMSPERPAGE = 10;
+
         private RequestRepo requestRepo;
 
         public ListRequestController( )
@@ -26,31 +28,34 @@ namespace _3viknavinir.Controllers
             this.requestRepo = requestRepo;
         }
 
-        public ActionResult Requests( )
-        {
+		public ActionResult Requests()
+		{
 			using (UserRepo userRepo = new UserRepo())
-			{			
-				using (RequestRepo requestRepo = new RequestRepo( ) )
+			{
+				using (RequestRepo requestRepo = new RequestRepo())
 				{
-					var allRequests = ( from r in requestRepo.GetAllRequests()
-										join u in userRepo.GetAllUsers() on r.userID equals u.Id
-										orderby r.title ascending
-										select new ListRequestViewModel() { Id = r.ID, 
-																			title = r.title, 
-																			IMDBId = r.imdbID, 
-																			yearOfRelease = r.yearOfRelease, 
-																			requestById = u.Id, 
-																			requestByName = u.UserName, 
-																			upvotes =  requestRepo.CountUpvotesForRequest(r.ID) }).ToList();
+					var allRequests = (from r in requestRepo.GetAllRequests()
+									   join u in userRepo.GetAllUsers() on r.userID equals u.Id
+									   orderby r.title ascending
+									   select new ListRequestViewModel()
+									   {
+										   Id = r.ID,
+										   title = r.title,
+										   IMDBId = r.imdbID,
+										   yearOfRelease = r.yearOfRelease,
+										   requestById = u.Id,
+										   requestByName = u.UserName,
+										   upvotes = requestRepo.CountUpvotesForRequest(r.ID)
+									   }).ToList();
 
-					if ( allRequests != null )
+					if (allRequests != null)
 					{
-						return View( allRequests );
+						return View(allRequests);
 					}
 				}
-				return View( );
+				return View();
 			}
-        }
+		}
 
         [HttpGet]
         [Authorize]

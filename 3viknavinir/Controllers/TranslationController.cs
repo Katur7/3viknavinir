@@ -93,7 +93,6 @@ namespace _3viknavinir.Controllers
 						var lines = result.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 						foreach(var line in lines)
 						{
-
 							System.Diagnostics.Debug.WriteLine(line);
 						}
 
@@ -297,9 +296,21 @@ namespace _3viknavinir.Controllers
 			return View( );
 		}
 
-        public ActionResult Download()
+        public void Download(int id)
         {
-            return View();
+            using (TranslationLinesRepo translationRepo = new TranslationLinesRepo())
+            {
+                var translationLines = translationRepo.GetTranslationLinesByTranslationID(id);
+
+                foreach (var item in translationLines)
+                {
+                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", item.chapterNumber.ToString( ) + System.Environment.NewLine );
+                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", item.startTime);
+                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", " --> " );
+                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", item.endTime + System.Environment.NewLine );
+                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", item.subtitle + System.Environment.NewLine + System.Environment.NewLine );
+                }
+            }
         }
 	}
 }

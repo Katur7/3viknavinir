@@ -1,53 +1,53 @@
 ﻿@model IEnumerable<_3viknavinir.Models.ViewModels.ListRequestViewModel>
 @{
-    ViewBag.Title = "Beiðnir";
+	ViewBag.Title = "Beiðnir";
 }
-    <div class="breadcrumb">
-        <ul class="crumbs">
-            <li class="crumb crumb-first">
-                @Html.ActionLink("SÍÁT", "Index", "Home")
-            </li>
-            <li class="crumb crumb-last">
-                <span class="crumb-seperator"> > </span>
-                @Html.ActionLink("Beiðnir", "Request", "Request")
-            </li>
-        </ul>
-    </div>
-    <h2>@ViewBag.Title</h2>
-    @*Erla*@
-    <div id="searchBox">
-        @using (Html.BeginForm("SearchRequestView", "Search", FormMethod.Get))
-        {
-            @Html.TextBox("SearchString")
-            <input type="submit" value="Leita" class="btn btn-default" id="searchButton" />
-        }
-    </div>
-    <div>
-        <form action="/ListRequest/NewRequest/"><input type="submit" value="" id="addRequestButton" /></form>
-        <div class="newRequestButton"><p>Bæta við beiðni</p></div>
-    </div>
-    <div class="requesttablediv">
-        <table id="RequestTable" class="table-striped">
-            <thead>
-                <tr class="requestRow">
-                    <th class="requestName">Nafn</th>
-                    <th class="requestName">Sett inn af</th>
-                    <th class="requestYear">Ártal</th>
-                    <th class="requestIMDBID">IMDB ID</th>
-                    <th class="requestUpvote">Upvote</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr class="requestRow">
-                        <td class="requestName">@Html.DisplayFor(modelItem => item.title)</td>
-                        <td class="requestName">@Html.DisplayFor(modelItem => item.requestByName)</td>
-                        <td class="requestYear">@Html.DisplayFor(modelItem => item.yearOfRelease)</td>
-                        <td class="requestIMDBID">@Html.DisplayFor(modelItem => item.IMDBId)</td>
-                        <td class="requestUpvote">@item.upvotes<a href="#" class="upvoteRequest glyphicon glyphicon-thumbs-up" id="@item.Id" style="left: 35px"></a></td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+<div class="breadcrumb">
+	<ul class="crumbs">
+		<li class="crumb crumb-first">
+			@Html.ActionLink("SÍÁT", "Index", "Home")
+		</li>
+		<li class="crumb crumb-last">
+			<span class="crumb-seperator"> > </span>
+			@Html.ActionLink("Beiðnir", "Request", "Request")
+		</li>
+	</ul>
+</div>
+<h2>@ViewBag.Title</h2>
+@*Erla*@
+<div id="searchBox">
+	@using (Html.BeginForm("SearchRequestView", "Search", FormMethod.Get))
+	{
+		@Html.TextBox("SearchString")
+		<input type="submit" value="Leita" class="btn btn-default" id="searchButton" />
+	}
+</div>
+<div>
+	<form action="/ListRequest/NewRequest/"><input type="submit" value="" id="addRequestButton" /></form>
+	<div class="newRequestButton"><p>Bæta við beiðni</p></div>
+</div>
+<div class="requesttablediv">
+	<table id="RequestTable" class="table-striped">
+		<thead>
+			<tr class="requestRow">
+				<th class="requestName">Nafn</th>
+				<th class="requestName">Sett inn af</th>
+				<th class="requestYear">Ártal</th>
+				<th class="requestIMDBID">IMDB ID</th>
+				<th class="requestUpvote">Upvote</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr class="requestRow">
+					<td class="requestName">@Html.DisplayFor(modelItem => item.title)</td>
+					<td class="requestName">@Html.DisplayFor(modelItem => item.requestByName)</td>
+					<td class="requestYear">@Html.DisplayFor(modelItem => item.yearOfRelease)</td>
+					<td class="requestIMDBID">@Html.DisplayFor(modelItem => item.IMDBId)</td>
+					<td class="requestUpvote">@item.upvotes<a href="#" class="upvoteRequest glyphicon glyphicon-thumbs-up" id="@item.Id" style="left: 35px"></a></td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
