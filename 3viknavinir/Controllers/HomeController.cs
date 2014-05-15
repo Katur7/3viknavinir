@@ -77,5 +77,10 @@ namespace _3viknavinir.Controllers
 
             return View();
         }
+
+        public ActionResult Error404()
+        {
+            return View();
+        }
 	}
 }
