@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity;
 using _3viknavinir.Models.ViewModels;
 using System.IO;
 using System.Text;
+using System.Web.Script.Serialization;
 
 namespace _3viknavinir.Controllers
 {
@@ -275,12 +276,38 @@ namespace _3viknavinir.Controllers
         }
 
         [HttpPost]
-		public ActionResult EditTranslation(TranslatedTextViewModel json)
+		public ActionResult EditTranslation(string json)
         {
-			System.Diagnostics.Debug.WriteLine(json);
+			TranslatedTextViewModel model = new JavaScriptSerializer().Deserialize<TranslatedTextViewModel>(json);
+			using(TranslationRepo translationRepo = new TranslationRepo())
+			{
+				var translation = translationRepo.GetTranslationByMediaID(model.mediaID);
+				translation.finished = model.isFinished;
+
+				using(TranslationLinesRepo translationLinesRepo = new TranslationLinesRepo() )
+				{
+					foreach(var item in model.textToTranslate)
+					{
+						TranslationLines newTranslationLine = new TranslationLines();
+						newTranslationLine.chapterNumber = item.chapterNumber;
+						newTranslationLine.startTime = item.startTime;
+						newTranslationLine.endTime = item.endTime;
+						newTranslationLine.subtitle = item.subtitle;
+						newTranslationLine.isEditing = false;
+						newTranslationLine.dateOfSubmission = DateTime.Now;
+						newTranslationLine.translationID = translation.ID;
+
+						translationLinesRepo.AddOrUpdateTranslationLine(newTranslationLine);
+					}
+				}
+			}
+			
+			//System.Diagnostics.Debug.WriteLine(json);
 			//System.Web.Script.Serialization.JavaScriptSerializer serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
 
-			//TranslatedTextViewModel model = serializer.Deserialize(JSONmodel, typeof(TranslatedTextViewModel));
+			//TranslatedTextViewModel model = serializer.Deserialize(json, typeof(TranslatedTextViewModel));
+
+			//model.
 
 			//foreach(var item in viewModel)
 			//{

@@ -12,39 +12,30 @@ namespace _3viknavinir.Repo
 	{
 		private _3viknaContext db = new _3viknaContext();
 
-        public void addTranslationLine(TranslationLines t)
+        public void AddOrUpdateTranslationLine( TranslationLines t )
         {
-            db.TranslationLines.Add(t);
-            db.SaveChanges();
+            var translationLinesToUpdate = (from tl in db.TranslationLines
+                                            where tl.translationID == t.translationID
+											where tl.chapterNumber == t.chapterNumber
+                                            select tl ).FirstOrDefault( );
+			if(translationLinesToUpdate != null)
+			{
+				translationLinesToUpdate.chapterNumber = t.chapterNumber;
+				translationLinesToUpdate.startTime = t.startTime;
+				translationLinesToUpdate.endTime = t.endTime;
+				translationLinesToUpdate.subtitle = t.subtitle;
+				translationLinesToUpdate.dateOfSubmission = t.dateOfSubmission;
+				db.SaveChanges();
+				return;
+			} 
+			else
+			{
+				db.TranslationLines.Add(t);
+				db.SaveChanges();
+				return;
+			}
         }
-        public void UpdateTranslationLine( TranslationLines t )
-        {
-            TranslationLines translationLinesToUpdate = ( from translationLine in db.TranslationLines
-                                                where translationLine.ID == t.ID
-                                                select translationLine ).SingleOrDefault( );
-            translationLinesToUpdate.chapterNumber = t.chapterNumber;
-            translationLinesToUpdate.startTime = t.startTime;
-            translationLinesToUpdate.endTime = t.endTime;
-            translationLinesToUpdate.subtitle = t.subtitle;
-            translationLinesToUpdate.isEditing = t.isEditing;
-            translationLinesToUpdate.dateOfSubmission = t.dateOfSubmission;
-            translationLinesToUpdate.translationID = t.translationID;
-
-            db.SaveChanges( );
-        }
-        public void RemoveTranslationLine(TranslationLines t)
-        {
-            db.TranslationLines.Remove(t);
-            db.SaveChanges();
-        }
-        public TranslationLines GetTranslationLineByID(int id)
-        {
-            var translationLine = ( from t in db.TranslationLines 
-                                    where t.ID == id
-                                    select t).SingleOrDefault();
-
-            return translationLine;
-        }
+        
         public IEnumerable<TranslationLines> GetTranslationLinesByTranslationID(int id)
         {
             var translationLine = from t in db.TranslationLines
