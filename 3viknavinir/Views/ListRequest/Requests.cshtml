@@ -38,13 +38,13 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var item in Model.allRequests)
                 {
                     <tr class="requestRow">
-                        <td class="requestName">@Html.DisplayFor(modelItem => item.title)</td>
-                        <td class="requestName">@Html.DisplayFor(modelItem => item.requestByName)</td>
-                        <td class="requestYear">@Html.DisplayFor(modelItem => item.yearOfRelease)</td>
-                        <td class="requestIMDBID">@Html.DisplayFor(modelItem => item.IMDBId)</td>
+						<td class="requestName">@item.title</td>
+                        <td class="requestName">@item.requestByName</td>
+                        <td class="requestYear">@item.yearOfRelease</td>
+                        <td class="requestIMDBID">@item.IMDBId</td>
                         <td class="requestUpvote">@item.upvotes<a href="#" class="upvoteRequest glyphicon glyphicon-thumbs-up" id="@item.Id" style="left: 35px"></a></td>
                     </tr>
                 }
@@ -53,7 +53,7 @@
 		<div class="pageCount">
 			@for (int i = 0; i < Model.pageCount ; i++)
 			{
-				@Html.ActionLink((i + 1).ToString(), "AlphabetizedTexts", "ListTranslations", new { id = i }, null)
+				@Html.ActionLink((i + 1).ToString(), "Requests", "LListRequest", new { id = i }, null)
 			}
 		</div>
 
