@@ -16,7 +16,8 @@
 <h2>@ViewBag.Title</h2>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.2/themes/dark-hive/jquery-ui.css" />
+
+
 
 <div id="accordion">
     <h3>Hvernig sæki ég texta?</h3>
@@ -34,6 +35,16 @@
             Undir flipanum @Html.ActionLink("\"Þýða\"","Translate", "Translation") er form til þess að bæta við þýðingu á nýrri mynd.
             Þar er hægt að hlaða inn .srt skrá, jafnvel á erlendu tungumáli til þess að hafa til hliðsjónar við þýðingu.
             Einnig er hægt að hlaða inn .srt skrá á öðru tungumáli sé ekki önnur slík til staðar inni á síðunni þar sem texta fyrir ákveðna mynd er breytt.
+        </p>
+    </div>
+    <h3>Hvernig þýði ég texta?</h3>
+    <div>
+        <p>
+            Þegar þú ert kominn inn í "Breyta þýðingu" sérðu nokkra ramma sem þarf að fylla inn í. Kafli stillir í hvaða röð textinn þinn
+            kemur á myndefnið, kafli 1 kemur þá fyrstur, kafli 2 á eftir honum og koll af kolli. Byrjunartíminn er tíminn sem að textinn
+            birtist á og hverfur á endatímanum. Athugaðu að tíminn er stilltur eftir (00.00.00, 000) klukkutíma.mínutum.sekundum, rammar.
+            Að lokum kemur síðan inn textastrengurinn sem á að birtast á ákveðnu tímabili. 
+            Til að bæta við nýrri línu er þrýst á "Bæta við línu" og kemur þá inn annað svona sett af römmum neðst.    
         </p>
     </div>
     <h3>Hvernig bý ég til nýjan aðgang?</h3>
@@ -102,9 +113,10 @@
         </p>
     </div>
 </div>
-<link href="~/Content/jquery-ui-1.10.4.custom.css" rel="stylesheet" />
+
 <script src="~/Scripts/jquery-ui-1.10.4.custom.js"></script>
 <script src="~/Scripts/jquery-1.10.2.js"></script>
+<link rel="stylesheet" type="text/html" href="~/Content/jquery-ui-1.10.4.custom.css" />
 @section Scripts {
     @Scripts.Render( "~/bundles/jqueryval" )
 }
