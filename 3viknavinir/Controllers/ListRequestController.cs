@@ -45,7 +45,7 @@ namespace _3viknavinir.Controllers
 
 					var allRequests = (from r in requestRepo.GetAllRequests()
 									   join u in userRepo.GetAllUsers() on r.userID equals u.Id
-									   orderby r.title ascending
+									   orderby r.dateOfRequest descending
 									   select new ListRequestViewModel()
 									   {
 										   Id = r.ID,
@@ -55,7 +55,8 @@ namespace _3viknavinir.Controllers
 										   requestById = u.Id,
 										   requestByName = u.UserName,
 										   upvotes = requestRepo.CountUpvotesForRequest(r.ID)
-									   }).Skip(realid * ITEMSPERPAGE).Take(ITEMSPERPAGE).ToList();
+									 
+                                       }).Skip(realid * ITEMSPERPAGE).Take(ITEMSPERPAGE).ToList();
 
 					if (allRequests != null)
 					{
@@ -89,6 +90,7 @@ namespace _3viknavinir.Controllers
                         newRequest.userID = User.Identity.GetUserId();
 
                     requestRepo.AddRequest( newRequest );
+                    
                     return RedirectToAction("Requests", "ListRequest");
                 }
             }

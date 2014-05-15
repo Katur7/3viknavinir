@@ -41,7 +41,6 @@ namespace _3viknavinir.Controllers
         [HttpPost]
         public async Task<ActionResult> LostPassword(LostPasswordViewModel model)
         {
-
             return View(model);
         }
 

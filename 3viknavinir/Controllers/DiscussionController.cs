@@ -21,41 +21,46 @@ namespace _3viknavinir.Controllers
 			if (id.HasValue)
 			{
 				int realid = id.Value;
-				using (DiscussionRepo discussionRepo = new DiscussionRepo())
+				
+                using (DiscussionRepo discussionRepo = new DiscussionRepo())
 				{
-					using( MediaRepo mediaRepo = new MediaRepo())
-					{
+				    using( MediaRepo mediaRepo = new MediaRepo())
+				    {
 						DiscussionViewModel viewModel = new DiscussionViewModel();
 
 						if (mediaRepo.IsExistingID(realid))
 						{
 							viewModel.media = mediaRepo.GetMediaByID(realid);
 
-							if(discussionRepo.IsExistingID(realid))
+							if (discussionRepo.IsExistingID(realid))
 							{
 								var allDiscussions = (from d in discussionRepo.GetCommentByMediaID(realid)
 													  orderby d.dateAdded descending
 													  select d);
+
 								using (UserRepo userRepo = new UserRepo())
 								{
 									viewModel.discussions = new List<DiscussionUserViewModel>();
-									foreach (var item in allDiscussions)
+									
+                                    foreach (var item in allDiscussions)
 									{
 										DiscussionUserViewModel newDiscussionUserViewModel = new DiscussionUserViewModel();
-										newDiscussionUserViewModel.userName = userRepo.GetUserNameByID(item.userID);
+										
+                                        newDiscussionUserViewModel.userName = userRepo.GetUserNameByID(item.userID);
 										newDiscussionUserViewModel.discussion = item;
 
 										viewModel.discussions.Add(newDiscussionUserViewModel);
 									}
 								}
-
-								return View(viewModel);
-							} else
+                                return View(viewModel);
+							} 
+                            else
 							{
 								viewModel.isEmpty = true;
 								return View(viewModel);
 							}
-						} else
+						} 
+                        else
 						{
 							return HttpNotFound();
 						}
@@ -80,6 +85,7 @@ namespace _3viknavinir.Controllers
                     newComment.mediaID = model.media.ID;
 
                     discussionRepo.AddComment(newComment);
+                    
                     return RedirectToAction("Translation", "Discussion");
                 }
             }

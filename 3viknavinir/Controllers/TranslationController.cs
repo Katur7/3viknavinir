@@ -46,7 +46,8 @@ namespace _3viknavinir.Controllers
 					{
 						viewModel.categories.Add(new SelectListItem() { Text = category.name, Value = category.ID.ToString() });
 					}
-					return View(viewModel);
+					
+                    return View(viewModel);
 				}
 				
             }
@@ -89,7 +90,8 @@ namespace _3viknavinir.Controllers
 						string result = System.Text.Encoding.UTF8.GetString(binData);
 
 						var lines = result.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-						foreach(var line in lines)
+						
+                        foreach(var line in lines)
 						{
 							System.Diagnostics.Debug.WriteLine(line);
 						}
@@ -104,10 +106,12 @@ namespace _3viknavinir.Controllers
 		public ActionResult Details(int? id)
 		{
 			var viewModel = new MediaDetailsViewModel();
-			if (id.HasValue)
+			
+            if (id.HasValue)
 			{
 				int realid = id.Value;
-				using(MediaRepo mediaRepo = new MediaRepo())
+				
+                using(MediaRepo mediaRepo = new MediaRepo())
 				{
 					using(TranslationRepo translationRepo = new TranslationRepo())
 					{
@@ -138,14 +142,16 @@ namespace _3viknavinir.Controllers
 			if (id.HasValue)
 			{
 				int realid = id.Value;
-				using (MediaRepo mediaRepo = new MediaRepo())
+				
+                using (MediaRepo mediaRepo = new MediaRepo())
 				{
 					using(CategoryRepo categoryRepo = new CategoryRepo())
 					{
 						EditDetailsViewModel viewModel = new EditDetailsViewModel();
 
 						var media = mediaRepo.GetMediaByID(realid);
-						if (media != null)
+						
+                        if (media != null)
 						{
 							viewModel.ID = media.ID;
 							viewModel.title = media.title;
@@ -242,7 +248,8 @@ namespace _3viknavinir.Controllers
 							var translation = translationRepo.GetTranslationByMediaID(realid);
 
 							var media = mediaRepo.GetMediaByID(translation.mediaID);
-							viewModel.title = media.title;
+							
+                            viewModel.title = media.title;
 							viewModel.year = media.yearOfRelease;
                             viewModel.mediaID = media.ID;
 
@@ -255,13 +262,13 @@ namespace _3viknavinir.Controllers
 								viewModel.textToTranslate = translationLines;
 								viewModel.translatedText = translationLines;
 								viewModel.counter = translationLines.Count();
-
 								viewModel.isFinished = translation.finished;
 
 								return View(viewModel);
 							}
 						}
-					} else
+					} 
+                    else
 					{
 						return HttpNotFound();
 					}
@@ -277,7 +284,8 @@ namespace _3viknavinir.Controllers
 			using(TranslationRepo translationRepo = new TranslationRepo())
 			{
 				var translation = translationRepo.GetTranslationByMediaID(model.mediaID);
-				translation.finished = model.isFinished;
+				
+                translation.finished = model.isFinished;
 
 				using(TranslationLinesRepo translationLinesRepo = new TranslationLinesRepo() )
 				{
@@ -313,8 +321,10 @@ namespace _3viknavinir.Controllers
 			using(MediaRepo mediaRepo = new MediaRepo())
 			{
 				var media = mediaRepo.GetMediaByID(mediaId);
-				titleYear = media.title + ".(" + media.yearOfRelease + ")";
-				using(TranslationRepo translationRepo = new TranslationRepo())
+				
+                titleYear = media.title + ".(" + media.yearOfRelease + ")";
+				
+                using(TranslationRepo translationRepo = new TranslationRepo())
 				{
 					translationId = translationRepo.GetTranslationByMediaID(mediaId).ID;
 				}
@@ -324,7 +334,8 @@ namespace _3viknavinir.Controllers
 				var translationLines = translationRepo.GetTranslationLinesByTranslationID(translationId);
 
 				string document = "";
-				foreach(var item in translationLines)
+				
+                foreach(var item in translationLines)
 				{
 					document += item.chapterNumber.ToString() + Environment.NewLine;
 					document += item.startTime.ToString() + ":00,000" + " --> " + item.endTime.ToString() + ":00,000" + Environment.NewLine;
@@ -333,8 +344,8 @@ namespace _3viknavinir.Controllers
 				}
 
 				return File(Encoding.UTF8.GetBytes(document),
-				 "text/srt",
-				  titleYear + ".srt");
+				            "text/srt",
+			                titleYear + ".srt");
 
             }
         }

@@ -26,7 +26,8 @@ namespace _3viknavinir.Controllers
 										  select m);
 
 							var viewModel = new SearchMediaViewModel();
-							viewModel.searchedMedia = movies;
+							
+                            viewModel.searchedMedia = movies;
 
 							if (movies != null)
 							{
@@ -49,7 +50,8 @@ namespace _3viknavinir.Controllers
 								    select m);
 
 					var viewModel = new SearchRequestViewModel();
-					viewModel.searchedRequests = requests;
+					
+                    viewModel.searchedRequests = requests;
 
 					if (requests != null)
 					{
