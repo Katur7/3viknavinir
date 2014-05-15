@@ -44,7 +44,7 @@
                         <td class="alphabetYear">@item.media.yearOfRelease</td>
                         @*<td class="alphabetUpvote">@Html.ActionLink("", "", "", new { @class="glyphicon glyphicon-thumbs-up")</td>*@
                         <td class="alphabetUpvote">@item.upvotes<a href="#" class="upvoteTranslation glyphicon glyphicon-thumbs-up" id="@item.media.ID" style="left: 35px"></a></td>
-                        <td class="alphabetDownload"><a href="#" class="glyphicon glyphicon-download" style="left: 35px"></a></td>
+                        <td class="alphabetDownload"><a href="~/Translation/Download/@item.media.ID" class="glyphicon glyphicon-download" style="left: 35px"></a></td>
                     </tr>
                 }
             </tbody>
