@@ -293,7 +293,11 @@ namespace _3viknavinir.Controllers
 
                 foreach (var item in translationLines)
                 {
-                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\write.srt", item.subtitle);
+                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", item.chapterNumber.ToString( ) + System.Environment.NewLine );
+                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", item.startTime);
+                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", " --> " );
+                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", item.endTime + System.Environment.NewLine );
+                    System.IO.File.AppendAllText( @"C:\Users\SteinunnMarta\Desktop\myysubtitles.srt", item.subtitle + System.Environment.NewLine + System.Environment.NewLine );
                 }
             }
         }
