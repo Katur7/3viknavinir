@@ -4,12 +4,18 @@ $(document).ready(function () {
         $("#accordion").accordion();
     });
 
+    var counter = $('#counter').val();
+    console.log(counter);
+
     $(".AddLine").click(function () {
-        var newTranslationLineDiv = $(document.createElement('div'));
+        counter++;
+        console.log(counter);
+
+        var newTranslationLineDiv = $(document.createElement('div')).attr('id', counter);
         newTranslationLineDiv.after().html(
-            '<input data-val="true" data-val-number="The field ID must be a number." data-val-required="The ID field is required." id="item_ID" name="item.ID" type="hidden" value="1">' +  //Breyta í countID
+            '<input data-val="true" data-val-number="The field ID must be a number." data-val-required="The ID field is required." id="item_ID" name="item.ID" type="hidden" value="' + counter + '">' +
             '<p class="chapterLabel"><label for="Kafli">Kafli</label></p>' +
-            '<input class="chapterTextBox valid" data-val="true" data-val-number="The field chapterNumber must be a number." data-val-required="The chapterNumber field is required." id="item_chapterNumber" name="item.chapterNumber" type="text" value="">' +
+            '<input class="chapterTextBox valid" data-val="true" data-val-number="The field chapterNumber must be a number." data-val-required="The chapterNumber field is required." id="item_chapterNumber" name="item.chapterNumber" type="text" value="' + counter + '">' +
             '<span class="field-validation-valid" data-valmsg-for="item.chapterNumber" data-valmsg-replace="true"></span>' +
             '<p class="startTimeLabel"><label for="Byrjunart_mi">Byrjunartími</label></p>' +
             '<input class="startTimeTextBox" id="item_startTime" name="item.startTime" type="text" value="">' +
@@ -75,6 +81,18 @@ $(document).ready(function () {
             }
         });
     })
+
+    $('#editTranslationForm').on('submit', function (event) {
+        // Stop the default submission
+        event.preventDefault();
+        alert('Hello!');
+
+        // Serialize (JSON) the form's contents and post it to your action
+        $.post('EditTranslation', $(this).serialize(), function (data) {
+            // If you want to do something after the post
+            alert('Hello!');
+        });
+    });
 });
 
 //fanney

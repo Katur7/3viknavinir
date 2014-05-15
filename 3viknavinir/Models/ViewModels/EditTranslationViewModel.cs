@@ -14,5 +14,6 @@ namespace _3viknavinir.Models
         public int year { get; set; }
         public bool isFinished { get; set; }
         public int mediaID { get; set; }
+		public int counter { get; set; }
     }
 }

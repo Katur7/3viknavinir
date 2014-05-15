@@ -258,7 +258,7 @@ namespace _3viknavinir.Controllers
 
 								viewModel.textToTranslate = translationLines;
 								viewModel.translatedText = translationLines;
-
+								viewModel.counter = translationLines.Count();
 
 								viewModel.isFinished = translation.finished;
 
@@ -275,10 +275,21 @@ namespace _3viknavinir.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditTranslation( FormCollection translationLines )
+		public ActionResult EditTranslation(string JSONmodel)
         {
+			System.Diagnostics.Debug.WriteLine(JSONmodel);
+			//System.Web.Script.Serialization.JavaScriptSerializer serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
 
-            return View( );
+			//TranslatedTextViewModel model = serializer.Deserialize(JSONmodel, typeof(TranslatedTextViewModel));
+
+			//foreach(var item in viewModel)
+			//{
+			//	string valuefromsubtitlebox = viewModel["item.subtitle"];
+			//	System.Diagnostics.Debug.WriteLine(valuefromsubtitlebox);
+			//}
+
+
+			return RedirectToAction("Details");
         }
 
 		public ActionResult Discussion()
