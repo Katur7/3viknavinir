@@ -17,7 +17,6 @@ namespace _3viknavinir.Controllers
 	[HandleError]
     public class TranslationController : Controller
     {
-        // comment
         // GET: /Translation/
         public ActionResult Index()
         {
@@ -77,9 +76,6 @@ namespace _3viknavinir.Controllers
 
                         var newTranslation = new Translation();
 
-                        //int nextTranslationID = translationRepo.GetNextTranslationID();
-
-                        //newTranslation.ID = nextTranslationID;
                         newTranslation.languageID = 1; 
                         newTranslation.mediaID = newMedia.ID;
                         newTranslation.finished = false; 
@@ -124,7 +120,6 @@ namespace _3viknavinir.Controllers
 								
 							viewModel.media = media;
 							viewModel.translation = translation;
-							//int upvote = translation.Upvote.Count;
 
 							if (media != null && translation != null)
 							{
@@ -301,20 +296,6 @@ namespace _3viknavinir.Controllers
 					}
 				}
 			}
-			
-			//System.Diagnostics.Debug.WriteLine(json);
-			//System.Web.Script.Serialization.JavaScriptSerializer serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
-
-			//TranslatedTextViewModel model = serializer.Deserialize(json, typeof(TranslatedTextViewModel));
-
-			//model.
-
-			//foreach(var item in viewModel)
-			//{
-			//	string valuefromsubtitlebox = viewModel["item.subtitle"];
-			//	System.Diagnostics.Debug.WriteLine(valuefromsubtitlebox);
-			//}
-
 
 			return RedirectToAction("Details");
         }
