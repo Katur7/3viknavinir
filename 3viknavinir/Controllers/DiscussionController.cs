@@ -69,6 +69,7 @@ namespace _3viknavinir.Controllers
             }
 			return RedirectToAction("Error404", "Home");
         }
+
         [HttpPost]
         [Authorize]
         public ActionResult Translation(DiscussionViewModel model)
