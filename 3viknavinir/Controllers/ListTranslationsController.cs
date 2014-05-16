@@ -75,11 +75,6 @@ namespace _3viknavinir.Controllers
 			}
 		}
 
-		[HttpPost]
-		public ActionResult AlphabetizedTexts(int id)
-		{
-			return RedirectToAction("AlphabetizedTexts");
-		}
 
 		public void UpvoteMedia(int mediaId)
 		{
