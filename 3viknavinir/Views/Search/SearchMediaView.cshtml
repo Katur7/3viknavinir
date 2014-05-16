@@ -31,10 +31,10 @@
     <table id="AlphabetListTable" class="table-striped">
         <thead>
             <tr class="requestRow">
-                <th class="alphabetName">Nafn</th>
-                <th class="alphabetYear">Ártal</th>
-                <th class="alphabetUpvote">Upvote</th>
-                <th class="alphabettDownload">Niðurhal</th>
+                <th>Nafn</th>
+                <th>Ártal</th>
+                <th>Upvote</th>
+                <th>Niðurhal</th>
             </tr>
         </thead>
         <tbody>
@@ -43,10 +43,10 @@
 				foreach (var item in Model.searchedMedia)
 				{
 					<tr class="requestRow">
-						<td class="alphabetname">@Html.ActionLink(item.title, "Details", "Translation", new { id = item.ID }, null)</td>
-						<td class="alphabetYear">@item.yearOfRelease</td>
-						<td class="alphabetUpvote">TODO<a href="#" class="upvoteTranslation glyphicon glyphicon-thumbs-up glyphicon-position" id="@item.ID"></a></td>
-						<td class="alphabetDownload"><a href="~/Translation/Download/@item.ID" class="glyphicon glyphicon-download glyphicon-position"></a></td>
+						<td>@Html.ActionLink(item.title, "Details", "Translation", new { id = item.ID }, null)</td>
+						<td>@item.yearOfRelease</td>
+						<td>TODO<a href="#" class="upvoteTranslation glyphicon glyphicon-thumbs-up glyphicon-position" id="@item.ID"></a></td>
+						<td><a href="~/Translation/Download/@item.ID" class="glyphicon glyphicon-download glyphicon-position"></a></td>
 					</tr>
 				}
 			}
