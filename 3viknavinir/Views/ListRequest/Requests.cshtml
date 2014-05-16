@@ -23,10 +23,14 @@
 		<input type="submit" value="Leita" class="btn btn-default" id="searchButton" />
 	}
 </div>
-<div class="newRequestButton">
+<form action="/ListRequest/NewRequest/" class="row">
+	<input type="submit" value="" id="addRequestButton" />
+	<div class="newTranslationButton"><span class="addTranslationText">@Html.ActionLink("Bæta við beiðni", "NewRequest", "ListRequest", new{@class="addRequestLine"})</span></div>
+</form>
+<!--<div class="newRequestButton">
 	<form action="/ListRequest/NewRequest/"><input type="submit" value="" id="addRequestButton" /></form>
     @Html.ActionLink("Bæta við beiðni", "NewRequest", "ListRequest", new{@class="addRequestLine"})
-</div>
+</div>-->
 <div class="requestTableDiv">
 	<table id="RequestTable" class="table-striped">
 		<thead>
