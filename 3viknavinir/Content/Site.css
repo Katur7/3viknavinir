@@ -278,13 +278,24 @@ input[type="checkbox"].input-validation-error {
 }
 
 .alphabetizedTextDiv {
-    padding-left: 20px;
+    margin-top: 30px;
+    max-width: 80%;
+    margin-left: 80px;
+}
+.addTranslationButton{
+    float: right;
+    display: -webkit-box;
+    position: relative;
+    top: -83px;
+    right: -116px;
+}
+.addTranslationLine{
+
 }
 #AlphabetListTable {
-	width: 900px;
-	padding: 0px;
-	margin: 0px;
-	border-collapse: collapse;
+	width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
 }
 
 .categoriesPhoto {
