@@ -93,7 +93,7 @@
        </div>
     }
 </div>
-<div class="pageCount">
+<div class="pageCount" id="editTranslationPageCount">
     @for (int i = 0; i < Model.pageCount; i++)
     {
         @Html.ActionLink((i + 1).ToString(), "EditTranslation", "Translation", new { id = Model.mediaID, page = i }, null)

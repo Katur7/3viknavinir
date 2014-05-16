@@ -57,6 +57,14 @@ namespace _3viknavinir.Repo
 			var all = db.Translation.ToList();
 			return all;
 		}
+
+		public bool IsExistingMediaID(int mediaId)
+		{
+			var isExisting = (from t in db.Translation
+							  where t.mediaID == mediaId
+							  select t).SingleOrDefault();
+			return (isExisting != null);
+		}
         
 		// Grímur
 		public void Dispose()

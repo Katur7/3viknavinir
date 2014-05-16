@@ -477,7 +477,10 @@ input[type="checkbox"].input-validation-error {
 .pageCount a {
 	margin-right: 15px;
 }
-
+#editTranslationPageCount {
+    clear: both;
+    float: left;
+}
 .detailPhoto img{
     max-height: 450px;
     max-width: 450px;
@@ -701,7 +704,7 @@ input[type="checkbox"].input-validation-error {
 }
 #TextToEdit {
     float: left;
-    max-width: 500px;
+    max-width: 350px;
 }
 
 #OldText {
