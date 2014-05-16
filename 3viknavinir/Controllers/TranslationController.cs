@@ -109,6 +109,7 @@ namespace _3viknavinir.Controllers
 			string timeLinePattern = "([0-9]{2}:{1}){2}[0-9]{2},[0-9]{3}.(-->).([0-9]{2}:{1}){2}[0-9]{2},[0-9]{3}";
 			string subtitlepattern = "[a-z|A-Z]+";
 			string timePattern = "[a-z|A-Z]*([0-9]{2}:{1}){2}[0-9]{2},[0-9]{3}";
+			string chapterPattern = "[0-9]+";
 
 			List<string> reverseAllLines = new List<string>();
 			foreach (var line in lines)
@@ -133,14 +134,14 @@ namespace _3viknavinir.Controllers
 						newTranslationLine.startTime = times[0].ToString();
 						newTranslationLine.endTime = times[1].ToString();
 					}
-					else if (Regex.IsMatch(line, subtitlepattern))		// Subtitle
+					else if (Regex.IsMatch(line, subtitlepattern))			// Subtitle
 					{
 						newTranslationLine.subtitle = line;
-						if((i + 1) <= count)
+						if((i + 1) < count)
 						{
-							if (Regex.Match(allLines[i + 1], subtitlepattern) != null)
+							if (!char.IsDigit(allLines[i + 1][0]))
 							{
-								newTranslationLine.subtitle += Environment.NewLine + allLines[i + 1];
+								newTranslationLine.subtitle += " " + Environment.NewLine + allLines[i + 1];
 								i++;
 							}
 						}
@@ -150,7 +151,7 @@ namespace _3viknavinir.Controllers
 						newTranslationLine.translationID = translationId;
 						translationLinesRepo.AddOrUpdateTranslationLine(newTranslationLine);
 					}
-					else												//Chapter
+					else if(Regex.IsMatch(line, chapterPattern))			//Chapter
 					{
 						newTranslationLine.chapterNumber = Convert.ToInt32(line);
 					}
