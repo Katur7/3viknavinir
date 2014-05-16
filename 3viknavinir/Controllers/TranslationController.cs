@@ -171,7 +171,15 @@ namespace _3viknavinir.Controllers
 					{
 						using(UserRepo userRepo = new UserRepo())
 						{
+							if(!mediaRepo.IsExistingID(realid))
+							{
+								return RedirectToAction("Error404", "Home");
+							}
 							var media = mediaRepo.GetMediaByID(realid);
+							if(!translationRepo.IsExistingMediaID(media.ID))
+							{
+								return RedirectToAction("Error404", "Home");
+							}
 							var translation = translationRepo.GetTranslationByMediaID(realid);
 
 							viewModel.userName = userRepo.GetUserNameByID(translation.userID);
