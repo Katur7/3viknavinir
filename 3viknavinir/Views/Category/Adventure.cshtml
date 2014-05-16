@@ -31,7 +31,7 @@
                 <tr class="homePageTableRows">
                     <td>@Html.ActionLink(item.title, "Details", "Translation", new { id = item.ID }, null)</td>
                     <td>@item.yearOfRelease</td>
-                    <td class="alphabetDownload"><a href="#" class="glyphicon glyphicon-download" style="left: 35px"></a></td>
+                    <td class="alphabetDownload"><a href="~/Translation/Download/@item.ID" class="glyphicon glyphicon-download glyphicon-position"></a></td>
                 </tr>
             }
         </thead>
