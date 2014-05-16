@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-// Grímur
 namespace _3viknavinir.Repo
 {
 	public class TranslationRepo : IDisposable
@@ -66,7 +65,6 @@ namespace _3viknavinir.Repo
 			return (isExisting != null);
 		}
         
-		// Grímur
 		public void Dispose()
 		{
 			bool disposed = false;

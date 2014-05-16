@@ -10,7 +10,6 @@ namespace _3viknavinir.Controllers
 {
     public class SearchController : Controller
     {
-        // Erla
         // GET: /Search/
 		public ActionResult SearchMediaView(string searchString)
 		{

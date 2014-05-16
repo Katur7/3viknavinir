@@ -27,7 +27,6 @@ namespace _3viknavinir.Controllers
 
         public UserManager<ApplicationUser> UserManager { get; private set; }
 
-        //Erla
         //Get /Account/LostPassword
         [AllowAnonymous]
         public ActionResult LostPassword()
@@ -35,7 +34,6 @@ namespace _3viknavinir.Controllers
             return View();
         }
 
-        //Erla
         //POST /Account/LostPassword
         [AllowAnonymous]
         [HttpPost]
@@ -44,7 +42,6 @@ namespace _3viknavinir.Controllers
             return View(model);
         }
 
-        //
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -53,7 +50,6 @@ namespace _3viknavinir.Controllers
             return View();
         }
 
-        //
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]

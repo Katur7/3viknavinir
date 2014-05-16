@@ -7,7 +7,7 @@ namespace _3viknavinir.Models
     {
         
     }
-    // Steinunn
+
     public class NewRequestViewModel
     {
         [Required( ErrorMessage = "Slá verður inn nafn myndefnis" )]

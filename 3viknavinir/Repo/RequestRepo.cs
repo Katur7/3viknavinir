@@ -19,7 +19,6 @@ namespace _3viknavinir.Repo
 			return request;
 		}
 
-		// Erla
 		public IEnumerable<Requests> GetRequestLike(string searchString)
 		{
 			var request = (from r in db.Requests

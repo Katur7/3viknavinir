@@ -54,7 +54,6 @@ namespace _3viknavinir.Repo
 			return media;
 		}
 
-		// Erla
 		public IEnumerable<Media> GetMediaLike(string titleLike)
 		{
 			var media = (from m in db.Media
@@ -71,7 +70,6 @@ namespace _3viknavinir.Repo
 			return (isExisting != null);
 		}
         
-		// Grímur
 		public void Dispose()
 		{
 			bool disposed = false;
