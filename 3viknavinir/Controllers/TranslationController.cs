@@ -11,6 +11,7 @@ using _3viknavinir.Models.ViewModels;
 using System.IO;
 using System.Text;
 using System.Web.Script.Serialization;
+using System.Text.RegularExpressions;
 
 namespace _3viknavinir.Controllers
 {
@@ -46,8 +47,7 @@ namespace _3viknavinir.Controllers
 					{
 						viewModel.categories.Add(new SelectListItem() { Text = category.name, Value = category.ID.ToString() });
 					}
-					
-                    return View(viewModel);
+					return View(viewModel);
 				}
 				
             }
@@ -85,16 +85,11 @@ namespace _3viknavinir.Controllers
                         
                         translationRepo.AddTranslation( newTranslation );
 
-						BinaryReader b = new BinaryReader(media.srtFile.InputStream);
-						byte[] binData = b.ReadBytes((int)media.srtFile.InputStream.Length);
-						string result = System.Text.Encoding.UTF8.GetString(binData);
-
-						var lines = result.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-						
-                        foreach(var line in lines)
+						if(media.srtFile != null)
 						{
-							System.Diagnostics.Debug.WriteLine(line);
+							UploadTranslation(media.srtFile, newTranslation.ID);
 						}
+						
 
                         return RedirectToAction("EditTranslation", "Translation", new {ID = newTranslation.mediaID});
                      }
@@ -103,15 +98,73 @@ namespace _3viknavinir.Controllers
             return View();
         }
 
+		public void UploadTranslation(HttpPostedFileBase srt, int translationId)
+		{
+			BinaryReader b = new BinaryReader(srt.InputStream);
+			byte[] binData = b.ReadBytes((int)srt.InputStream.Length);
+			string result = System.Text.Encoding.UTF8.GetString(binData);
+
+			var lines = result.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+			string timeLinePattern = "([0-9]{2}:{1}){2}[0-9]{2},[0-9]{3}.(-->).([0-9]{2}:{1}){2}[0-9]{2},[0-9]{3}";
+			string subtitlepattern = "[a-z|A-Z]+";
+			string timePattern = "[a-z|A-Z]*([0-9]{2}:{1}){2}[0-9]{2},[0-9]{3}";
+
+			List<string> reverseAllLines = new List<string>();
+			foreach (var line in lines)
+			{
+				reverseAllLines.Add(line);
+			}
+			List<string> allLines = new List<string>();
+			foreach (var item in reverseAllLines)
+			{
+				allLines.Add(item);
+			}
+			using (TranslationLinesRepo translationLinesRepo = new TranslationLinesRepo())
+			{
+				TranslationLines newTranslationLine = new TranslationLines();
+				var count = allLines.Count;
+				for (int i = 0; i < count; i++)
+				{
+					var line = allLines[i];
+					if (Regex.IsMatch(line, timeLinePattern))				// Timeline, split up
+					{
+						var times = Regex.Matches(line, timePattern);
+						newTranslationLine.startTime = times[0].ToString();
+						newTranslationLine.endTime = times[1].ToString();
+					}
+					else if (Regex.IsMatch(line, subtitlepattern))		// Subtitle
+					{
+						newTranslationLine.subtitle = line;
+						if((i + 1) <= count)
+						{
+							if (Regex.Match(allLines[i + 1], subtitlepattern) != null)
+							{
+								newTranslationLine.subtitle += Environment.NewLine + allLines[i + 1];
+								i++;
+							}
+						}
+						
+						newTranslationLine.isEditing = false;
+						newTranslationLine.dateOfSubmission = DateTime.Now;
+						newTranslationLine.translationID = translationId;
+						translationLinesRepo.AddOrUpdateTranslationLine(newTranslationLine);
+					}
+					else												//Chapter
+					{
+						newTranslationLine.chapterNumber = Convert.ToInt32(line);
+					}
+				}
+			}
+		}
+
 		public ActionResult Details(int? id)
 		{
 			var viewModel = new MediaDetailsViewModel();
-			
-            if (id.HasValue)
+			if (id.HasValue)
 			{
 				int realid = id.Value;
-				
-                using(MediaRepo mediaRepo = new MediaRepo())
+				using(MediaRepo mediaRepo = new MediaRepo())
 				{
 					using(TranslationRepo translationRepo = new TranslationRepo())
 					{
@@ -142,16 +195,14 @@ namespace _3viknavinir.Controllers
 			if (id.HasValue)
 			{
 				int realid = id.Value;
-				
-                using (MediaRepo mediaRepo = new MediaRepo())
+				using (MediaRepo mediaRepo = new MediaRepo())
 				{
 					using(CategoryRepo categoryRepo = new CategoryRepo())
 					{
 						EditDetailsViewModel viewModel = new EditDetailsViewModel();
 
 						var media = mediaRepo.GetMediaByID(realid);
-						
-                        if (media != null)
+						if (media != null)
 						{
 							viewModel.ID = media.ID;
 							viewModel.title = media.title;
@@ -223,6 +274,16 @@ namespace _3viknavinir.Controllers
 					newMedia.imdbID = media.imdbId;
 					mediaRepo.UpdateMedia( newMedia );
 
+					if(media.srtFile != null)
+					{
+						int translationId = 0;
+						using(TranslationRepo translationRepo = new TranslationRepo())
+						{
+							translationId = translationRepo.GetTranslationByMediaID(newMedia.ID).ID;
+						}
+						UploadTranslation(media.srtFile, translationId);
+					}
+
 					return RedirectToAction("AlphabetizedTexts", "ListTranslations");
 				}
 			}
@@ -231,7 +292,7 @@ namespace _3viknavinir.Controllers
 
         [HttpGet]
         [Authorize]
-        public ActionResult EditTranslation( int? id)
+        public ActionResult EditTranslation( int? id, int? page)
         {
             if ( id.HasValue )
             {
@@ -248,27 +309,36 @@ namespace _3viknavinir.Controllers
 							var translation = translationRepo.GetTranslationByMediaID(realid);
 
 							var media = mediaRepo.GetMediaByID(translation.mediaID);
-							
-                            viewModel.title = media.title;
+							viewModel.title = media.title;
 							viewModel.year = media.yearOfRelease;
                             viewModel.mediaID = media.ID;
 
+							int realPage = 0;
+							if (page.HasValue)
+							{
+								realPage = page.Value;
+							}
+
 							using (TranslationLinesRepo translationLinesRepo = new TranslationLinesRepo())
 							{
-								var translationLines = from tl in translationLinesRepo.GetTranslationLinesByTranslationID(realid)
+								var count = (from tl in translationLinesRepo.GetTranslationLinesByTranslationID(translation.ID)
+											 select tl).Count();
+								viewModel.pageCount = (count / 50) + 1;
+
+								var translationLines = (from tl in translationLinesRepo.GetTranslationLinesByTranslationID(translation.ID)
 													   orderby tl.chapterNumber
-													   select tl;
+													   select tl).Skip(realPage * 50).Take(50);
 
 								viewModel.textToTranslate = translationLines;
 								viewModel.translatedText = translationLines;
 								viewModel.counter = translationLines.Count();
+
 								viewModel.isFinished = translation.finished;
 
 								return View(viewModel);
 							}
 						}
-					} 
-                    else
+					} else
 					{
 						return HttpNotFound();
 					}
@@ -278,14 +348,13 @@ namespace _3viknavinir.Controllers
         }
 
         [HttpPost]
-		public ActionResult EditTranslation(string json)
+		public JsonResult EditTranslation(string json)
         {
 			TranslatedTextViewModel model = new JavaScriptSerializer().Deserialize<TranslatedTextViewModel>(json);
 			using(TranslationRepo translationRepo = new TranslationRepo())
 			{
 				var translation = translationRepo.GetTranslationByMediaID(model.mediaID);
-				
-                translation.finished = model.isFinished;
+				translation.finished = model.isFinished;
 
 				using(TranslationLinesRepo translationLinesRepo = new TranslationLinesRepo() )
 				{
@@ -304,8 +373,7 @@ namespace _3viknavinir.Controllers
 					}
 				}
 			}
-
-			return RedirectToAction("Details");
+			return Json(new { mediaId = model.mediaID });
         }
 
 		public ActionResult Discussion()
@@ -321,10 +389,8 @@ namespace _3viknavinir.Controllers
 			using(MediaRepo mediaRepo = new MediaRepo())
 			{
 				var media = mediaRepo.GetMediaByID(mediaId);
-				
-                titleYear = media.title + ".(" + media.yearOfRelease + ")";
-				
-                using(TranslationRepo translationRepo = new TranslationRepo())
+				titleYear = media.title + ".(" + media.yearOfRelease + ")";
+				using(TranslationRepo translationRepo = new TranslationRepo())
 				{
 					translationId = translationRepo.GetTranslationByMediaID(mediaId).ID;
 				}
@@ -334,8 +400,7 @@ namespace _3viknavinir.Controllers
 				var translationLines = translationRepo.GetTranslationLinesByTranslationID(translationId);
 
 				string document = "";
-				
-                foreach(var item in translationLines)
+				foreach(var item in translationLines)
 				{
 					document += item.chapterNumber.ToString() + Environment.NewLine;
 					document += item.startTime.ToString() + ":00,000" + " --> " + item.endTime.ToString() + ":00,000" + Environment.NewLine;
@@ -344,8 +409,8 @@ namespace _3viknavinir.Controllers
 				}
 
 				return File(Encoding.UTF8.GetBytes(document),
-				            "text/srt",
-			                titleYear + ".srt");
+				 "text/srt",
+				  titleYear + ".srt");
 
             }
         }
