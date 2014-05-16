@@ -10,4 +10,5 @@ namespace _3viknavinir.Models
 		public IEnumerable<Requests> searchedRequests { get; set; }
 
     }
+
 }

@@ -92,7 +92,7 @@ namespace _3viknavinir.Controllers
 					var upvotes = upvoteRepo.GetUpvotesByTranslationID(translationId);
 					
                     var userUpvote = (from u in upvotes
-									 where u.userID == userId
+									 where u.userID == userId 
 									 select u).FirstOrDefault();
 									 
 					if(userUpvote != null)
