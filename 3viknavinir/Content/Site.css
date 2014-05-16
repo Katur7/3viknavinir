@@ -728,7 +728,7 @@ input[type="checkbox"].input-validation-error {
 .commentDate{
     display: inline; 
     position: relative; 
-    left: 275px;
+	float: right;
 }
 .largerFont{
     font-size: larger;
