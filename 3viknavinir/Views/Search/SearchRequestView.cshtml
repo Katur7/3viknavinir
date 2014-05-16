@@ -42,8 +42,7 @@
 				<tr class="requestRow">
 					<td class="alphabetname">@item.title</td>
 					<td class="alphabetYear">@item.yearOfRelease</td>
-					@*<td class="alphabetUpvote">@Html.ActionLink("", "", "", new { @class="glyphicon glyphicon-thumbs-up")</td>*@
-					<td class="alphabetUpvote">16<a href="#" class="glyphicon glyphicon-thumbs-up" style="left: 35px"></a></td>
+                    <td class="alphabetUpvote">TODO<a href="#" class="upvoteTranslation glyphicon glyphicon-thumbs-up glyphicon-position" id="@item.ID"></a></td>
 				</tr>
 			}
 		</tbody>
