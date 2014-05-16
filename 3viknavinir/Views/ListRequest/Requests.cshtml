@@ -25,12 +25,9 @@
 </div>
 <form action="/Translation/Translate" class="row">
 	<input type="submit" value="" id="addRequestButton" />
-	<div class="newTranslationButton"><span class="addTranslationText">@Html.ActionLink("Bæta við beiðni", "NewRequest", "ListRequest", new { @class = "addRequestLine" })</span></div>
+	<span id="requestLink">@Html.ActionLink("Bæta við beiðni", "NewRequest", "ListRequest", new { @class = "addRequestLine" })</span>
 </form>
-<!--<div class="newRequestButton">
-	<form action="/ListRequest/NewRequest/"><input type="submit" value="" id="addRequestButton" /></form>
-    @Html.ActionLink("Bæta við beiðni", "NewRequest", "ListRequest", new{@class="addRequestLine"})
-</div>-->
+
 <div class="requestTableDiv">
 	<table id="RequestTable" class="table-striped">
 		<thead>
