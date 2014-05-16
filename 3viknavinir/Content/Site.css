@@ -722,3 +722,6 @@ input[type="checkbox"].input-validation-error {
 .glyphicon-position{
     left: 35px
 }
+.Errors{
+    text-align: center;
+}
