@@ -24,7 +24,9 @@
 	}
 </div>
 <div class="newRequestButton">
-	<form action="/ListRequest/NewRequest/"><input type="submit" value="" id="addRequestButton" /></form>
+	<form action="/ListRequest/NewRequest/">
+        <input type="submit" value="" id="addRequestButton" />
+    </form>
     @Html.ActionLink("Bæta við beiðni", "NewRequest", "ListRequest", new{@class="addRequestLine"})
 </div>
 <div class="requestTableDiv">
