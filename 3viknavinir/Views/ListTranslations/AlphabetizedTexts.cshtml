@@ -1,4 +1,5 @@
 ﻿@model _3viknavinir.Models.AlphabetizedTextsViewmodel
+@using Microsoft.AspNet.Identity
 @{
     ViewBag.Title = "Textar A-Ö";
 }
@@ -43,7 +44,12 @@
                         <td class="alphabetname">@Html.ActionLink(item.media.title, "Details", "Translation", new { id = item.media.ID }, null)</td>
                         <td class="alphabetYear">@item.media.yearOfRelease</td>
                         @*<td class="alphabetUpvote">@Html.ActionLink("", "", "", new { @class="glyphicon glyphicon-thumbs-up")</td>*@
-                        <td class="alphabetUpvote">@item.upvotes<a href="#" class="upvoteTranslation glyphicon glyphicon-thumbs-up glyphicon-position" id="@item.media.ID"></a></td>
+                        <td class="alphabetUpvote">@item.upvotes
+                            @if (Request.IsAuthenticated)
+                            {
+                                <a href="#" class="upvoteTranslation glyphicon glyphicon-thumbs-up glyphicon-position" id="@item.media.ID"></a>
+                            }
+                        </td>
                         <td class="alphabetDownload"><a href="~/Translation/Download/@item.media.ID" class="glyphicon glyphicon-download glyphicon-position"></a></td>
                     </tr>
                 }
