@@ -537,7 +537,7 @@ input[type="checkbox"].input-validation-error {
     position: relative;
     top: 32px;
     display: block;
-    width: 40px;
+    width: 60px;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -576,7 +576,7 @@ input[type="checkbox"].input-validation-error {
     left: -1px;
     top: -4px;
     display: block;
-    width: 40px;
+    width: 60px;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
