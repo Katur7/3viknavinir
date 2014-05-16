@@ -24,9 +24,10 @@
         }
     </div>
 <div >
-    <form action="/Translation/Translate">
-        <input type="submit" value="" id="addRequestButton" />
-    </form>
+	<form action="/Translation/Translate" class="row">
+		<input type="submit" value="" id="addRequestButton" />
+		<div class="newTranslationButton"><span class="addTranslationText">@Html.ActionLink("Bæta við þýðingu", "Translate", "Translation")</span></div>
+	</form>
 </div>
     @Html.ActionLink( "Bæta við þýðingu", "Translate", "Translation" )
     <div class="alphabetizedTextDiv">
