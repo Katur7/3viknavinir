@@ -45,11 +45,12 @@
                         <td class="alphabetYear">@item.media.yearOfRelease</td>
                         @*<td class="alphabetUpvote">@Html.ActionLink("", "", "", new { @class="glyphicon glyphicon-thumbs-up")</td>*@
                         <td class="alphabetUpvote">@item.upvotes
-                            @if (Request.IsAuthenticated)
-                            {
-                                <a href="#" class="upvoteTranslation glyphicon glyphicon-thumbs-up glyphicon-position" id="@item.media.ID"></a>
-                            }
-                        </td>
+                        @if (Request.IsAuthenticated)
+                        {
+                            <a href="#" class="upvoteTranslation glyphicon glyphicon-thumbs-up glyphicon-position" id="@item.media.ID"></a>
+                        }
+                    </td>
+
                         <td class="alphabetDownload"><a href="~/Translation/Download/@item.media.ID" class="glyphicon glyphicon-download glyphicon-position"></a></td>
                     </tr>
                 }

@@ -51,6 +51,13 @@ $(document).ready(function () {
             success: function (data) {
                 // Todo: refresh counter in table
                 // Could use ajax, call repo, replace html element
+                var td = $(event.target).parent();
+                var tdval = td.html();
+                var numarr = tdval.match(/[0-9]/g);
+                var num = numarr[0];
+                num++;
+                var likebutton = tdval.match(/(<a href="#" class="upvoteTranslation glyphicon glyphicon-thumbs-up glyphicon-position" id=")[0-9]*("><.a>)/g);
+                td.html(num + likebutton);
             }
         });
     });
