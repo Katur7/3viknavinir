@@ -236,7 +236,12 @@ input[type="checkbox"].input-validation-error {
 	width: 30px;
 	border-radius: 50px;
 	float: right;
-	margin-right: 25px;
+	margin-right: 150px;
+}
+
+#requestLink {
+	float: right;
+	margin-right: -130px;
 }
 
 .requestTableDiv {
