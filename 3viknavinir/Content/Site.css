@@ -730,3 +730,6 @@ input[type="checkbox"].input-validation-error {
 .Errors{
     text-align: center;
 }
+.contactText{
+    padding-right: 487px;
+}
