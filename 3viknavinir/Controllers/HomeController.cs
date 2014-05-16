@@ -28,11 +28,11 @@ namespace _3viknavinir.Controllers
 
                         viewModel.recentMedia = newestMedia;
 
-                         var recentRequest = (from r in RequestRepo.GetAllRequests()
+                        var recentRequest = (from r in RequestRepo.GetAllRequests()
                                            orderby r.dateOfRequest descending
                                            select r).Take(10);
 
-                         viewModel.recentRequests = recentRequest;
+                        viewModel.recentRequests = recentRequest;
 
                         if (newestMedia != null && recentRequest != null)
                         {
@@ -75,6 +75,11 @@ namespace _3viknavinir.Controllers
         {
             ViewBag.Message = "Gleymt Lykilorð";
 
+            return View();
+        }
+
+        public ActionResult Error404()
+        {
             return View();
         }
 	}

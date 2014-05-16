@@ -190,8 +190,13 @@ input[type="checkbox"].input-validation-error {
     display: block;
     margin: 0 auto;
     text-align: center;
+    padding: 10px;
 }
 
+.aboutAbout{
+    padding-left: 20px;
+    padding-right: 20px;
+}
 .right {
 	float: right;
 }
@@ -532,7 +537,7 @@ input[type="checkbox"].input-validation-error {
     position: relative;
     top: 32px;
     display: block;
-    width: 40px;
+    width: 60px;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -571,7 +576,7 @@ input[type="checkbox"].input-validation-error {
     left: -1px;
     top: -4px;
     display: block;
-    width: 40px;
+    width: 60px;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
@@ -721,4 +726,10 @@ input[type="checkbox"].input-validation-error {
 }
 .glyphicon-position{
     left: 35px
+}
+.Errors{
+    text-align: center;
+}
+.contactText{
+    padding-right: 487px;
 }

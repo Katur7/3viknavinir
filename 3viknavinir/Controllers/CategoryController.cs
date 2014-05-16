@@ -29,6 +29,7 @@ namespace _3viknavinir.Controllers
                 var documentaries = ( from m in mediaRepo.GetMediaByCategoryID( 15 )
                                    orderby m.title descending
                                    select m );
+                
                 if ( documentaries != null )
                 {
                     return View( documentaries );
@@ -43,6 +44,7 @@ namespace _3viknavinir.Controllers
                 var actions = ( from m in mediaRepo.GetMediaByCategoryID( 9 )
                                    orderby m.title descending
                                    select m );
+                
                 if ( actions != null )
                 {
                     return View( actions );
@@ -57,6 +59,7 @@ namespace _3viknavinir.Controllers
                 var adventures = ( from m in mediaRepo.GetMediaByCategoryID( 1 )
                                  orderby m.title descending
                                  select m );
+                
                 if ( adventures != null )
                 {
                     return View( adventures );
@@ -71,6 +74,7 @@ namespace _3viknavinir.Controllers
                 var anime = ( from m in mediaRepo.GetMediaByCategoryID( 14 )
                                  orderby m.title descending
                                  select m );
+                
                 if ( anime != null )
                 {
                     return View( anime );
@@ -85,6 +89,7 @@ namespace _3viknavinir.Controllers
                 var comedies = ( from m in mediaRepo.GetMediaByCategoryID( 2 )
                                  orderby m.title descending
                                  select m);
+                
                 if ( comedies != null)
                 {
                     return View( comedies );
@@ -99,6 +104,7 @@ namespace _3viknavinir.Controllers
                 var drama = ( from m in mediaRepo.GetMediaByCategoryID( 11 )
                                  orderby m.title descending
                                  select m );
+                
                 if ( drama != null )
                 {
                     return View( drama );
@@ -113,6 +119,7 @@ namespace _3viknavinir.Controllers
                 var family = ( from m in mediaRepo.GetMediaByCategoryID( 3 )
                                  orderby m.title descending
                                  select m );
+                
                 if ( family != null )
                 {
                     return View( family );
@@ -127,6 +134,7 @@ namespace _3viknavinir.Controllers
                 var horror = ( from m in mediaRepo.GetMediaByCategoryID( 8 )
                                  orderby m.title descending
                                  select m );
+                
                 if ( horror != null )
                 {
                     return View( horror );
@@ -141,6 +149,7 @@ namespace _3viknavinir.Controllers
                 var icelandics = ( from m in mediaRepo.GetMediaByCategoryID( 4 )
                                  orderby m.title descending
                                  select m );
+                
                 if ( icelandics != null )
                 {
                     return View( icelandics );
@@ -155,6 +164,7 @@ namespace _3viknavinir.Controllers
                 var kids = ( from m in mediaRepo.GetMediaByCategoryID( 10 )
                                  orderby m.title descending
                                  select m );
+                
                 if ( kids != null )
                 {
                     return View( kids );
@@ -169,6 +179,7 @@ namespace _3viknavinir.Controllers
                 var musicals = ( from m in mediaRepo.GetMediaByCategoryID( 5 )
                                  orderby m.title descending
                                  select m );
+                
                 if ( musicals != null )
                 {
                     return View( musicals );
@@ -183,6 +194,7 @@ namespace _3viknavinir.Controllers
                 var romantics = ( from m in mediaRepo.GetMediaByCategoryID( 6 )
                                  orderby m.title descending
                                  select m );
+                
                 if ( romantics != null )
                 {
                     return View( romantics );
@@ -197,6 +209,7 @@ namespace _3viknavinir.Controllers
                 var scifis = ( from m in mediaRepo.GetMediaByCategoryID( 12 )
                                  orderby m.title descending
                                  select m );
+               
                 if ( scifis != null )
                 {
                     return View( scifis );
@@ -211,6 +224,7 @@ namespace _3viknavinir.Controllers
                 var shows = ( from m in mediaRepo.GetMediaByCategoryID( 13 )
                                  orderby m.title descending
                                  select m );
+                
                 if ( shows != null )
                 {
                     return View( shows );
@@ -225,6 +239,7 @@ namespace _3viknavinir.Controllers
                 var thrillers = ( from m in mediaRepo.GetMediaByCategoryID( 7 )
                                  orderby m.title descending
                                  select m );
+               
                 if ( thrillers != null )
                 {
                     return View( thrillers );
@@ -239,6 +254,7 @@ namespace _3viknavinir.Controllers
                 var others = (from m in mediaRepo.GetMediaByCategoryID(16)
                                 orderby m.title descending
                                 select m);
+               
                 if (others != null)
                 {
                     return View(others);
