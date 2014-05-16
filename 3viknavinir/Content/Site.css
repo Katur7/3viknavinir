@@ -11,7 +11,7 @@ body {
 }
 
 .body-content {
-	height: 100%;
+	height: auto;
 	padding:10px;
 	padding-bottom:20px;   /* Height of the footer element */
     position: relative;
