@@ -30,7 +30,6 @@ namespace _3viknavinir.Models
         public string ConfirmPassword { get; set; }
     }
     
-	//Erla
     public class LoginViewModel
     {
         [Required( ErrorMessage = "Vinsamlegast sláðu inn notendanafn." )]
@@ -46,7 +45,6 @@ namespace _3viknavinir.Models
         public bool RememberMe { get; set; }
     }
 
-	//Erla
 	public class LostPasswordViewModel
 	{
 		[Required]
@@ -54,8 +52,6 @@ namespace _3viknavinir.Models
 		public string Email { get; set; }
 	}
 
-
-    // Steinunn og Svava
     public class RegisterViewModel
     {
         [Required( ErrorMessage = "Vinsamlegast sláðu inn notendanafn." )]  

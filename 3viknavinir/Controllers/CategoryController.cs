@@ -11,7 +11,6 @@ namespace _3viknavinir.Controllers
     [HandleError]
     public class CategoryController : Controller
     {
-        //
         // GET: /Category/
         public ActionResult Index()
         {

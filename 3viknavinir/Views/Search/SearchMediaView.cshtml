@@ -27,7 +27,7 @@
 		<input type="submit" value="Leita" class="btn btn-default" id="searchButton" />
 	}
 </div>
-<form action="/Translation/Translate">
+<form action="/Translation/Translate" class="row">
     <input type="submit" value="" id="addRequestButton" />
     <div class="newTranslationButton"><span class="addTranslationText">@Html.ActionLink("Bæta við þýðingu", "Translate", "Translation")</span></div>
 </form>
@@ -37,7 +37,6 @@
             <tr class="requestRow">
                 <th>Nafn</th>
                 <th>Ártal</th>
-                <th>Upvote</th>
                 <th>Niðurhal</th>
             </tr>
         </thead>
@@ -49,7 +48,6 @@
 					<tr class="requestRow">
 						<td>@Html.ActionLink(item.title, "Details", "Translation", new { id = item.ID }, null)</td>
 						<td>@item.yearOfRelease</td>
-						<td>TODO<a href="#" class="upvoteTranslation glyphicon glyphicon-thumbs-up glyphicon-position" id="@item.ID"></a></td>
 						<td><a href="~/Translation/Download/@item.ID" class="glyphicon glyphicon-download glyphicon-position"></a></td>
 					</tr>
 				}

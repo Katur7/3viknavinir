@@ -106,6 +106,7 @@ namespace _3viknavinir.Controllers
 
 			var lines = result.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
+			// RegExPatterns to match TranslationLine setup
 			string timeLinePattern = "([0-9]{2}:{1}){2}[0-9]{2},[0-9]{3}.(-->).([0-9]{2}:{1}){2}[0-9]{2},[0-9]{3}";
 			string subtitlepattern = "[a-z|A-Z]+";
 			string timePattern = "[a-z|A-Z]*([0-9]{2}:{1}){2}[0-9]{2},[0-9]{3}";
@@ -128,18 +129,18 @@ namespace _3viknavinir.Controllers
 				for (int i = 0; i < count; i++)
 				{
 					var line = allLines[i];
-					if (Regex.IsMatch(line, timeLinePattern))				// Timeline, split up
+					if (Regex.IsMatch(line, timeLinePattern))				// Timeline, split up, second
 					{
 						var times = Regex.Matches(line, timePattern);
 						newTranslationLine.startTime = times[0].ToString();
 						newTranslationLine.endTime = times[1].ToString();
 					}
-					else if (Regex.IsMatch(line, subtitlepattern))			// Subtitle
+					else if (Regex.IsMatch(line, subtitlepattern))			// Subtitle, last
 					{
 						newTranslationLine.subtitle = line;
 						if((i + 1) < count)
 						{
-							if (!char.IsDigit(allLines[i + 1][0]))
+							if (!char.IsDigit(allLines[i + 1][0]))			// If subtitle is in two lines
 							{
 								newTranslationLine.subtitle += " " + Environment.NewLine + allLines[i + 1];
 								i++;
@@ -151,7 +152,7 @@ namespace _3viknavinir.Controllers
 						newTranslationLine.translationID = translationId;
 						translationLinesRepo.AddOrUpdateTranslationLine(newTranslationLine);
 					}
-					else if(Regex.IsMatch(line, chapterPattern))			//Chapter
+					else if(Regex.IsMatch(line, chapterPattern))			// ChapterNumber, first
 					{
 						newTranslationLine.chapterNumber = Convert.ToInt32(line);
 					}
@@ -171,7 +172,15 @@ namespace _3viknavinir.Controllers
 					{
 						using(UserRepo userRepo = new UserRepo())
 						{
+							if(!mediaRepo.IsExistingID(realid))
+							{
+								return RedirectToAction("Error404", "Home");
+							}
 							var media = mediaRepo.GetMediaByID(realid);
+							if(!translationRepo.IsExistingMediaID(media.ID))
+							{
+								return RedirectToAction("Error404", "Home");
+							}
 							var translation = translationRepo.GetTranslationByMediaID(realid);
 
 							viewModel.userName = userRepo.GetUserNameByID(translation.userID);
@@ -237,34 +246,6 @@ namespace _3viknavinir.Controllers
 				if (ModelState.IsValid)
 				{
 					Media newMedia = new Media();
-					/*
-					string path = Server.MapPath("~/Content/posterImg/");
-
-					if (media.choosePoster != null)
-					{
-						if (media.choosePoster.ContentLength > 102400)
-						{
-							ModelState.AddModelError("choosePoster", "Stærð myndarinnar ætti ekki að fara yfir 100 KB");
-							return View(media);
-						}
-
-						var supportedTypes = new[] { "jpg", "jpeg" };
-
-						var fileExt = System.IO.Path.GetExtension(media.choosePoster.FileName).Substring(1);
-
-						if (!supportedTypes.Contains(fileExt))
-						{
-							ModelState.AddModelError("choosePoster", "Vitlaus skráarending. Aðeins jpg og jpeg skrár eru studdar.");
-							return View(media);
-						}
-
-						media.choosePoster.SaveAs(path + media.ID + ".jpg");
-						newMedia.posterPath = "/Content/posterImg/" + media.ID + ".jpg";
-					} else
-					{
-						newMedia.posterPath = media.posterPath;
-					}
-						*/
 					
 					newMedia.ID = media.ID;
 					newMedia.title = media.title;
@@ -403,7 +384,7 @@ namespace _3viknavinir.Controllers
 				foreach(var item in translationLines)
 				{
 					document += item.chapterNumber.ToString() + Environment.NewLine;
-					document += item.startTime.ToString() + ":00,000" + " --> " + item.endTime.ToString() + ":00,000" + Environment.NewLine;
+					document += item.startTime.ToString() + " --> " + item.endTime.ToString() + Environment.NewLine;
 					document += item.subtitle.ToString() + Environment.NewLine;
 					document += Environment.NewLine;
 				}
