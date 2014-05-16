@@ -7,7 +7,6 @@ using System.Web;
 
 namespace _3viknavinir.Repo
 {
-    //Svava
     public class DiscussionRepo : IDisposable
     {
         private _3viknaContext db = new _3viknaContext();

@@ -236,7 +236,12 @@ input[type="checkbox"].input-validation-error {
 	width: 30px;
 	border-radius: 50px;
 	float: right;
-	margin-right: 25px;
+	margin-right: 150px;
+}
+
+#requestLink {
+	float: right;
+	margin-right: -130px;
 }
 
 .requestTableDiv {
@@ -278,13 +283,25 @@ input[type="checkbox"].input-validation-error {
 }
 
 .alphabetizedTextDiv {
-    padding-left: 20px;
+    margin-top: 30px;
+    max-width: 80%;
+    margin-left: 80px;
+    clear: both;
+}
+.addTranslationButton{
+    float: right;
+    display: -webkit-box;
+    position: relative;
+    top: -83px;
+    right: -116px;
+}
+.addTranslationLine{
+
 }
 #AlphabetListTable {
-	width: 900px;
-	padding: 0px;
-	margin: 0px;
-	border-collapse: collapse;
+	width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
 }
 
 .categoriesPhoto {
@@ -460,7 +477,10 @@ input[type="checkbox"].input-validation-error {
 .pageCount a {
 	margin-right: 15px;
 }
-
+#editTranslationPageCount {
+    clear: both;
+    float: left;
+}
 .detailPhoto img{
     max-height: 450px;
     max-width: 450px;
@@ -684,7 +704,7 @@ input[type="checkbox"].input-validation-error {
 }
 #TextToEdit {
     float: left;
-    max-width: 500px;
+    max-width: 350px;
 }
 
 #OldText {
@@ -708,7 +728,7 @@ input[type="checkbox"].input-validation-error {
 .commentDate{
     display: inline; 
     position: relative; 
-    left: 275px;
+	float: right;
 }
 .largerFont{
     font-size: larger;

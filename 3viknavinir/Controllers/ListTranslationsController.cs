@@ -90,7 +90,7 @@ namespace _3viknavinir.Controllers
 									 where u.userID == userId 
 									 select u).FirstOrDefault();
 									 
-					if(userUpvote != null)
+					if(userUpvote != null)				// User has already upvoted this item
 					{
 						return Json(new { upvotes = (translationRepo.GetTranslationByMediaID(mediaId).Upvote.Count - 1) });
 					} 

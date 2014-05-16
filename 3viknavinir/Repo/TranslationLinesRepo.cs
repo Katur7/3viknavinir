@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-
-// Steinunn - Not finished
 namespace _3viknavinir.Repo
 {
     public class TranslationLinesRepo : IDisposable

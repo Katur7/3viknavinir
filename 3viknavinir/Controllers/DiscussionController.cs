@@ -13,7 +13,6 @@ namespace _3viknavinir.Controllers
 {
     public class DiscussionController : Controller
     {
-        //
         // GET: /Discussion/
         [HttpGet]
         public ActionResult Translation(int? id)

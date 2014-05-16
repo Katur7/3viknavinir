@@ -168,7 +168,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListRequestController.cs" />
     <Compile Include="Controllers\ListTranslationsController.cs" />
-    <Compile Include="Controllers\RequestController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\TranslationController.cs" />
     <Compile Include="Global.asax.cs">
@@ -239,7 +238,6 @@
     <Content Include="Content\categoryImg\musical.jpg" />
     <Content Include="Content\categoryImg\scifi.jpg" />
     <Content Include="Content\download.PNG" />
-    <Content Include="Content\TranslationLineTemplate.html" />
     <Content Include="Content\jquery-ui-1.10.4.custom.css" />
     <Content Include="Content\pencil.png" />
     <Content Include="Content\posterImg\31.jpg" />
@@ -251,7 +249,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\javascriptcustom1.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

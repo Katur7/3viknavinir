@@ -1,14 +1,15 @@
-﻿// Grímur
-$(document).ready(function () {
+﻿$(document).ready(function () {
     $(function () {
+        // For the FAQ
         $("#accordion").accordion();
     });
 
     var counter = $('#counter').val();
 
     $(".AddLine").click(function () {
-        counter++;
+        counter++;          // Count's the TranslationLine divs
 
+        // Make the html for a new TranslationLine on EditTranslation
         var newTranslationLineDiv = $(document.createElement('div')).attr({ id: counter, class: 'translationLine' });
         newTranslationLineDiv.after().html(
             '<input data-val="true" data-val-number="The field ID must be a number." data-val-required="The ID field is required." id="item_ID" name="item.ID" type="hidden" value="' + counter + '">' +
@@ -49,11 +50,12 @@ $(document).ready(function () {
                 console.log(xmlHttpRequest + "|" + errorText + "|" + thrownError);
             },
             success: function (data) {
-                var td = $(event.target).parent();
+                var td = $(event.target).parent();          // Select the td element
                 var tdval = td.html();
                 var numarr = tdval.match(/[0-9]/g);
-                var num = numarr[0];
+                var num = numarr[0];                        // This is the number of upvotes
                 num++;
+                // Grab the like button with RegEx
                 var likebutton = tdval.match(/(<a href="#" class="upvoteTranslation glyphicon glyphicon-thumbs-up glyphicon-position" id=")[0-9]*("><.a>)/g);
                 td.html(num + likebutton);
             }
@@ -75,8 +77,6 @@ $(document).ready(function () {
                 console.log(xmlHttpRequest + "|" + errorText + "|" + thrownError);
             },
             success: function (data) {
-                // Todo: refresh counter in table
-                // Could use ajax, call repo, replace html element
                 var td = $(event.target).parent();
                 var tdval = td.html();
                 var numarr = tdval.match(/[0-9]/g);

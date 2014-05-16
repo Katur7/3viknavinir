@@ -15,7 +15,7 @@ namespace _3viknavinir.Migrations
 
         protected override void Seed(_3viknavinir.Models._3viknaContext context)
         {
-			/*
+			/*  For inserting test data
 			context.Category.AddOrUpdate(
 				c => c.ID,
 				new Category { ID = 0, name = "Ævintýramyndir", posterPath = "~/Content/categoryImg/adventure.jpg" },
