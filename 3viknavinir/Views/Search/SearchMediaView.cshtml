@@ -49,7 +49,7 @@
 					<tr class="requestRow">
 						<td>@Html.ActionLink(item.title, "Details", "Translation", new { id = item.ID }, null)</td>
 						<td>@item.yearOfRelease</td>
-						<td>TODO<a href="#" class="upvoteTranslation glyphicon glyphicon-thumbs-up glyphicon-position" id="@item.ID"></a></td>
+						<td>0<a href="#" class="upvoteTranslation glyphicon glyphicon-thumbs-up glyphicon-position" id="@item.ID"></a></td>
 						<td><a href="~/Translation/Download/@item.ID" class="glyphicon glyphicon-download glyphicon-position"></a></td>
 					</tr>
 				}
