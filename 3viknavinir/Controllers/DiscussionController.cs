@@ -62,12 +62,12 @@ namespace _3viknavinir.Controllers
 						} 
                         else
 						{
-							return HttpNotFound();
+							return RedirectToAction("Error404", "Home");
 						}
 					}
                 }
             }
-			return HttpNotFound();
+			return RedirectToAction("Error404", "Home");
         }
         [HttpPost]
         [Authorize]

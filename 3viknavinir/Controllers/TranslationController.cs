@@ -226,8 +226,7 @@ namespace _3viknavinir.Controllers
 					}
 				}
 			}
-
-			return HttpNotFound();
+			return RedirectToAction("Error404", "Home");
 		}
 
 		[HttpPost]
@@ -341,11 +340,11 @@ namespace _3viknavinir.Controllers
 						}
 					} else
 					{
-						return HttpNotFound();
+						return RedirectToAction("Error404", "Home");;
 					}
                 }
             }
-			return HttpNotFound();  // Should be Error/404
+			return RedirectToAction("Error404", "Home");
         }
 
         [HttpPost]
