@@ -32,9 +32,11 @@
     {
         @Html.AntiForgeryToken( )
         @Html.ValidationSummary( true )
+        <h3>Þín þýðing</h3>
         foreach ( var item in Model.textToTranslate )
         {
             <div class="translationLine" id="@item.ID">
+                
                 @Html.HiddenFor(model => item.ID)
                 <p class="chapterLabel">@Html.Label("Kafli")</p>
                 @Html.TextBoxFor(model => item.chapterNumber, new { @class = "chapterTextBox" })
@@ -69,9 +71,11 @@
 </div>
 	
 <div id="OldText">
+    <h3>Eldri þýðing</h3>
     @foreach ( var item in Model.translatedText )
     {
         <div>
+           
             @Html.HiddenFor( model => item.ID )
                 <p class="oldChapterLabel">@Html.Label( "Kafli" )</p>
                 <input type="text" name="chapterNumber" value="@item.chapterNumber" class="oldChapterTextBox" readonly>
