@@ -8,6 +8,10 @@
 		<li class="crumb crumb-first">
 			@Html.ActionLink("SÍÁT", "Index", "Home")
 		</li>
+        <li class="crumb crumbs">
+            <span class="crumb-seperator"> > </span>
+            @Html.ActionLink("Beiðnir", "Requests", "ListRequest")
+        </li>
 		<li class="crumb crumb-last">
 			<span class="crumb-seperator"> > </span>
 			@Html.ActionLink("Leita", "SearchRequest", "Search")
@@ -30,7 +34,6 @@
 				<th class="alphabetName">Nafn</th>
 				<th class="alphabetYear">Ártal</th>
 				<th class="alphabetUpvote">Upvote</th>
-				<th class="alphabettDownload">Niðurhal</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -41,7 +44,6 @@
 					<td class="alphabetYear">@item.yearOfRelease</td>
 					@*<td class="alphabetUpvote">@Html.ActionLink("", "", "", new { @class="glyphicon glyphicon-thumbs-up")</td>*@
 					<td class="alphabetUpvote">16<a href="#" class="glyphicon glyphicon-thumbs-up" style="left: 35px"></a></td>
-                    <td class="alphabetDownload"><a href="~/Translation/Download/@item.ID" class="glyphicon glyphicon-download glyphicon-position"></a></td>
 				</tr>
 			}
 		</tbody>
