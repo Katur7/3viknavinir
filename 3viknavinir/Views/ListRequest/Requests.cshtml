@@ -23,30 +23,30 @@
 		<input type="submit" value="Leita" class="btn btn-default" id="searchButton" />
 	}
 </div>
-<div>
+<div class="newRequestButton">
 	<form action="/ListRequest/NewRequest/"><input type="submit" value="" id="addRequestButton" /></form>
-    <div class="newRequestButton"><span class="addRequestText">@Html.ActionLink("Bæta við beiðni", "NewRequest", "ListRequest")</span></div>
+    @Html.ActionLink("Bæta við beiðni", "NewRequest", "ListRequest", new{@class="addRequestLine"})
 </div>
-<div class="requesttablediv">
+<div class="requestTableDiv">
 	<table id="RequestTable" class="table-striped">
 		<thead>
 			<tr class="requestRow">
-				<th class="requestName">Nafn</th>
-				<th class="requestName">Sett inn af</th>
-				<th class="requestYear">Ártal</th>
-				<th class="requestIMDBID">IMDB ID</th>
-				<th class="requestUpvote">Upvote</th>
+				<th>Nafn</th>
+				<th>Sett inn af</th>
+				<th>Ártal</th>
+				<th>IMDB ID</th>
+				<th>Upvote</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach (var item in Model)
 			{
 				<tr class="requestRow">
-					<td class="requestName">@Html.DisplayFor(modelItem => item.title)</td>
-					<td class="requestName">@Html.DisplayFor(modelItem => item.requestByName)</td>
-					<td class="requestYear">@Html.DisplayFor(modelItem => item.yearOfRelease)</td>
-					<td class="requestIMDBID">@Html.DisplayFor(modelItem => item.IMDBId)</td>
-                    <td class="requestUpvote">
+					<td>@Html.DisplayFor(modelItem => item.title)</td>
+					<td>@Html.DisplayFor(modelItem => item.requestByName)</td>
+					<td>@Html.DisplayFor(modelItem => item.yearOfRelease)</td>
+					<td>@Html.DisplayFor(modelItem => item.IMDBId)</td>
+                    <td>
                         @item.upvotes
                         @if (Request.IsAuthenticated)
                         {

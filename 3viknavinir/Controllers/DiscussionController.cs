@@ -35,7 +35,7 @@ namespace _3viknavinir.Controllers
 							if (discussionRepo.IsExistingID(realid))
 							{
 								var allDiscussions = (from d in discussionRepo.GetCommentByMediaID(realid)
-													  orderby d.dateAdded descending
+													  orderby d.dateAdded ascending
 													  select d);
 
 								using (UserRepo userRepo = new UserRepo())
@@ -76,7 +76,7 @@ namespace _3viknavinir.Controllers
         {
             using (DiscussionRepo discussionRepo = new DiscussionRepo())
             {
-                if (ModelState.IsValid)
+                if (ModelState.IsValid )
                 {
                     var newComment = new Discussion();
 
@@ -85,9 +85,14 @@ namespace _3viknavinir.Controllers
                     newComment.userID = User.Identity.GetUserId();
                     newComment.mediaID = model.media.ID;
 
-                    discussionRepo.AddComment(newComment);
-                    
+                    if (!String.IsNullOrEmpty(model.comment))
+                    {
+                        discussionRepo.AddComment(newComment);
+                    }
+                   
                     return RedirectToAction("Translation", "Discussion");
+                    
+                   
                 }
             }
             return View();
