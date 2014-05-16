@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _3viknavinir.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,6 +11,6 @@ namespace _3viknavinir.Models
     {
         [Required(ErrorMessage = "Vinsamlegast sláðu inn leitarstreng.")]
         [Display(Name = "leita")]
-        public IEnumerable<Media> searchedMedia { get; set; }
+        public List<MediaUpvoteViewModel> searchedMedia { get; set; }
     }
 }

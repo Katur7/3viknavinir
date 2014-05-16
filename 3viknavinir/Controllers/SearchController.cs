@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using _3viknavinir.Models.ViewModels;
 
 namespace _3viknavinir.Controllers
 {
@@ -23,14 +24,20 @@ namespace _3viknavinir.Controllers
 						if(!String.IsNullOrEmpty(searchString))
 						{
 							var movies = (from m in mediaRepo.GetMediaLike(searchString)
-										  select m);
-
-							var viewModel = new SearchMediaViewModel();
-							
-                            viewModel.searchedMedia = movies;
+										  select m).ToList();
 
 							if (movies != null)
 							{
+								var viewModel = new SearchMediaViewModel();
+
+								foreach (var item in movies)
+								{
+									var newMediaUpvote = new MediaUpvoteViewModel();
+									newMediaUpvote.media = item;
+									newMediaUpvote.upvotes = 0;
+									viewModel.searchedMedia.Add(newMediaUpvote); //translationRepo.GetTranslationByMediaID(item.ID).Upvote.Count
+								}
+
 								return View(viewModel);
 							}
 						}

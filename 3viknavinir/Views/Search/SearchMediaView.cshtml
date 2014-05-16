@@ -47,10 +47,10 @@
 				foreach (var item in Model.searchedMedia)
 				{
 					<tr class="requestRow">
-						<td>@Html.ActionLink(item.title, "Details", "Translation", new { id = item.ID }, null)</td>
-						<td>@item.yearOfRelease</td>
-						<td>TODO<a href="#" class="upvoteTranslation glyphicon glyphicon-thumbs-up glyphicon-position" id="@item.ID"></a></td>
-						<td><a href="~/Translation/Download/@item.ID" class="glyphicon glyphicon-download glyphicon-position"></a></td>
+						<td>@Html.ActionLink(item.media.title, "Details", "Translation", new { id = item.media.ID }, null)</td>
+						<td>@item.media.yearOfRelease</td>
+						<td>@item.upvotes<a href="#" class="upvoteTranslation glyphicon glyphicon-thumbs-up glyphicon-position" id="@item.media.ID"></a></td>
+						<td><a href="~/Translation/Download/@item.media.ID" class="glyphicon glyphicon-download glyphicon-position"></a></td>
 					</tr>
 				}
 			}
