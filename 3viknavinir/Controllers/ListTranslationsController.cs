@@ -76,7 +76,7 @@ namespace _3viknavinir.Controllers
 		}
 
 
-		public void UpvoteMedia(int mediaId)
+		public JsonResult UpvoteMedia(int mediaId)
 		{
 			using (TranslationRepo translationRepo = new TranslationRepo())
 			{
@@ -92,7 +92,7 @@ namespace _3viknavinir.Controllers
 									 
 					if(userUpvote != null)
 					{
-						return;
+						return Json(new { upvotes = (translationRepo.GetTranslationByMediaID(mediaId).Upvote.Count - 1) });
 					} 
                     else
 					{
@@ -103,6 +103,7 @@ namespace _3viknavinir.Controllers
 						newUpvote.discussionID = null;
 
 						upvoteRepo.AddUpvote(newUpvote);
+						return Json(new { upvotes = translationRepo.GetTranslationByMediaID(mediaId).Upvote.Count });
 					}
 				}
 			}

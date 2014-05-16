@@ -32,7 +32,7 @@
     <h3>Hvernig breyti ég lykilorðinu mínu?</h3>
     <div>
         <p>
-            Til þess að breyta lykilorðinu þínu þarftu að fara inná síðuna þína sem er uppi í hægra horninu þar sem notendanafnið þitt stendur.
+            Til þess að breyta lykilorðinu þínu þarftu að fara á @Html.ActionLink("þínar síður", "Manage", "Account") sem er í hægra efra horni þar sem notendanafnið þitt stendur, eða ýta @Html.ActionLink("\"Hér\"", "Manage", "Account").
             Þar inni getur þú breytt lykilorðinu þínu.
         </p>
     </div>
@@ -59,14 +59,14 @@
         <p>
             Efst uppi í hægra horninu má sjá hlekk sem á stendur @Html.ActionLink("\"Nýskrá\"", "Register", "Account").
             Ef smellt er á þann hlekk opnast nýskráningarsíða þar sem fylla þarf út upplýsingar um notanda.
-            Þegar smellt er á nýskrá hnappinn verður nýr notandi til og getur viðkomandi þaðan frá innskráð sig.
+            Þegar smellt er á nýskrá hnappinn verður nýr notandi til og getur viðkomandi eftir það innskráð sig með sínu notendanafni og lykilorði.
         </p>
     </div>
     <h3>Hvernig óska ég eftir texta</h3>
     <div>
         <p>
             Til þess að óska eftir skjátexta fyrir myndefni þarf notandi að vera innskráður.
-            Því næst velur notandinn flipann sem á stendur @Html.ActionLink( "\"Beiðnir\"", "Requests", "ListRequest" ). Þar er smellt á græna plús hnappinn, þá er notanda beint inn á nýja síðu þar
+            Því næst velur notandinn flipann sem á stendur @Html.ActionLink( "\"Beiðnir\"", "Requests", "ListRequest" ). Þar er smellt á @Html.ActionLink("\"græna plús hnappinn\"", "NewRequest", "ListRequest"), þá er notanda beint inn á nýja síðu þar
             sem fylla verður út helstu upplýsingar um myndefni.
             Þegar allar nauðsynlegar upplýsingar hafa verið settar inn er hægt að senda inn beiðnina.
         </p>
@@ -76,7 +76,7 @@
         <p>
             Hægt er að leita að textum eftir flokkum  undir @Html.ActionLink("\"Flokkar\"", "Categories", "Category")  flipanum.
             Textum er raðað í stafrófsröð eftir heiti mynda í @Html.ActionLink("\"Textar A-Ö\"", "AlphabetizedTexts", "ListTranslations") flipanum.
-            Einnig er hægt að leita að texta fyrir ákveðina mynd  í leitarkassa bæði á forsíðu og í flipanum
+            Einnig er hægt að leita að texta fyrir ákveðina mynd  í leitarkassa bæði á @Html.ActionLink("\"forsíðu\"", "Home") og í flipanum
             @Html.ActionLink( "\"Textar A-Ö\"", "AlphabetizedTexts", "ListTranslations" ).
         </p>
     </div>
@@ -85,12 +85,12 @@
         <p>
             Innskráðir notendur hafa aðgang að fleiri aðgerðum en þeir notendur sem ekki eru innskráðir.
             Sem dæmi geta innskráðir notendur breytt þýðingum ásamt því að geta bætt við nýjum einnig geta þeir sent inn beiðnir, þýðingar,
-            kosið upp fyrri beiðnir ásamt því að geta uppfært lýsingu á myndefni.
+            kosið upp fyrri beiðnir og geta uppfært lýsingu á myndefni.
         </p>
     </div>
     <h3>Hvernig nota ég textann sem ég sótti?</h3>
     <div>
-        <p>Þú sækir .srt skránna með þýðingunni og notar textunarforrit til að bæta henni á myndefni.</p>
+        <p>Þú sækir .srt skránna með þýðingunni og byrjar að spila myndefnið í vlc og dregur .srt skránna yfir í spilarann.</p>
     </div>
     <h3>Hvað geri ég ef ég gleymi notendanafn/lykilorðinu mínu?</h3>
     <div>
